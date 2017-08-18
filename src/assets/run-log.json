@@ -1,0 +1,41 @@
+{
+  "@context": {
+    "date": "http://www.w3.org/2001/XMLSchema#date",
+    "distance": {
+      "@type": "http://schema.org/Distance"
+    },
+    "duration": {
+      "@type": "http://schema.org/Duration"
+    }
+  },
+  "events": [
+    {
+      "@id": "_:n3",
+      "@type": "Run",
+      "date": "2017-08-18",
+      "category": "casual",
+      "distance": "5.23 mi",
+      "duration": "P51M30S",
+      "notes": "Ann Arbor: Stadium to TJ to Washtenaw to South U"
+    },{
+      "@id": "_:n2",
+      "@type": "Run",
+      "date": "2017-08-16",
+      "category": "casual",
+      "distance": {
+        "value": 2.67,
+        "units": "mi"
+      },
+    },{
+      "@id": "_:n1",
+      "@type": "Run",
+      "date": "2017-08-15",
+      "category": "casual",
+      "distance": {
+        "value": 4.39,
+        "units": "mi"
+      },
+      "notes": "Ann Arbor: Main to Stadium to mall."
+    }
+  ]
+}
