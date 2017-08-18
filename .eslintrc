@@ -1,0 +1,46 @@
+{
+    env: {
+        browser: true,
+        node: true,
+        jasmine: true,
+        es6: true
+    },
+    globals: {
+        inject: true
+    },
+    parserOptions: {
+      ecmaVersion: 6,
+      sourceType: "module",
+      ecmaFeatures: {
+        modules: true,
+        experimentalObjectRestSpread: true,
+        jsx: true
+      }
+    },
+    plugins: [
+      "react"
+    ],
+    rules: {
+      block-scoped-var: "warn",
+      complexity: "warn",
+      eqeqeq: "warn",
+      indent: ["warn", 2],
+      linebreak-style: ["error", "unix"],
+      no-func-assign: "error",
+      no-global-assign: "warn",
+      no-invalid-regexp: "error",
+      no-redeclare: "error",
+      no-shadow: "warn",
+      no-shadow-restricted-names: "error",
+      no-undef: "error",
+      no-unreachable: "error",
+      no-unused-expressions: "warn",
+      no-unused-vars: "warn",
+      no-console: "off",
+      quotes: [2, "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
+      react/prop-types: "off",
+      semi: ["error", "always"],
+      valid-typeof: "error",
+      vars-on-top: "warn"
+    }
+}
