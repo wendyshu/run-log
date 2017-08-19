@@ -1,1 +1,11 @@
+// Required for .navbar.navbar-fixed-top
 body { padding-top: 70px; }
+
+.navbar .navbar-header {
+  .navbar-brand {
+   font-weight: bold;
+   color: #eee;
+   margin-right: 1em;
+   text-shadow: 1px 1px 1px #666;
+ }
+}
