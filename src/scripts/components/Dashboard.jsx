@@ -30,7 +30,8 @@ export default () => (
         <div className="container-fluid">
           <div className="row">
             <ul className="nav nav-tabs">
-              <li role="presentation" className="active"><a href="#">30 day</a></li>
+              <li role="presentation" className="active"><a href="#">This Week</a></li>
+              <li role="presentation"><a href="#">30 day</a></li>
               <li role="presentation"><a href="#">All</a></li>
             </ul>
           </div>
