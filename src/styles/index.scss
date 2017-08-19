@@ -12,7 +12,7 @@ body { padding-top: 70px; }
   margin-bottom: 1em;
 }
 
-.dashboard .jumbotron h1 {
+.row .jumbotron h1 { // TODO: hacking selector since Bootstrap loaded after custom styles
   font-size: 2em;
 }
 
@@ -35,4 +35,25 @@ body { padding-top: 70px; }
 
 .dashboard .widget-stats .widget-stat:last-child {
   border-right: none;
+}
+
+.activity .global-actions {
+  text-align: right;
+  // Add padding b/w icon and text in buttons
+  button .glyphicon + span {
+    margin-left: .35em;
+  }
+}
+
+.activity .entries {
+  margin-top: 2em;
+}
+
+.activity .actions {
+  text-align: right;
+  a {
+    text-decoration: none;
+    color: #222;
+    margin-right: .5em;
+  }
 }
