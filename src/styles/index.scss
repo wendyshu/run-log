@@ -1,11 +1,38 @@
 // Required for .navbar.navbar-fixed-top
 body { padding-top: 70px; }
 
-.navbar .navbar-header {
-  .navbar-brand {
-   font-weight: bold;
-   color: #eee;
-   margin-right: 1em;
-   text-shadow: 1px 1px 1px #666;
- }
+.navbar .navbar-header .navbar-brand {
+  font-weight: bold;
+  color: #eee;
+  margin-right: 1em;
+  text-shadow: 1px 1px 1px #666;
+}
+
+.dashboard .row {
+  margin-bottom: 1em;
+}
+
+.dashboard .jumbotron h1 {
+  font-size: 2em;
+}
+
+.dashboard .widget-stub, .dashboard .widget-stats {
+  text-align: center;
+  background-color: #eee;
+  color: #aaa;
+  border-radius: .5em;
+}
+
+.dashboard .widget-stub, .dashboard .widget-stats .widget-stat {
+  min-height: 12em;
+  padding: 1em;
+}
+
+.dashboard .widget-stats .widget-stat {
+  border-right: 1px solid #ccc;
+  height: 100%;
+}
+
+.dashboard .widget-stats .widget-stat:last-child {
+  border-right: none;
 }
