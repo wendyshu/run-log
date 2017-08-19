@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 /*eslint-enable no-unused-vars*/
 
 export default () => (
-  <nav className="navbar navbar-default navbar-fixed-top">
+  <nav className="navbar navbar-inverse navbar-fixed-top">
     <div className="container">
       <div className="navbar-header">
         <span className="navbar-brand">Run Log</span>
