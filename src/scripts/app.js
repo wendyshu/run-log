@@ -17,6 +17,7 @@ import rootReducer from './reducers';
 // assets
 import '../styles/index.scss';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 
 const root = document.getElementById('root');
 const loggerMiddleware = createLogger();
