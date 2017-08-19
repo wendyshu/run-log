@@ -22,19 +22,13 @@
       "@type": "Run",
       "date": "2017-08-16",
       "category": "casual",
-      "distance": {
-        "value": 2.67,
-        "units": "mi"
-      },
+      "distance": "2.67 mi"
     },{
       "@id": "_:n1",
       "@type": "Run",
       "date": "2017-08-15",
       "category": "casual",
-      "distance": {
-        "value": 4.39,
-        "units": "mi"
-      },
+      "distance": "4.39 mi",
       "notes": "Ann Arbor: Main to Stadium to mall."
     }
   ]
