@@ -1,9 +1,9 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
+import ActivityRow from './ActivityRow.jsx';
 /*eslint-enable no-unused-vars*/
 
 import { connect } from 'react-redux';
-import { formatDate, formatDuration } from '../../scripts/utils/dates';
 
 class Activity extends React.Component {
 
@@ -11,35 +11,10 @@ class Activity extends React.Component {
     super(props);
   }
 
-  renderEvent(event) {
-    return (
-      <tr key={event['@id']}>
-        <td className="data-date">{formatDate(event.date)}</td>
-        <td className="data-category">{event.category}</td>
-        <td className="data-distance">{event.distance ? event.distance : '-'}</td>
-        <td className="data-duration">{event.duration ? formatDuration(event.duration) : '-'}</td>
-        <td className="data-notes">{event.notes ? event.notes : '-'}</td>
-        <td className="data-actions">
-          <a href="#" className="glyphicon glyphicon-pencil"/>
-          <a href="#" className="glyphicon glyphicon glyphicon-trash"/>
-        </td>
-      </tr>
-    );
-  }
-
   renderRunEvents() {
-    const runEvents = this.props.events.data
-      .filter(e => e['@type'] === 'Run');
-
-    if (runEvents.length) {
-      return runEvents.map(e => this.renderEvent(e));
-    } else {
-      return (
-        <tr>
-          <td colSpan="6">Loading...</td>
-        </tr>
-      );
-    }
+    return this.props.events.data
+      .filter(e => e['@type'] === 'Run')
+      .map(e => <ActivityRow event={e} key={e['@id']} />);
   }
 
   render() {
