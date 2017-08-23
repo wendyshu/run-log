@@ -1,8 +1,10 @@
 import { SELECT_DASHBOARD_TAB } from '../actions';
 
+import { TAB_7_DAY } from '../constants/dashboard';
+
 const INITIAL_STATE = {
   ui: {
-    selectedTab: '7d'
+    selectedTab: TAB_7_DAY
   }
 };
 

@@ -3,12 +3,35 @@ import React from 'react';
 import { selectDashboardTab } from '../actions';
 /*eslint-enable no-unused-vars*/
 
+import { TAB_7_DAY, TAB_30_DAY, TAB_365_DAY, TAB_ALL } from '../constants/dashboard';
 import { connect } from 'react-redux';
 
 class Dashboard extends React.Component {
 
   constructor(props) {
     super(props);
+  }
+
+  renderTab(id, label) {
+    const classes = this.props.dashboard.ui.selectedTab === id ? 'active' : '';
+    return (
+      <li role="presentation" className={classes}>
+        <a onClick={() => this.props.selectDashboardTab(id)}>{label}</a>
+      </li>
+    );
+  }
+
+  statsLabel() {
+    switch (this.props.dashboard.ui.selectedTab) {
+    case TAB_7_DAY:
+      return 'This Week';
+    case TAB_30_DAY:
+      return 'This Month';
+    case TAB_365_DAY:
+      return 'This Year';
+    case TAB_ALL:
+      return 'Lifetime';
+    }
   }
 
   render() {
@@ -27,10 +50,10 @@ class Dashboard extends React.Component {
         <div className="row">
           <div className="col-sm-12">
             <ul className="nav nav-tabs">
-              <li role="presentation" className="active"><a onClick={() => this.props.selectDashboardTab('7d')}>7 day</a></li>
-              <li role="presentation"><a onClick={() => this.props.selectDashboardTab('30d')}>30 day</a></li>
-              <li role="presentation"><a onClick={() => this.props.selectDashboardTab('365d')}>365 day</a></li>
-              <li role="presentation"><a onClick={() => this.props.selectDashboardTab('all')}>All</a></li>
+              { this.renderTab(TAB_7_DAY, '7 day') }
+              { this.renderTab(TAB_30_DAY, '30 day') }
+              { this.renderTab(TAB_365_DAY, '365 day') }
+              { this.renderTab(TAB_ALL, 'All') }
             </ul>
           </div>
         </div> {/* .row */}
@@ -41,7 +64,7 @@ class Dashboard extends React.Component {
             <div className="widget-stub col-xs-12">(chart)</div>
           </div>
           <div className="col-md-6">
-            <h2><div className="label label-info">This Week</div></h2>
+            <h2><div className="label label-info">{this.statsLabel()}</div></h2>
             <div className="widget-stats">
               <div className="widget-stat col-xs-4">(chart)</div>
               <div className="widget-stat col-xs-4">(chart)</div>
@@ -71,9 +94,8 @@ class Dashboard extends React.Component {
 } // Dashboard
 
 function mapStateToProps(state) {
-  console.log('DEBUG:', state);
   return {
-    ui: state.dashboard.ui
+    dashboard: state.dashboard
   };
 }
 
