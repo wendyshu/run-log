@@ -20,6 +20,6 @@ export default function(state = INITIAL_STATE, action) {
       data: action.payload.events
     });
   default:
-    return INITIAL_STATE;
+    return state;
   }
 }
