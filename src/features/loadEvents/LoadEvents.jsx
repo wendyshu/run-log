@@ -1,7 +1,7 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
 import { loadEvents } from './actions';
-var Loader = require('react-loader');
+import Loader from 'react-loader';
 /*eslint-enable no-unused-vars*/
 
 import { connect } from 'react-redux';

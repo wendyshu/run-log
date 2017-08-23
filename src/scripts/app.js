@@ -1,4 +1,5 @@
-require('es6-promise').polyfill();
+import Promise from 'es6-promise';
+Promise.polyfill();
 
 /*eslint-disable no-unused-vars*/
 import React from 'react';
