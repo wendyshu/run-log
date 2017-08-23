@@ -82,12 +82,12 @@ class Activity extends React.Component {
             <table className="table table-striped">
               <thead>
                 <tr>
-                  <th>Date</th>
-                  <th>Category</th>
-                  <th>Distance</th>
-                  <th>Duration</th>
-                  <th>Notes</th>
-                  <th className="actions">Actions</th>
+                  <th className="data-date">Date</th>
+                  <th className="data-category">Category</th>
+                  <th className="data-distance">Distance</th>
+                  <th className="data-duration">Duration</th>
+                  <th className="data-notes">Notes</th>
+                  <th className="data-actions">Actions</th>
                 </tr>
               </thead>
               <tbody>
