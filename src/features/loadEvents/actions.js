@@ -1,27 +1,27 @@
-export const LOAD_ACTIVITY = 'LOAD_ACTIVITY';
+export const LOAD_EVENTS = 'LOAD_EVENTS';
 
-function requestActivity() {
+function requestEvents() {
   return {
-    type: LOAD_ACTIVITY
+    type: LOAD_EVENTS
   };
 }
 
-export const RECEIVE_ACTIVITY = 'RECEIVE_ACTIVITY';
-function receiveActivity(json) {
+export const RECEIVE_EVENTS = 'RECEIVE_EVENTS';
+function receiveEvents(json) {
   return {
-    type: RECEIVE_ACTIVITY,
+    type: RECEIVE_EVENTS,
     payload: json,
     receivedAt: Date.now()
   };
 }
 
-import ActivityJson from '../../assets/activity.json';
+import SampleEvents from '../../sample-events.json';
 
-export function loadActivity() {
+export function loadEvents() {
   return function (dispatch) {
-    dispatch(requestActivity());
+    dispatch(requestEvents());
     return new Promise(function(resolve) {
-      setTimeout(() => resolve(dispatch(receiveActivity(ActivityJson))), 1000); // Simulate xhr
+      setTimeout(() => resolve(dispatch(receiveEvents(SampleEvents))), 1000); // Simulate xhr
     });
   };
 }

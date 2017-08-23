@@ -1,6 +1,6 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
-import { loadActivity } from './actions';
+import { loadEvents } from './actions';
 var Loader = require('react-loader');
 /*eslint-enable no-unused-vars*/
 
@@ -13,7 +13,7 @@ class LoadEvents extends React.Component {
   }
 
   componentWillMount() {
-    this.props.loadActivity();
+    this.props.loadEvents();
   }
 
   render() {
@@ -32,4 +32,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { loadActivity })(LoadEvents);
+export default connect(mapStateToProps, { loadEvents })(LoadEvents);
