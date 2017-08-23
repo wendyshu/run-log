@@ -3,8 +3,7 @@ import React from 'react';
 /*eslint-enable no-unused-vars*/
 
 import { connect } from 'react-redux';
-import moment from 'moment';
-import 'moment-duration-format';
+import { formatDate, formatDuration } from '../../scripts/utils/dates';
 
 class Activity extends React.Component {
 
@@ -12,28 +11,13 @@ class Activity extends React.Component {
     super(props);
   }
 
-  renderDate(date) {
-    return moment(date, 'YYYYMMDD').calendar(null, {
-      lastDay : '[Yesterday]',
-      sameDay : '[Today]',
-      nextDay : '[Tomorrow]',
-      lastWeek : '[Last] dddd',
-      nextWeek : 'dddd',
-      sameElse : 'L'
-    });
-  }
-
-  renderDuration(duration) { //'hh:mm:ss'
-    return moment.duration(duration).format('hh[h] mm[m] ss[s]');
-  }
-
   renderEvent(event) {
     return (
       <tr key={event['@id']}>
-        <td className="data-date">{this.renderDate(event.date)}</td>
+        <td className="data-date">{formatDate(event.date)}</td>
         <td className="data-category">{event.category}</td>
         <td className="data-distance">{event.distance ? event.distance : '-'}</td>
-        <td className="data-duration">{event.duration ? this.renderDuration(event.duration) : '-'}</td>
+        <td className="data-duration">{event.duration ? formatDuration(event.duration) : '-'}</td>
         <td className="data-notes">{event.notes ? event.notes : '-'}</td>
         <td className="data-actions">
           <a href="#" className="glyphicon glyphicon-pencil"/>
