@@ -15,7 +15,7 @@ function receiveActivity(json) {
   };
 }
 
-import ActivityJson from '../../../assets/activity.json';
+import ActivityJson from '../../assets/activity.json';
 
 export function loadActivity() {
   return function (dispatch) {
