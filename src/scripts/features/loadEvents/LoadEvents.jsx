@@ -1,6 +1,7 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
 import { loadActivity } from './actions';
+var Loader = require('react-loader');
 /*eslint-enable no-unused-vars*/
 
 import { connect } from 'react-redux';
@@ -17,9 +18,9 @@ class LoadEvents extends React.Component {
 
   render() {
     return (
-      <div className="load-events-wrapper">
+      <Loader loaded={!this.props.events.loading || !!this.props.events.data.length}>
         {this.props.children}
-      </div>
+      </Loader>
     );
   }
 
@@ -27,7 +28,7 @@ class LoadEvents extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    activity: state.activity
+    events: state.events
   };
 }
 

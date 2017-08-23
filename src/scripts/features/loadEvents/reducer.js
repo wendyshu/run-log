@@ -1,7 +1,7 @@
 import { LOAD_ACTIVITY, RECEIVE_ACTIVITY } from './actions';
 
 const INITIAL_STATE = {
-  loading: false,
+  loaded: false,
   data: []
 };
 
