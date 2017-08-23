@@ -1,3 +1,4 @@
+/*
 import { REQUEST_WEATHER, RECEIVE_WEATHER, fetchWeather } from './index';
 
 test('fetch Washington DC weather', done => {
@@ -15,3 +16,4 @@ test('fetch Washington DC weather', done => {
 
   return fetchWeather('washington, dc')(dispatch);
 });
+*/

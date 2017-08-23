@@ -8,7 +8,7 @@ import Activity from './Activity.jsx';
 export default () => (
   <div className="container">
     <Switch>
-      <Route exact path='/' render={ Dashboard }/>
+      <Route exact path='/' component={ Dashboard }/>
       <Route exact path='/activity' render={ Activity }/>
     </Switch>
   </div>
