@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import ActivityReducer from './features/activity/reducer';
+import LoadEventsReducer from './features/loadEvents/reducer';
 import DashboardReducer from './features/dashboard/reducer';
 
 const rootReducer = combineReducers({
-  activity: ActivityReducer,
+  events: LoadEventsReducer,
   dashboard: DashboardReducer
 });
 

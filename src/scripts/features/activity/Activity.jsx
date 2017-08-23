@@ -1,6 +1,5 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
-import { loadActivity } from './actions';
 /*eslint-enable no-unused-vars*/
 
 import { connect } from 'react-redux';
@@ -9,10 +8,6 @@ class Activity extends React.Component {
 
   constructor(props) {
     super(props);
-  }
-
-  componentWillMount() {
-    this.props.loadActivity();
   }
 
   renderEvent(event) {
@@ -32,7 +27,7 @@ class Activity extends React.Component {
   }
 
   renderRunEvents() {
-    const runEvents = this.props.activity.events
+    const runEvents = this.props.events.data
       .filter(e => e['@type'] === 'Run');
 
     if (runEvents.length) {
@@ -91,8 +86,8 @@ class Activity extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    activity: state.activity
+    events: state.events
   };
 }
 
-export default connect(mapStateToProps, { loadActivity })(Activity);
+export default connect(mapStateToProps, {})(Activity);

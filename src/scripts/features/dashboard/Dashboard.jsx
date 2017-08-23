@@ -95,7 +95,8 @@ class Dashboard extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    dashboard: state.dashboard
+    dashboard: state.dashboard,
+    events: state.events
   };
 }
 
