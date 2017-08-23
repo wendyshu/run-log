@@ -9,7 +9,7 @@ export default () => (
   <div className="container">
     <Switch>
       <Route exact path='/' component={ Dashboard }/>
-      <Route exact path='/activity' render={ Activity }/>
+      <Route exact path='/activity' component={ Activity }/>
     </Switch>
   </div>
 );
