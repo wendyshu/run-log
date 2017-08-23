@@ -13,12 +13,12 @@ class Activity extends React.Component {
   renderEvent(event) {
     return (
       <tr key={event['@id']}>
-        <td>{event.date}</td>
-        <td>{event.category}</td>
-        <td>{event.distance ? event.distance : '-'}</td>
-        <td>{event.duration ? event.duration : '-'}</td>
-        <td>{event.notes ? event.notes : '-'}</td>
-        <td className="actions">
+        <td className="data-date">{event.date}</td>
+        <td className="data-category">{event.category}</td>
+        <td className="data-distance">{event.distance ? event.distance : '-'}</td>
+        <td className="data-duration">{event.duration ? event.duration : '-'}</td>
+        <td className="data-notes">{event.notes ? event.notes : '-'}</td>
+        <td className="data-actions">
           <a href="#" className="glyphicon glyphicon-pencil"/>
           <a href="#" className="glyphicon glyphicon glyphicon-trash"/>
         </td>
