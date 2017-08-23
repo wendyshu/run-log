@@ -1,3 +1,9 @@
 @import './app';
-@import '../features/dashboard/dashboard';
-@import '../features/activity/activity';
+
+.dashboard {
+  @import '../features/dashboard/dashboard';
+}
+
+.activity {
+  @import '../features/activity/activity';
+}

@@ -1,4 +1,4 @@
-.activity .global-actions {
+.global-actions {
   text-align: right;
   // Add padding b/w icon and text in buttons
   button .glyphicon + span {
@@ -6,15 +6,15 @@
   }
 }
 
-.activity .entries {
+.entries {
   margin-top: 2em;
 }
 
-.activity .data-category {
+.data-category {
   text-transform: capitalize;
 }
 
-.activity .data-actions {
+.data-actions {
   text-align: right;
   a {
     text-decoration: none;
