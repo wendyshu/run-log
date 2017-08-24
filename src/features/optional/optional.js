@@ -1,4 +1,4 @@
-export default function optional(value) {
+export default function Optional(value) {
   var myVal = value;
 
   const map = function(fn) {
