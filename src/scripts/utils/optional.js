@@ -8,11 +8,15 @@ export default function optional(value) {
     return this;
   };
 
+  const get = function() {
+    return myVal;
+  };
+
   const orElse = function(other) {
     return myVal ? myVal : other;
   };
-  
+
   return {
-    map, orElse
+    map, orElse, get
   };
 }
