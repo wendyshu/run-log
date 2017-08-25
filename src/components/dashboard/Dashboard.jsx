@@ -1,8 +1,8 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
-import { selectDashboardTab } from './actions';
-import DashboardStats from '../dashboardWidgets/DashboardStats.jsx';
 import DashboardAggregateStats from '../dashboardWidgets/DashboardAggregateStats.jsx';
+import DashboardStats from '../dashboardWidgets/DashboardStats.jsx';
+import DashboardTabs from './DashboardTabs.jsx';
 /*eslint-enable no-unused-vars*/
 
 import moment from 'moment';
@@ -11,19 +11,6 @@ import { TAB_7_DAY, TAB_30_DAY, TAB_365_DAY, TAB_ALL } from './constants';
 import { connect } from 'react-redux';
 
 class Dashboard extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
-
-  renderTab(id, label) {
-    const classes = this.props.dashboard.ui.selectedTab === id ? 'active' : '';
-    return (
-      <li role="presentation" className={classes}>
-        <a onClick={() => this.props.selectDashboardTab(id)}>{label}</a>
-      </li>
-    );
-  }
 
   tabData() {
     switch (this.props.dashboard.ui.selectedTab) {
@@ -72,12 +59,7 @@ class Dashboard extends React.Component {
 
         <div className="row">
           <div className="col-sm-12">
-            <ul className="nav nav-tabs">
-              { this.renderTab(TAB_7_DAY, '7 day') }
-              { this.renderTab(TAB_30_DAY, '30 day') }
-              { this.renderTab(TAB_365_DAY, '365 day') }
-              { this.renderTab(TAB_ALL, 'All') }
-            </ul>
+            <DashboardTabs selectedTab={this.props.dashboard.ui.selectedTab}/>
           </div>
         </div> {/* .row */}
 
@@ -119,4 +101,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { selectDashboardTab })(Dashboard);
+export default connect(mapStateToProps, {})(Dashboard);
