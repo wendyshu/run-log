@@ -2,6 +2,7 @@
 import React from 'react';
 import { selectDashboardTab } from './actions';
 import DashboardStats from '../dashboardWidgets/DashboardStats.jsx';
+import DashboardAggregateStats from '../dashboardWidgets/DashboardAggregateStats.jsx';
 /*eslint-enable no-unused-vars*/
 
 import moment from 'moment';
@@ -87,7 +88,7 @@ class Dashboard extends React.Component {
           </div>
           <div className="col-md-6">
             <h2><div className="label label-info">{this.statsLabel()}</div></h2>
-            <DashboardStats events={this.tabEvents()} />
+            <DashboardAggregateStats events={this.tabEvents()} />
           </div>
         </div> {/* .row */}
 
@@ -98,11 +99,11 @@ class Dashboard extends React.Component {
           </div>
           <div className="col-md-6">
             <h2><div className="label label-info">Shoes</div></h2>
-            <div className="widget-stats">
-              <div className="widget-stat col-xs-4">(chart)</div>
-              <div className="widget-stat col-xs-4">(chart)</div>
-              <div className="widget-stat col-xs-4">(chart)</div>
-            </div>
+            <DashboardStats stats={[
+              { name:'Lorem Ipsum', value:'N/A' },
+              { name:'Lorem Ipsum', value:'N/A' },
+              { name:'Lorem Ipsum', value:'N/A' }
+            ]}/>
           </div>
         </div> {/* .row */}
 
