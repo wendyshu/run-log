@@ -38,7 +38,7 @@ export default (props) => {
       name: 'Top Pace',
       value: Optional(calcFastestPace(props.events)).map(p => p.toFixed(2) + ' mpm').orElse('N/A')
     },{
-      name: 'Avg. Pace',
+      name: 'Average Pace',
       value: Optional(calcAveragePace(props.events)).map(p => p.toFixed(2) + ' mph').orElse('N/A')
     },{
       name: 'Total Distance',
