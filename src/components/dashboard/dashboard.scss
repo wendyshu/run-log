@@ -2,28 +2,6 @@
   margin-bottom: 1em;
 }
 
-.widget-stub, .widget-stats {
-  text-align: center;
-  background-color: #eee;
-  color: #aaa;
-  border-radius: .5em;
-}
-
-.widget-stub, .widget-stats .widget-stat {
-  min-height: 12em;
-  padding: 1em;
-}
-
-.widget-stats .widget-stat {
-  background-color: inherit;
-  border-right: 1px solid #ccc;
-  height: 100%;
-}
-
-.widget-stats .widget-stat:last-child {
-  border-right: none;
-}
-
 .widget-label {
   display: inline-block;
   margin-bottom: .25em;

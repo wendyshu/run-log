@@ -1,7 +1,10 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
 import { selectDashboardTab } from './actions';
+import DashboardStats from '../dashboardWidgets/DashboardStats.jsx';
 /*eslint-enable no-unused-vars*/
+
+import moment from 'moment';
 
 import { TAB_7_DAY, TAB_30_DAY, TAB_365_DAY, TAB_ALL } from './constants';
 import { connect } from 'react-redux';
@@ -32,6 +35,25 @@ class Dashboard extends React.Component {
     case TAB_ALL:
       return 'Lifetime';
     }
+  }
+
+  tabStartMoment() {
+    switch (this.props.dashboard.ui.selectedTab) {
+    case TAB_7_DAY:
+      return moment().startOf('week');
+    case TAB_30_DAY:
+      return moment().startOf('month');
+    case TAB_365_DAY:
+      return moment().startOf('year');
+    case TAB_ALL:
+      return moment(0);
+    }
+  }
+
+  tabEvents() {
+    return this.props.events.data
+      .filter(e => e['@type'] === 'Run')
+      .filter(e => moment(e.date).diff(this.tabStartMoment()) >= 0);
   }
 
   render() {
@@ -65,11 +87,7 @@ class Dashboard extends React.Component {
           </div>
           <div className="col-md-6">
             <h2><div className="label label-info">{this.statsLabel()}</div></h2>
-            <div className="widget-stats">
-              <div className="widget-stat col-xs-4">(chart)</div>
-              <div className="widget-stat col-xs-4">(chart)</div>
-              <div className="widget-stat col-xs-4">(chart)</div>
-            </div>
+            <DashboardStats events={this.tabEvents()} />
           </div>
         </div> {/* .row */}
 

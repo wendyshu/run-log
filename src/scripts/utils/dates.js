@@ -15,3 +15,7 @@ export function formatDate(date) {
 export function formatDuration(duration) {
   return moment.duration(duration).format('hh[h] mm[m] ss[s]');
 }
+
+export function durationToSeconds(duration) {
+  return moment.duration(duration).asSeconds();
+}
