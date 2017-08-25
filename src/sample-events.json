@@ -1,20 +1,25 @@
 {
   "@context": {
     "date": "http://www.w3.org/2001/XMLSchema#date",
-    "distance": {
-      "@type": "http://schema.org/Distance"
-    },
     "duration": {
       "@type": "http://schema.org/Duration"
     }
   },
   "events": [
     {
+      "@id": "_:n5",
+      "@type": "Run",
+      "date": "2017-08-24",
+      "category": "casual",
+      "distance": 4.14,
+      "duration": "PT40M35S",
+      "notes": "C St to Union Station to H St."
+    },{
       "@id": "_:n4",
       "@type": "Run",
       "date": "2017-08-22",
       "category": "casual",
-      "distance": "4.14 mi",
+      "distance": 4.14,
       "duration": "PT40M50S",
       "notes": "C St to Union Station to H St."
     },{
@@ -22,7 +27,7 @@
       "@type": "Run",
       "date": "2017-08-18",
       "category": "casual",
-      "distance": "5.23 mi",
+      "distance": 5.23,
       "duration": "PT51M30S",
       "notes": "Ann Arbor: Stadium to TJ to Washtenaw to South U."
     },{
@@ -30,13 +35,13 @@
       "@type": "Run",
       "date": "2017-08-16",
       "category": "casual",
-      "distance": "2.67 mi"
+      "distance": 2.67
     },{
       "@id": "_:n1",
       "@type": "Run",
       "date": "2017-08-15",
       "category": "casual",
-      "distance": "4.39 mi",
+      "distance": 4.39,
       "notes": "Ann Arbor: Main to Stadium to mall."
     }
   ]
