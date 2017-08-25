@@ -1,6 +1,7 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
 import DashboardAggregateStats from '../dashboardWidgets/DashboardAggregateStats.jsx';
+import DashboardShoesStats from '../dashboardWidgets/DashboardShoesStats.jsx';
 import DashboardStats from '../dashboardWidgets/DashboardStats.jsx';
 import DashboardTabs from './DashboardTabs.jsx';
 /*eslint-enable no-unused-vars*/
@@ -44,6 +45,11 @@ class Dashboard extends React.Component {
       .filter(e => moment(e.date).diff(start) >= 0);
   }
 
+  changeShoesEvents() {
+    return this.props.events.data
+      .filter(e => e['@type'] === 'ChangeShoes');
+  }
+
   render() {
     return (
       <div className="dashboard">
@@ -81,11 +87,7 @@ class Dashboard extends React.Component {
           </div>
           <div className="col-md-6">
             <h2><div className="label label-info">Shoes</div></h2>
-            <DashboardStats stats={[
-              { name:'Lorem Ipsum', value:'N/A' },
-              { name:'Lorem Ipsum', value:'N/A' },
-              { name:'Lorem Ipsum', value:'N/A' }
-            ]}/>
+            <DashboardShoesStats events={this.changeShoesEvents()} />
           </div>
         </div> {/* .row */}
 
