@@ -1,6 +1,7 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
 import ActivityRow from './ActivityRow.jsx';
+import FeaturedRun from '../featuredRun/FeaturedRun.jsx';
 /*eslint-enable no-unused-vars*/
 
 import { connect } from 'react-redux';
@@ -11,10 +12,13 @@ class Activity extends React.Component {
     super(props);
   }
 
-  renderRunEvents() {
+  runEvents() {
     return this.props.events.data
-      .filter(e => e['@type'] === 'Run')
-      .map(e => <ActivityRow event={e} key={e['@id']} />);
+      .filter(e => e['@type'] === 'Run');
+  }
+
+  renderRunEvents() {
+    return this.runEvents().map(e => <ActivityRow event={e} key={e['@id']} />);
   }
 
   render() {
@@ -22,10 +26,7 @@ class Activity extends React.Component {
       <div className="activity">
         <div className="row">
           <div className="col-xs-12">
-            <div className="jumbotron">
-              <h1>Featured Speed Run</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed arcu ex, imperdiet non pulvinar sit amet, finibus non justo. Ut et rutrum quam. Sed dignissim arcu bibendum tortor lobortis ultrices.</p>
-            </div>
+            <FeaturedRun events={this.runEvents()}/>
           </div>
         </div>
         <div className="row">

@@ -4,6 +4,7 @@ import DashboardAggregateStats from '../dashboardWidgets/DashboardAggregateStats
 import DashboardShoesStats from '../dashboardWidgets/DashboardShoesStats.jsx';
 import DashboardStats from '../dashboardWidgets/DashboardStats.jsx';
 import DashboardTabs from './DashboardTabs.jsx';
+import FeaturedRun from '../featuredRun/FeaturedRun.jsx';
 /*eslint-enable no-unused-vars*/
 
 import moment from 'moment';
@@ -56,10 +57,7 @@ class Dashboard extends React.Component {
 
         <div className="row">
           <div className="col-xs-12">
-            <div className="jumbotron">
-              <h1>Featured Distance Run</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed arcu ex, imperdiet non pulvinar sit amet, finibus non justo. Ut et rutrum quam. Sed dignissim arcu bibendum tortor lobortis ultrices.</p>
-            </div>
+            <FeaturedRun events={this.tabEvents()} />
           </div>
         </div> {/* .row */}
 
