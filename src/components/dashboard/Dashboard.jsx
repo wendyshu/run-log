@@ -25,36 +25,36 @@ class Dashboard extends React.Component {
     );
   }
 
-  statsLabel() {
+  tabData() {
     switch (this.props.dashboard.ui.selectedTab) {
     case TAB_7_DAY:
-      return 'This Week';
+      return {
+        statsLabel: 'This Week',
+        startMoment: moment().startOf('week')
+      };
     case TAB_30_DAY:
-      return 'This Month';
+      return {
+        statsLabel: 'This Month',
+        startMoment: moment().startOf('month')
+      };
     case TAB_365_DAY:
-      return 'This Year';
+      return {
+        statsLabel: 'This Year',
+        startMoment: moment().startOf('year')
+      };
     case TAB_ALL:
-      return 'Lifetime';
-    }
-  }
-
-  tabStartMoment() {
-    switch (this.props.dashboard.ui.selectedTab) {
-    case TAB_7_DAY:
-      return moment().startOf('week');
-    case TAB_30_DAY:
-      return moment().startOf('month');
-    case TAB_365_DAY:
-      return moment().startOf('year');
-    case TAB_ALL:
-      return moment(0);
+      return {
+        statsLabel: 'Lifetime',
+        startMoment: moment(0)
+      };
     }
   }
 
   tabEvents() {
+    const start = this.tabData().startMoment;
     return this.props.events.data
       .filter(e => e['@type'] === 'Run')
-      .filter(e => moment(e.date).diff(this.tabStartMoment()) >= 0);
+      .filter(e => moment(e.date).diff(start) >= 0);
   }
 
   render() {
@@ -87,7 +87,7 @@ class Dashboard extends React.Component {
             <div className="widget-stub col-xs-12">(chart)</div>
           </div>
           <div className="col-md-6">
-            <h2><div className="label label-info">{this.statsLabel()}</div></h2>
+            <h2><div className="label label-info">{this.tabData().statsLabel}</div></h2>
             <DashboardAggregateStats events={this.tabEvents()} />
           </div>
         </div> {/* .row */}
