@@ -1,5 +1,7 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
+import ChartistGraph from 'react-chartist';
+
 import DashboardAggregateStats from '../dashboardWidgets/DashboardAggregateStats.jsx';
 import DashboardShoesStats from '../dashboardWidgets/DashboardShoesStats.jsx';
 import DashboardStats from '../dashboardWidgets/DashboardStats.jsx';
@@ -19,28 +21,31 @@ class Dashboard extends React.Component {
     case TAB_7_DAY:
       return {
         statsLabel: 'This Week',
-        periodStartMoment: moment().startOf('isoWeek')
+        periodStartMoment: moment().startOf('isoWeek'),
+        chartStartMoment: moment().subtract({days: 7})
       };
     case TAB_30_DAY:
       return {
         statsLabel: 'This Month',
-        periodStartMoment: moment().startOf('month')
+        periodStartMoment: moment().startOf('month'),
+        chartStartMoment: moment().subtract({days: 30})
       };
     case TAB_365_DAY:
       return {
         statsLabel: 'This Year',
-        periodStartMoment: moment().startOf('year')
+        periodStartMoment: moment().startOf('year'),
+        chartStartMoment: moment().subtract({days: 365})
       };
     case TAB_ALL:
       return {
         statsLabel: 'Lifetime',
-        periodStartMoment: moment(0)
+        periodStartMoment: moment(0),
+        chartStartMoment: moment(0)
       };
     }
   }
 
-  tabEvents() {
-    const start = this.tabData().periodStartMoment;
+  eventsSince(start) {
     return this.props.events.data
       .filter(e => e['@type'] === 'Run')
       .filter(e => moment(e.date).diff(start) >= 0);
@@ -52,12 +57,16 @@ class Dashboard extends React.Component {
   }
 
   render() {
+    const tabData = this.tabData();
+    //const chartEvents = this.eventsSince(tabData.chartStartMoment);
+    const periodEvents = this.eventsSince(tabData.periodStartMoment);
+
     return (
       <div className="dashboard">
 
         <div className="row">
           <div className="col-xs-12">
-            <FeaturedRun events={this.tabEvents()} />
+            <FeaturedRun events={periodEvents} />
           </div>
         </div> {/* .row */}
 
@@ -74,7 +83,7 @@ class Dashboard extends React.Component {
           </div>
           <div className="col-md-6">
             <h2><div className="label label-info">{this.tabData().statsLabel}</div></h2>
-            <DashboardAggregateStats events={this.tabEvents()} />
+            <DashboardAggregateStats events={periodEvents} />
           </div>
         </div> {/* .row */}
 
