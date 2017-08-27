@@ -2,6 +2,9 @@
 
 .dashboard {
   @import '../components/dashboard/dashboard';
+  .dashboard-bar-chart {
+    @import '../components/dashboardWidgets/dashboardBarChart';
+  }
   @import '../components/dashboardWidgets/dashboardStats';
 }
 
