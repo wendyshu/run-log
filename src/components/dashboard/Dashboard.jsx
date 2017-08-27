@@ -19,28 +19,28 @@ class Dashboard extends React.Component {
     case TAB_7_DAY:
       return {
         statsLabel: 'This Week',
-        startMoment: moment().startOf('week')
+        periodStartMoment: moment().startOf('isoWeek')
       };
     case TAB_30_DAY:
       return {
         statsLabel: 'This Month',
-        startMoment: moment().startOf('month')
+        periodStartMoment: moment().startOf('month')
       };
     case TAB_365_DAY:
       return {
         statsLabel: 'This Year',
-        startMoment: moment().startOf('year')
+        periodStartMoment: moment().startOf('year')
       };
     case TAB_ALL:
       return {
         statsLabel: 'Lifetime',
-        startMoment: moment(0)
+        periodStartMoment: moment(0)
       };
     }
   }
 
   tabEvents() {
-    const start = this.tabData().startMoment;
+    const start = this.tabData().periodStartMoment;
     return this.props.events.data
       .filter(e => e['@type'] === 'Run')
       .filter(e => moment(e.date).diff(start) >= 0);
