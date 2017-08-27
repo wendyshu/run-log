@@ -21,6 +21,7 @@ import rootReducer from './reducers';
 import '../styles/index.scss';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import 'chartist/dist/chartist.min.css';
 
 const root = document.getElementById('root');
 const loggerMiddleware = createLogger();

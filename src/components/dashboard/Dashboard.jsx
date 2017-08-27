@@ -56,6 +56,21 @@ class Dashboard extends React.Component {
       .filter(e => e['@type'] === 'ChangeShoes');
   }
 
+  // TODO: move
+  weeklyBarChartData() {
+    return {
+      labels: ['M', 'Tu', 'W', 'Th', 'F', 'Sa', 'Su'],
+      series: [
+        [0, 3.52, 0, 0, 4.52, 0, 6.12]
+      ]
+    };
+  }
+
+  // TODO: move
+  weeklyBarChartOptions() {
+    return {};
+  }
+
   render() {
     const tabData = this.tabData();
     //const chartEvents = this.eventsSince(tabData.chartStartMoment);
@@ -79,7 +94,8 @@ class Dashboard extends React.Component {
         <div className="row">
           <div className="col-md-6">
             <h2><div className="label label-info">Distance</div></h2>
-            <div className="widget-stub col-xs-12">(chart)</div>
+            {/* <div className="widget-stub col-xs-12">(chart)</div> */}
+            <ChartistGraph data={this.weeklyBarChartData()} options={this.weeklyBarChartOptions()} type={'Bar'} />
           </div>
           <div className="col-md-6">
             <h2><div className="label label-info">{this.tabData().statsLabel}</div></h2>
