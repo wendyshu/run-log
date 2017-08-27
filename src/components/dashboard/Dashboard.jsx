@@ -58,11 +58,18 @@ class Dashboard extends React.Component {
   }
 
   // TODO: move
-  lastNDays(days) {
+  subtractMoment(fromMoment, units, duration) {
+    const args = {};
+    args[units] = duration;
+    return fromMoment.clone().subtract(args);
+  }
+
+  // TODO: move
+  momentSeries(length, units, duration) {
     const dates = [];
 
-    for (let i = days - 1; i >= 0; i--) {
-      const date = moment().subtract({days: i});
+    for (let i = length - 1; i >= 0; i--) {
+      const date = this.subtractMoment(moment(), units, i * duration);
       dates.push(date);
     }
 
@@ -70,20 +77,20 @@ class Dashboard extends React.Component {
   }
 
   // TODO: move
-  weeklyBarChartData(events) {
+  barChartDate(events, barOpts, dateLabelFn) {
 
     const eventsMoments = events.map(e => Object.assign({}, e, { date: moment(e.date) }));
-    const dates = this.lastNDays(7);
+    const dates = this.momentSeries(barOpts.count, barOpts.units, barOpts.length);
 
-    const series = dates.map(m => {
-      const dayAgo = m.clone().subtract({days:1});
-      return eventsMoments.filter(e => e.date.isBetween(dayAgo, m))
+    const series = dates.map(endDate => {
+      const startDate = this.subtractMoment(endDate, barOpts.units, barOpts.length);
+      return eventsMoments.filter(e => e.date.isBetween(startDate, endDate))
         .map(e => e.distance)
         .reduce(add, 0);
     });
 
     return {
-      labels: dates.map(m => m.format('dd')),
+      labels: dates.map(dateLabelFn),
       series: [
         series
       ]
@@ -101,9 +108,24 @@ class Dashboard extends React.Component {
     };
   }
 
+  // TODO: move
+  selectedTabBarChart(selectedTab, tabData) {
+    const chartEvents = this.eventsSince(tabData.chartStartMoment);
+
+    switch (selectedTab) {
+    case TAB_7_DAY:
+      return (<ChartistGraph data={this.barChartDate(chartEvents, { count: 7, units: 'Day', length: 1 }, m => m.format('dd'))} options={this.barChartOptions()} type={'Bar'} />);
+    case TAB_30_DAY:
+      return (<ChartistGraph data={this.barChartDate(chartEvents, { count: 10, units: 'Day', length: 3 }, m => m.format('MM/DD'))} options={this.barChartOptions()} type={'Bar'} />);
+    case TAB_365_DAY:
+      return (<ChartistGraph data={this.barChartDate(chartEvents, { count: 12, units: 'Month', length: 1 }, m => m.format('MMM'))} options={this.barChartOptions()} type={'Bar'} />);
+    case TAB_ALL:
+      return (<ChartistGraph data={this.barChartDate(chartEvents, { count: 8, units: 'Year', length: 1 }, m => m.format('YYYY'))} options={this.barChartOptions()} type={'Bar'} />);
+    }
+  }
+
   render() {
     const tabData = this.tabData();
-    const chartEvents = this.eventsSince(tabData.chartStartMoment);
     const periodEvents = this.eventsSince(tabData.periodStartMoment);
 
     return (
@@ -125,7 +147,7 @@ class Dashboard extends React.Component {
           <div className="col-md-6">
             <h2><div className="label label-info">Distance</div></h2>
             {/* <div className="widget-stub col-xs-12">(chart)</div> */}
-            <ChartistGraph data={this.weeklyBarChartData(chartEvents)} options={this.barChartOptions()} type={'Bar'} />
+            { this.selectedTabBarChart(this.props.dashboard.ui.selectedTab, tabData) }
           </div>
           <div className="col-md-6">
             <h2><div className="label label-info">{this.tabData().statsLabel}</div></h2>
