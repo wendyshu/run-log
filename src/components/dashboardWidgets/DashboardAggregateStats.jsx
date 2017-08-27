@@ -4,7 +4,7 @@ import DashboardStats from './DashboardStats.jsx';
 /*eslint-enable no-unused-vars*/
 
 import Optional from '../optional/optional';
-import { durationToSeconds } from '../../scripts/utils/dates';
+import { durationToSeconds, secondsToStopwatch } from '../../scripts/utils/dates';
 import { add, min } from '../../scripts/utils/math';
 
 function calcFastestPace(events) {
@@ -12,7 +12,7 @@ function calcFastestPace(events) {
   if (!filtered.length) {
     return undefined;
   }
-  return filtered.map(e => durationToSeconds(e.duration) / (60 * e.distance))
+  return filtered.map(e => durationToSeconds(e.duration) / (e.distance))
     .reduce(min);
 }
 
@@ -36,7 +36,7 @@ export default (props) => {
   const stats = [
     {
       name: 'Top Pace',
-      value: Optional(calcFastestPace(props.events)).map(p => p.toFixed(2) + ' mpm').orElse('N/A')
+      value: Optional(calcFastestPace(props.events)).map(p => secondsToStopwatch(p) + ' mi').orElse('N/A')
     },{
       name: 'Average Pace',
       value: Optional(calcAveragePace(props.events)).map(p => p.toFixed(2) + ' mph').orElse('N/A')
