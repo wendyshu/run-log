@@ -91,7 +91,7 @@ class Dashboard extends React.Component {
   }
 
   // TODO: move
-  weeklyBarChartOptions() {
+  barChartOptions() {
     return {
       axisY: {
         labelInterpolationFnc: function(value) {
@@ -125,7 +125,7 @@ class Dashboard extends React.Component {
           <div className="col-md-6">
             <h2><div className="label label-info">Distance</div></h2>
             {/* <div className="widget-stub col-xs-12">(chart)</div> */}
-            <ChartistGraph data={this.weeklyBarChartData(chartEvents)} options={this.weeklyBarChartOptions()} type={'Bar'} />
+            <ChartistGraph data={this.weeklyBarChartData(chartEvents)} options={this.barChartOptions()} type={'Bar'} />
           </div>
           <div className="col-md-6">
             <h2><div className="label label-info">{this.tabData().statsLabel}</div></h2>
