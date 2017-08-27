@@ -13,6 +13,7 @@ import moment from 'moment';
 
 import { TAB_7_DAY, TAB_30_DAY, TAB_365_DAY, TAB_ALL } from './constants';
 import { connect } from 'react-redux';
+import { add } from '../../scripts/utils/math'; // TODO: move
 
 class Dashboard extends React.Component {
 
@@ -57,23 +58,52 @@ class Dashboard extends React.Component {
   }
 
   // TODO: move
-  weeklyBarChartData() {
+  lastNDays(days) {
+    const dates = [];
+
+    for (let i = days - 1; i >= 0; i--) {
+      const date = moment().subtract({days: i});
+      dates.push(date);
+    }
+
+    return dates;
+  }
+
+  // TODO: move
+  weeklyBarChartData(events) {
+
+    const eventsMoments = events.map(e => Object.assign({}, e, { date: moment(e.date) }));
+    const dates = this.lastNDays(7);
+
+    const series = dates.map(m => {
+      const dayAgo = m.clone().subtract({days:1});
+      return eventsMoments.filter(e => e.date.isBetween(dayAgo, m))
+        .map(e => e.distance)
+        .reduce(add, 0);
+    });
+
     return {
-      labels: ['M', 'Tu', 'W', 'Th', 'F', 'Sa', 'Su'],
+      labels: dates.map(m => m.format('dd')),
       series: [
-        [0, 3.52, 0, 0, 4.52, 0, 6.12]
+        series
       ]
     };
   }
 
   // TODO: move
   weeklyBarChartOptions() {
-    return {};
+    return {
+      axisY: {
+        labelInterpolationFnc: function(value) {
+          return `${value} mi`;
+        }
+      }
+    };
   }
 
   render() {
     const tabData = this.tabData();
-    //const chartEvents = this.eventsSince(tabData.chartStartMoment);
+    const chartEvents = this.eventsSince(tabData.chartStartMoment);
     const periodEvents = this.eventsSince(tabData.periodStartMoment);
 
     return (
@@ -95,7 +125,7 @@ class Dashboard extends React.Component {
           <div className="col-md-6">
             <h2><div className="label label-info">Distance</div></h2>
             {/* <div className="widget-stub col-xs-12">(chart)</div> */}
-            <ChartistGraph data={this.weeklyBarChartData()} options={this.weeklyBarChartOptions()} type={'Bar'} />
+            <ChartistGraph data={this.weeklyBarChartData(chartEvents)} options={this.weeklyBarChartOptions()} type={'Bar'} />
           </div>
           <div className="col-md-6">
             <h2><div className="label label-info">{this.tabData().statsLabel}</div></h2>
