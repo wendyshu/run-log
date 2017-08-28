@@ -7,6 +7,14 @@
   },
   "events": [
     {
+      "@id": "_:n7",
+      "@type": "Run",
+      "date": "2017-08-28",
+      "category": "speed",
+      "distance": 1.00,
+      "duration": "PT7M24S",
+      "notes": "treadmill, 1° incline"
+    },{
       "@id": "_:n6",
       "@type": "Run",
       "date": "2017-08-27",
