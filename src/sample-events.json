@@ -7,6 +7,14 @@
   },
   "events": [
     {
+      "@id": "_:n6",
+      "@type": "Run",
+      "date": "2017-08-27",
+      "category": "distance",
+      "distance": 8.56,
+      "duration": "PT1H22M30S",
+      "notes": "All four quadrants DC"
+    },{
       "@id": "_:n5",
       "@type": "Run",
       "date": "2017-08-24",
