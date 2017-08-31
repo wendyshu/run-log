@@ -7,13 +7,21 @@
   },
   "events": [
     {
+      "@id": "_:n8",
+      "@type": "Run",
+      "date": "2017-08-30",
+      "category": "speed",
+      "distance": 4.64,
+      "duration": "PT45M44S",
+      "notes": "Burdened: running bag w/ 15MBP. From office to home."
+    },{
       "@id": "_:n7",
       "@type": "Run",
       "date": "2017-08-28",
       "category": "speed",
       "distance": 1.00,
       "duration": "PT7M24S",
-      "notes": "treadmill, 1° incline"
+      "notes": "Treadmill, 1° incline"
     },{
       "@id": "_:n6",
       "@type": "Run",
