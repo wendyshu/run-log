@@ -6,7 +6,7 @@ export function formatDate(date) {
     lastDay : '[Yesterday]',
     sameDay : '[Today]',
     nextDay : '[Tomorrow]',
-    lastWeek : '[Last] dddd',
+    lastWeek : 'dddd',
     nextWeek : 'dddd',
     sameElse : 'L'
   });
