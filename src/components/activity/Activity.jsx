@@ -1,6 +1,7 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
-import ActivityRow from './ActivityRow.jsx';
+import ActivityCrossTrainRow from './ActivityCrossTrainRow.jsx';
+import ActivityRunRow from './ActivityRunRow.jsx';
 import FeaturedRun from '../featuredRun/FeaturedRun.jsx';
 /*eslint-enable no-unused-vars*/
 
@@ -12,13 +13,28 @@ class Activity extends React.Component {
     super(props);
   }
 
-  runEvents() {
+  filteredEvents(types) {
     return this.props.events.data
-      .filter(e => e['@type'] === 'Run');
+      .filter(e => types.includes(e['@type']));
   }
 
-  renderRunEvents() {
-    return this.runEvents().map(e => <ActivityRow event={e} key={e['@id']} />);
+  runEvents() {
+    return this.filteredEvents(['Run']);
+  }
+
+  fitnessEvents() {
+    return this.filteredEvents(['Run','CrossTrain']);
+  }
+
+  renderFitnessEvents() {
+    return this.fitnessEvents().map(e => {
+      switch(e['@type']) {
+      case 'Run':
+        return ( <ActivityRunRow event={e} key={e['@id']} /> );
+      case 'CrossTrain':
+        return ( <ActivityCrossTrainRow event={e} key={e['@id']} /> );
+      }
+    });
   }
 
   render() {
@@ -51,7 +67,7 @@ class Activity extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                { this.renderRunEvents() }
+                { this.renderFitnessEvents() }
               </tbody>
             </table>
           </div>

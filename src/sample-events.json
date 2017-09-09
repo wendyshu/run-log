@@ -7,28 +7,38 @@
   },
   "events": [
     {
-      "@id": "_:n10",
+      "@id": "_:n12",
+      "@type": "CrossTrain",
+      "date": "2017-09-09",
+      "notes": "Lift: db press, squat, bench, dl"
+    },{
+      "@id": "_:n11",
       "@type": "Run",
       "date": "2017-09-03",
       "category": "distance",
       "distance": 9.01,
       "duration": "PT1H30M50S"
     },{
-      "@id": "_:n9",
+      "@id": "_:n10",
       "@type": "Run",
       "date": "2017-09-02",
       "category": "speed",
       "distance": 1.00,
       "duration": "PT7M13S",
-      "notes": "treadmill, 1° incline, 8.3mph"
+      "notes": "Treadmill, 1° incline, 8.3mph"
     },{
-      "@id": "_:n8",
+      "@id": "_:n9",
       "@type": "Run",
       "date": "2017-08-30",
       "category": "casual",
       "distance": 4.64,
       "duration": "PT45M44S",
       "notes": "Burdened: running bag w/ 15MBP. From office to home."
+    },{
+      "@id": "_:n8",
+      "@type": "CrossTrain",
+      "date": "2017-08-28",
+      "notes": "Circuit training: 2 sets"
     },{
       "@id": "_:n7",
       "@type": "Run",

@@ -6,7 +6,7 @@ import { formatDate, formatDuration } from '../../scripts/utils/dates';
 import Optional from '../optional/optional';
 
 export default (props) => (
-  <tr>
+  <tr className="activity-run">
     <td className="data-date">{Optional(props.event.date).map(formatDate).orElse('-')}</td>
     <td className="data-category">{Optional(props.event.category).orElse('-')}</td>
     <td className="data-distance">{Optional(props.event.distance).map(d => d + ' mi').orElse('-')}</td>
