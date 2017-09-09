@@ -8,11 +8,12 @@ import Optional from '../optional/optional';
 export default (props) => (
   <tr className="activity-run">
     <td className="data-date">{Optional(props.event.date).map(formatDate).orElse('-')}</td>
-    <td className="data-category">{Optional(props.event.category).orElse('-')}</td>
+    <td className="data-category"><span className="glyphicon glyphicon-road"/> {Optional(props.event.category).orElse('-')}</td>
     <td className="data-distance">{Optional(props.event.distance).map(d => d + ' mi').orElse('-')}</td>
     <td className="data-duration">{Optional(props.event.duration).map(formatDuration).orElse('-')}</td>
     <td className="data-notes">{Optional(props.event.notes).orElse('-')}</td>
     <td className="data-actions">
+      <a href="#" className="glyphicon glyphicon-heart-empty"/>
       <a href="#" className="glyphicon glyphicon-pencil"/>
       <a href="#" className="glyphicon glyphicon glyphicon-trash"/>
     </td>
