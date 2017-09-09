@@ -1,15 +1,17 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const extractCSS = new ExtractTextPlugin('app.bundle.css')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const extractCSS = new ExtractTextPlugin('app.bundle.css');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  context: path.resolve(__dirname, 'src'),
-  entry: './scripts/app.js',
+  context: path.resolve(__dirname, '.'),
+  entry: './src/scripts/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/dist/',
+    publicPath: '/',
     filename: 'app.bundle.js'
   },
   module: {
@@ -60,6 +62,10 @@ module.exports = {
       tether: 'tether',
       Tether: 'tether',
       'window.Tether': 'tether',
-    })
+    }),
+    new CleanWebpackPlugin([ 'dist' ], { verbose: true }),
+    new CopyWebpackPlugin([
+      { from: 'index.html' }
+    ])
   ]
 };
