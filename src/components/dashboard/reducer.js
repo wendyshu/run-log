@@ -2,7 +2,7 @@ import { SELECT_DASHBOARD_TAB } from './actions';
 
 import { TAB_7_DAY } from './constants';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   ui: {
     selectedTab: TAB_7_DAY
   }
