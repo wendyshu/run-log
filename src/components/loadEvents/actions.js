@@ -1,5 +1,7 @@
 export const LOAD_EVENTS = 'LOAD_EVENTS';
 
+const MILLIS_WAIT = 350;
+
 function requestEvents() {
   return {
     type: LOAD_EVENTS
@@ -21,7 +23,7 @@ export function loadEvents() {
   return function (dispatch) {
     dispatch(requestEvents());
     return new Promise(function(resolve) {
-      setTimeout(() => resolve(dispatch(receiveEvents(SampleEvents))), 1000); // Simulate xhr
+      setTimeout(() => resolve(dispatch(receiveEvents(SampleEvents))), MILLIS_WAIT); // Simulate xhr
     });
   };
 }
