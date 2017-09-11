@@ -1,5 +1,77 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Minimal event should match snapshot. 1`] = `
+<tr
+  className="activity-run"
+>
+  <td
+    className="data-date"
+  >
+    <span
+      className="value"
+    >
+      -
+    </span>
+  </td>
+  <td
+    className="data-category"
+  >
+    <span
+      className="glyphicon glyphicon-road"
+    />
+     
+    <span
+      className="value"
+    >
+      -
+    </span>
+  </td>
+  <td
+    className="data-distance"
+  >
+    <span
+      className="value"
+    >
+      -
+    </span>
+  </td>
+  <td
+    className="data-duration"
+  >
+    <span
+      className="value"
+    >
+      -
+    </span>
+  </td>
+  <td
+    className="data-notes"
+  >
+    <span
+      className="value"
+    >
+      -
+    </span>
+  </td>
+  <td
+    className="data-actions"
+  >
+    <a
+      className="glyphicon glyphicon-heart-empty"
+      href="#"
+    />
+    <a
+      className="glyphicon glyphicon-pencil"
+      href="#"
+    />
+    <a
+      className="glyphicon glyphicon glyphicon-trash"
+      href="#"
+    />
+  </td>
+</tr>
+`;
+
 exports[`Sample event with all fields defined should match snapshot 1`] = `
 <tr
   className="activity-run"
@@ -51,78 +123,6 @@ exports[`Sample event with all fields defined should match snapshot 1`] = `
       className="value"
     >
       Just a test.
-    </span>
-  </td>
-  <td
-    className="data-actions"
-  >
-    <a
-      className="glyphicon glyphicon-heart-empty"
-      href="#"
-    />
-    <a
-      className="glyphicon glyphicon-pencil"
-      href="#"
-    />
-    <a
-      className="glyphicon glyphicon glyphicon-trash"
-      href="#"
-    />
-  </td>
-</tr>
-`;
-
-exports[`Sample event with all fields missing should match snapshot and have correct default values 1`] = `
-<tr
-  className="activity-run"
->
-  <td
-    className="data-date"
-  >
-    <span
-      className="value"
-    >
-      -
-    </span>
-  </td>
-  <td
-    className="data-category"
-  >
-    <span
-      className="glyphicon glyphicon-road"
-    />
-     
-    <span
-      className="value"
-    >
-      -
-    </span>
-  </td>
-  <td
-    className="data-distance"
-  >
-    <span
-      className="value"
-    >
-      -
-    </span>
-  </td>
-  <td
-    className="data-duration"
-  >
-    <span
-      className="value"
-    >
-      -
-    </span>
-  </td>
-  <td
-    className="data-notes"
-  >
-    <span
-      className="value"
-    >
-      -
     </span>
   </td>
   <td

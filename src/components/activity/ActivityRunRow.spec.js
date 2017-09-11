@@ -1,12 +1,14 @@
 import React from 'react';
 import ActivityRunRow from './ActivityRunRow.jsx';
 import renderer from 'react-test-renderer';
+import {shallow} from 'enzyme';
 
-//
-// To update snaphot: $ jest --updateSnapshot
-//
-test('Sample event with all fields defined should match snapshot', () => {
-  const event = {
+const Samples = {
+  minimal: {
+    "@id": "_:n1",
+    "@type": "Run"
+  },
+  sample1: {
     "@id": "_:n1",
     "@type": "Run",
     "date": "2017-09-10",
@@ -14,41 +16,41 @@ test('Sample event with all fields defined should match snapshot', () => {
     "distance": 5.00,
     "duration": "PT50M00S",
     "notes": "Just a test."
-  };
+  }
+};
+
+//
+// To update snaphot: $ jest --updateSnapshot
+//
+test('Sample event with all fields defined should match snapshot', () => {
+
   const component = renderer.create(
-    <ActivityRunRow event={event} />
+    <ActivityRunRow event={Samples.sample1} />
   );
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Sample event with all fields missing should match snapshot and have correct default values', () => {
-  const event = {
-    "@id": "_:n1",
-    "@type": "Run"
-  };
+test('Minimal event should match snapshot.', () => {
+
   const component = renderer.create(
-    <ActivityRunRow event={event} />
+    <ActivityRunRow event={Samples.minimal} />
   );
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
+});
+
+test('Minimal event should contain expected default values', () => {
+
+  const row = shallow(
+    <ActivityRunRow event={Samples.minimal} />
+  );
 
   const classes = ['data-date', 'data-category', 'data-distance', 'data-duration', 'data-notes'];
 
   classes.forEach(className => {
-
-    const matches = tree.children
-      .filter(e => e.props.className === className);
-
-    expect(matches.length).toBe(1);
-
-    const value = matches[0].children
-      .filter(e => typeof e === "object")
-      .filter(e => e.props.className == 'value')
-      .map(e => e.children[0]);
-
-    expect(value.length).toBe(1);
-    expect(value[0]).toBe('-');
+    const ele = row.find(`.${className} > .value`);
+    expect(ele.length).toBe(1);
+    expect(ele.text()).toBe('-');
   });
-
 });
