@@ -7,6 +7,11 @@
   },
   "events": [
     {
+      "@id": "_:n14",
+      "@type": "CrossTrain",
+      "date": "2017-09-11",
+      "notes": "Circuit training: 2 sets"
+    },{
       "@id": "_:n13",
       "@type": "Run",
       "date": "2017-09-10",
