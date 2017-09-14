@@ -1,0 +1,11 @@
+.pie-chart {
+  .none-slice > path { fill: #eee }
+  .ct-label {
+    fill: #333;
+    font-size: 1.15rem;
+  }
+  .ct-series-e > path {
+    // default too dark
+    fill: #aaa;
+  }
+}

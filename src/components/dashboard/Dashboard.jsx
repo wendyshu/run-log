@@ -16,48 +16,62 @@ import { connect } from 'react-redux';
 
 class Dashboard extends React.Component {
 
-  tabData() {
+  tabData(events) {
+    var days;
     switch (this.props.dashboard.ui.selectedTab) {
     case TAB_7_DAY:
+      days = 7;
       return {
         statsLabel: 'This Week',
         periodStartMoment: moment().startOf('isoWeek'),
-        chartStartMoment: moment().subtract({days: 7})
+        chartStartMoment: moment().subtract({ days }),
+        totalDays: days
       };
     case TAB_30_DAY:
+      days = 30;
       return {
         statsLabel: 'This Month',
         periodStartMoment: moment().startOf('month'),
-        chartStartMoment: moment().subtract({days: 30})
+        chartStartMoment: moment().subtract({ days }),
+        totalDays: days
       };
     case TAB_365_DAY:
+      days = 365;
       return {
         statsLabel: 'This Year',
         periodStartMoment: moment().startOf('year'),
-        chartStartMoment: moment().subtract({days: 365})
+        chartStartMoment: moment().subtract({ days }),
+        totalDays: days
       };
     case TAB_ALL:
+      // TODO: calc range using events. Will need min/max/diff in dates.js...
+      console.log('TODO:', events);
+      days = 999;
       return {
         statsLabel: 'Lifetime',
         periodStartMoment: moment(0),
-        chartStartMoment: moment(0)
+        chartStartMoment: moment(0),
+        totalDays: days
       };
     }
   }
 
+  filterByTypes(events, types) {
+    return events.filter(e => types.includes(e['@type']));
+  }
+
   eventsSince(start) {
     return this.props.events.data
-      .filter(e => e['@type'] === 'Run')
       .filter(e => moment(e.date).diff(start) >= 0);
   }
 
   changeShoesEvents() {
-    return this.props.events.data
-      .filter(e => e['@type'] === 'ChangeShoes');
+    return this.filterByTypes(this.props.events.data, ['ChangeShoes']);
   }
 
   render() {
-    const tabData = this.tabData();
+    const tabData = this.tabData(this.props.events.data);
+    const chartEvents = this.eventsSince(tabData.chartStartMoment);
     const periodEvents = this.eventsSince(tabData.periodStartMoment);
 
     return (
@@ -65,7 +79,7 @@ class Dashboard extends React.Component {
 
         <div className="row">
           <div className="col-xs-12">
-            <FeaturedRun events={periodEvents} />
+            <FeaturedRun events={this.filterByTypes(periodEvents, ['Run'])} />
           </div>
         </div> {/* .row */}
 
@@ -79,12 +93,13 @@ class Dashboard extends React.Component {
           <div className="col-md-6">
             <h2><div className="label label-info">Distance</div></h2>
             <div className="dashboard-bar-chart">
-              <DashboardBarChart selectedTab={this.props.dashboard.ui.selectedTab}
-                events={this.eventsSince(tabData.chartStartMoment)}/>
+              <DashboardBarChart
+                selectedTab={this.props.dashboard.ui.selectedTab}
+                events={this.filterByTypes(chartEvents, ['Run'])}/>
             </div>
           </div>
           <div className="col-md-6">
-            <DashboardAggregateStats title={this.tabData().statsLabel} events={periodEvents} />
+            <DashboardAggregateStats title={tabData.statsLabel} events={periodEvents} />
           </div>
         </div> {/* .row */}
 
@@ -93,7 +108,7 @@ class Dashboard extends React.Component {
             <h2><div className="label label-info">Breakdown</div></h2>
             <div className="widget-stats">
               <div className="col-xs-4 pie-chart-wrapper">
-                <DashboardPieChart />
+                <DashboardPieChart totalDays={tabData.totalDays} events={chartEvents} />
               </div>
               <div className="widget-stat widget-stub col-xs-8">
                 (chart)
