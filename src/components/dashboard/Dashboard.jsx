@@ -3,6 +3,7 @@ import React from 'react';
 
 import DashboardAggregateStats from '../dashboardWidgets/DashboardAggregateStats.jsx';
 import DashboardBarChart from '../dashboardWidgets/DashboardBarChart.jsx';
+import DashboardPieChart from '../dashboardWidgets/DashboardPieChart.jsx';
 import DashboardShoesStats from '../dashboardWidgets/DashboardShoesStats.jsx';
 import DashboardTabs from './DashboardTabs.jsx';
 import FeaturedRun from '../featuredRun/FeaturedRun.jsx';
@@ -91,7 +92,14 @@ class Dashboard extends React.Component {
         <div className="row">
           <div className="col-md-6">
             <h2><div className="label label-info">Breakdown</div></h2>
-            <div className="widget-stub col-xs-12">(chart)</div>
+            <div className="widget-stats">
+              <div className="col-xs-4 pie-chart-wrapper">
+                <DashboardPieChart />
+              </div>
+              <div className="widget-stat widget-stub col-xs-8">
+                (chart)
+              </div>
+            </div>
           </div>
           <div className="col-md-6">
             <h2><div className="label label-info">Shoes</div></h2>
@@ -101,7 +109,8 @@ class Dashboard extends React.Component {
 
       </div>
     );
-  }
+  } // render
+
 } // Dashboard
 
 function mapStateToProps(state) {
