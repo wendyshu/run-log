@@ -1,9 +1,14 @@
-.ct-chart {
-  height: 12.25em;
-  background-color: #eee;
-}
+.dashboard-bar-chart {
 
-.ct-label {
-  color: #666;
-  font-size: .85em;
+  .ct-chart {
+    padding-top: .5em;
+    height: 11.75em;
+    background-color: #eee;
+    border-radius: .5em;
+  }
+
+  .ct-label {
+    color: #666;
+    font-size: .85em;
+  }
 }

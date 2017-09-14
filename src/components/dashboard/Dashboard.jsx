@@ -84,8 +84,7 @@ class Dashboard extends React.Component {
             </div>
           </div>
           <div className="col-md-6">
-            <h2><div className="label label-info">{this.tabData().statsLabel}</div></h2>
-            <DashboardAggregateStats events={periodEvents} />
+            <DashboardAggregateStats title={this.tabData().statsLabel} events={periodEvents} />
           </div>
         </div> {/* .row */}
 
@@ -102,8 +101,7 @@ class Dashboard extends React.Component {
             </div>
           </div>
           <div className="col-md-6">
-            <h2><div className="label label-info">Shoes</div></h2>
-            <DashboardShoesStats events={this.changeShoesEvents()} />
+            <DashboardShoesStats title="Shoes" events={this.changeShoesEvents()} />
           </div>
         </div> {/* .row */}
 

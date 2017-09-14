@@ -1,13 +1,5 @@
 @import './app';
-
-.dashboard {
-  @import '../components/dashboard/dashboard';
-  .dashboard-bar-chart {
-    @import '../components/dashboardWidgets/dashboardBarChart';
-  }
-  @import '../components/dashboardWidgets/dashboardStats';
-}
-
-.activity {
-  @import '../components/activity/activity';
-}
+@import '../components/dashboard/dashboard';
+@import '../components/dashboardWidgets/dashboardBarChart';
+@import '../components/dashboardWidgets/dashboardStats';
+@import '../components/activity/activity';

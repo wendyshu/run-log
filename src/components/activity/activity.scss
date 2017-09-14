@@ -1,36 +1,40 @@
-.global-actions {
-  text-align: right;
-  // Add padding b/w icon and text in buttons
-  button .glyphicon + span {
-    margin-left: .35em;
+.activity {
+  
+  .global-actions {
+    text-align: right;
+    // Add padding b/w icon and text in buttons
+    button .glyphicon + span {
+      margin-left: .35em;
+    }
   }
-}
 
-.entries {
-  margin-top: 2em;
-}
-
-.data-category {
-  text-transform: capitalize;
-}
-
-.data-actions {
-  text-align: right;
-  a {
-    text-decoration: none;
-    color: #222;
-    margin-right: .5em;
+  .entries {
+    margin-top: 2em;
   }
-}
 
-.glyphicon-apple {
-  color: #900;
-}
+  .data-category {
+    text-transform: capitalize;
+  }
 
-.glyphicon-road {
-  color: #690;
-}
+  .data-actions {
+    text-align: right;
+    a {
+      text-decoration: none;
+      color: #222;
+      margin-right: .5em;
+    }
+  }
 
-.data-category .glyphicon {
-  margin-right: .35em;
-}
+  .glyphicon-apple {
+    color: #900;
+  }
+
+  .glyphicon-road {
+    color: #690;
+  }
+
+  .data-category .glyphicon {
+    margin-right: .35em;
+  }
+
+} // .activity

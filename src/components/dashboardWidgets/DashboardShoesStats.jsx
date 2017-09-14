@@ -6,7 +6,7 @@ import DashboardStats from './DashboardStats.jsx';
 export default (props) => {
   console.log('Change shoes events...', props.events); // TODO:
   return (
-    <DashboardStats stats={[
+    <DashboardStats title={props.title} stats={[
       { name:'Lorem Ipsum', value:'N/A' },
       { name:'Lorem Ipsum', value:'N/A' },
       { name:'Lorem Ipsum', value:'N/A' }
