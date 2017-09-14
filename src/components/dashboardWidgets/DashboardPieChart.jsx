@@ -4,6 +4,7 @@ import React from 'react';
 import ChartistGraph from 'react-chartist';
 /*eslint-enable no-unused-vars*/
 
+// TODO: use percentage, not total days
 const labelMaker = (totalDays) => (label, abbr) => totalDays <= 7 ? label : abbr;
 
 function calculateCounts(props) {
