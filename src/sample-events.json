@@ -7,10 +7,22 @@
   },
   "events": [
     {
+      "@id": "_:n17",
+      "@type": "Run",
+      "date": "2017-09-15",
+      "category": "casual",
+      "distance": 6.02,
+      "duration": "PT60M00S"
+    },{
+      "@id": "_:n16",
+      "@type": "CrossTrain",
+      "date": "2017-09-14",
+      "notes": "Lift: db press, bench, dl"
+    },{
       "@id": "_:n15",
       "@type": "Run",
       "date": "2017-09-13",
-      "category": "distance",
+      "category": "casual",
       "distance": 5.52,
       "duration": "PT53M30S"
     },{

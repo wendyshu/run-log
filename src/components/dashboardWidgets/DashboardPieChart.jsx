@@ -15,23 +15,27 @@ function calculateCounts(props) {
     {
       name: ' ',
       value: props.totalDays - props.events.length,
-      className: 'none-slice'
+      className: 'slice-none'
     },
     {
       name: labeler('x-train', 'x'),
-      value: crossTraining.length
+      value: crossTraining.length,
+      className: 'slice-x-train'
     },
     {
       name: labeler('casual', 'c'),
-      value: running.filter(e => e.category === 'casual').length
+      value: running.filter(e => e.category === 'casual').length,
+      className: 'slice-casual'
     },
     {
       name: labeler('distance', 'd'),
-      value: running.filter(e => e.category === 'distance').length
+      value: running.filter(e => e.category === 'distance').length,
+      className: 'slice-distance'
     },
     {
       name: labeler('speed', 's'),
-      value: running.filter(e => e.category === 'speed').length
+      value: running.filter(e => e.category === 'speed').length,
+      className: 'slice-speed'
     }
   ];
 }

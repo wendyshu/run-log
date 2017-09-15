@@ -107,11 +107,14 @@ class Dashboard extends React.Component {
           <div className="col-md-6">
             <h2><div className="label label-info">Breakdown</div></h2>
             <div className="widget-stats">
+              <div className="widget-stat widget-stub borderless col-xs-4">
+                (chart)
+              </div>
               <div className="col-xs-4 pie-chart-wrapper">
                 <DashboardPieChart totalDays={tabData.totalDays} events={chartEvents} />
               </div>
-              <div className="widget-stat widget-stub col-xs-8">
-                (chart)
+              <div className="widget-stat widget-stub col-xs-4">
+                (legend)
               </div>
             </div>
           </div>
