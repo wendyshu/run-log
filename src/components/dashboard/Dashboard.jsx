@@ -113,8 +113,31 @@ class Dashboard extends React.Component {
               <div className="col-xs-4 pie-chart-wrapper">
                 <DashboardPieChart totalDays={tabData.totalDays} events={chartEvents} />
               </div>
-              <div className="widget-stat widget-stub col-xs-4">
-                (legend)
+              <div className="pie-chart-legend col-xs-4">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td className="color slice-none"></td>
+                      <td className="description">No activity</td>
+                    </tr>
+                    <tr>
+                      <td className="color slice-x-train"></td>
+                      <td className="description">Cross-train</td>
+                    </tr>
+                    <tr>
+                      <td className="color slice-casual"></td>
+                      <td className="description">Casual</td>
+                    </tr>
+                    <tr>
+                      <td className="color slice-distance"></td>
+                      <td className="description">Distance</td>
+                    </tr>
+                    <tr>
+                      <td className="color slice-speed"></td>
+                      <td className="description">Speed</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>

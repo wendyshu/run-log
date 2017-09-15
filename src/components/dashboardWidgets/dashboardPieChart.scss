@@ -11,3 +11,35 @@
   .slice-distance > path { fill: $color-slice-distance }
   .slice-speed > path { fill: $color-slice-speed }
 }
+
+.pie-chart-legend {
+
+  // TODO: dedupe w/ .widget-stub styling (dashboardStats.scss)
+  min-height: 12.25em !important; // TODO: once bootstrap styles loading before custom, remove !important
+  padding: .5em;
+  border-radius: .5em;
+  border: .5em solid #eee;
+  color: #666;
+  // end TODO
+
+  table {
+    border-collapse: separate;
+    border-spacing: .25em;
+    width: 100%;
+  }
+
+  .color {
+    width: 1.75em;
+    height: 1em;
+    border: 1px solid #666;
+    &.slice-none { background-color: $color-slice-none }
+    &.slice-x-train { background-color: $color-slice-x-train }
+    &.slice-casual { background-color: $color-slice-casual }
+    &.slice-distance { background-color: $color-slice-distance }
+    &.slice-speed { background-color: $color-slice-speed }
+  }
+  .description {
+    text-align: left;
+    padding: .2em .5em;
+  }
+}
