@@ -3,7 +3,6 @@
   .widget-stub, .widget-stats {
     text-align: center;
     background-color: $widget-background-color;
-    color: $widget-text-color;
     border-radius: $widget-border-radius;
   }
 
@@ -22,12 +21,16 @@
   }
 
   .widget-stat {
-    color: $widget-text-color;
     padding: 4em 0;
+
+    .name {
+      font-size: 1.15em;
+      font-weight: $default-jumbotron-light-weight;
+    }
 
     .value {
       font-size: 2em;
-      font-weight: bold;
+      font-weight: $default-jumbotron-heavy-weight;
     }
   }
 
