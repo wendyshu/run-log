@@ -5,7 +5,7 @@ import React from 'react';
 export default (props) => (
   <div>
     <div className="row">
-      <h2><div className="label label-info">{props.title}</div></h2>
+      <h2>{props.title}</h2>
     </div>
     <div className="widget-stats row">
       <div className="widget-stat col-xs-4">

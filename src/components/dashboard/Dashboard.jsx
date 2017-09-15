@@ -91,7 +91,7 @@ class Dashboard extends React.Component {
 
         <div className="row">
           <div className="col-md-6">
-            <h2><div className="label label-info">Distance</div></h2>
+            <h2>Distance</h2>
             <div className="dashboard-bar-chart">
               <DashboardBarChart
                 selectedTab={this.props.dashboard.ui.selectedTab}
@@ -105,7 +105,7 @@ class Dashboard extends React.Component {
 
         <div className="row">
           <div className="col-md-6">
-            <h2><div className="label label-info">Breakdown</div></h2>
+            <h2>Breakdown</h2>
             <div className="widget-stats">
               <div className="widget-stat widget-stub borderless col-xs-4">
                 (chart)

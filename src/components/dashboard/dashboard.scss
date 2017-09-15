@@ -1,12 +1,9 @@
 .dashboard {
 
-  .label-info {
-    background-color: $my-blue-color;
-    text-shadow: 1px 1px 1px $default-text-color;
-  }
-
   h2 {
+    font-weight: 200;
     font-size: 1.35em;
+    text-shadow: 1px 1px 1px #ccc;
   }
 
   .pie-chart-wrapper {
