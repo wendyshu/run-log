@@ -2,6 +2,7 @@ import React from 'react';
 import ActivityRunRow from './ActivityRunRow.jsx';
 import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
+import moment from 'moment';
 
 const Samples = {
   minimal: {
@@ -11,7 +12,7 @@ const Samples = {
   sample1: {
     "@id": "_:n1",
     "@type": "Run",
-    "date": "2017-09-10",
+    "date": moment().format(),
     "category": "casual",
     "distance": 5.00,
     "duration": "PT50M00S",
