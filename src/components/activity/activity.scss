@@ -1,5 +1,5 @@
 .activity {
-  
+
   .global-actions {
     text-align: right;
     // Add padding b/w icon and text in buttons
@@ -20,17 +20,17 @@
     text-align: right;
     a {
       text-decoration: none;
-      color: #222;
+      color: $default-text-color;
       margin-right: .5em;
     }
   }
 
   .glyphicon-apple {
-    color: #900;
+    color: $my-red-color;
   }
 
   .glyphicon-road {
-    color: #690;
+    color: $my-blue-color;
   }
 
   .data-category .glyphicon {

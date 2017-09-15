@@ -1,8 +1,8 @@
 $slice-none-color: #eee;
-$slice-x-train-color: #4687c9;
+$slice-x-train-color: $my-blue-color;
 $slice-casual-color: #f4c63d;
-$slice-distance-color: #f05b4f;
-$slice-speed-color: #70b595;
+$slice-distance-color: $my-red-color;
+$slice-speed-color: $my-green-color;
 
 .pie-chart {
 
@@ -22,13 +22,11 @@ $slice-speed-color: #70b595;
 
 .pie-chart-legend {
 
-  // TODO: dedupe w/ .widget-stub styling (dashboardStats.scss)
   min-height: $widget-height !important; // TODO: once bootstrap styles loading before custom, remove !important
   padding: .5em;
   border-radius: $widget-border-radius;
   border: .5em solid $widget-background-color;
   color: $widget-text-color;
-  // end TODO
 
   table {
     border-collapse: separate;
@@ -36,7 +34,7 @@ $slice-speed-color: #70b595;
     width: 100%;
   }
 
-  .color {
+  table .color {
     width: 1.75em;
     height: 1em;
     border: 1px solid #666;
@@ -46,7 +44,8 @@ $slice-speed-color: #70b595;
     &.slice-distance { background-color: $slice-distance-color }
     &.slice-speed { background-color: $slice-speed-color }
   }
-  .description {
+
+  table .description {
     text-align: left;
     padding: .2em .5em;
   }
