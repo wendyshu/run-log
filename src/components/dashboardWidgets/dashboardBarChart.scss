@@ -11,4 +11,12 @@
     color: $default-text-color;
     font-size: 1.15rem;
   }
+
+  .ct-bar {
+    stroke-width: 1.5em;
+  }
+  
+  .ct-series-a .ct-bar {
+    stroke: $my-purple-color;
+  }
 }
