@@ -2,13 +2,13 @@
 
   .ct-chart {
     padding-top: 1em;
-    height: 12.25em;
-    background-color: #eee;
-    border-radius: .5em;
+    height: $widget-height;
+    background-color: $widget-background-color;
+    border-radius: $widget-border-radius;
   }
 
   .ct-label {
-    color: #666;
+    color: $widget-text-color;
     font-size: 1.15rem;
   }
 }

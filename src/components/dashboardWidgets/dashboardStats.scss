@@ -2,13 +2,13 @@
 
   .widget-stub, .widget-stats {
     text-align: center;
-    background-color: #eee;
-    color: #aaa;
-    border-radius: .5em;
+    background-color: $widget-background-color;
+    color: $widget-text-color;
+    border-radius: $widget-border-radius;
   }
 
   .widget-stub {
-    min-height: 12.25em;
+    min-height: $widget-height;
     padding: 1em;
   }
 
@@ -22,7 +22,7 @@
   }
 
   .widget-stat {
-    color: #666;
+    color: $widget-text-color;
     padding: 4em 0;
 
     .value {

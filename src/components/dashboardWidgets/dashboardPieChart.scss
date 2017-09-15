@@ -16,11 +16,11 @@
 .pie-chart-legend {
 
   // TODO: dedupe w/ .widget-stub styling (dashboardStats.scss)
-  min-height: 12.25em !important; // TODO: once bootstrap styles loading before custom, remove !important
+  min-height: $widget-height !important; // TODO: once bootstrap styles loading before custom, remove !important
   padding: .5em;
-  border-radius: .5em;
-  border: .5em solid #eee;
-  color: #666;
+  border-radius: $widget-border-radius;
+  border: .5em solid $widget-background-color;
+  color: $widget-text-color;
   // end TODO
 
   table {
