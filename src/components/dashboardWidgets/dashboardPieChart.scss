@@ -5,9 +5,9 @@
     font-size: 1.15rem;
   }
 
-  .slice-none > path { fill: #eee }
-  .slice-x-train > path { fill: #aaa }
-  .slice-casual > path { fill: #f4c63d }
-  .slice-distance > path { fill: #f05b4f }
-  .slice-speed > path { fill: #d17905 }
+  .slice-none > path { fill: $color-slice-none }
+  .slice-x-train > path { fill: $color-slice-x-train }
+  .slice-casual > path { fill: $color-slice-casual }
+  .slice-distance > path { fill: $color-slice-distance }
+  .slice-speed > path { fill: $color-slice-speed }
 }
