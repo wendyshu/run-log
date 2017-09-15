@@ -1,4 +1,11 @@
+$slice-none-color: #eee;
+$slice-x-train-color: #4687c9;
+$slice-casual-color: #f4c63d;
+$slice-distance-color: #f05b4f;
+$slice-speed-color: #70b595;
+
 .pie-chart {
+
   padding-top: .65em;
 
   .ct-label {
@@ -6,11 +13,11 @@
     font-size: 1.15rem;
   }
 
-  .slice-none > path { fill: $color-slice-none }
-  .slice-x-train > path { fill: $color-slice-x-train }
-  .slice-casual > path { fill: $color-slice-casual }
-  .slice-distance > path { fill: $color-slice-distance }
-  .slice-speed > path { fill: $color-slice-speed }
+  .slice-none > path { fill: $slice-none-color }
+  .slice-x-train > path { fill: $slice-x-train-color }
+  .slice-casual > path { fill: $slice-casual-color }
+  .slice-distance > path { fill: $slice-distance-color }
+  .slice-speed > path { fill: $slice-speed-color }
 }
 
 .pie-chart-legend {
@@ -33,11 +40,11 @@
     width: 1.75em;
     height: 1em;
     border: 1px solid #666;
-    &.slice-none { background-color: $color-slice-none }
-    &.slice-x-train { background-color: $color-slice-x-train }
-    &.slice-casual { background-color: $color-slice-casual }
-    &.slice-distance { background-color: $color-slice-distance }
-    &.slice-speed { background-color: $color-slice-speed }
+    &.slice-none { background-color: $slice-none-color }
+    &.slice-x-train { background-color: $slice-x-train-color }
+    &.slice-casual { background-color: $slice-casual-color }
+    &.slice-distance { background-color: $slice-distance-color }
+    &.slice-speed { background-color: $slice-speed-color }
   }
   .description {
     text-align: left;
