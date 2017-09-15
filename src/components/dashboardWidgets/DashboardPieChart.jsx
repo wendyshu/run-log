@@ -45,8 +45,36 @@ function options() {
 
 export default (props) => {
   return (
-    <div className="pie-chart">
-      <ChartistGraph data={data(props)} options={options()} type={'Pie'} />
+    <div className="row">
+      <div className="col-xs-6 pie-chart">
+        <ChartistGraph data={data(props)} options={options()} type={'Pie'} />
+      </div>
+      <div className="col-xs-6 pie-chart-legend">
+        <table>
+          <tbody>
+            <tr>
+              <td className="color slice-none"></td>
+              <td className="description">No activity</td>
+            </tr>
+            <tr>
+              <td className="color slice-x-train"></td>
+              <td className="description">Cross-train</td>
+            </tr>
+            <tr>
+              <td className="color slice-casual"></td>
+              <td className="description">Casual</td>
+            </tr>
+            <tr>
+              <td className="color slice-distance"></td>
+              <td className="description">Distance</td>
+            </tr>
+            <tr>
+              <td className="color slice-speed"></td>
+              <td className="description">Speed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
