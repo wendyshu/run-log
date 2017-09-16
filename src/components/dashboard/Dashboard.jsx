@@ -1,11 +1,13 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
 
-import DashboardAggregateStats from '../dashboardWidgets/DashboardAggregateStats.jsx';
+import DashboardAveragePaceStats from '../dashboardWidgets/DashboardAveragePaceStats.jsx';
 import DashboardBarChart from '../dashboardWidgets/DashboardBarChart.jsx';
 import DashboardPieChart from '../dashboardWidgets/DashboardPieChart.jsx';
 import DashboardShoesStats from '../dashboardWidgets/DashboardShoesStats.jsx';
 import DashboardSpeedometer from '../dashboardWidgets/DashboardSpeedometer.jsx';
+import DashboardTopPaceStats from '../dashboardWidgets/DashboardTopPaceStats.jsx';
+import DashboardTotalDistanceStats from '../dashboardWidgets/DashboardTotalDistanceStats.jsx';
 import DashboardTabs from './DashboardTabs.jsx';
 import FeaturedRun from '../featuredRun/FeaturedRun.jsx';
 /*eslint-enable no-unused-vars*/
@@ -104,7 +106,9 @@ class Dashboard extends React.Component {
               <h2>{tabData.statsLabel}</h2>
             </div>
             <div className="widget-stats row">
-              <DashboardAggregateStats events={periodEvents} />
+              <DashboardAveragePaceStats events={periodEvents} />
+              <DashboardTopPaceStats events={periodEvents} />
+              <DashboardTotalDistanceStats events={periodEvents} />
             </div>
           </div>
         </div> {/* .row */}
