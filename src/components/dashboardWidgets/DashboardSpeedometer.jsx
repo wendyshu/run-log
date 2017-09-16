@@ -29,14 +29,7 @@ function calcMph(events) {
 function data(mph) {
   const percentage = 100 * mph / GoalMPH;
   return {
-    series: [
-      {
-        value: percentage
-      },
-      {
-        value: 100.0 - percentage
-      }
-    ]
+    series: [ percentage, 100.0 - percentage ]
   };
 }
 
