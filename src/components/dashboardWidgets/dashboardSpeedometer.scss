@@ -1,0 +1,27 @@
+.dashboard-speedometer {
+
+  .svg-shrinkwrap {
+    height: 5.35em;
+    overflow: hidden;
+  }
+
+  .speed-achieved {
+    font-weight: 500;
+    font-size: 1.5em;
+    margin-top: .5em;
+  }
+
+  .speed-goal {
+    font-weight: 200;
+    font-size: 1.25em;
+    margin-bottom: .25em;
+  }
+
+  .ct-series-a path {
+    stroke: $my-green-color;
+  }
+
+  .ct-series-b path {
+    stroke: #bbb;
+  }
+} // .dashboard-speedometer
