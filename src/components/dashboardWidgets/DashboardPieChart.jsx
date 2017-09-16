@@ -34,13 +34,12 @@ function calculateCounts(props) {
 function data(props) {
   const counts = calculateCounts(props).filter(p => p.value > 0);
   return {
-    labels: Array(counts.length).fill(' '),
     series: counts
   };
 }
 
 function options() {
-  return {};
+  return { showLabel: false };
 }
 
 export default (props) => {
