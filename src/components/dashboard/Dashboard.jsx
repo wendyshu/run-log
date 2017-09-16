@@ -100,7 +100,12 @@ class Dashboard extends React.Component {
             </div>
           </div>
           <div className="col-md-6">
-            <DashboardAggregateStats title={tabData.statsLabel} events={periodEvents} />
+            <div className="row">
+              <h2>{tabData.statsLabel}</h2>
+            </div>
+            <div className="widget-stats row">
+              <DashboardAggregateStats events={periodEvents} />
+            </div>
           </div>
         </div> {/* .row */}
 
@@ -117,7 +122,12 @@ class Dashboard extends React.Component {
             </div>
           </div>
           <div className="col-md-6">
-            <DashboardShoesStats title="Shoes" events={this.changeShoesEvents()} />
+            <div className="row">
+              <h2>Shoes</h2>
+            </div>
+            <div className="widget-stats row">
+              <DashboardShoesStats events={this.changeShoesEvents()} />
+            </div>
           </div>
         </div> {/* .row */}
 

@@ -47,6 +47,10 @@ export default (props) => {
     }
   ];
   return (
-    <DashboardStats title={props.title} stats={stats}/>
+    <div>
+      <DashboardStats stats={stats[0]}/>
+      <DashboardStats stats={stats[1]}/>
+      <DashboardStats stats={stats[2]}/>
+    </div>
   );
 };
