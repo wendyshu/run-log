@@ -5,6 +5,7 @@ import DashboardAggregateStats from '../dashboardWidgets/DashboardAggregateStats
 import DashboardBarChart from '../dashboardWidgets/DashboardBarChart.jsx';
 import DashboardPieChart from '../dashboardWidgets/DashboardPieChart.jsx';
 import DashboardShoesStats from '../dashboardWidgets/DashboardShoesStats.jsx';
+import DashboardSpeedometer from '../dashboardWidgets/DashboardSpeedometer.jsx';
 import DashboardTabs from './DashboardTabs.jsx';
 import FeaturedRun from '../featuredRun/FeaturedRun.jsx';
 /*eslint-enable no-unused-vars*/
@@ -107,8 +108,8 @@ class Dashboard extends React.Component {
           <div className="col-md-6">
             <h2>Breakdown</h2>
             <div className="widget-stats">
-              <div className="widget-stat widget-stub borderless col-xs-4">
-                (chart)
+              <div className="widget-stub borderless col-xs-4">
+                <DashboardSpeedometer events={chartEvents} />
               </div>
               <div className="col-xs-8 pie-chart-wrapper">
                 <DashboardPieChart totalDays={tabData.totalDays} events={chartEvents} />
