@@ -20,10 +20,10 @@ export default () => (
       <div className="navbar-collapse collapse" id="navbar-content">
         <ul className="nav navbar-nav">
           <IndexLinkContainer activeClassName="active" to="/">
-            <NavItem>Home</NavItem>
+            <NavItem>Dashboard</NavItem>
           </IndexLinkContainer>
           <IndexLinkContainer activeClassName="active" to="/activity">
-            <NavItem>Activity</NavItem>
+            <NavItem>Manage</NavItem>
           </IndexLinkContainer>
         </ul>
       </div>

@@ -115,7 +115,7 @@ class Dashboard extends React.Component {
 
         <div className="row">
           <div className="col-md-6">
-            <h2>Breakdown</h2>
+            <h2>Overall</h2>
             <div className="widget-stats">
               <DashboardTotalDistanceStats events={periodEvents} />
               <div className="col-xs-8 pie-chart-wrapper">
