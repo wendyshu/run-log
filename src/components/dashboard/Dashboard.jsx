@@ -25,25 +25,19 @@ class Dashboard extends React.Component {
     case TAB_7_DAY:
       days = 7;
       return {
-        statsLabel: 'This Week',
-        periodStartMoment: moment().startOf('isoWeek'),
-        chartStartMoment: moment().subtract({ days }),
+        startMoment: moment().subtract({ days }),
         totalDays: days
       };
     case TAB_30_DAY:
       days = 30;
       return {
-        statsLabel: 'This Month',
-        periodStartMoment: moment().startOf('month'),
-        chartStartMoment: moment().subtract({ days }),
+        startMoment: moment().subtract({ days }),
         totalDays: days
       };
     case TAB_365_DAY:
       days = 365;
       return {
-        statsLabel: 'This Year',
-        periodStartMoment: moment().startOf('year'),
-        chartStartMoment: moment().subtract({ days }),
+        startMoment: moment().subtract({ days }),
         totalDays: days
       };
     case TAB_ALL:
@@ -51,9 +45,7 @@ class Dashboard extends React.Component {
       console.log('TODO:', events);
       days = 999;
       return {
-        statsLabel: 'Lifetime',
-        periodStartMoment: moment(0),
-        chartStartMoment: moment(0),
+        startMoment: moment(0),
         totalDays: days
       };
     }
@@ -74,15 +66,14 @@ class Dashboard extends React.Component {
 
   render() {
     const tabData = this.tabData(this.props.events.data);
-    const chartEvents = this.eventsSince(tabData.chartStartMoment);
-    const periodEvents = this.eventsSince(tabData.periodStartMoment);
+    const selectedEvents = this.eventsSince(tabData.startMoment);
 
     return (
       <div className="dashboard">
 
         <div className="row">
           <div className="col-xs-12">
-            <FeaturedRun events={this.filterByTypes(periodEvents, ['Run'])} />
+            <FeaturedRun events={this.filterByTypes(selectedEvents, ['Run'])} />
           </div>
         </div> {/* .row */}
 
@@ -98,17 +89,17 @@ class Dashboard extends React.Component {
             <div className="dashboard-bar-chart">
               <DashboardBarChart
                 selectedTab={this.props.dashboard.ui.selectedTab}
-                events={this.filterByTypes(chartEvents, ['Run'])}/>
+                events={this.filterByTypes(selectedEvents, ['Run'])}/>
             </div>
           </div>
           <div className="col-md-6">
             <div className="row">
-              <h2>{tabData.statsLabel}</h2>
+              <h2>Speed</h2>
             </div>
             <div className="widget-stats row">
-              <DashboardSpeedometer events={chartEvents} />
-              <DashboardAveragePaceStats events={periodEvents} />
-              <DashboardTopPaceStats events={periodEvents} />
+              <DashboardSpeedometer events={selectedEvents} />
+              <DashboardAveragePaceStats events={selectedEvents} />
+              <DashboardTopPaceStats events={selectedEvents} />
             </div>
           </div>
         </div> {/* .row */}
@@ -117,9 +108,9 @@ class Dashboard extends React.Component {
           <div className="col-md-6">
             <h2>Overall</h2>
             <div className="widget-stats">
-              <DashboardTotalDistanceStats events={periodEvents} />
+              <DashboardTotalDistanceStats events={selectedEvents} />
               <div className="col-xs-8">
-                <DashboardPieChart totalDays={tabData.totalDays} events={chartEvents} />
+                <DashboardPieChart totalDays={tabData.totalDays} events={selectedEvents} />
               </div>
             </div>
           </div>
