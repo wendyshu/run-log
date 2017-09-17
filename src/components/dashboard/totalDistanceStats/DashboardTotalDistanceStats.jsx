@@ -1,9 +1,9 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
-import DashboardStats from './DashboardStats.jsx';
+import DashboardStats from '../stats/DashboardStats.jsx';
 /*eslint-enable no-unused-vars*/
 
-import { add } from '../../scripts/utils/math';
+import { add } from '../../../scripts/utils/math';
 
 function calcDistance(events) {
   return events.map(e => e.distance)

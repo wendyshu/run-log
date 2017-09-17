@@ -1,13 +1,13 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
 
-import DashboardAveragePaceStats from '../dashboardWidgets/DashboardAveragePaceStats.jsx';
-import DashboardBarChart from '../dashboardWidgets/DashboardBarChart.jsx';
-import DashboardPieChart from '../dashboardWidgets/DashboardPieChart.jsx';
-import DashboardShoesStats from '../dashboardWidgets/DashboardShoesStats.jsx';
-import DashboardSpeedometer from '../dashboardWidgets/DashboardSpeedometer.jsx';
-import DashboardTopPaceStats from '../dashboardWidgets/DashboardTopPaceStats.jsx';
-import DashboardTotalDistanceStats from '../dashboardWidgets/DashboardTotalDistanceStats.jsx';
+import DashboardAveragePaceStats from './averagePaceStats/DashboardAveragePaceStats.jsx';
+import DashboardBarChart from './barChart/DashboardBarChart.jsx';
+import DashboardPieChart from './pieChart/DashboardPieChart.jsx';
+import DashboardShoesStats from './shoesStats/DashboardShoesStats.jsx';
+import DashboardSpeedometer from './speedometer/DashboardSpeedometer.jsx';
+import DashboardTopPaceStats from './topPaceStats/DashboardTopPaceStats.jsx';
+import DashboardTotalDistanceStats from './totalDistanceStats/DashboardTotalDistanceStats.jsx';
 import DashboardTabs from './DashboardTabs.jsx';
 import FeaturedRun from '../featuredRun/FeaturedRun.jsx';
 /*eslint-enable no-unused-vars*/

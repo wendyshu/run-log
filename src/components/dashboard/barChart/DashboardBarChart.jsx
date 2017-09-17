@@ -5,8 +5,8 @@ import ChartistGraph from 'react-chartist';
 
 import moment from 'moment';
 
-import { TAB_7_DAY, TAB_30_DAY, TAB_365_DAY, TAB_ALL } from '../dashboard/constants';
-import { add } from '../../scripts/utils/math';
+import { TAB_7_DAY, TAB_30_DAY, TAB_365_DAY, TAB_ALL } from '../../dashboard/constants';
+import { add } from '../../../scripts/utils/math';
 
 /*
  * Given moment, subtracts time.

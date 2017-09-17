@@ -1,6 +1,6 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
-import DashboardStats from './DashboardStats.jsx';
+import DashboardStats from '../stats/DashboardStats.jsx';
 /*eslint-enable no-unused-vars*/
 
 function dummyStats() {
