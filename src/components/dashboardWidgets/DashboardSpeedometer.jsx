@@ -36,7 +36,7 @@ function data(mph) {
 export default (props) => {
   const mph = calcMph(props.events);
   return (
-    <div className="dashboard-speedometer">
+    <div className="dashboard-speedometer widget-stat-imposter col-xs-4">
       <div className="speed-achieved">{mph.toFixed(2)} mph</div>
       <div className="speed-goal">out of {GoalMPH.toFixed(2)} mph</div>
       <div className="svg-shrinkwrap">

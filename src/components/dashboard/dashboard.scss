@@ -5,8 +5,10 @@
     font-size: 1.35em;
   }
 
-  .pie-chart-wrapper {
-    min-height: $widget-height;
+  .row {
+    // Remove bootstrap's negative margin
+    margin-left: 0;
+    margin-right: 0;
   }
 
 } // .dashboard

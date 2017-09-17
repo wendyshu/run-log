@@ -1,5 +1,8 @@
 .dashboard-speedometer {
 
+  background-color: $widget-background-color;
+  padding: 1.1em;
+
   .svg-shrinkwrap {
     height: 5.35em;
     overflow: hidden;

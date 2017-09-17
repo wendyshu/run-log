@@ -1,19 +1,24 @@
 .dashboard {
 
-  .widget-stub, .widget-stats {
+  .widget-stats {
+
+    // background-color: $widget-background-color;
+    // border-radius: $widget-border-radius;
+  }
+
+  .widget-stats .widget-stat, .widget-stats .widget-stat-imposter {
     text-align: center;
     background-color: $widget-background-color;
-    border-radius: $widget-border-radius;
-  }
-
-  .widget-stub {
-    min-height: $widget-height;
-    padding: 1em;
-  }
-
-  .widget-stats .widget-stat {
     border-right: 1px solid #ccc;
     height: 100%;
+
+    &:first-child {
+      border-radius: $widget-border-radius 0 0 $widget-border-radius;
+    }
+
+    &:last-child {
+      border-radius: 0 $widget-border-radius $widget-border-radius 0;
+    }
   }
 
   .widget-stats .widget-stat:last-child {

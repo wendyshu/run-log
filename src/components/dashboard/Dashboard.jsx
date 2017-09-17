@@ -106,9 +106,9 @@ class Dashboard extends React.Component {
               <h2>{tabData.statsLabel}</h2>
             </div>
             <div className="widget-stats row">
+              <DashboardSpeedometer events={chartEvents} />
               <DashboardAveragePaceStats events={periodEvents} />
               <DashboardTopPaceStats events={periodEvents} />
-              <DashboardTotalDistanceStats events={periodEvents} />
             </div>
           </div>
         </div> {/* .row */}
@@ -117,9 +117,7 @@ class Dashboard extends React.Component {
           <div className="col-md-6">
             <h2>Breakdown</h2>
             <div className="widget-stats">
-              <div className="widget-stub borderless col-xs-4">
-                <DashboardSpeedometer events={chartEvents} />
-              </div>
+              <DashboardTotalDistanceStats events={periodEvents} />
               <div className="col-xs-8 pie-chart-wrapper">
                 <DashboardPieChart totalDays={tabData.totalDays} events={chartEvents} />
               </div>
