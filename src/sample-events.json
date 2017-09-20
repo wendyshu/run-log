@@ -7,6 +7,13 @@
   },
   "events": [
     {
+      "@id": "_:n19",
+      "@type": "Run",
+      "date": "2017-09-20",
+      "category": "distance",
+      "distance": 5.43,
+      "duration": "PT49M40S"
+    },{
       "@id": "_:n18",
       "@type": "Run",
       "date": "2017-09-17",
