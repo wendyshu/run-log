@@ -7,6 +7,13 @@
   },
   "events": [
     {
+      "@id": "_:n24",
+      "@type": "Run",
+      "date": "2017-09-24",
+      "category": "distance",
+      "distance": 7.71,
+      "duration": "PT1H14M30S"
+    },{
       "@id": "_:n23",
       "@type": "Run",
       "date": "2017-09-23",
