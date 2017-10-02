@@ -7,6 +7,13 @@
   },
   "events": [
     {
+      "@id": "_:n28",
+      "@type": "Run",
+      "date": "2017-10-02",
+      "category": "casual",
+      "distance": 2.00,
+      "duration": "PT17M22S"
+    },{
       "@id": "_:n27",
       "@type": "Run",
       "date": "2017-10-01",
