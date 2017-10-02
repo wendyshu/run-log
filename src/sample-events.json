@@ -7,6 +7,10 @@
   },
   "events": [
     {
+      "@id": "_:n29",
+      "@type": "CrossTrain",
+      "date": "2017-10-02"
+    },{
       "@id": "_:n28",
       "@type": "Run",
       "date": "2017-10-02",
