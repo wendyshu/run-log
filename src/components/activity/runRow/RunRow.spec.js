@@ -1,5 +1,5 @@
 import React from 'react';
-import ActivityRunRow from './ActivityRunRow.jsx';
+import RunRow from './RunRow.jsx';
 import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
 import moment from 'moment';
@@ -26,7 +26,7 @@ const Samples = {
 test('Sample event with all fields defined should match snapshot', () => {
 
   const component = renderer.create(
-    <ActivityRunRow event={Samples.sample1} />
+    <RunRow event={Samples.sample1} />
   );
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -35,7 +35,7 @@ test('Sample event with all fields defined should match snapshot', () => {
 test('Minimal event should match snapshot.', () => {
 
   const component = renderer.create(
-    <ActivityRunRow event={Samples.minimal} />
+    <RunRow event={Samples.minimal} />
   );
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -44,7 +44,7 @@ test('Minimal event should match snapshot.', () => {
 test('Minimal event should contain expected default values', () => {
 
   const row = shallow(
-    <ActivityRunRow event={Samples.minimal} />
+    <RunRow event={Samples.minimal} />
   );
 
   const classes = ['data-date', 'data-category', 'data-distance', 'data-duration', 'data-notes'];

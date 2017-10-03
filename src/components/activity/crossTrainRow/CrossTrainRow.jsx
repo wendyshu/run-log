@@ -2,8 +2,8 @@
 import React from 'react';
 /*eslint-enable no-unused-vars*/
 
-import { formatDate } from '../../scripts/utils/dates';
-import Optional from '../optional/optional';
+import { formatDate } from '../../../scripts/utils/dates';
+import Optional from '../../optional/optional';
 
 export default (props) => (
   <tr className="activity-cross-train">
