@@ -1,5 +1,6 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
+import { Jumbotron } from 'react-bootstrap';
 /*eslint-enable no-unused-vars*/
 
 function die(sides) {
@@ -22,9 +23,9 @@ function randomType(selected) {
 export default (props) => {
   console.log('Featured run events...', props.events); // TODO:
   return (
-    <div className="jumbotron">
+    <Jumbotron>
       <h1>{randomType(die(4))}</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed arcu ex, imperdiet non pulvinar sit amet, finibus non justo. Ut et rutrum quam. Sed dignissim arcu bibendum tortor lobortis ultrices.</p>
-    </div>
+    </Jumbotron>
   );
 };
