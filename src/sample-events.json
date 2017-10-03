@@ -7,12 +7,8 @@
   },
   "events": [
     {
-      "@id": "_:n29",
-      "@type": "CrossTrain",
-      "date": "2017-10-02"
-    },{
       "@id": "_:n28",
-      "@type": "Run",
+      "@type": "Run+CrossTrain",
       "date": "2017-10-02",
       "category": "casual",
       "distance": 2.00,
@@ -25,12 +21,8 @@
       "distance": 7.33,
       "duration": "PT1H09M20S"
     },{
-      "@id": "_:n26",
-      "@type": "CrossTrain",
-      "date": "2017-09-30"
-    },{
       "@id": "_:n25",
-      "@type": "Run",
+      "@type": "Run+CrossTrain",
       "date": "2017-09-30",
       "category": "speed",
       "distance": 3.00,
@@ -44,26 +36,18 @@
       "duration": "PT1H14M30S"
     },{
       "@id": "_:n23",
-      "@type": "Run",
+      "@type": "Run+CrossTrain",
       "date": "2017-09-23",
       "category": "speed",
       "distance": 2.00,
       "duration": "PT16M00S"
     },{
-      "@id": "_:n22",
-      "@type": "CrossTrain",
-      "date": "2017-09-23"
-    },{
       "@id": "_:n21",
-      "@type": "Run",
+      "@type": "Run+CrossTrain",
       "date": "2017-09-21",
       "category": "speed",
       "distance": 1.00,
       "duration": "PT6M58S"
-    },{
-      "@id": "_:n20",
-      "@type": "CrossTrain",
-      "date": "2017-09-21"
     },{
       "@id": "_:n19",
       "@type": "Run",
@@ -138,18 +122,13 @@
       "duration": "PT45M44S",
       "notes": "Burdened: running bag w/ 15MBP. From office to home."
     },{
-      "@id": "_:n8",
-      "@type": "CrossTrain",
-      "date": "2017-08-28",
-      "notes": "Circuit training: 2 sets"
-    },{
       "@id": "_:n7",
-      "@type": "Run",
+      "@type": "Run+CrossTrain",
       "date": "2017-08-28",
       "category": "speed",
       "distance": 1.00,
       "duration": "PT7M24S",
-      "notes": "Treadmill, 1° incline"
+      "notes": "Treadmill, 1° incline; 2 sets circuit training"
     },{
       "@id": "_:n6",
       "@type": "Run",

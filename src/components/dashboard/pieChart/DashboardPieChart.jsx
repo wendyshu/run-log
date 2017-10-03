@@ -4,9 +4,14 @@ import React from 'react';
 import ChartistGraph from 'react-chartist';
 /*eslint-enable no-unused-vars*/
 
+function eventsByType(props, type) {
+  return props.events.filter(e => e['@type'] === type);
+}
+
 function calculateCounts(props) {
-  const crossTraining = props.events.filter(e => e['@type'] === 'CrossTrain');
-  const running = props.events.filter(e => e['@type'] === 'Run');
+  const running = eventsByType(props, 'Run');
+  const crossTraining = eventsByType(props, 'CrossTrain');
+  const runCrossTrain = eventsByType(props, 'Run+CrossTrain');
   return [
     {
       value: props.totalDays - props.events.length,
@@ -15,6 +20,10 @@ function calculateCounts(props) {
     {
       value: crossTraining.length,
       className: 'slice-x-train'
+    },
+    {
+      value: runCrossTrain.length,
+      className: 'slice-run-x-train'
     },
     {
       value: running.filter(e => e.category === 'casual').length,
@@ -58,6 +67,10 @@ export default (props) => {
             <tr>
               <td className="color slice-x-train"></td>
               <td className="description">Cross-train</td>
+            </tr>
+            <tr>
+              <td className="color slice-run-x-train"></td>
+              <td className="description">Run + train</td>
             </tr>
             <tr>
               <td className="color slice-casual"></td>

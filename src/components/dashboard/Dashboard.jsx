@@ -89,7 +89,7 @@ class Dashboard extends React.Component {
             <div className="dashboard-bar-chart">
               <DashboardBarChart
                 selectedTab={this.props.dashboard.ui.selectedTab}
-                events={this.filterByTypes(selectedEvents, ['Run'])}/>
+                events={this.filterByTypes(selectedEvents, ['Run', 'Run+CrossTrain'])}/>
             </div>
           </div>
           <div className="col-md-6">

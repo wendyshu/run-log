@@ -14,12 +14,19 @@ exports[`Minimal event should match snapshot. 1`] = `
     </span>
   </td>
   <td
-    className="data-category"
+    className="data-icons"
   >
     <span
       className="glyphicon glyphicon-road"
     />
      
+    <span
+      className="glyphicon glyphicon-apple inactive"
+    />
+  </td>
+  <td
+    className="data-category"
+  >
     <span
       className="value"
     >
@@ -86,12 +93,19 @@ exports[`Sample event with all fields defined should match snapshot 1`] = `
     </span>
   </td>
   <td
-    className="data-category"
+    className="data-icons"
   >
     <span
       className="glyphicon glyphicon-road"
     />
      
+    <span
+      className="glyphicon glyphicon-apple inactive"
+    />
+  </td>
+  <td
+    className="data-category"
+  >
     <span
       className="value"
     >

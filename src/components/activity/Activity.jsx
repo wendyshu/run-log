@@ -1,6 +1,7 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
 import ActivityCrossTrainRow from './ActivityCrossTrainRow.jsx';
+import ActivityRunCrossTrainRow from './ActivityRunCrossTrainRow.jsx';
 import ActivityRunRow from './ActivityRunRow.jsx';
 import AddEvent from './addEvent/AddEvent.jsx';
 import FeaturedRun from '../featuredRun/FeaturedRun.jsx';
@@ -20,11 +21,11 @@ class Activity extends React.Component {
   }
 
   runEvents() {
-    return this.filteredEvents(['Run']);
+    return this.filteredEvents(['Run','Run+CrossTrain']);
   }
 
   fitnessEvents() {
-    return this.filteredEvents(['Run','CrossTrain']);
+    return this.filteredEvents(['Run','Run+CrossTrain','CrossTrain']);
   }
 
   renderFitnessEvents() {
@@ -32,6 +33,8 @@ class Activity extends React.Component {
       switch(e['@type']) {
       case 'Run':
         return ( <ActivityRunRow event={e} key={e['@id']} /> );
+      case 'Run+CrossTrain':
+        return ( <ActivityRunCrossTrainRow event={e} key={e['@id']} /> );
       case 'CrossTrain':
         return ( <ActivityCrossTrainRow event={e} key={e['@id']} /> );
       }
@@ -57,6 +60,7 @@ class Activity extends React.Component {
               <thead>
                 <tr>
                   <th className="data-date">Date</th>
+                  <th className="data-icons"></th>
                   <th className="data-category">Category</th>
                   <th className="data-distance">Distance</th>
                   <th className="data-duration">Duration</th>
