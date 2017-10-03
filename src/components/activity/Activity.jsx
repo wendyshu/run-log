@@ -3,6 +3,8 @@ import React from 'react';
 import ActivityCrossTrainRow from './ActivityCrossTrainRow.jsx';
 import ActivityRunRow from './ActivityRunRow.jsx';
 import FeaturedRun from '../featuredRun/FeaturedRun.jsx';
+import { Modal } from 'react-bootstrap';
+import { openEntryModal, closeEntryModal } from './actions';
 /*eslint-enable no-unused-vars*/
 
 import { connect } from 'react-redux';
@@ -40,6 +42,14 @@ class Activity extends React.Component {
   render() {
     return (
       <div className="activity">
+        <Modal show={this.props.manage.ui.showEntryModal} onHide={this.props.closeEntryModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Add Entry</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>Spoon</p>
+          </Modal.Body>
+        </Modal>
         <div className="row">
           <div className="col-xs-12">
             <FeaturedRun events={this.runEvents()}/>
@@ -47,7 +57,7 @@ class Activity extends React.Component {
         </div>
         <div className="row">
           <div className="col-xs-12 global-actions">
-            <button type="button" className="btn btn-primary btn-lg">
+            <button onClick={this.props.openEntryModal} type="button" className="btn btn-primary btn-lg">
               <span className="glyphicon glyphicon-plus"/>
               <span>Entry</span>
             </button>
@@ -79,8 +89,9 @@ class Activity extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    events: state.events
+    events: state.events,
+    manage: state.manage
   };
 }
 
-export default connect(mapStateToProps, {})(Activity);
+export default connect(mapStateToProps, {openEntryModal, closeEntryModal})(Activity);

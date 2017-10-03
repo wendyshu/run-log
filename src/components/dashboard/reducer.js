@@ -9,7 +9,7 @@ export const INITIAL_STATE = {
 };
 
 /**
- * Reducer function for books application.
+ * Reducer function for dashboard.
  */
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
