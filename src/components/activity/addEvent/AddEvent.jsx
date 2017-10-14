@@ -4,7 +4,10 @@ import { DropdownButton, MenuItem, Modal } from 'react-bootstrap';
 import RunModal from '../modals/runModal/RunModal.jsx';
 /*eslint-enable no-unused-vars*/
 
-import { MODAL_RUN, MODAL_CROSS_TRAIN, MODAL_RUN_CROSS_TRAIN, MODAL_SHOES, showModal } from '../modals/actions';
+import { MODAL_RUN } from '../modals/runModal/actions';
+
+// TODO: move
+import { MODAL_CROSS_TRAIN, MODAL_RUN_CROSS_TRAIN, MODAL_SHOES, showModal } from '../modals/actions';
 
 import { connect } from 'react-redux';
 

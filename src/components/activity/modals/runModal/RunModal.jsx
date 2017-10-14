@@ -1,9 +1,10 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
-import { DropdownButton, MenuItem, Modal } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
+import EntryModal from '../EntryModal.jsx';
 /*eslint-enable no-unused-vars*/
 
-import { MODAL_RUN, hideModal } from '../actions';
+import { MODAL_RUN } from './actions';
 
 import { connect } from 'react-redux';
 
@@ -13,32 +14,13 @@ class RunModal extends React.Component {
     super(props);
   }
 
-  hideModal() {
-    this.props.hideModal();
-  }
-
-  shouldShow() {
-    return MODAL_RUN === this.props.modals.ui.showModal;
-  }
-
   render() {
     return (
-      <Modal show={this.shouldShow()} onHide={this.hideModal.bind(this)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Run</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>Foo</p>
-        </Modal.Body>
-      </Modal>
+      <EntryModal modal={MODAL_RUN} title="Run">
+        <p>Foo</p>
+      </EntryModal>
     );
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    modals: state.modals
-  };
-}
-
-export default connect(mapStateToProps, {hideModal})(RunModal);
+export default connect(null, {})(RunModal);
