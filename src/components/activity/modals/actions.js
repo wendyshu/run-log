@@ -1,8 +1,3 @@
-// TODO: move
-export const MODAL_CROSS_TRAIN = 'MODAL_CROSS_TRAIN',
-  MODAL_RUN_CROSS_TRAIN = 'MODAL_RUN_CROSS_TRAIN',
-  MODAL_SHOES = 'MODAL_SHOES';
-
 export const SHOW_MODAL = 'SHOW_MODAL';
 export function showModal(modal) {
   return {
