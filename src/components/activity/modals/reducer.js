@@ -8,7 +8,7 @@ function showModal(show) {
   };
 }
 
-const INITIAL_STATE = showModal(false);
+const INITIAL_STATE = showModal(null);
 
 /**
  * Reducer function for dashboard.
@@ -16,9 +16,9 @@ const INITIAL_STATE = showModal(false);
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
   case SHOW_MODAL:
-    return Object.assign({}, state, showModal(true));
+    return Object.assign({}, state, showModal(action.modal));
   case HIDE_MODAL:
-    return Object.assign({}, state, showModal(false));
+    return Object.assign({}, state, showModal(null));
   default:
     return state;
   }
