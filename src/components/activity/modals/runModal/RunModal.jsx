@@ -7,6 +7,7 @@ import EntryModal from '../EntryModal.jsx';
 
 import { hideModal } from '../actions';
 import { MODAL_RUN } from './actions';
+import { addEvent } from '../../../events/actions';
 
 import moment from 'moment';
 import { connect } from 'react-redux';
@@ -31,12 +32,12 @@ class RunModal extends React.Component {
       '@type': 'Run',
       date: moment().format('YYYY-MM-DD'),
       category,
-      distance,
+      distance: distance ? parseFloat(distance) : null,
       notes,
       duration
     };
 
-    console.log('DEBUG:', thisEvent);
+    this.props.addEvent(thisEvent);
 
     this.props.hideModal();
   }
@@ -125,4 +126,4 @@ class RunModal extends React.Component {
   }
 }
 
-export default connect(null, {hideModal})(RunModal);
+export default connect(null, {hideModal, addEvent})(RunModal);

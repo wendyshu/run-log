@@ -1,4 +1,4 @@
-import { LOAD_EVENTS, RECEIVE_EVENTS } from './actions';
+import { LOAD_EVENTS, RECEIVE_EVENTS, ADD_EVENT } from './actions';
 
 const INITIAL_STATE = {
   loaded: false,
@@ -10,6 +10,10 @@ const INITIAL_STATE = {
  */
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
+  case ADD_EVENT:
+    return Object.assign({}, state, {
+      data: [ action.event, ...state.data ]
+    });
   case LOAD_EVENTS:
     return Object.assign({}, state, {
       loading: true

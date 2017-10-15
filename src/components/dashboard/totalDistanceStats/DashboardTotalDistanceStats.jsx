@@ -12,6 +12,7 @@ function calcDistance(events) {
 }
 
 export default (props) => {
+  console.log('DEBUG: ',props);
   const stats = {
     name: 'Total Distance',
     value: `${calcDistance(props.events).toFixed(2)} mi`
