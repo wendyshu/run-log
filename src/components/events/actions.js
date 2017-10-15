@@ -10,14 +10,7 @@ export const SEND_ADD_EVENT = 'SEND_ADD_EVENT',
 const MILLIS_WAIT = 350;
 
 import SampleEvents from '../../sample-events.json';
-
-// TODO: move to utils
-function uuid() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);
-  });
-}
+import { randomUuid } from '../../scripts/utils/uuid';
 
 const Actions = {
 
@@ -97,7 +90,7 @@ export function editEvent(event) {
  * TODO: post to server, then fetch events...
  */
 export function addEvent(event) {
-  event['@id'] = `urn:uuid:${uuid()}`; // TODO: server does this
+  event['@id'] = `urn:uuid:${randomUuid()}`; // TODO: server does this
   return simulateAsyncRequest(Actions.requestAddEvent(event), Actions.receiveAddEvent(event));
 }
 
