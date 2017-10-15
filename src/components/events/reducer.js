@@ -1,4 +1,4 @@
-import { LOAD_EVENTS, RECEIVE_EVENTS, ADD_EVENT, REMOVE_EVENT } from './actions';
+import { LOAD_EVENTS, RECEIVE_EVENTS, ADD_EVENT, EDIT_EVENT, REMOVE_EVENT } from './actions';
 
 const INITIAL_STATE = {
   loaded: false,
@@ -13,6 +13,16 @@ export default function(state = INITIAL_STATE, action) {
   case ADD_EVENT:
     return Object.assign({}, state, {
       data: [ action.event, ...state.data ]
+    });
+  case EDIT_EVENT:
+    return Object.assign({}, state, {
+      data: state.data.map(e => {
+        if (e['@id'] === action.event['@id']) {
+          return action.event;
+        } else {
+          return e;
+        }
+      })
     });
   case REMOVE_EVENT:
     return Object.assign({}, state, {

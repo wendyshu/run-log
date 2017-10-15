@@ -5,9 +5,10 @@ import { Form, Select, Text, Textarea } from 'react-form';
 import EntryModal from '../EntryModal.jsx';
 /*eslint-enable no-unused-vars*/
 
+import { durationToComponents } from '../../../../scripts/utils/dates';
 import { hideModal } from '../actions';
 import { MODAL_RUN } from './actions';
-import { addEvent } from '../../../events/actions';
+import { addEvent, editEvent } from '../../../events/actions';
 
 import moment from 'moment';
 import { connect } from 'react-redux';
@@ -16,36 +17,6 @@ class RunModal extends React.Component {
 
   constructor(props) {
     super(props);
-  }
-
-  duration(hours, minutes, seconds) {
-    if (hours || minutes || seconds) {
-      return `PT${hours ? hours : '0'}H${minutes ? minutes : '00'}M${seconds ? seconds : '00'}S`;
-    } else {
-      return null;
-    }
-  }
-
-  onSubmit({category, distance, hours, minutes, seconds, notes}) {
-    const duration = this.duration(hours, minutes, seconds);
-    const thisEvent = {
-      '@type': 'Run',
-      date: moment().format('YYYY-MM-DD'),
-      category,
-      distance: distance ? parseFloat(distance) : null,
-      notes,
-      duration
-    };
-
-    this.props.addEvent(thisEvent);
-
-    this.props.hideModal();
-  }
-
-  validate({category}) {
-    return {
-      category: ! category ? 'Please select a category' : undefined
-    };
   }
 
   categoryOptions() {
@@ -64,9 +35,78 @@ class RunModal extends React.Component {
     }];
   }
 
+  // TODO: move to dates.js and test
+  duration(hours, minutes, seconds) {
+    if (hours || minutes || seconds) {
+      return `PT${hours ? hours : '0'}H${minutes ? minutes : '00'}M${seconds ? seconds : '00'}S`;
+    } else {
+      return null;
+    }
+  }
+
+  onSubmit({id, category, date, distance, hours, minutes, seconds, notes}) {
+    const duration = this.duration(hours, minutes, seconds);
+    const thisEvent = {
+      '@id': id,
+      '@type': 'Run',
+      date,
+      category,
+      distance: distance ? parseFloat(distance) : null,
+      notes,
+      duration
+    };
+
+    if (this.eventToEdit()) {
+      this.props.editEvent(thisEvent);
+    } else {
+      this.props.addEvent(thisEvent);
+    }
+
+    this.props.hideModal();
+  }
+
+  validate({category, date}) {
+    return {
+      category: ! category ? 'Please select a category' : undefined,
+      date: ! date ? 'Please select a date' : undefined
+    };
+  }
+
+  // TODO: use Underscore or move to utils and test
+  get(obj, prop, defaultVal) {
+    return obj ? obj[prop] : defaultVal;
+  }
+
+  defaultValues() {
+
+    const duration = this.get(this.eventToEdit(), 'duration');
+    var time = {};
+    if (duration) {
+      time = durationToComponents(duration);
+    }
+
+    return {
+      id: this.get(this.eventToEdit(), '@id'),
+      date: this.get(this.eventToEdit(), 'date', moment().format('YYYY-MM-DD')),
+      category: this.get(this.eventToEdit(), 'category'),
+      distance: this.get(this.eventToEdit(), 'distance'),
+      notes: this.get(this.eventToEdit(), 'notes'),
+      ...time
+    };
+  }
+
+  eventToEdit() {
+    return this.props.modals.editEvent;
+  }
+
   formContents({submitForm}) {
     return (
       <form onSubmit={submitForm}>
+
+        <div className='form-group'>
+          <label htmlFor='category'>Date</label>
+          <Text className='form-control' field='date' type='date' />
+        </div>
 
         <div className='form-group'>
           <label htmlFor='category'>Category</label>
@@ -116,10 +156,10 @@ class RunModal extends React.Component {
   }
 
   render() {
-    const title = this.props.modals.editEvent ? 'Edit Run' : 'Add Run';
+    const title = this.eventToEdit() ? 'Edit Run' : 'Add Run';
     return (
       <EntryModal modal={MODAL_RUN} title={title}>
-        <Form onSubmit={this.onSubmit.bind(this)} validate={this.validate}>
+        <Form defaultValues={this.defaultValues()} onSubmit={this.onSubmit.bind(this)} validate={this.validate}>
           {this.formContents.bind(this)}
         </Form>
       </EntryModal>
@@ -133,4 +173,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {hideModal, addEvent})(RunModal);
+export default connect(mapStateToProps, {hideModal, addEvent, editEvent})(RunModal);

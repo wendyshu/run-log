@@ -20,6 +20,22 @@ export function formatDuration(duration) {
 }
 
 /**
+ * "PT2M35S" -> {
+ *   'hours': 0,
+ *   'minutes': 2,
+ *   'seconds': 35
+ * }
+ */
+export function durationToComponents(duration) {
+  const dur = moment.duration(duration);
+  return {
+    'hours': dur.hours(),
+    'minutes': dur.minutes(),
+    'seconds': dur.seconds()
+  };
+}
+
+/**
  * E.g., "PT2M35S" -> 155
  */
 export function durationToSeconds(duration) {
