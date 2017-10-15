@@ -1,8 +1,8 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
-import CrossTrainRow from './crossTrainRow/CrossTrainRow.jsx';
-import RunCrossTrainRow from './runCrossTrainRow/RunCrossTrainRow.jsx';
-import RunRow from './runRow/RunRow.jsx';
+import CrossTrainRow from './row/crossTrainRow/CrossTrainRow.jsx';
+import RunCrossTrainRow from './row/runCrossTrainRow/RunCrossTrainRow.jsx';
+import RunRow from './row/runRow/RunRow.jsx';
 import AddEvent from './addEvent/AddEvent.jsx';
 import FeaturedRun from '../featuredRun/FeaturedRun.jsx';
 /*eslint-enable no-unused-vars*/
