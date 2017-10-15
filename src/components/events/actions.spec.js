@@ -1,20 +1,20 @@
-import { loadEvents, LOAD_EVENTS, RECEIVE_EVENTS } from './actions';
+import { loadEvents, SEND_GET_EVENTS, RECEIVE_GET_EVENTS } from './actions';
 
 test('loadEvents should fire two actions', (done) => {
   expect.assertions(2);
 
   const dispatch = (event) => {
     switch (event.type) {
-    case LOAD_EVENTS:
+    case SEND_GET_EVENTS:
       return;
-    case RECEIVE_EVENTS:
+    case RECEIVE_GET_EVENTS:
       expect(event.payload).toBeDefined();
       expect(event.receivedAt).toBeDefined();
       done();
       return;
     default:
       // Jest doesn't have fail...
-      expect([LOAD_EVENTS, RECEIVE_EVENTS]).toContain(event.type);
+      expect([SEND_GET_EVENTS, RECEIVE_GET_EVENTS]).toContain(event.type);
     }
   };
 

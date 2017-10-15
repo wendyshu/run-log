@@ -18,7 +18,7 @@ class LoadEvents extends React.Component {
 
   render() {
     return (
-      <Loader loaded={!this.props.events.loading || !!this.props.events.data.length}>
+      <Loader loaded={!this.props.events.loading}>
         {this.props.children}
       </Loader>
     );

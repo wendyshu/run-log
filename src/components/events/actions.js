@@ -1,10 +1,15 @@
-export const ADD_EVENT = 'ADD_EVENT',
-  EDIT_EVENT = 'EDIT_EVENT',
-  REMOVE_EVENT = 'REMOVE_EVENT',
-  LOAD_EVENTS = 'LOAD_EVENTS',
-  RECEIVE_EVENTS = 'RECEIVE_EVENTS';
+export const SEND_ADD_EVENT = 'SEND_ADD_EVENT',
+  RECEIVE_ADD_EVENT = 'RECEIVE_ADD_EVENT',
+  SEND_EDIT_EVENT = 'SEND_EDIT_EVENT',
+  RECEIVE_EDIT_EVENT = 'RECEIVE_EDIT_EVENT',
+  SEND_DELETE_EVENT = 'SEND_DELETE_EVENT',
+  RECEIVE_DELETE_EVENT = 'RECEIVE_DELETE_EVENT',
+  SEND_GET_EVENTS = 'SEND_GET_EVENTS',
+  RECEIVE_GET_EVENTS = 'RECEIVE_GET_EVENTS';
 
 const MILLIS_WAIT = 350;
+
+import SampleEvents from '../../sample-events.json';
 
 // TODO: move to utils
 function uuid() {
@@ -14,24 +19,78 @@ function uuid() {
   });
 }
 
+const Actions = {
+
+  requestDeleteEvent: function(eventId) {
+    return {
+      type: SEND_DELETE_EVENT,
+      eventId
+    };
+  },
+
+  receiveDeleteEvent: function(eventId) {
+    return {
+      type: RECEIVE_DELETE_EVENT,
+      eventId
+    };
+  },
+
+  requestEditEvent: function(event) {
+    return {
+      type: SEND_EDIT_EVENT,
+      event
+    };
+  },
+
+  receiveEditEvent: function(event) {
+    return {
+      type: RECEIVE_EDIT_EVENT,
+      event
+    };
+  },
+
+  requestAddEvent: function(event) {
+    return {
+      type: SEND_ADD_EVENT,
+      event
+    };
+  },
+
+  receiveAddEvent: function(event) {
+    return {
+      type: RECEIVE_ADD_EVENT,
+      event
+    };
+  },
+
+  requestEvents: function() {
+    return {
+      type: SEND_GET_EVENTS
+    };
+  },
+
+  receiveEvents: function(json) {
+    return {
+      type: RECEIVE_GET_EVENTS,
+      payload: json,
+      receivedAt: Date.now()
+    };
+  }
+
+}; // Actions
+
 /**
  * TODO: delete from server, then fetch events...
  */
 export function deleteEvent(eventId) {
-  return {
-    type: REMOVE_EVENT,
-    eventId
-  };
+  return simulateAsyncRequest(Actions.requestDeleteEvent(eventId), Actions.receiveDeleteEvent(eventId));
 }
 
 /**
  * TODO: post to server, then fetch events...
  */
 export function editEvent(event) {
-  return {
-    type: EDIT_EVENT,
-    event
-  };
+  return simulateAsyncRequest(Actions.requestEditEvent(event), Actions.receiveEditEvent(event));
 }
 
 /**
@@ -39,33 +98,22 @@ export function editEvent(event) {
  */
 export function addEvent(event) {
   event['@id'] = `urn:uuid:${uuid()}`; // TODO: server does this
-  return {
-    type: ADD_EVENT,
-    event
-  };
+  return simulateAsyncRequest(Actions.requestAddEvent(event), Actions.receiveAddEvent(event));
 }
 
-function requestEvents() {
-  return {
-    type: LOAD_EVENTS
-  };
-}
-
-function receiveEvents(json) {
-  return {
-    type: RECEIVE_EVENTS,
-    payload: json,
-    receivedAt: Date.now()
-  };
-}
-
-import SampleEvents from '../../sample-events.json';
-
+/**
+ * TODO: get from server
+ */
 export function loadEvents() {
-  return function (dispatch) {
-    dispatch(requestEvents());
+  return simulateAsyncRequest(Actions.requestEvents(), Actions.receiveEvents(SampleEvents));
+}
+
+// Helper for simulating HTTP requests
+function simulateAsyncRequest(reqAction, resAction) {
+  return (dispatch) => {
+    dispatch(reqAction);
     return new Promise(function(resolve) {
-      setTimeout(() => resolve(dispatch(receiveEvents(SampleEvents))), MILLIS_WAIT); // Simulate xhr
+      setTimeout(() => resolve(dispatch(resAction)), MILLIS_WAIT); // Simulate xhr
     });
   };
 }
