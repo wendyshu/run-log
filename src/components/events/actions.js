@@ -1,4 +1,9 @@
-export const ADD_EVENT = 'ADD_EVENT';
+export const ADD_EVENT = 'ADD_EVENT',
+  REMOVE_EVENT = 'REMOVE_EVENT',
+  LOAD_EVENTS = 'LOAD_EVENTS',
+  RECEIVE_EVENTS = 'RECEIVE_EVENTS';
+
+const MILLIS_WAIT = 350;
 
 function uuid() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -7,7 +12,17 @@ function uuid() {
   });
 }
 
-/*
+/**
+ * TODO: delete from server, then fetch events...
+ */
+export function deleteEvent(eventId) {
+  return {
+    type: REMOVE_EVENT,
+    eventId
+  };
+}
+
+/**
  * TODO: post to server, then fetch events...
  */
 export function addEvent(event) {
@@ -18,17 +33,12 @@ export function addEvent(event) {
   };
 }
 
-export const LOAD_EVENTS = 'LOAD_EVENTS';
-
-const MILLIS_WAIT = 350;
-
 function requestEvents() {
   return {
     type: LOAD_EVENTS
   };
 }
 
-export const RECEIVE_EVENTS = 'RECEIVE_EVENTS';
 function receiveEvents(json) {
   return {
     type: RECEIVE_EVENTS,
