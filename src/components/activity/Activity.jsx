@@ -5,6 +5,10 @@ import RunCrossTrainRow from './row/runCrossTrainRow/RunCrossTrainRow.jsx';
 import RunRow from './row/runRow/RunRow.jsx';
 import AddEvent from './addEvent/AddEvent.jsx';
 import FeaturedRun from '../featuredRun/FeaturedRun.jsx';
+import CrossTrainModal from './modals/crossTrainModal/CrossTrainModal.jsx';
+import RunCrossTrainModal from './modals/runCrossTrainModal/RunCrossTrainModal.jsx';
+import RunModal from './modals/runModal/RunModal.jsx';
+import ShoesModal from './modals/shoesModal/ShoesModal.jsx';
 /*eslint-enable no-unused-vars*/
 
 import { connect } from 'react-redux';
@@ -44,6 +48,12 @@ class Activity extends React.Component {
   render() {
     return (
       <div className="activity">
+        <div className='modals'>
+          <RunModal />
+          <CrossTrainModal />
+          <RunCrossTrainModal />
+          <ShoesModal />
+        </div>
         <div className="row">
           <div className="col-xs-12">
             <FeaturedRun events={this.runEvents()}/>

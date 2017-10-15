@@ -9,7 +9,7 @@ import Optional from '../../../optional/optional';
 export default ({event}) => (
   <EventRow event={event}>
     {
-      ({handleDelete}) => {
+      ({handleDelete, handleEdit}) => {
         return (
           <tr className="activity-cross-train">
             <td className="data-date">{Optional(event.date).map(formatDate).orElse('-')}</td>
@@ -20,7 +20,7 @@ export default ({event}) => (
             <td className="data-notes">{Optional(event.notes).orElse('-')}</td>
             <td className="data-actions">
               <a href="#" className="glyphicon glyphicon-heart-empty"/>
-              <a href="#" className="glyphicon glyphicon-pencil"/>
+              <a onClick={handleEdit} className="glyphicon glyphicon-pencil"/>
               <a onClick={handleDelete} className="glyphicon glyphicon glyphicon-trash"/>
             </td>
           </tr>

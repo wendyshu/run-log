@@ -17,7 +17,7 @@ class ShoesModal extends React.Component {
   render() {
     return (
       <EntryModal modal={MODAL_SHOES} title="Change Running Shoes">
-        <p>Todo...</p>
+        <p>Coming soon...</p>
       </EntryModal>
     );
   }

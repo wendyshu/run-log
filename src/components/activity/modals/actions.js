@@ -1,8 +1,9 @@
 export const SHOW_MODAL = 'SHOW_MODAL';
-export function showModal(modal) {
+export function showModal(modal, editEvent) {
   return {
     type: SHOW_MODAL,
-    modal: modal
+    modal,
+    editEvent // If present, edit; if absent, new
   };
 }
 

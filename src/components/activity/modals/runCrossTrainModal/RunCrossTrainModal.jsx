@@ -17,7 +17,7 @@ class RunCrossTrainModal extends React.Component {
   render() {
     return (
       <EntryModal modal={MODAL_RUN_CROSS_TRAIN} title="Run + Cross-Train">
-        <p>Foo</p>
+        <p>Coming soon...</p>
       </EntryModal>
     );
   }
