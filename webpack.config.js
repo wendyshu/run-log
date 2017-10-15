@@ -6,7 +6,7 @@ const extractCSS = new ExtractTextPlugin('bundle.[chunkhash].css');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const LIBS = [ 'bootstrap', 'chartist', 'es6-promise', 'isomorphic-fetch', 'jquery', 'moment', 'moment-duration-format', 'react', 'react-bootstrap', 'react-chartist', 'react-dom', 'react-loader', 'react-redux', 'react-router-bootstrap', 'react-router-dom', 'redux', 'redux-logger', 'redux-thunk' ];
+const LIBS = [ 'bootstrap', 'chartist', 'es6-promise', 'isomorphic-fetch', 'jquery', 'moment', 'moment-duration-format', 'react', 'react-bootstrap', 'react-chartist', 'react-dom', 'react-loader', 'react-redux', 'react-router-bootstrap', 'react-router-dom', 'redux', 'redux-logger', 'redux-thunk', 'react-form' ];
 
 module.exports = {
   context: path.resolve(__dirname, '.'),
