@@ -116,8 +116,9 @@ class RunModal extends React.Component {
   }
 
   render() {
+    const title = this.props.modals.editEvent ? 'Edit Run' : 'Add Run';
     return (
-      <EntryModal modal={MODAL_RUN} title="Run">
+      <EntryModal modal={MODAL_RUN} title={title}>
         <Form onSubmit={this.onSubmit.bind(this)} validate={this.validate}>
           {this.formContents.bind(this)}
         </Form>
@@ -126,4 +127,10 @@ class RunModal extends React.Component {
   }
 }
 
-export default connect(null, {hideModal, addEvent})(RunModal);
+function mapStateToProps(state) {
+  return {
+    modals: state.modals
+  };
+}
+
+export default connect(mapStateToProps, {hideModal, addEvent})(RunModal);

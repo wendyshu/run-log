@@ -15,12 +15,19 @@ class ShoesModal extends React.Component {
   }
 
   render() {
+    const title = this.props.modals.editEvent ? 'Edit Running Shoes' : 'Add Running Shoes';
     return (
-      <EntryModal modal={MODAL_SHOES} title="Change Running Shoes">
+      <EntryModal modal={MODAL_SHOES} title={title}>
         <p>Coming soon...</p>
       </EntryModal>
     );
   }
 }
 
-export default connect(null, {})(ShoesModal);
+function mapStateToProps(state) {
+  return {
+    modals: state.modals
+  };
+}
+
+export default connect(mapStateToProps, {})(ShoesModal);

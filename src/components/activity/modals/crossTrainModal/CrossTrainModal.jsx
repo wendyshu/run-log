@@ -15,12 +15,19 @@ class CrossTrainModal extends React.Component {
   }
 
   render() {
+    const title = this.props.modals.editEvent ? 'Edit Cross-Train' : 'Add Cross-Train';
     return (
-      <EntryModal modal={MODAL_CROSS_TRAIN} title="Cross-Train">
+      <EntryModal modal={MODAL_CROSS_TRAIN} title={title}>
         <p>Coming soon...</p>
       </EntryModal>
     );
   }
 }
 
-export default connect(null, {})(CrossTrainModal);
+function mapStateToProps(state) {
+  return {
+    modals: state.modals
+  };
+}
+
+export default connect(mapStateToProps, {})(CrossTrainModal);

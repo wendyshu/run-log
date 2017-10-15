@@ -3,9 +3,9 @@ import { SHOW_MODAL, HIDE_MODAL } from './actions';
 function showModal(show, editEvent) {
   return {
     ui: {
-      showModal: show,
-      editEvent
-    }
+      showModal: show
+    },
+    editEvent
   };
 }
 
