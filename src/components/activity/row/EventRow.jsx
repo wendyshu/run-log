@@ -18,7 +18,9 @@ class EventRow extends React.Component {
   }
 
   handleDelete() {
-    this.props.deleteEvent(this.props.event['@id']);
+    if (confirm('Really delete?')) {
+      this.props.deleteEvent(this.props.event['@id']);
+    }
   }
 
   handleEdit() {
