@@ -13,7 +13,11 @@ export default ({event}) => (
         return (
           <tr className="activity-cross-train">
             <td className="data-date">{Optional(event.date).map(formatDate).orElse('-')}</td>
-            <td className="data-icons"><span className="glyphicon glyphicon-road inactive"/> <span className="glyphicon glyphicon-apple"/></td>
+            <td className="data-icons">
+              <span className="glyphicon glyphicon-road inactive"/>
+              <span className="glyphicon glyphicon-apple"/>
+              <span className="glyphicon glyphicon-piggy-bank inactive" />
+            </td>
             <td className="data-category"><span className="value">Cross-training</span></td>
             <td className="data-distance">-</td>
             <td className="data-duration">-</td>

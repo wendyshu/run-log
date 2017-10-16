@@ -13,7 +13,10 @@
   }
 
   .data-icons {
-    width: 4em;
+    width: 5em;
+    .glyphicon + .glyphicon {
+      margin-left: .35em;
+    }
   }
 
   .data-category {
@@ -35,6 +38,10 @@
 
   .glyphicon-road {
     color: $my-blue-color;
+  }
+
+  .glyphicon-piggy-bank {
+    color: $my-yellow-color;
   }
 
   .glyphicon.inactive {
