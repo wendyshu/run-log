@@ -3,6 +3,7 @@ import React from 'react';
 import CrossTrainRow from './row/crossTrainRow/CrossTrainRow.jsx';
 import RunCrossTrainRow from './row/runCrossTrainRow/RunCrossTrainRow.jsx';
 import RunRow from './row/runRow/RunRow.jsx';
+import ShoesRow from './row/shoesRow/ShoesRow.jsx';
 import AddEvent from './addEvent/AddEvent.jsx';
 import FeaturedRun from '../featuredRun/FeaturedRun.jsx';
 import CrossTrainModal from './modals/crossTrainModal/CrossTrainModal.jsx';
@@ -42,7 +43,7 @@ class Activity extends React.Component {
       case 'CrossTrain':
         return ( <CrossTrainRow event={e} key={e['@id']} /> );
       case 'ChangeShoes':
-        console.log('TODO:', e);
+        return ( <ShoesRow event={e} key={e['@id']} /> );
       }
     });
   }
