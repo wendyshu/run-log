@@ -1,4 +1,4 @@
-import { durationToSeconds, durationToComponents } from './dates';
+import { durationToSeconds, durationToComponents, toDuration } from './dates';
 
 test('durationToSeconds handles empty durations', () => {
   expect(durationToSeconds('PT')).toBe(0);
@@ -58,4 +58,24 @@ test('durationToComponents without seconds', () => {
     'minutes': 2,
     'seconds': 0
   });
+});
+
+test('toDuration without components', () => {
+  expect(toDuration(null, null, null)).toBe(null);
+});
+
+test('toDuration all components', () => {
+  expect(toDuration(1, 2, 3)).toBe("PT1H2M3S");
+});
+
+test('toDuration missing hours', () => {
+  expect(toDuration(null, 2, 3)).toBe("PT0H2M3S");
+});
+
+test('toDuration missing minutes', () => {
+  expect(toDuration(1, null, 3)).toBe("PT1H0M3S");
+});
+
+test('toDuration missing seconds', () => {
+  expect(toDuration(1, 2, null)).toBe("PT1H2M0S");
 });

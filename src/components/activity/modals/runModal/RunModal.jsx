@@ -5,7 +5,7 @@ import { Form, Select, Text, Textarea } from 'react-form';
 import EntryModal from '../EntryModal.jsx';
 /*eslint-enable no-unused-vars*/
 
-import { durationToComponents } from '../../../../scripts/utils/dates';
+import { durationToComponents, toDuration } from '../../../../scripts/utils/dates';
 import { hideModal } from '../actions';
 import { MODAL_RUN } from './actions';
 import { addEvent, editEvent } from '../../../events/actions';
@@ -35,17 +35,8 @@ class RunModal extends React.Component {
     }];
   }
 
-  // TODO: move to dates.js and test
-  duration(hours, minutes, seconds) {
-    if (hours || minutes || seconds) {
-      return `PT${hours ? hours : '0'}H${minutes ? minutes : '00'}M${seconds ? seconds : '00'}S`;
-    } else {
-      return null;
-    }
-  }
-
   onSubmit({id, category, date, distance, hours, minutes, seconds, notes}) {
-    const duration = this.duration(hours, minutes, seconds);
+    const duration = toDuration(hours, minutes, seconds);
     const thisEvent = {
       '@id': id,
       '@type': 'Run',

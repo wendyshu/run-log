@@ -36,6 +36,17 @@ export function durationToComponents(duration) {
 }
 
 /**
+ * Create ISO-8601 duration string.
+ */
+export function toDuration(hours, minutes, seconds) {
+  if (hours || minutes || seconds) {
+    return `PT${hours ? hours : '0'}H${minutes ? minutes : '0'}M${seconds ? seconds : '0'}S`;
+  } else {
+    return null;
+  }
+}
+
+/**
  * E.g., "PT2M35S" -> 155
  */
 export function durationToSeconds(duration) {
