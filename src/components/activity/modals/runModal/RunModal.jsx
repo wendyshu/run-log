@@ -5,6 +5,7 @@ import { Form, Select, Text, Textarea } from 'react-form';
 import EntryModal from '../EntryModal.jsx';
 /*eslint-enable no-unused-vars*/
 
+import { get } from '../../../../scripts/utils/utils';
 import { durationToComponents, toDuration } from '../../../../scripts/utils/dates';
 import { hideModal } from '../actions';
 import { MODAL_RUN } from './actions';
@@ -63,25 +64,20 @@ class RunModal extends React.Component {
     };
   }
 
-  // TODO: use Underscore or move to utils and test
-  get(obj, prop, defaultVal) {
-    return obj ? obj[prop] : defaultVal;
-  }
-
   defaultValues() {
 
-    const duration = this.get(this.eventToEdit(), 'duration');
+    const duration = get(this.eventToEdit(), 'duration');
     var time = {};
     if (duration) {
       time = durationToComponents(duration);
     }
 
     return {
-      id: this.get(this.eventToEdit(), '@id'),
-      date: this.get(this.eventToEdit(), 'date', moment().format('YYYY-MM-DD')),
-      category: this.get(this.eventToEdit(), 'category'),
-      distance: this.get(this.eventToEdit(), 'distance'),
-      notes: this.get(this.eventToEdit(), 'notes'),
+      id: get(this.eventToEdit(), '@id'),
+      date: get(this.eventToEdit(), 'date', moment().format('YYYY-MM-DD')),
+      category: get(this.eventToEdit(), 'category'),
+      distance: get(this.eventToEdit(), 'distance'),
+      notes: get(this.eventToEdit(), 'notes'),
       ...time
     };
   }
