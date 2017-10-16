@@ -29,7 +29,7 @@ class Activity extends React.Component {
   }
 
   fitnessEvents() {
-    return this.filteredEvents(['Run','Run+CrossTrain','CrossTrain']);
+    return this.filteredEvents(['Run','Run+CrossTrain','CrossTrain', 'ChangeShoes']);
   }
 
   renderFitnessEvents() {
@@ -41,6 +41,8 @@ class Activity extends React.Component {
         return ( <RunCrossTrainRow event={e} key={e['@id']} /> );
       case 'CrossTrain':
         return ( <CrossTrainRow event={e} key={e['@id']} /> );
+      case 'ChangeShoes':
+        console.log('TODO:', e);
       }
     });
   }

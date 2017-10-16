@@ -29,7 +29,7 @@ class EventRow extends React.Component {
       this.props.showModal(MODAL_CROSS_TRAIN, this.props.event);
     } else if ('Run+CrossTrain' === type) {
       this.props.showModal(MODAL_RUN_CROSS_TRAIN, this.props.event);
-    } else if ('Shoes' === type) {
+    } else if ('ChangeShoes' === type) {
       this.props.showModal(MODAL_SHOES, this.props.event);
     } else {
       console.error(`Unrecognized event type: ${type}`);
