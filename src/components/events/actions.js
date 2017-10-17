@@ -5,7 +5,8 @@ export const SEND_ADD_EVENT = 'SEND_ADD_EVENT',
   SEND_DELETE_EVENT = 'SEND_DELETE_EVENT',
   RECEIVE_DELETE_EVENT = 'RECEIVE_DELETE_EVENT',
   SEND_GET_EVENTS = 'SEND_GET_EVENTS',
-  RECEIVE_GET_EVENTS = 'RECEIVE_GET_EVENTS';
+  RECEIVE_GET_EVENTS = 'RECEIVE_GET_EVENTS',
+  SET_FAVORITE = 'SET_FAVORITE';
 
 const MILLIS_WAIT = 350;
 
@@ -13,6 +14,14 @@ import SampleEvents from '../../sample-events.json';
 import { randomUuid } from '../../scripts/utils/uuid';
 
 const Actions = {
+
+  setFavorite: function(eventId, favorite) {
+    return {
+      type: SET_FAVORITE,
+      eventId,
+      favorite
+    };
+  },
 
   requestDeleteEvent: function(eventId) {
     return {
@@ -71,6 +80,8 @@ const Actions = {
   }
 
 }; // Actions
+
+export const setFavorite = Actions.setFavorite;
 
 /**
  * TODO: delete from server, then fetch events...

@@ -27,7 +27,7 @@ function getHeartClasses(event) {
 export default ({event}) => (
   <BaseEventRow event={event}>
     {
-      ({handleDelete, handleEdit}) => {
+      ({handleDelete, handleEdit, handleFavorite}) => {
         return (
           <tr className="activity-cross-train">
             <td className="data-date">{Optional(event.date).map(formatDate).orElse('-')}</td>
@@ -41,7 +41,7 @@ export default ({event}) => (
             <td className="data-duration">-</td>
             <td className="data-notes">{Optional(event.notes).orElse('-')}</td>
             <td className="data-actions">
-              <a href="#" className={ getHeartClasses(event) }/>
+              <a onClick={handleFavorite} className={ getHeartClasses(event) }/>
               <a onClick={handleEdit} className="glyphicon glyphicon-pencil"/>
               <a onClick={handleDelete} className="glyphicon glyphicon glyphicon-trash"/>
             </td>

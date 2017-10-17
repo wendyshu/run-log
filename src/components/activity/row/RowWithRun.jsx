@@ -18,7 +18,7 @@ function getAppleClasses(event) {
 export default ({event}) => (
   <BaseEventRow event={event}>
     {
-      ({handleDelete, handleEdit}) => {
+      ({handleDelete, handleEdit, handleFavorite}) => {
         return (
           <tr className="activity-run">
             <td className="data-date"><span className="value">{Optional(event.date).map(formatDate).orElse('-')}</span></td>
@@ -32,7 +32,7 @@ export default ({event}) => (
             <td className="data-duration"><span className="value">{Optional(event.duration).map(formatDuration).orElse('-')}</span></td>
             <td className="data-notes"><span className="value">{Optional(event.notes).orElse('-')}</span></td>
             <td className="data-actions">
-              <a href="#" className={ getHeartClasses(event) }/>
+              <a onClick={handleFavorite} className={ getHeartClasses(event) }/>
               <a onClick={handleEdit} className="glyphicon glyphicon-pencil"/>
               <a onClick={handleDelete} className="glyphicon glyphicon glyphicon-trash"/>
             </td>

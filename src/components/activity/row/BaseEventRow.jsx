@@ -6,7 +6,7 @@ import { MODAL_RUN } from '../modals/runModal/actions';
 import { MODAL_CROSS_TRAIN } from '../modals/crossTrainModal/actions';
 import { MODAL_RUN_CROSS_TRAIN } from '../modals/runCrossTrainModal/actions';
 import { MODAL_SHOES } from '../modals/shoesModal/actions';
-import { deleteEvent } from '../../events/actions';
+import { deleteEvent, setFavorite } from '../../events/actions';
 import { showModal } from '../modals/actions';
 
 import { connect } from 'react-redux';
@@ -38,13 +38,18 @@ class EventRow extends React.Component {
     }
   }
 
+  handleFavorite() {
+    this.props.setFavorite(this.props.event['@id'], !this.props.event.favorite);
+  }
+
   render() {
     return this.props.children({
       handleDelete: this.handleDelete.bind(this),
-      handleEdit: this.handleEdit.bind(this)
+      handleEdit: this.handleEdit.bind(this),
+      handleFavorite: this.handleFavorite.bind(this)
     });
   }
 
 }
 
-export default connect(null, {deleteEvent, showModal})(EventRow);
+export default connect(null, {deleteEvent, showModal, setFavorite})(EventRow);
