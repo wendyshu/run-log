@@ -1,9 +1,7 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
-import CrossTrainRow from './row/crossTrainRow/CrossTrainRow.jsx';
-import RunCrossTrainRow from './row/runCrossTrainRow/RunCrossTrainRow.jsx';
-import RunRow from './row/runRow/RunRow.jsx';
-import ShoesRow from './row/shoesRow/ShoesRow.jsx';
+import RowWithRun from './row/RowWithRun.jsx';
+import RowWithoutRun from './row/RowWithoutRun.jsx';
 import AddEvent from './addEvent/AddEvent.jsx';
 import FeaturedRun from '../featuredRun/FeaturedRun.jsx';
 import CrossTrainModal from './modals/crossTrainModal/CrossTrainModal.jsx';
@@ -37,13 +35,11 @@ class Activity extends React.Component {
     return this.fitnessEvents().map(e => {
       switch(e['@type']) {
       case 'Run':
-        return ( <RunRow event={e} key={e['@id']} /> );
       case 'Run+CrossTrain':
-        return ( <RunCrossTrainRow event={e} key={e['@id']} /> );
+        return ( <RowWithRun event={e} key={e['@id']} /> );
       case 'CrossTrain':
-        return ( <CrossTrainRow event={e} key={e['@id']} /> );
       case 'ChangeShoes':
-        return ( <ShoesRow event={e} key={e['@id']} /> );
+        return ( <RowWithoutRun event={e} key={e['@id']} /> );
       }
     });
   }

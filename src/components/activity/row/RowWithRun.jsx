@@ -1,13 +1,22 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
-import EventRow from '../EventRow.jsx';
+import BaseEventRow from './BaseEventRow.jsx';
 /*eslint-enable no-unused-vars*/
 
-import { formatDate, formatDuration } from '../../../../scripts/utils/dates';
-import Optional from '../../../optional/optional';
+import { formatDate, formatDuration } from '../../../scripts/utils/dates';
+import Optional from '../../optional/optional';
+
+function getHeartClasses(event) {
+  return event.favorite ? 'glyphicon glyphicon-heart' : 'glyphicon glyphicon-heart-empty';
+}
+
+function getAppleClasses(event) {
+  return event['@type'] === 'Run' ?
+    'glyphicon glyphicon-apple inactive' : 'glyphicon glyphicon-apple';
+}
 
 export default ({event}) => (
-  <EventRow event={event}>
+  <BaseEventRow event={event}>
     {
       ({handleDelete, handleEdit}) => {
         return (
@@ -15,7 +24,7 @@ export default ({event}) => (
             <td className="data-date"><span className="value">{Optional(event.date).map(formatDate).orElse('-')}</span></td>
             <td className="data-icons">
               <span className="glyphicon glyphicon-road"/>
-              <span className="glyphicon glyphicon-apple inactive"/>
+              <span className={ getAppleClasses(event) }/>
               <span className="glyphicon glyphicon-piggy-bank inactive" />
             </td>
             <td className="data-category"><span className="value">{Optional(event.category).orElse('-')}</span></td>
@@ -23,7 +32,7 @@ export default ({event}) => (
             <td className="data-duration"><span className="value">{Optional(event.duration).map(formatDuration).orElse('-')}</span></td>
             <td className="data-notes"><span className="value">{Optional(event.notes).orElse('-')}</span></td>
             <td className="data-actions">
-              <a href="#" className={`glyphicon ${event.favorite ? 'glyphicon-heart' : 'glyphicon-heart-empty'}`}/>
+              <a href="#" className={ getHeartClasses(event) }/>
               <a onClick={handleEdit} className="glyphicon glyphicon-pencil"/>
               <a onClick={handleDelete} className="glyphicon glyphicon glyphicon-trash"/>
             </td>
@@ -31,5 +40,5 @@ export default ({event}) => (
         );
       }
     }
-  </EventRow>
+  </BaseEventRow>
 );
