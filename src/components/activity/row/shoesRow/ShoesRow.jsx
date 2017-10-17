@@ -23,7 +23,7 @@ export default ({event}) => (
             <td className="data-duration">-</td>
             <td className="data-notes">{Optional(event.notes).orElse('-')}</td>
             <td className="data-actions">
-              <a href="#" className="glyphicon glyphicon-heart-empty"/>
+              <a href="#" className={`glyphicon ${event.favorite ? 'glyphicon-heart' : 'glyphicon-heart-empty'}`}/>
               <a onClick={handleEdit} className="glyphicon glyphicon-pencil"/>
               <a onClick={handleDelete} className="glyphicon glyphicon glyphicon-trash"/>
             </td>

@@ -29,11 +29,15 @@
       text-decoration: none;
       color: $default-text-color;
       margin-right: .5em;
+
+      &.glyphicon-heart {
+        color: $my-red-color;
+      }
     }
   }
 
   .glyphicon-apple {
-    color: $my-red-color;
+    color: $my-green-color;
   }
 
   .glyphicon-road {

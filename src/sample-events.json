@@ -90,7 +90,8 @@
       "date": "2017-09-21",
       "category": "speed",
       "distance": 1.00,
-      "duration": "PT6M58S"
+      "duration": "PT6M58S",
+      "favorite": true
     },{
       "@id": "_:n19",
       "@type": "Run",
@@ -104,7 +105,8 @@
       "date": "2017-09-17",
       "category": "distance",
       "distance": 11.01,
-      "duration": "PT1H56M00S"
+      "duration": "PT1H56M00S",
+      "favorite": true
     },{
       "@id": "_:n17",
       "@type": "Run",
