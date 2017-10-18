@@ -36,7 +36,7 @@ class RunModal extends React.Component {
     }];
   }
 
-  onSubmit({id, category, date, distance, hours, minutes, seconds, notes}) {
+  onSubmit({id, category, date, distance, hours, minutes, seconds, notes, favorite}) {
     const duration = toDuration(hours, minutes, seconds);
     const thisEvent = {
       '@id': id,
@@ -45,7 +45,8 @@ class RunModal extends React.Component {
       category,
       distance: distance ? parseFloat(distance) : null,
       notes,
-      duration
+      duration,
+      favorite
     };
 
     if (this.eventToEdit()) {
@@ -78,6 +79,7 @@ class RunModal extends React.Component {
       category: get(this.eventToEdit(), 'category'),
       distance: get(this.eventToEdit(), 'distance'),
       notes: get(this.eventToEdit(), 'notes'),
+      favorite: get(this.eventToEdit(), 'favorite'),
       ...time
     };
   }

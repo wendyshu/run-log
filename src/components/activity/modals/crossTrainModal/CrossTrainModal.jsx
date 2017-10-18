@@ -19,12 +19,13 @@ class CrossTrainModal extends React.Component {
     super(props);
   }
 
-  onSubmit({id, date, notes}) {
+  onSubmit({id, date, notes, favorite}) {
     const thisEvent = {
       '@id': id,
       '@type': 'CrossTrain',
       date,
-      notes
+      notes,
+      favorite
     };
 
     if (this.eventToEdit()) {
@@ -46,7 +47,8 @@ class CrossTrainModal extends React.Component {
     return {
       id: get(this.eventToEdit(), '@id'),
       date: get(this.eventToEdit(), 'date', moment().format('YYYY-MM-DD')),
-      notes: get(this.eventToEdit(), 'notes')
+      notes: get(this.eventToEdit(), 'notes'),
+      favorite: get(this.eventToEdit(), 'favorite')
     };
   }
 
