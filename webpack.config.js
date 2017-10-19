@@ -28,7 +28,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(js|jsx)$/,
+        test: /\.jsx?$/,
         include: path.resolve(__dirname, 'src'),
         use: [
           {

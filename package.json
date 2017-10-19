@@ -5,19 +5,6 @@
   "repository": "git@github.com:bryanesmith/react-redux-starter.git",
   "author": "Bryan Smith <bryanesmith@gmail.com>",
   "license": "MIT",
-  "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx"
-    ],
-    "transform": {
-      "^.+\\.jsx?$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-    },
-    "testRegex": ".*\\.spec\\.(ts|tsx|js)$"
-  },
   "scripts": {
     "start": "webpack-dev-server --inline",
     "prebuild": "yarn test",
