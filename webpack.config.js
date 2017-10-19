@@ -24,7 +24,7 @@ module.exports = {
         test: /\.tsx?$/,
         include: path.resolve(__dirname, 'src'),
         use: [
-          'ts-loader'
+          'awesome-typescript-loader'
         ]
       },
       {

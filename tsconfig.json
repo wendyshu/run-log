@@ -3,11 +3,12 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "module": "ES6",
-    "noImplicitAny": true,
     "outDir": "./build/",
     "preserveConstEnums": true,
     "removeComments": true,
-    "target": "ES5"
+    "target": "ES5",
+    "lib": ["es6"],
+    "strict": true
   },
   "exclude": [
     "node_modules",

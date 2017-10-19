@@ -1,4 +1,4 @@
-import { add, min } from './math.ts';
+import { add, min } from './math';
 
 test('add can add two valid numbers', () => {
   expect(add(1, 1)).toBe(2);
