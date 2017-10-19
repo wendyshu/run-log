@@ -2,10 +2,7 @@
 import React from 'react';
 /*eslint-enable no-unused-vars*/
 
-import { MODAL_RUN } from '../modals/runModal/actions';
-import { MODAL_CROSS_TRAIN } from '../modals/crossTrainModal/actions';
-import { MODAL_RUN_CROSS_TRAIN } from '../modals/runCrossTrainModal/actions';
-import { MODAL_SHOES } from '../modals/shoesModal/actions';
+import { MODAL_RUN, MODAL_CROSS_TRAIN, MODAL_RUN_CROSS_TRAIN, MODAL_SHOES } from '../modals/actions';
 import { deleteEvent, setFavorite } from '../../events/actions';
 import { showModal } from '../modals/actions';
 
