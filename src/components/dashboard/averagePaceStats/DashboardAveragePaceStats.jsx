@@ -12,8 +12,8 @@ function calcAveragePace(events) {
   if (!filtered.length) {
     return undefined;
   }
-  const distance = filtered.map(e => e.distance).reduce(add);
-  const seconds = filtered.map(e => durationToSeconds(e.duration)).reduce(add);
+  const distance = filtered.map(e => e.distance).reduce(add, 0);
+  const seconds = filtered.map(e => durationToSeconds(e.duration)).reduce(add, 0);
   // return 3600 * distance / seconds;
   return seconds / distance;
 }
