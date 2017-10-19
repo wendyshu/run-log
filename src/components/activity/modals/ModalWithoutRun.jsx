@@ -2,18 +2,17 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
 import { Form, Text, Textarea } from 'react-form';
-import EntryModal from '../EntryModal.jsx';
+import BaseEventModal from './BaseEventModal.jsx';
 /*eslint-enable no-unused-vars*/
 
-import { get } from '../../../../scripts/utils/utils';
-import { hideModal } from '../actions';
-import { MODAL_SHOES } from './actions';
-import { addEvent, editEvent } from '../../../events/actions';
+import { get } from '../../../scripts/utils/utils';
+import { hideModal } from './actions';
+import { addEvent, editEvent } from '../../events/actions';
 
 import moment from 'moment';
 import { connect } from 'react-redux';
 
-class ShoesModal extends React.Component {
+class ModalWithoutRun extends React.Component {
 
   constructor(props) {
     super(props);
@@ -22,7 +21,7 @@ class ShoesModal extends React.Component {
   onSubmit({id, date, notes, favorite}) {
     const thisEvent = {
       '@id': id,
-      '@type': 'ChangeShoes',
+      '@type': this.props.eventType,
       date,
       notes,
       favorite
@@ -76,13 +75,13 @@ class ShoesModal extends React.Component {
   }
 
   render() {
-    const title = this.eventToEdit() ? 'Edit Running Shoes' : 'Add Running Shoes';
+    const title = this.eventToEdit() ? `Edit ${this.props.modalTitle}` : `Edit ${this.props.modalTitle}`;
     return (
-      <EntryModal modal={MODAL_SHOES} title={title}>
+      <BaseEventModal modalType={this.props.modalType} modalTitle={title}>
         <Form defaultValues={this.defaultValues()} onSubmit={this.onSubmit.bind(this)} validate={this.validate}>
           {this.formContents.bind(this)}
         </Form>
-      </EntryModal>
+      </BaseEventModal>
     );
   }
 }
@@ -93,4 +92,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {hideModal, addEvent, editEvent})(ShoesModal);
+export default connect(mapStateToProps, {hideModal, addEvent, editEvent})(ModalWithoutRun);

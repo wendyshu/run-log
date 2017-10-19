@@ -6,7 +6,7 @@ import { Modal } from 'react-bootstrap';
 import { hideModal } from './actions';
 import { connect } from 'react-redux';
 
-class EntryModal extends React.Component {
+class BaseEventModal extends React.Component {
 
   constructor(props) {
     super(props);
@@ -17,14 +17,14 @@ class EntryModal extends React.Component {
   }
 
   shouldShow() {
-    return this.props.modal === this.props.modals.ui.showModal;
+    return this.props.modalType === this.props.modals.ui.showModal;
   }
 
   render() {
     return (
       <Modal show={this.shouldShow()} onHide={this.hideModal.bind(this)}>
         <Modal.Header closeButton>
-          <Modal.Title>{this.props.title}</Modal.Title>
+          <Modal.Title>{this.props.modalTitle}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           { this.props.children }
@@ -40,4 +40,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {hideModal})(EntryModal);
+export default connect(mapStateToProps, {hideModal})(BaseEventModal);

@@ -4,12 +4,11 @@ import RowWithRun from './row/RowWithRun.jsx';
 import RowWithoutRun from './row/RowWithoutRun.jsx';
 import AddEvent from './addEvent/AddEvent.jsx';
 import FeaturedRun from '../featuredRun/FeaturedRun.jsx';
-import CrossTrainModal from './modals/crossTrainModal/CrossTrainModal.jsx';
-import RunCrossTrainModal from './modals/runCrossTrainModal/RunCrossTrainModal.jsx';
-import RunModal from './modals/runModal/RunModal.jsx';
-import ShoesModal from './modals/shoesModal/ShoesModal.jsx';
+import ModalWithRun from './modals/ModalWithRun.jsx';
+import ModalWithoutRun from './modals/ModalWithoutRun.jsx';
 /*eslint-enable no-unused-vars*/
 
+import { MODAL_SHOES, MODAL_RUN, MODAL_RUN_CROSS_TRAIN, MODAL_CROSS_TRAIN } from './modals/actions';
 import { connect } from 'react-redux';
 
 class Activity extends React.Component {
@@ -48,10 +47,10 @@ class Activity extends React.Component {
     return (
       <div className="activity">
         <div className='modals'>
-          <RunModal />
-          <CrossTrainModal />
-          <RunCrossTrainModal />
-          <ShoesModal />
+          <ModalWithRun modalType={MODAL_RUN} modalTitle='Run' eventType='Run' />
+          <ModalWithRun modalType={MODAL_RUN_CROSS_TRAIN} modalTitle='Run + Cross-Train' eventType='Run+CrossTrain' />
+          <ModalWithoutRun modalType={MODAL_CROSS_TRAIN} modalTitle='Cross-Train' eventType='CrossTrain' />
+          <ModalWithoutRun modalType={MODAL_SHOES} modalTitle='Running Shoes' eventType='ChangeShoes' />
         </div>
         <div className="row">
           <div className="col-xs-12">
