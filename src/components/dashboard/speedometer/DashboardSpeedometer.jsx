@@ -4,7 +4,7 @@ import ChartistGraph from 'react-chartist';
 /*eslint-enable no-unused-vars*/
 
 import { durationToSeconds } from '../../../scripts/utils/dates';
-import { add } from '../../../scripts/utils/math';
+import { add, min } from '../../../scripts/utils/math';
 
 function options() {
   return  {
@@ -27,7 +27,8 @@ function calcMph(events) {
 }
 
 function data(mph) {
-  const percentage = 100 * mph / GoalMPH;
+  const cappedMph = min(mph, GoalMPH);
+  const percentage = 100 * cappedMph / GoalMPH;
   return {
     series: [ percentage, 100.0 - percentage ]
   };
