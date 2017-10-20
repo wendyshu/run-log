@@ -1,14 +1,21 @@
 {
   "compilerOptions": {
-    "jsx": "react",
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "jsx": "react",
+    "lib": ["es6"],
     "module": "ES6",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
     "outDir": "./build/",
     "preserveConstEnums": true,
     "removeComments": true,
-    "target": "ES5",
-    "lib": ["es6"],
-    "strict": true
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES5"
   },
   "exclude": [
     "node_modules",

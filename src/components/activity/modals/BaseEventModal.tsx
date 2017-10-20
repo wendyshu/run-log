@@ -6,11 +6,22 @@ import { Modal } from 'react-bootstrap';
 import { hideModal } from './actions';
 import { connect } from 'react-redux';
 
-class BaseEventModal extends React.Component {
+import { Action, Dispatch } from 'redux';
 
-  constructor(props) {
-    super(props);
-  }
+interface Props {
+  modalType: string,
+  modalTitle: string
+}
+
+interface StateToProps {
+  modals: any // TODO: this is what type is for!
+}
+
+interface DispatchToProps {
+  hideModal(): Action
+}
+
+class BaseEventModal extends React.Component<Props & StateToProps & DispatchToProps, {}> {
 
   hideModal() {
     this.props.hideModal();
@@ -32,12 +43,18 @@ class BaseEventModal extends React.Component {
       </Modal>
     );
   }
-}
+} // BaseEventModal
 
-function mapStateToProps(state) {
+function mapStateToProps(state: any, ownProps: {}): StateToProps {
   return {
     modals: state.modals
   };
 }
 
-export default connect(mapStateToProps, {hideModal})(BaseEventModal);
+function mapDispatchToProps (dispatch: Dispatch<Action>): DispatchToProps {
+  return {
+    hideModal: () => dispatch(hideModal())
+  };
+}
+
+export default connect<StateToProps, DispatchToProps, {}>(mapStateToProps, mapDispatchToProps)(BaseEventModal);

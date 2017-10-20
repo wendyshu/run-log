@@ -2,7 +2,7 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
 import { Form, Select, Text, Textarea } from 'react-form';
-import BaseEventModal from './BaseEventModal';
+import BaseEventModal from './BaseEventModal.tsx';
 /*eslint-enable no-unused-vars*/
 
 import { get } from 'run-log/scripts/utils/utils';
