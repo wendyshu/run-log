@@ -24,7 +24,15 @@ module.exports = {
         test: /\.tsx?$/,
         include: path.resolve(__dirname, 'src'),
         use: [
-          'awesome-typescript-loader'
+          {
+            loader: 'awesome-typescript-loader'
+          },{
+            loader: 'tslint-loader',
+            options: {
+              failOnWarning: true,
+              failOnError: true
+            }
+          }
         ]
       },
       {
@@ -36,7 +44,7 @@ module.exports = {
           },{
             loader: 'eslint-loader',
             options: {
-              failOnWarning: true,
+              failOnWarning: false, // tooooo strict
               failOnError: true
             }
           }
@@ -65,7 +73,7 @@ module.exports = {
         }]
       }
     ]
-  }, // module
+  }, // module,
   plugins: [
     extractCSS,
     new webpack.ProvidePlugin({

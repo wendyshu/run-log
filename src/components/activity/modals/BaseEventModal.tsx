@@ -3,35 +3,34 @@ import React from 'react';
 import { Modal } from 'react-bootstrap';
 /*eslint-enable no-unused-vars*/
 
-import { hideModal } from './actions';
 import { connect } from 'react-redux';
-
 import { Action, Dispatch } from 'redux';
+import { hideModal } from './actions';
 
-interface Props {
-  modalType: string,
-  modalTitle: string
+interface IProps {
+  modalType: string;
+  modalTitle: string;
 }
 
-interface StateToProps {
-  modals: any // TODO: this is what type is for!
+interface IStateToProps {
+  modals: any; // TODO: this is what type is for!
 }
 
-interface DispatchToProps {
-  hideModal(): Action
+interface IDispatchToProps {
+  hideModal(): Action;
 }
 
-class BaseEventModal extends React.Component<Props & StateToProps & DispatchToProps, {}> {
+class BaseEventModal extends React.Component<IProps & IStateToProps & IDispatchToProps, {}> {
 
-  hideModal() {
-    this.props.hideModal();
-  }
-
-  shouldShow() {
+  public shouldShow() {
     return this.props.modalType === this.props.modals.ui.showModal;
   }
 
-  render() {
+  public hideModal() {
+    this.props.hideModal();
+  }
+
+  public render() {
     return (
       <Modal show={this.shouldShow()} onHide={this.hideModal.bind(this)}>
         <Modal.Header closeButton>
@@ -45,16 +44,16 @@ class BaseEventModal extends React.Component<Props & StateToProps & DispatchToPr
   }
 } // BaseEventModal
 
-function mapStateToProps(state: any, ownProps: {}): StateToProps {
+function mapStateToProps(state: any, ownProps: {}): IStateToProps {
   return {
-    modals: state.modals
+    modals: state.modals,
   };
 }
 
-function mapDispatchToProps (dispatch: Dispatch<Action>): DispatchToProps {
+function mapDispatchToProps(dispatch: Dispatch<Action>): IDispatchToProps {
   return {
-    hideModal: () => dispatch(hideModal())
+    hideModal: () => dispatch(hideModal()),
   };
 }
 
-export default connect<StateToProps, DispatchToProps, {}>(mapStateToProps, mapDispatchToProps)(BaseEventModal);
+export default connect<IStateToProps, IDispatchToProps, {}>(mapStateToProps, mapDispatchToProps)(BaseEventModal);
