@@ -25,7 +25,7 @@ module.exports = {
         include: path.resolve(__dirname, 'src'),
         use: [
           {
-            loader: 'awesome-typescript-loader'
+            loader: 'ts-loader'
           },{
             loader: 'tslint-loader',
             options: {
