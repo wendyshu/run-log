@@ -78,6 +78,7 @@ module.exports = {
     })
   ],
   resolve: {
+    extensions: ['.js', '.jsx'],
     alias: {
       'run-log': path.resolve(__dirname, 'src/')
     }

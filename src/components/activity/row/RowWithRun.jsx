@@ -1,6 +1,6 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
-import BaseEventRow from './BaseEventRow.jsx';
+import BaseEventRow from './BaseEventRow';
 /*eslint-enable no-unused-vars*/
 
 import { formatDate, formatDuration } from 'run-log/scripts/utils/dates';
