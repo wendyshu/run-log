@@ -9,7 +9,7 @@
     "start": "webpack-dev-server --inline",
     "prebuild": "yarn test",
     "build": "webpack -p",
-    "test": "jest",
+    "test": "jest --config jest.config.js",
     "deploy-pages": "yarn build && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
