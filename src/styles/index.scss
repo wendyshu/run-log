@@ -1,5 +1,7 @@
 @import './constants';
 
 @import './app';
+
+// TODO: these should be imported in respective components
 @import '../components/dashboard/dashboard';
 @import '../components/activity/activity';

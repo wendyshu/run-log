@@ -5,10 +5,10 @@ import { Form, Select, Text, Textarea } from 'react-form';
 import BaseEventModal from './BaseEventModal.jsx';
 /*eslint-enable no-unused-vars*/
 
-import { get } from '../../../scripts/utils/utils';
-import { durationToComponents, toDuration } from '../../../scripts/utils/dates';
+import { get } from 'run-log/scripts/utils/utils';
+import { durationToComponents, toDuration } from 'run-log/scripts/utils/dates';
 import { hideModal } from './actions';
-import { addEvent, editEvent } from '../../events/actions';
+import { addEvent, editEvent } from 'run-log/components/events/actions';
 
 import moment from 'moment';
 import { connect } from 'react-redux';

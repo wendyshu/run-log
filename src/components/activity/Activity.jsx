@@ -3,7 +3,7 @@ import React from 'react';
 import RowWithRun from './row/RowWithRun.jsx';
 import RowWithoutRun from './row/RowWithoutRun.jsx';
 import AddEvent from './addEvent/AddEvent.jsx';
-import FeaturedRun from '../featuredRun/FeaturedRun.jsx';
+import FeaturedRun from 'run-log/components/featuredRun/FeaturedRun.jsx';
 import ModalWithRun from './modals/ModalWithRun.jsx';
 import ModalWithoutRun from './modals/ModalWithoutRun.jsx';
 /*eslint-enable no-unused-vars*/

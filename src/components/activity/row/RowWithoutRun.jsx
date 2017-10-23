@@ -3,8 +3,8 @@ import React from 'react';
 import BaseEventRow from './BaseEventRow.jsx';
 /*eslint-enable no-unused-vars*/
 
-import { formatDate } from '../../../scripts/utils/dates';
-import Optional from '../../optional/optional';
+import { formatDate } from 'run-log/scripts/utils/dates';
+import Optional from 'run-log/components/optional/optional';
 
 const isChangeShoes = (event) => event['@type'] === 'ChangeShoes';
 

@@ -18,7 +18,7 @@ import { createLogger } from 'redux-logger';
 import rootReducer from './reducers';
 
 // assets
-import '../styles/index.scss';
+import 'run-log/styles/index.scss';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'chartist/dist/chartist.min.css';

@@ -2,9 +2,8 @@
 import React from 'react';
 /*eslint-enable no-unused-vars*/
 
-import { MODAL_RUN, MODAL_CROSS_TRAIN, MODAL_RUN_CROSS_TRAIN, MODAL_SHOES } from '../modals/actions';
-import { deleteEvent, setFavorite } from '../../events/actions';
-import { showModal } from '../modals/actions';
+import { showModal, MODAL_RUN, MODAL_CROSS_TRAIN, MODAL_RUN_CROSS_TRAIN, MODAL_SHOES } from 'run-log/components/activity/modals/actions';
+import { deleteEvent, setFavorite } from 'run-log/components/events/actions';
 
 import { connect } from 'react-redux';
 

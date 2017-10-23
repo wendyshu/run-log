@@ -10,8 +10,8 @@ export const SEND_ADD_EVENT = 'SEND_ADD_EVENT',
 
 const MILLIS_WAIT = 350;
 
-import SampleEvents from '../../sample-events.json';
-import { randomUuid } from '../../scripts/utils/uuid';
+import SampleEvents from 'run-log/sample-events.json';
+import { randomUuid } from 'run-log/scripts/utils/uuid';
 
 const Actions = {
 
@@ -84,21 +84,21 @@ const Actions = {
 export const setFavorite = Actions.setFavorite;
 
 /**
- * TODO: delete from server, then fetch events...
+ * TODO: delete from server, then fetch events
  */
 export function deleteEvent(eventId) {
   return simulateAsyncRequest(Actions.requestDeleteEvent(eventId), Actions.receiveDeleteEvent(eventId));
 }
 
 /**
- * TODO: post to server, then fetch events...
+ * TODO: post to server, then fetch events
  */
 export function editEvent(event) {
   return simulateAsyncRequest(Actions.requestEditEvent(event), Actions.receiveEditEvent(event));
 }
 
 /**
- * TODO: post to server, then fetch events...
+ * TODO: post to server, then fetch events
  */
 export function addEvent(event) {
   event['@id'] = `urn:uuid:${randomUuid()}`; // TODO: server does this

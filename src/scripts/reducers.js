@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import ModalsReducer from '../components/activity/modals/reducer';
-import DashboardReducer from '../components/dashboard/reducer';
-import EventsReducer from '../components/events/reducer';
+import ModalsReducer from 'run-log/components/activity/modals/reducer';
+import DashboardReducer from 'run-log/components/dashboard/reducer';
+import EventsReducer from 'run-log/components/events/reducer';
 
 const rootReducer = combineReducers({
   dashboard: DashboardReducer,

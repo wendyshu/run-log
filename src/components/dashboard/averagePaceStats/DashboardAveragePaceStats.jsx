@@ -1,11 +1,11 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
-import DashboardStats from '../stats/DashboardStats.jsx';
+import DashboardStats from 'run-log/components/dashboard/stats/DashboardStats.jsx';
 /*eslint-enable no-unused-vars*/
 
-import Optional from '../../optional/optional';
-import { durationToSeconds, secondsToMinuteMiles } from '../../../scripts/utils/dates';
-import { add } from '../../../scripts/utils/math';
+import Optional from 'run-log/components/optional/optional';
+import { durationToSeconds, secondsToMinuteMiles } from 'run-log/scripts/utils/dates';
+import { add } from 'run-log/scripts/utils/math';
 
 function calcAveragePace(events) {
   const filtered = events.filter(e => e.distance && e.duration);

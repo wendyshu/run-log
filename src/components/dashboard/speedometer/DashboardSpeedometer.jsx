@@ -3,8 +3,8 @@ import React from 'react';
 import ChartistGraph from 'react-chartist';
 /*eslint-enable no-unused-vars*/
 
-import { durationToSeconds } from '../../../scripts/utils/dates';
-import { add, min } from '../../../scripts/utils/math';
+import { durationToSeconds } from 'run-log/scripts/utils/dates';
+import { add, min } from 'run-log/scripts/utils/math';
 
 function options() {
   return  {

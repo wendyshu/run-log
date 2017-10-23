@@ -21,7 +21,7 @@ function randomType(selected) {
 }
 
 export default (props) => {
-  console.log('Featured run events...', props.events); // TODO:
+  console.log('Featured run events', props.events); // TODO:
   return (
     <Jumbotron>
       <h1>{randomType(die(4))}</h1>

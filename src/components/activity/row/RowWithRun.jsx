@@ -3,8 +3,8 @@ import React from 'react';
 import BaseEventRow from './BaseEventRow.jsx';
 /*eslint-enable no-unused-vars*/
 
-import { formatDate, formatDuration } from '../../../scripts/utils/dates';
-import Optional from '../../optional/optional';
+import { formatDate, formatDuration } from 'run-log/scripts/utils/dates';
+import Optional from 'run-log/components/optional/optional';
 
 function getHeartClasses(event) {
   return event.favorite ? 'glyphicon glyphicon-heart' : 'glyphicon glyphicon-heart-empty';

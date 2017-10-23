@@ -13,7 +13,7 @@ test('loadEvents should fire two actions', (done) => {
       done();
       return;
     default:
-      // Jest doesn't have fail...
+      // Jest doesn't have fail
       expect([SEND_GET_EVENTS, RECEIVE_GET_EVENTS]).toContain(event.type);
     }
   };

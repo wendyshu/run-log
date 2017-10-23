@@ -9,7 +9,7 @@ import DashboardSpeedometer from './speedometer/DashboardSpeedometer.jsx';
 import DashboardTopPaceStats from './topPaceStats/DashboardTopPaceStats.jsx';
 import DashboardTotalDistanceStats from './totalDistanceStats/DashboardTotalDistanceStats.jsx';
 import DashboardTabs from './DashboardTabs.jsx';
-import FeaturedRun from '../featuredRun/FeaturedRun.jsx';
+import FeaturedRun from 'run-log/components/featuredRun/FeaturedRun.jsx';
 /*eslint-enable no-unused-vars*/
 
 import moment from 'moment';
@@ -41,7 +41,7 @@ class Dashboard extends React.Component {
         totalDays: days
       };
     case TAB_ALL:
-      // TODO: calc range using events. Will need min/max/diff in dates.js...
+      // TODO: calc range using events. Will need min/max/diff in dates.js
       console.log('TODO:', events);
       days = 999;
       return {

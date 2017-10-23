@@ -1,6 +1,6 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
-import DashboardStats from '../stats/DashboardStats.jsx';
+import DashboardStats from 'run-log/components/dashboard/stats/DashboardStats.jsx';
 /*eslint-enable no-unused-vars*/
 
 function dummyStats() {
@@ -8,7 +8,7 @@ function dummyStats() {
 }
 
 export default (props) => {
-  console.log('Change shoes events...', props.events); // TODO:
+  console.log('Change shoes events', props.events); // TODO:
   return (
     <div>
       <DashboardStats stats={dummyStats()}/>

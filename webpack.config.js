@@ -74,5 +74,10 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest']
     })
-  ]
+  ],
+  resolve: {
+    alias: {
+      'run-log': path.resolve(__dirname, 'src/')
+    }
+  },
 };
