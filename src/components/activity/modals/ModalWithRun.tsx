@@ -84,7 +84,7 @@ class ModalWithRun extends React.Component<IModalProps & IModalS2P & IModalD2P, 
     this.props.hideModal();
   }
 
-  private validate({category, date}: any) {
+  private validate({category, date}: IFormInput) {
     return {
       category: ! category ? 'Please select a category' : undefined,
       date: ! date ? 'Please select a date' : undefined,
@@ -171,7 +171,7 @@ class ModalWithRun extends React.Component<IModalProps & IModalS2P & IModalD2P, 
   }
 } // ModalWithRun
 
-function mapStateToProps(state: any, ownProps: {}): IModalS2P {
+function mapStateToProps(state: any, ownProps: {}): IModalS2P { // TODO: state type
   return {
     modals: state.modals,
   };

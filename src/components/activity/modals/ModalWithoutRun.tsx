@@ -57,7 +57,7 @@ class ModalWithoutRun extends React.Component<IModalProps & IModalS2P & IModalD2
     this.props.hideModal();
   }
 
-  private validate({date}: any) {
+  private validate({date}: IFormInput) {
     return {
       date: ! date ? 'Please select a date' : undefined,
     };
@@ -96,7 +96,7 @@ class ModalWithoutRun extends React.Component<IModalProps & IModalS2P & IModalD2
   }
 }
 
-function mapStateToProps(state: any, ownProps: {}): IModalS2P {
+function mapStateToProps(state: any, ownProps: {}): IModalS2P { // TODO: state type
   return {
     modals: state.modals,
   };
