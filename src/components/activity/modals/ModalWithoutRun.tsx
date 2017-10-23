@@ -13,22 +13,7 @@ import { addEvent, editEvent } from 'run-log/components/events/actions';
 import Events from 'run-log/components/events/events';
 import { get } from 'run-log/scripts/utils/utils';
 import { hideModal } from './actions';
-
-interface IProps {
-  eventType: string;
-  modalTitle: string;
-  modalType: string;
-}
-
-interface IStateToProps {
-  modals: any; // TODO: this is what type is for!
-}
-
-interface IDispatchToProps {
-  addEvent(e: any): any; // TODO: change event type
-  editEvent(e: any): any; // TODO: change event type
-  hideModal(): Action;
-}
+import { IModalD2P, IModalProps, IModalS2P } from './props';
 
 interface IFormInput {
   id: string;
@@ -37,7 +22,7 @@ interface IFormInput {
   favorite: boolean;
 }
 
-class ModalWithoutRun extends React.Component<IProps & IStateToProps & IDispatchToProps, {}> {
+class ModalWithoutRun extends React.Component<IModalProps & IModalS2P & IModalD2P, {}> {
 
   public render() {
     const title = this.eventToEdit() ? `Edit ${this.props.modalTitle}` : `Edit ${this.props.modalTitle}`;
@@ -111,13 +96,13 @@ class ModalWithoutRun extends React.Component<IProps & IStateToProps & IDispatch
   }
 }
 
-function mapStateToProps(state: any, ownProps: {}): IStateToProps {
+function mapStateToProps(state: any, ownProps: {}): IModalS2P {
   return {
     modals: state.modals,
   };
 }
 
-function mapDispatchToProps(dispatch: Dispatch<Action>): IDispatchToProps {
+function mapDispatchToProps(dispatch: Dispatch<Action>): IModalD2P {
   return {
     addEvent: (e) => dispatch(addEvent(e)),
     editEvent: (e) => dispatch(editEvent(e)),
@@ -125,4 +110,4 @@ function mapDispatchToProps(dispatch: Dispatch<Action>): IDispatchToProps {
   };
 }
 
-export default connect<IStateToProps, IDispatchToProps, {}>(mapStateToProps, mapDispatchToProps)(ModalWithoutRun);
+export default connect<IModalS2P, IModalD2P, {}>(mapStateToProps, mapDispatchToProps)(ModalWithoutRun);

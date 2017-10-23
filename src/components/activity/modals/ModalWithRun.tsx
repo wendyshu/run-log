@@ -5,47 +5,74 @@ import { Form, Select, Text, Textarea } from 'react-form';
 import BaseEventModal from './BaseEventModal';
 /*eslint-enable no-unused-vars*/
 
-import { get } from 'run-log/scripts/utils/utils';
-import { durationToComponents, toDuration } from 'run-log/scripts/utils/dates';
-import { hideModal } from './actions';
-import { addEvent, editEvent } from 'run-log/components/events/actions';
-
 import moment from 'moment';
+import { FormApi } from 'react-form';
 import { connect } from 'react-redux';
+import { Action, Dispatch } from 'redux';
+import { addEvent, editEvent } from 'run-log/components/events/actions';
+import Events from 'run-log/components/events/events';
+import { durationToComponents, toDuration } from 'run-log/scripts/utils/dates';
+import { get } from 'run-log/scripts/utils/utils';
+import { hideModal } from './actions';
+import { IModalD2P, IModalProps, IModalS2P } from './props';
 
-class ModalWithRun extends React.Component {
+interface IFormInput {
+  id: string;
+  category: string; // TODO: enum
+  date: string;
+  distance: string;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  notes: string;
+  favorite: boolean;
+}
 
-  constructor(props) {
-    super(props);
+class ModalWithRun extends React.Component<IModalProps & IModalS2P & IModalD2P, {}> {
+
+  public render() {
+    const title = this.props.modals.editEvent ? `Edit ${this.props.modalTitle}` : `Add ${this.props.modalTitle}`;
+    return (
+      <BaseEventModal modalType={this.props.modalType} modalTitle={title}>
+        <Form defaultValues={this.defaultValues()} onSubmit={this.onSubmit.bind(this)} validate={this.validate}>
+          {this.formContents.bind(this)}
+        </Form>
+      </BaseEventModal>
+    );
   }
 
-  categoryOptions() {
-    return [{
-      label: 'Casual',
-      value: 'casual'
-    },{
-      label: 'Distance',
-      value: 'distance'
-    },{
-      label: 'Race',
-      value: 'race'
-    },{
-      label: 'Speed',
-      value: 'speed'
-    }];
+  private categoryOptions() {
+    return [
+      {
+        label: 'Casual',
+        value: 'casual',
+      },
+      {
+        label: 'Distance',
+        value: 'distance',
+      },
+      {
+        label: 'Race',
+        value: 'race',
+      },
+      {
+        label: 'Speed',
+        value: 'speed',
+      },
+    ];
   }
 
-  onSubmit({id, category, date, distance, hours, minutes, seconds, notes, favorite}) {
+  private onSubmit({id, category, date, distance, hours, minutes, seconds, notes, favorite}: IFormInput) {
     const duration = toDuration(hours, minutes, seconds);
     const thisEvent = {
       '@id': id,
       '@type': this.props.eventType,
-      date,
       category,
-      distance: distance ? parseFloat(distance) : null,
-      notes,
+      date,
+      'distance': distance ? parseFloat(distance) : null,
       duration,
-      favorite
+      favorite,
+      notes,
     };
 
     if (this.eventToEdit()) {
@@ -57,37 +84,37 @@ class ModalWithRun extends React.Component {
     this.props.hideModal();
   }
 
-  validate({category, date}) {
+  private validate({category, date}: any) {
     return {
       category: ! category ? 'Please select a category' : undefined,
-      date: ! date ? 'Please select a date' : undefined
+      date: ! date ? 'Please select a date' : undefined,
     };
   }
 
-  defaultValues() {
+  private defaultValues() {
 
     const duration = get(this.eventToEdit(), 'duration');
-    var time = {};
+    let time = {};
     if (duration) {
       time = durationToComponents(duration);
     }
 
     return {
-      id: get(this.eventToEdit(), '@id'),
-      date: get(this.eventToEdit(), 'date', moment().format('YYYY-MM-DD')),
       category: get(this.eventToEdit(), 'category'),
+      date: get(this.eventToEdit(), 'date', moment().format('YYYY-MM-DD')),
       distance: get(this.eventToEdit(), 'distance'),
-      notes: get(this.eventToEdit(), 'notes'),
       favorite: get(this.eventToEdit(), 'favorite'),
-      ...time
+      id: get(this.eventToEdit(), '@id'),
+      notes: get(this.eventToEdit(), 'notes'),
+      ...time,
     };
   }
 
-  eventToEdit() {
+  private eventToEdit() {
     return this.props.modals.editEvent;
   }
 
-  formContents({submitForm}) {
+  private formContents({submitForm}: FormApi) {
     return (
       <form onSubmit={submitForm}>
 
@@ -135,30 +162,27 @@ class ModalWithRun extends React.Component {
 
         <div className='form-group'>
           <label htmlFor='notes'>Notes</label>
-          <Textarea className='form-control' rows='2' field='notes' />
+          <Textarea className='form-control' field='notes' />
         </div>
 
         <button type='submit' className='btn btn-primary'>Submit</button>
       </form>
     );
   }
+} // ModalWithRun
 
-  render() {
-    const title = this.props.modals.editEvent ? `Edit ${this.props.modalTitle}` : `Add ${this.props.modalTitle}`;
-    return (
-      <BaseEventModal modalType={this.props.modalType} modalTitle={title}>
-        <Form defaultValues={this.defaultValues()} onSubmit={this.onSubmit.bind(this)} validate={this.validate}>
-          {this.formContents.bind(this)}
-        </Form>
-      </BaseEventModal>
-    );
-  }
-}
-
-function mapStateToProps(state) {
+function mapStateToProps(state: any, ownProps: {}): IModalS2P {
   return {
-    modals: state.modals
+    modals: state.modals,
   };
 }
 
-export default connect(mapStateToProps, {hideModal, addEvent, editEvent})(ModalWithRun);
+function mapDispatchToProps(dispatch: Dispatch<Action>): IModalD2P {
+  return {
+    addEvent: (e) => dispatch(addEvent(e)),
+    editEvent: (e) => dispatch(editEvent(e)),
+    hideModal: () => dispatch(hideModal()),
+  };
+}
+
+export default connect<IModalS2P, IModalD2P, {}>(mapStateToProps, mapDispatchToProps)(ModalWithRun);
