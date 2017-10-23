@@ -7,6 +7,13 @@
   },
   "events": [
     {
+      "@id": "_:n38",
+      "@type": "Run",
+      "date": "2017-10-22",
+      "category": "distance",
+      "distance": 11.52,
+      "duration": "PT1H52M30S"
+    },{
       "@id": "_:n37",
       "@type": "Run+CrossTrain",
       "date": "2017-10-21",
