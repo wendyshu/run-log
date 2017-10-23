@@ -36,15 +36,17 @@ module.exports = {
         ]
       },{
         test: /\.scss$/,
-        loader: extractCSS.extract(['css-loader', 'sass-loader'])
-        // To embed CSS in JS module, remove loader and add:
-        /*
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
-        */
+        loader: extractCSS.extract([
+          {
+            loader: 'css-loader',
+          },{
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              includePaths: [ 'src/styles' ] // include constants without relative paths
+            }
+          }
+        ])
       },{
         test: /\.css$/,
         loader: extractCSS.extract(['css-loader'])

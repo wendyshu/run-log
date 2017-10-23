@@ -8,6 +8,8 @@ import ModalWithRun from './modals/ModalWithRun.jsx';
 import ModalWithoutRun from './modals/ModalWithoutRun.jsx';
 /*eslint-enable no-unused-vars*/
 
+import './activity.scss';
+
 import { MODAL_SHOES, MODAL_RUN, MODAL_RUN_CROSS_TRAIN, MODAL_CROSS_TRAIN } from './modals/actions';
 import { connect } from 'react-redux';
 

@@ -1,7 +1,24 @@
 @import './constants';
 
-@import './app';
+// Required for .navbar.navbar-fixed-top
+body {
+  padding: 70px 0 35px 0; }
 
-// TODO: these should be imported in respective components
-@import '../components/dashboard/dashboard';
-@import '../components/activity/activity';
+.navbar .navbar-header .navbar-brand {
+  font-weight: bold;
+  color: #eee;
+  margin-right: 1em;
+  text-shadow: 1px 1px 1px #666;
+}
+
+.row .jumbotron h1 { // TODO: hacking selector since Bootstrap loaded after custom styles
+  font-size: 2em;
+}
+
+a {
+  cursor: pointer; // Always
+}
+
+.borderless {
+  border: 0 !important;
+}

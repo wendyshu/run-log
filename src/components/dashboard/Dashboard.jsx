@@ -12,6 +12,8 @@ import DashboardTabs from './DashboardTabs.jsx';
 import FeaturedRun from 'run-log/components/featuredRun/FeaturedRun.jsx';
 /*eslint-enable no-unused-vars*/
 
+import './dashboard.scss';
+
 import moment from 'moment';
 
 import { TAB_7_DAY, TAB_30_DAY, TAB_365_DAY, TAB_ALL } from './constants';
