@@ -37,9 +37,6 @@ class ModalWithoutRun extends React.Component<IModalProps & IModalS2P & IModalD2
 
   private onSubmit({id, date, notes, favorite}: IFormInput) {
 
-    //
-    // TODO: events should be typed
-    //
     const thisEvent: Events.Any = {
       '@id': id,
       '@type': this.props.eventType,

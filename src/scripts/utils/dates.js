@@ -42,7 +42,7 @@ export function toDuration(hours, minutes, seconds) {
   if (hours || minutes || seconds) {
     return `PT${hours ? hours : '0'}H${minutes ? minutes : '0'}M${seconds ? seconds : '0'}S`;
   } else {
-    return null;
+    return undefined;
   }
 }
 

@@ -61,7 +61,7 @@ test('durationToComponents without seconds', () => {
 });
 
 test('toDuration without components', () => {
-  expect(toDuration(null, null, null)).toBe(null);
+  expect(toDuration(null, null, null)).toBe(undefined);
 });
 
 test('toDuration all components', () => {

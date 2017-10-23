@@ -64,12 +64,12 @@ class ModalWithRun extends React.Component<IModalProps & IModalS2P & IModalD2P, 
 
   private onSubmit({id, category, date, distance, hours, minutes, seconds, notes, favorite}: IFormInput) {
     const duration = toDuration(hours, minutes, seconds);
-    const thisEvent: Events.Any = {
+    const thisEvent: Events.WithRunning = {
       '@id': id,
       '@type': this.props.eventType,
       category,
       date,
-      'distance': distance ? parseFloat(distance) : null,
+      'distance': distance ? parseFloat(distance) : undefined,
       duration,
       favorite,
       notes,

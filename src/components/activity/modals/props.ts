@@ -8,7 +8,7 @@ export interface IModalProps {
 }
 
 export interface IModalS2P {
-  modals: any; // TODO: this is what type is for!
+  modals: any; // TODO: modals type
 }
 
 export interface IModalD2P {
