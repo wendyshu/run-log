@@ -10,7 +10,7 @@ import { FormApi } from 'react-form';
 import { connect } from 'react-redux';
 import { Action, Dispatch } from 'redux';
 import { addEvent, editEvent } from 'run-log/components/events/actions';
-import Events from 'run-log/components/events/events';
+import { Events } from 'run-log/components/events/types';
 import { durationToComponents, toDuration } from 'run-log/scripts/utils/dates';
 import { get } from 'run-log/scripts/utils/utils';
 import { hideModal } from './actions';
@@ -64,7 +64,7 @@ class ModalWithRun extends React.Component<IModalProps & IModalS2P & IModalD2P, 
 
   private onSubmit({id, category, date, distance, hours, minutes, seconds, notes, favorite}: IFormInput) {
     const duration = toDuration(hours, minutes, seconds);
-    const thisEvent = {
+    const thisEvent: Events.Any = {
       '@id': id,
       '@type': this.props.eventType,
       category,

@@ -10,7 +10,7 @@ import { FormApi } from 'react-form';
 import { connect } from 'react-redux';
 import { Action, Dispatch } from 'redux';
 import { addEvent, editEvent } from 'run-log/components/events/actions';
-import Events from 'run-log/components/events/events';
+import { Events } from 'run-log/components/events/types';
 import { get } from 'run-log/scripts/utils/utils';
 import { hideModal } from './actions';
 import { IModalD2P, IModalProps, IModalS2P } from './props';
@@ -40,7 +40,7 @@ class ModalWithoutRun extends React.Component<IModalProps & IModalS2P & IModalD2
     //
     // TODO: events should be typed
     //
-    const thisEvent = {
+    const thisEvent: Events.Any = {
       '@id': id,
       '@type': this.props.eventType,
       date,

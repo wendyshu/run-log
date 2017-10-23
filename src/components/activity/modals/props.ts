@@ -1,4 +1,5 @@
 import { Action } from 'redux';
+import { Events } from 'run-log/components/events/types';
 
 export interface IModalProps {
   eventType: string;
@@ -11,7 +12,7 @@ export interface IModalS2P {
 }
 
 export interface IModalD2P {
-  addEvent(e: any): any; // TODO: change event type
-  editEvent(e: any): any; // TODO: change event type
+  addEvent(e: Events.Any): Promise<any>;
+  editEvent(e: Events.Any): Promise<any>;
   hideModal(): Action;
 }

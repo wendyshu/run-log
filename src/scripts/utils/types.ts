@@ -9,3 +9,8 @@ export function objAssign<O, T>(base: O, obj1: T, obj2: T): T {
  * Function that transforms from one value to another.
  */
 export type Transformer<T, U> = (e: T) => U;
+
+/**
+ * Function that return true or false for given object.
+ */
+export type Predicate<T> = (e: T) => boolean;

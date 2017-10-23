@@ -1,4 +1,5 @@
 import { Action, Dispatch } from 'redux';
+import { Events } from 'run-log/components/events/types';
 
 import SampleEvents from 'run-log/sample-events.json';
 import { randomUuid } from 'run-log/scripts/utils/uuid';
@@ -17,7 +18,7 @@ class DeleteAction implements Action {
 }
 
 class CrudAction implements Action {
-  public event: any; // TODO: event type
+  public event: Events.Any;
   public type: 'SEND_EDIT_EVENT' | 'RECEIVE_EDIT_EVENT' | 'SEND_ADD_EVENT' | 'RECEIVE_ADD_EVENT';
 }
 
@@ -26,7 +27,7 @@ class SendGetAction implements Action {
 }
 
 class ReceiveGetAction implements Action {
-  public payload: any;
+  public payload: any; // TODO: payload type
   public receivedAt: number;
   public type: 'RECEIVE_GET_EVENTS';
 }
@@ -57,14 +58,14 @@ const Actions = {
     };
   },
 
-  requestEditEvent(event: string): CrudAction {
+  requestEditEvent(event: Events.Any): CrudAction {
     return {
       event,
       type: 'SEND_EDIT_EVENT',
     };
   },
 
-  receiveEditEvent(event: any): CrudAction { // TODO: event type
+  receiveEditEvent(event: Events.Any): CrudAction { // TODO: event type
     return {
       event,
       type: 'RECEIVE_EDIT_EVENT',
@@ -113,14 +114,14 @@ export function deleteEvent(eventId: any) { // TODO: event type
 /**
  * TODO: post to server, then fetch events
  */
-export function editEvent(event: any) { // TODO: event type
+export function editEvent(event: Events.Any) {
   return simulateAsyncRequest(Actions.requestEditEvent(event), Actions.receiveEditEvent(event));
 }
 
 /**
  * TODO: post to server, then fetch events
  */
-export function addEvent(event: any) { // TODO: event type
+export function addEvent(event: Events.Any) {
   event['@id'] = `urn:uuid:${randomUuid()}`; // TODO: server does this
   return simulateAsyncRequest(Actions.requestAddEvent(event), Actions.receiveAddEvent(event));
 }
