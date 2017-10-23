@@ -5,33 +5,33 @@ import { randomUuid } from 'run-log/scripts/utils/uuid';
 
 const MILLIS_WAIT = 350;
 
-export class FavoriteAction implements Action {
+class FavoriteAction implements Action {
   public eventId: string;
   public favorite: boolean;
   public type: 'SET_FAVORITE';
 }
 
-export class DeleteAction implements Action {
+class DeleteAction implements Action {
   public eventId: string;
   public type: 'SEND_DELETE_EVENT' | 'RECEIVE_DELETE_EVENT';
 }
 
-export class CrudAction implements Action {
+class CrudAction implements Action {
   public event: any; // TODO: event type
   public type: 'SEND_EDIT_EVENT' | 'RECEIVE_EDIT_EVENT' | 'SEND_ADD_EVENT' | 'RECEIVE_ADD_EVENT';
 }
 
-export class SendGetAction implements Action {
+class SendGetAction implements Action {
   public type: 'SEND_GET_EVENTS';
 }
 
-export class ReceiveGetAction implements Action {
+class ReceiveGetAction implements Action {
   public payload: any;
   public receivedAt: number;
   public type: 'RECEIVE_GET_EVENTS';
 }
 
-type TEventAction = FavoriteAction | DeleteAction | CrudAction | SendGetAction | ReceiveGetAction;
+export type TEventAction = FavoriteAction | DeleteAction | CrudAction | SendGetAction | ReceiveGetAction;
 
 const Actions = {
 
