@@ -1,5 +1,4 @@
 import moment from 'moment';
-import { durationFormat } from './durationFormat';
 
 export function formatDate(date: Date) {
   return moment(date, 'YYYYMMDD').calendar(undefined, {
@@ -16,7 +15,7 @@ export function formatDate(date: Date) {
  * E.g., "PT2M35S" -> "2m 35s"
  */
 export function formatDuration(duration: string) {
-  return durationFormat([duration], 'h[h] m[m] s[s]');
+  return moment.duration(duration).format('h[h] m[m] s[s]');
 }
 
 /**
@@ -57,5 +56,5 @@ export function durationToSeconds(duration: string) {
  * E.g, 155 -> "2:35"
  */
 export function secondsToMinuteMiles(secs: number) {
-  return durationFormat([secs, 'seconds'], 'm[m] s[s]');
+  return moment.duration(secs, 'seconds').format('m[m] s[s]');
 }
