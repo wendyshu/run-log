@@ -7,6 +7,13 @@
   },
   "events": [
     {
+      "@id": "_:n39",
+      "@type": "Run",
+      "date": "2017-10-25",
+      "category": "distance",
+      "distance": 7.77,
+      "duration": "PT1H20M00S"
+    },{
       "@id": "_:n38",
       "@type": "Run",
       "date": "2017-10-22",
