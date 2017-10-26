@@ -61,7 +61,7 @@ test('durationToComponents without seconds', () => {
 });
 
 test('toDuration without components', () => {
-  expect(toDuration(null, null, null)).toBe(undefined);
+  expect(toDuration(undefined, undefined, undefined)).toBe(undefined);
 });
 
 test('toDuration all components', () => {
@@ -69,13 +69,13 @@ test('toDuration all components', () => {
 });
 
 test('toDuration missing hours', () => {
-  expect(toDuration(null, 2, 3)).toBe("PT0H2M3S");
+  expect(toDuration(undefined, 2, 3)).toBe("PT0H2M3S");
 });
 
 test('toDuration missing minutes', () => {
-  expect(toDuration(1, null, 3)).toBe("PT1H0M3S");
+  expect(toDuration(1, undefined, 3)).toBe("PT1H0M3S");
 });
 
 test('toDuration missing seconds', () => {
-  expect(toDuration(1, 2, null)).toBe("PT1H2M0S");
+  expect(toDuration(1, 2, undefined)).toBe("PT1H2M0S");
 });
