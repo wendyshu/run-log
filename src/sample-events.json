@@ -7,6 +7,13 @@
   },
   "events": [
     {
+      "@id": "_:n40",
+      "@type": "Run+CrossTrain",
+      "date": "2017-10-28",
+      "category": "speed",
+      "distance": 1.00,
+      "duration": "PT6M44S"
+    },{
       "@id": "_:n39",
       "@type": "Run",
       "date": "2017-10-25",
