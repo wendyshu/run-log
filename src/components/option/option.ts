@@ -1,21 +1,23 @@
-import { Transformer } from '../../scripts/utils/types'; // TODO: no relative paths
-
-// TODO: move to types, make a monad
-type MonadTransformer<A,B> = Transformer<A,Option<B>>;
-
 /*
- *
+ * The option type.
  */
-export interface Option<A> {
+export interface Option<A> extends Fp.Monad<A> {
   readonly empty: boolean;
+
+  // Option
   get(): A;
   orElse(b: A): A;
-  map<B>(fn: Transformer<A,B>): Option<B>;
-  flatMap<B>(fn: MonadTransformer<A,B>): Option<B>;
+
+  // Functor
+  map<B>(fn: Fp.Transform<A,B>): Option<B>;
+
+  // Monad
+  unit(a: A): Option<A>;
+  flatMap<B>(fn: Fp.Transform<A, Option<B>>): Option<B>;
 }
 
 /*
- *
+ * Convenient constructors for Option, None, Some.
  */
 export function Option<A>(a?: A): Option<A> {
   if (a === undefined || a === null) {
@@ -34,7 +36,7 @@ export function Some<A>(a: A): Some<A> {
 }
 
 /*
- *
+ * None impl.
  */
 export interface None<A> extends Option<A> {};
 
@@ -53,17 +55,21 @@ export class NoneImpl<A> implements None<A> {
     return b;
   }
 
-  map<B>(fn: Transformer<A,B>): Option<B> {
-    return None<B>();
+  map<B>(fn: Fp.Transform<A,B>): Option<B> {
+    return None();
   }
 
-  flatMap<B>(fn: MonadTransformer<A,B>): Option<B> {
-    return None<B>();
+  flatMap<B>(fn: Fp.Transform<A, Option<B>>): Option<B> {
+    return None();
+  }
+
+  unit(a: A): Option<A> {
+    return None();
   }
 }
 
 /*
- *
+ * Some impl.
  */
 export interface Some<A> extends Option<A> {};
 
@@ -84,11 +90,15 @@ export class SomeImpl<A> implements Some<A> {
     return this.a;
   }
 
-  map<B>(fn: Transformer<A,B>): Option<B> {
+  map<B>(fn: Fp.Transform<A,B>): Option<B> {
     return Option(fn(this.a));
   }
 
-  flatMap<B>(fn: MonadTransformer<A,B>): Option<B> {
+  flatMap<B>(fn: Fp.Transform<A, Option<B>>): Option<B> {
     return fn(this.a);
+  }
+
+  unit(a: A): Option<A> {
+    return Some(a);
   }
 }

@@ -1,5 +1,5 @@
 import { Events } from 'run-log/components/events/types';
-import { objAssign, Predicate, Transformer } from 'run-log/scripts/utils/types';
+import { objAssign } from 'run-log/scripts/utils/objects';
 import { TEventAction } from './actions';
 
 class State {
@@ -11,7 +11,7 @@ const INITIAL_STATE = {
   data: [],
 };
 
-const transformEvent = (eventId: string, transformer: Transformer<Events.Any, Events.Any>) => {
+const transformEvent = (eventId: string, transformer: Fp.Transform<Events.Any, Events.Any>) => {
   return (e: Events.Any) => {
     if (e['@id'] === eventId) {
       return transformer(e);
@@ -54,7 +54,7 @@ export default function(state: State = INITIAL_STATE, action: TEventAction): Sta
         loading: false,
       });
     case 'RECEIVE_DELETE_EVENT':
-      const eqT: Predicate<Events.Any> = (e: Events.Any) => e['@id'] !== action.eventId;
+      const eqT: Fp.Predicate<Events.Any> = (e: Events.Any) => e['@id'] !== action.eventId;
       return objAssign({}, state, {
         data: state.data.filter(eqT),
         loading: false,
