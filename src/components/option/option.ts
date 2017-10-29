@@ -9,7 +9,7 @@ export interface Option<A> extends Fp.Monad<A> {
   orElse(b: A): A;
 
   // Functor
-  map<B>(fn: Fp.Transform<A,B>): Option<B>;
+  map<B>(fn: Fp.Transform<A, B>): Option<B>;
 
   // Monad
   flatMap<B>(fn: Fp.Transform<A, Option<B>>): Option<B>;
@@ -37,28 +37,28 @@ export function Some<A>(a: A): Some<A> {
 /*
  * None impl.
  */
-export interface None<A> extends Option<A> {};
+export interface None<A> extends Option<A> {}
 
 export class NoneImpl<A> implements None<A> {
-  readonly empty: boolean;
+  public readonly empty: boolean;
 
   constructor() {
     this.empty = true;
   }
 
-  get(): A {
-    throw "Cannot call None.get";
+  public get(): A {
+    throw new Error('Cannot call None.get');
   }
 
-  orElse(b: A): A {
+  public orElse(b: A): A {
     return b;
   }
 
-  map<B>(fn: Fp.Transform<A,B>): Option<B> {
+  public map<B>(fn: Fp.Transform<A, B>): Option<B> {
     return None();
   }
 
-  flatMap<B>(fn: Fp.Transform<A, Option<B>>): Option<B> {
+  public flatMap<B>(fn: Fp.Transform<A, Option<B>>): Option<B> {
     return None();
   }
 }
@@ -66,30 +66,31 @@ export class NoneImpl<A> implements None<A> {
 /*
  * Some impl.
  */
-export interface Some<A> extends Option<A> {};
+export interface Some<A> extends Option<A> {}
 
 export class SomeImpl<A> implements Some<A> {
-  a:A;
-  readonly empty: boolean;
 
-  constructor(a:A) {
+  public readonly empty: boolean;
+  private a: A;
+
+  constructor(a: A) {
     this.a = a;
     this.empty = false;
   }
 
-  get(): A {
+  public get(): A {
     return this.a;
   }
 
-  orElse(b: A): A {
+  public orElse(b: A): A {
     return this.a;
   }
 
-  map<B>(fn: Fp.Transform<A,B>): Option<B> {
+  public map<B>(fn: Fp.Transform<A, B>): Option<B> {
     return Option(fn(this.a));
   }
 
-  flatMap<B>(fn: Fp.Transform<A, Option<B>>): Option<B> {
+  public flatMap<B>(fn: Fp.Transform<A, Option<B>>): Option<B> {
     return fn(this.a);
   }
 }
