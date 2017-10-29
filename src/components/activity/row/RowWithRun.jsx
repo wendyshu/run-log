@@ -4,7 +4,7 @@ import BaseEventRow from './BaseEventRow';
 /*eslint-enable no-unused-vars*/
 
 import { formatDate, formatDuration } from 'run-log/scripts/utils/dates';
-import Option from 'run-log/components/option/option';
+import { Option } from 'run-log/components/option/option';
 
 function getHeartClasses(event) {
   return event.favorite ? 'glyphicon glyphicon-heart' : 'glyphicon glyphicon-heart-empty';

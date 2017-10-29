@@ -3,7 +3,7 @@ import React from 'react';
 import DashboardStats from 'run-log/components/dashboard/stats/DashboardStats';
 /*eslint-enable no-unused-vars*/
 
-import Option from 'run-log/components/option/option';
+import { Option } from 'run-log/components/option/option';
 import { durationToSeconds, secondsToMinuteMiles } from 'run-log/scripts/utils/dates';
 import { min } from 'run-log/scripts/utils/math';
 
