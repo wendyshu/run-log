@@ -39,7 +39,7 @@ export function Some<A>(a: A): Some<A> {
  */
 export interface None<A> extends Option<A> {}
 
-export class NoneImpl<A> implements None<A> {
+class NoneImpl<A> implements None<A> {
   public readonly empty: boolean;
 
   constructor() {
@@ -68,7 +68,7 @@ export class NoneImpl<A> implements None<A> {
  */
 export interface Some<A> extends Option<A> {}
 
-export class SomeImpl<A> implements Some<A> {
+class SomeImpl<A> implements Some<A> {
 
   public readonly empty: boolean;
   private a: A;
