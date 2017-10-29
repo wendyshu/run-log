@@ -12,7 +12,6 @@ export interface Option<A> extends Fp.Monad<A> {
   map<B>(fn: Fp.Transform<A,B>): Option<B>;
 
   // Monad
-  unit(a: A): Option<A>;
   flatMap<B>(fn: Fp.Transform<A, Option<B>>): Option<B>;
 }
 
@@ -62,10 +61,6 @@ export class NoneImpl<A> implements None<A> {
   flatMap<B>(fn: Fp.Transform<A, Option<B>>): Option<B> {
     return None();
   }
-
-  unit(a: A): Option<A> {
-    return None();
-  }
 }
 
 /*
@@ -96,9 +91,5 @@ export class SomeImpl<A> implements Some<A> {
 
   flatMap<B>(fn: Fp.Transform<A, Option<B>>): Option<B> {
     return fn(this.a);
-  }
-
-  unit(a: A): Option<A> {
-    return Some(a);
   }
 }

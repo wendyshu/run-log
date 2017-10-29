@@ -18,7 +18,6 @@ declare namespace Fp {
    * Declare something as a monad.
    */
   export interface Monad<T> extends Functor<T> {
-    unit(t: T): Monad<T>;
     flatMap<U>(fn: Transform<T, Monad<U>>): Monad<U>;
   };
 }
