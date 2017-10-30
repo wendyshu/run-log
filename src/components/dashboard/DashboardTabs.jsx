@@ -3,10 +3,12 @@ import React from 'react';
 import { selectDashboardTab } from './actions';
 /*eslint-enable no-unused-vars*/
 
+import PropTypes from 'prop-types';
+
 import { TAB_7_DAY, TAB_30_DAY, TAB_365_DAY, TAB_ALL } from './constants';
 import { connect } from 'react-redux';
 
-class Dashboard extends React.Component {
+class DashboardTabs extends React.Component {
 
   constructor(props) {
     super(props);
@@ -33,4 +35,8 @@ class Dashboard extends React.Component {
   }
 };
 
-export default connect(null, { selectDashboardTab })(Dashboard);
+DashboardTabs.propTypes = {
+  selectedTab: PropTypes.oneOf([TAB_7_DAY, TAB_30_DAY, TAB_365_DAY, TAB_ALL])
+};
+
+export default connect(null, { selectDashboardTab })(DashboardTabs);

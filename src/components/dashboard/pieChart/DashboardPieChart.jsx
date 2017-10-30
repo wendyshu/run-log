@@ -4,17 +4,15 @@ import React from 'react';
 import ChartistGraph from 'react-chartist';
 /*eslint-enable no-unused-vars*/
 
-function eventsByType(props, type) {
-  return props.events.filter(e => e['@type'] === type);
-}
+const hasType = (type) => (event) => event['@type'] === type;
 
-function calculateCounts(props) {
-  const running = eventsByType(props, 'Run');
-  const crossTraining = eventsByType(props, 'CrossTrain');
-  const runCrossTrain = eventsByType(props, 'Run+CrossTrain');
+function calculateCounts(events, totalDays) {
+  const running = events.filter(hasType('Run'));
+  const crossTraining = events.filter(hasType('CrossTrain'));
+  const runCrossTrain = events.filter(hasType('Run+CrossTrain'));
   return [
     {
-      value: props.totalDays - props.events.length,
+      value: totalDays - events.length,
       className: 'slice-none'
     },
     {
@@ -40,8 +38,8 @@ function calculateCounts(props) {
   ];
 }
 
-function data(props) {
-  const counts = calculateCounts(props).filter(p => p.value > 0);
+function data(events, totalDays) {
+  const counts = calculateCounts(events, totalDays).filter(p => p.value > 0);
   return {
     series: counts
   };
@@ -51,11 +49,11 @@ function options() {
   return { showLabel: false };
 }
 
-export default (props) => {
+export default ({events, totalDays}) => {
   return (
     <div className="row">
       <div className="col-xs-6 pie-chart">
-        <ChartistGraph data={data(props)} options={options()} type={'Pie'} />
+        <ChartistGraph data={data(events, totalDays)} options={options()} type={'Pie'} />
       </div>
       <div className="col-xs-6 pie-chart-legend">
         <table>

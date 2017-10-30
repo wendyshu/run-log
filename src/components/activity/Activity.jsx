@@ -95,4 +95,6 @@ function mapStateToProps(state) {
   };
 }
 
+Activity.propTypes = {};
+
 export default connect(mapStateToProps, {})(Activity);

@@ -2,12 +2,14 @@
 import React from 'react';
 /*eslint-enable no-unused-vars*/
 
+import PropTypes from 'prop-types';
+
 import { showModal, MODAL_RUN, MODAL_CROSS_TRAIN, MODAL_RUN_CROSS_TRAIN, MODAL_SHOES } from 'run-log/components/activity/modals/actions';
 import { deleteEvent, setFavorite } from 'run-log/components/events/actions';
 
 import { connect } from 'react-redux';
 
-class EventRow extends React.Component {
+class BaseEventRow extends React.Component {
 
   constructor(props) {
     super(props);
@@ -46,6 +48,10 @@ class EventRow extends React.Component {
     });
   }
 
-}
+} // BaseEventRow
 
-export default connect(null, {deleteEvent, showModal, setFavorite})(EventRow);
+BaseEventRow.propTypes = {
+  event: PropTypes.object.isRequired
+};
+
+export default connect(null, {deleteEvent, showModal, setFavorite})(BaseEventRow);

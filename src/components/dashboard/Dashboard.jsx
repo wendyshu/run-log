@@ -139,4 +139,6 @@ function mapStateToProps(state) {
   };
 }
 
+Dashboard.propTypes = {};
+
 export default connect(mapStateToProps, {})(Dashboard);
