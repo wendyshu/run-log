@@ -1,5 +1,4 @@
 import { Action } from 'redux';
-import { Events } from 'run-log/components/events/types';
 
 export interface IModalProps {
   eventType: string;

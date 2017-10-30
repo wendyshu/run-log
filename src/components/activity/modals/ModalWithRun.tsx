@@ -10,7 +10,6 @@ import { FormApi } from 'react-form';
 import { connect } from 'react-redux';
 import { Action, Dispatch } from 'redux';
 import { addEvent, editEvent } from 'run-log/components/events/actions';
-import { Events } from 'run-log/components/events/types';
 import { durationToComponents, toDuration } from 'run-log/scripts/utils/dates';
 import { get } from 'run-log/scripts/utils/utils';
 import { hideModal } from './actions';

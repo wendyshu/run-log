@@ -10,7 +10,6 @@ import { FormApi } from 'react-form';
 import { connect } from 'react-redux';
 import { Action, Dispatch } from 'redux';
 import { addEvent, editEvent } from 'run-log/components/events/actions';
-import { Events } from 'run-log/components/events/types';
 import { get } from 'run-log/scripts/utils/utils';
 import { hideModal } from './actions';
 import { IModalD2P, IModalProps, IModalS2P } from './props';

@@ -1,5 +1,4 @@
 import { Action, Dispatch } from 'redux';
-import { Events } from 'run-log/components/events/types';
 
 import SampleEvents from 'run-log/sample-events.json';
 import { randomUuid } from 'run-log/scripts/utils/uuid';

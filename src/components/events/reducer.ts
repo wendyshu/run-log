@@ -1,4 +1,3 @@
-import { Events } from 'run-log/components/events/types';
 import { objAssign } from 'run-log/scripts/utils/objects';
 import { TEventAction } from './actions';
 
