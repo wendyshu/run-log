@@ -10,12 +10,15 @@ declare namespace Fp {
    */
   export type Predicate<T> = (e: T) => boolean;
 
+  /**
+   * Some conforms to our lite definition of a Functor.
+   */
   export interface Functor<T> {
     map<U>(fn: Transform<T, U>): Functor<U>;
   }
 
   /**
-   * Declare something as a monad.
+   * Some conforms to our lite definition of a Monad.
    */
   export interface Monad<T> extends Functor<T> {
     flatMap<U>(fn: Transform<T, Monad<U>>): Monad<U>;
