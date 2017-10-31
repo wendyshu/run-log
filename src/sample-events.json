@@ -7,6 +7,13 @@
   },
   "events": [
     {
+      "@id": "_:n41",
+      "@type": "Run",
+      "date": "2017-10-30",
+      "category": "casual",
+      "distance": 6.04,
+      "duration": "PT54M15S"
+    },{
       "@id": "_:n40",
       "@type": "Run+CrossTrain",
       "date": "2017-10-28",
