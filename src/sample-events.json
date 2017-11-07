@@ -7,6 +7,13 @@
   },
   "events": [
     {
+      "@id": "_:n44",
+      "@type": "Run",
+      "date": "2017-11-06",
+      "category": "distance",
+      "distance": 4.65,
+      "duration": "PT46M30S"
+    },{
       "@id": "_:n43",
       "@type": "Run",
       "date": "2017-11-03",
