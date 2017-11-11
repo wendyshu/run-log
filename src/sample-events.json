@@ -7,6 +7,13 @@
   },
   "events": [
     {
+      "@id": "_:n47",
+      "@type": "Run",
+      "date": "2017-11-11",
+      "category": "casual",
+      "distance": 2.0,
+      "duration": "PT17M08S"
+    },{
       "@id": "_:n46",
       "@type": "Run+CrossTrain",
       "date": "2017-11-09",
