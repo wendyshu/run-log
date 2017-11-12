@@ -10,6 +10,7 @@ import { FormApi } from 'react-form';
 import { connect } from 'react-redux';
 import { Action, Dispatch } from 'redux';
 import { addEvent, editEvent } from 'run-log/components/events/actions';
+import { RootState } from 'run-log/scripts/reducers';
 import { get } from 'run-log/scripts/utils/utils';
 import { hideModal } from './actions';
 import { IModalD2P, IModalProps, IModalS2P } from './props';
@@ -92,7 +93,7 @@ class ModalWithoutRun extends React.Component<IModalProps & IModalS2P & IModalD2
   }
 }
 
-function mapStateToProps(state: any, ownProps: {}): IModalS2P { // TODO: state type
+function mapStateToProps(state: RootState, ownProps: {}): IModalS2P { // TODO: state type
   return {
     modals: state.modals,
   };

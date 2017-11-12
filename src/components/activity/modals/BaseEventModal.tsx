@@ -5,6 +5,7 @@ import { Modal } from 'react-bootstrap';
 
 import { connect } from 'react-redux';
 import { Action, Dispatch } from 'redux';
+import { RootState } from 'run-log/scripts/reducers';
 import { hideModal } from './actions';
 
 interface IProps {
@@ -44,7 +45,7 @@ class BaseEventModal extends React.Component<IProps & IStateToProps & IDispatchT
   }
 } // BaseEventModal
 
-function mapStateToProps(state: any, ownProps: {}): IStateToProps {
+function mapStateToProps(state: RootState, ownProps: {}): IStateToProps {
   return {
     modals: state.modals,
   };

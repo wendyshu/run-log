@@ -31,7 +31,7 @@ class ReceiveGetAction implements Action {
   public type: 'RECEIVE_GET_EVENTS';
 }
 
-export type TEventAction = FavoriteAction | DeleteAction | CrudAction | SendGetAction | ReceiveGetAction;
+export type EventsAction = FavoriteAction | DeleteAction | CrudAction | SendGetAction | ReceiveGetAction;
 
 const Actions = {
 
@@ -133,7 +133,7 @@ export function loadEvents() {
 }
 
 // Helper for simulating HTTP requests
-function simulateAsyncRequest(reqAction: TEventAction, resAction: TEventAction) {
+function simulateAsyncRequest(reqAction: EventsAction, resAction: EventsAction) {
   return (dispatch: Dispatch<Action>) => {
     dispatch(reqAction);
     return new Promise((resolve) => {

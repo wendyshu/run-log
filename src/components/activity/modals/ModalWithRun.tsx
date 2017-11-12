@@ -10,6 +10,7 @@ import { FormApi } from 'react-form';
 import { connect } from 'react-redux';
 import { Action, Dispatch } from 'redux';
 import { addEvent, editEvent } from 'run-log/components/events/actions';
+import { RootState } from 'run-log/scripts/reducers';
 import { durationToComponents, toDuration } from 'run-log/scripts/utils/dates';
 import { get } from 'run-log/scripts/utils/utils';
 import { hideModal } from './actions';
@@ -170,7 +171,7 @@ class ModalWithRun extends React.Component<IModalProps & IModalS2P & IModalD2P, 
   }
 } // ModalWithRun
 
-function mapStateToProps(state: any, ownProps: {}): IModalS2P { // TODO: state type
+function mapStateToProps(state: RootState, ownProps: {}): IModalS2P { // TODO: state type
   return {
     modals: state.modals,
   };
