@@ -7,11 +7,18 @@
   },
   "events": [
     {
+      "@id": "_:n50",
+      "@type": "Run+CrossTrain",
+      "date": "2017-11-18",
+      "category": "speed",
+      "distance": 3,
+      "duration": "PT24M"
+    },{
       "@id": "_:n49",
       "@type": "Run+CrossTrain",
       "date": "2017-11-16",
       "category": "speed",
-      "distance": 1.0,
+      "distance": 1,
       "duration": "PT6M40S"
     },{
       "@id": "_:n48",
@@ -25,7 +32,7 @@
       "@type": "Run",
       "date": "2017-11-11",
       "category": "casual",
-      "distance": 2.0,
+      "distance": 2,
       "duration": "PT17M08S"
     },{
       "@id": "_:n46",
@@ -33,7 +40,7 @@
       "date": "2017-11-09",
       "category": "speed",
       "distance": 0.6,
-      "duration": "PT4M00S"
+      "duration": "PT4M"
     },{
       "@id": "_:n45",
       "@type": "Run",
@@ -54,7 +61,7 @@
       "date": "2017-11-03",
       "category": "distance",
       "distance": 7.65,
-      "duration": "PT1H15M00S"
+      "duration": "PT1H15M"
     },{
       "@id": "_:n42",
       "@type": "Run",
@@ -74,7 +81,7 @@
       "@type": "Run+CrossTrain",
       "date": "2017-10-28",
       "category": "speed",
-      "distance": 1.00,
+      "distance": 1,
       "duration": "PT6M44S"
     },{
       "@id": "_:n39",
@@ -82,7 +89,7 @@
       "date": "2017-10-25",
       "category": "distance",
       "distance": 7.77,
-      "duration": "PT1H20M00S"
+      "duration": "PT1H20M"
     },{
       "@id": "_:n38",
       "@type": "Run",
@@ -95,7 +102,7 @@
       "@type": "Run+CrossTrain",
       "date": "2017-10-21",
       "category": "speed",
-      "distance": 1.00,
+      "distance": 1,
       "duration": "PT6M49S"
     },{
       "@id": "_:n36",
@@ -117,8 +124,8 @@
       "@type": "Run+CrossTrain",
       "date": "2017-10-14",
       "category": "speed",
-      "distance": 2.00,
-      "duration": "PT16M00S"
+      "distance": 2,
+      "duration": "PT16M"
     },{
       "@id": "_:n33",
       "@type": "CrossTrain",
@@ -139,8 +146,8 @@
       "@type": "Run+CrossTrain",
       "date": "2017-10-05",
       "category": "casual",
-      "distance": 1.00,
-      "duration": "PT8M00S"
+      "distance": 1,
+      "duration": "PT8M"
     },{
       "@id": "_:n29",
       "@type": "Run",
@@ -153,7 +160,7 @@
       "@type": "Run+CrossTrain",
       "date": "2017-10-02",
       "category": "casual",
-      "distance": 2.00,
+      "distance": 2,
       "duration": "PT17M22S"
     },{
       "@id": "_:n27",
@@ -167,7 +174,7 @@
       "@type": "Run+CrossTrain",
       "date": "2017-09-30",
       "category": "speed",
-      "distance": 3.00,
+      "distance": 3,
       "duration": "PT25M21S"
     },{
       "@id": "_:n24",
@@ -181,14 +188,14 @@
       "@type": "Run+CrossTrain",
       "date": "2017-09-23",
       "category": "speed",
-      "distance": 2.00,
-      "duration": "PT16M00S"
+      "distance": 2,
+      "duration": "PT16M"
     },{
       "@id": "_:n21",
       "@type": "Run+CrossTrain",
       "date": "2017-09-21",
       "category": "speed",
-      "distance": 1.00,
+      "distance": 1,
       "duration": "PT6M58S",
       "favorite": true
     },{
@@ -204,7 +211,7 @@
       "date": "2017-09-17",
       "category": "distance",
       "distance": 11.01,
-      "duration": "PT1H56M00S",
+      "duration": "PT1H56M",
       "favorite": true
     },{
       "@id": "_:n17",
@@ -212,7 +219,7 @@
       "date": "2017-09-15",
       "category": "casual",
       "distance": 6.02,
-      "duration": "PT60M00S"
+      "duration": "PT60M"
     },{
       "@id": "_:n16",
       "@type": "CrossTrain",
@@ -236,7 +243,7 @@
       "date": "2017-09-10",
       "category": "distance",
       "distance": 10.45,
-      "duration": "PT1H46M00S"
+      "duration": "PT1H46M"
     },{
       "@id": "_:n12",
       "@type": "CrossTrain",
@@ -254,7 +261,7 @@
       "@type": "Run",
       "date": "2017-09-02",
       "category": "speed",
-      "distance": 1.00,
+      "distance": 1,
       "duration": "PT7M13S",
       "notes": "Treadmill, 1° incline, 8.3mph"
     },{
@@ -270,7 +277,7 @@
       "@type": "Run+CrossTrain",
       "date": "2017-08-28",
       "category": "speed",
-      "distance": 1.00,
+      "distance": 1,
       "duration": "PT7M24S",
       "notes": "Treadmill, 1° incline; 2 sets circuit training"
     },{
