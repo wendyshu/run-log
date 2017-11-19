@@ -3,12 +3,10 @@ import { Action } from 'redux';
 //
 // TODO: once callers are .ts, switch to string enum
 //
-const TAB_7_DAY: string = 'TAB_7_DAY',
+export const TAB_7_DAY: string = 'TAB_7_DAY',
   TAB_30_DAY: string = 'TAB_30_DAY',
   TAB_365_DAY: string = 'TAB_365_DAY',
   TAB_ALL: string = 'TAB_ALL';
-
-export { TAB_7_DAY, TAB_30_DAY, TAB_365_DAY, TAB_ALL };
 
 export type DashboardTabId = 'TAB_7_DAY' | 'TAB_30_DAY' | 'TAB_365_DAY' | 'TAB_ALL';
 
