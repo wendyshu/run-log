@@ -12,14 +12,16 @@
       "date": "2017-11-18",
       "category": "speed",
       "distance": 3,
-      "duration": "PT24M"
+      "duration": "PT24M",
+      "favorite": true
     },{
       "@id": "_:n49",
       "@type": "Run+CrossTrain",
       "date": "2017-11-16",
       "category": "speed",
       "distance": 1,
-      "duration": "PT6M40S"
+      "duration": "PT6M40S",
+      "favorite": true
     },{
       "@id": "_:n48",
       "@type": "Run",
@@ -96,7 +98,8 @@
       "date": "2017-10-22",
       "category": "distance",
       "distance": 11.52,
-      "duration": "PT1H52M30S"
+      "duration": "PT1H52M30S",
+      "favorite": true
     },{
       "@id": "_:n37",
       "@type": "Run+CrossTrain",
@@ -196,8 +199,7 @@
       "date": "2017-09-21",
       "category": "speed",
       "distance": 1,
-      "duration": "PT6M58S",
-      "favorite": true
+      "duration": "PT6M58S"
     },{
       "@id": "_:n19",
       "@type": "Run",
@@ -211,8 +213,7 @@
       "date": "2017-09-17",
       "category": "distance",
       "distance": 11.01,
-      "duration": "PT1H56M",
-      "favorite": true
+      "duration": "PT1H56M"
     },{
       "@id": "_:n17",
       "@type": "Run",
