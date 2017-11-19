@@ -16,7 +16,7 @@ import './dashboard.scss';
 
 import moment from 'moment';
 
-import { TAB_7_DAY, TAB_30_DAY, TAB_365_DAY, TAB_ALL } from './constants';
+import { TAB_7_DAY, TAB_30_DAY, TAB_365_DAY, TAB_ALL } from './actions';
 import { connect } from 'react-redux';
 
 class Dashboard extends React.Component {

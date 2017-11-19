@@ -5,7 +5,7 @@ import ChartistGraph from 'react-chartist';
 
 import moment from 'moment';
 
-import { TAB_7_DAY, TAB_30_DAY, TAB_365_DAY, TAB_ALL } from 'run-log/components/dashboard/constants';
+import { TAB_7_DAY, TAB_30_DAY, TAB_365_DAY, TAB_ALL } from 'run-log/components/dashboard/actions';
 import { add } from 'run-log/scripts/utils/math';
 
 /*

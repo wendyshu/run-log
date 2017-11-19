@@ -1,6 +1,4 @@
-import { SELECT_DASHBOARD_TAB } from './actions';
-
-import { TAB_7_DAY } from './constants';
+import { SELECT_DASHBOARD_TAB, TAB_7_DAY } from './actions';
 
 export const INITIAL_STATE = {
   ui: {

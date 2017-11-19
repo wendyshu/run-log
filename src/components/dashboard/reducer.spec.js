@@ -1,8 +1,6 @@
 import reducer, { INITIAL_STATE } from './reducer';
 
-import { selectDashboardTab } from './actions';
-
-import { TAB_7_DAY, TAB_ALL } from './constants';
+import { selectDashboardTab, TAB_7_DAY, TAB_ALL } from './actions';
 
 test('reducer handles non-expected actions', () => {
   const state = reducer(undefined, {type: 'FOO'});
