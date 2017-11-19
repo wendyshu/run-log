@@ -1,11 +1,11 @@
 import { combineReducers, Reducer } from 'redux';
 import ModalsReducer from 'run-log/components/activity/modals/reducer';
-import DashboardReducer from 'run-log/components/dashboard/reducer';
+import DashboardReducer, { DashboardState } from 'run-log/components/dashboard/reducer';
 import EventsReducer, { EventsState } from 'run-log/components/events/reducer';
 
 // TODO: combineReducers is not typesafe. (Modify property names below, still compiles.)
 export interface RootState {
-  dashboard: any; // TODO: typesafe dashboard reducer
+  dashboard: DashboardState;
   events: EventsState;
   modals: any; // TODO: typesafe modals reducer
 }
