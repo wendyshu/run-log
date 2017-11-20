@@ -4,7 +4,7 @@
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "jsx": "react",
-    "lib": ["es6"],
+    "lib": ["es7"],
     "module": "ES6",
     "moduleResolution": "node",
     "noEmitOnError": true,
