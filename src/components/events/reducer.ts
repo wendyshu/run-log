@@ -1,11 +1,6 @@
 import { objAssign } from 'run-log/scripts/utils/objects';
 import { EventsAction } from './actions';
 
-export class EventsState {
-  public data: Events.Any[];
-  public loading?: boolean;
-}
-
 const INITIAL_STATE = {
   data: [],
 };
@@ -23,7 +18,7 @@ const transformEvent = (eventId: string, transformer: Fp.Transform<Events.Any, E
 /**
  * Reducer function for books application.
  */
-export default function(state: EventsState = INITIAL_STATE, action: EventsAction): EventsState {
+export default function(state: State.Events = INITIAL_STATE, action: EventsAction): State.Events {
   switch (action.type) {
     case 'SET_FAVORITE':
       const fave = transformEvent(action.eventId, (e) => {

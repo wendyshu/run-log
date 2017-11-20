@@ -17,14 +17,13 @@ import './dashboard.scss';
 import moment, { Moment } from 'moment';
 import { connect } from 'react-redux';
 import { Action, Dispatch } from 'redux';
-import { EventsState } from 'run-log/components/events/reducer';
 import { RootState } from 'run-log/scripts/reducers';
 import { TAB_30_DAY, TAB_365_DAY, TAB_7_DAY, TAB_ALL } from './actions';
 import { DashboardState } from './reducer';
 
 interface IStateToProps {
   dashboard: DashboardState;
-  events: EventsState;
+  events: State.Events;
 }
 
 class Dashboard extends React.Component<{} & IStateToProps, {}> {
