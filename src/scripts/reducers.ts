@@ -1,5 +1,5 @@
 import { combineReducers, Reducer } from 'redux';
-import ModalsReducer from 'run-log/components/activity/modals/reducer';
+import ModalsReducer, { ModalsState } from 'run-log/components/activity/modals/reducer';
 import DashboardReducer, { DashboardState } from 'run-log/components/dashboard/reducer';
 import EventsReducer, { EventsState } from 'run-log/components/events/reducer';
 

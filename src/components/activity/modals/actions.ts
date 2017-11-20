@@ -13,12 +13,12 @@ export type ModalType = 'MODAL_SHOES' | 'MODAL_RUN' | 'MODAL_RUN_CROSS_TRAIN' | 
 export const SHOW_MODAL = 'SHOW_MODAL';
 
 export class ShowModalAction implements Action {
-  public editEvent?: string;
+  public editEvent?: Events.Any;
   public modal: ModalType;
   public type: 'SHOW_MODAL';
 }
 
-export function showModal(modal: ModalType, editEvent?: string): ShowModalAction {
+export function showModal(modal: ModalType, editEvent?: Events.Any): ShowModalAction {
   return {
     editEvent, // If present, edit; if absent, new
     modal,
