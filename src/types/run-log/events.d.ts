@@ -1,8 +1,19 @@
+/**
+ * Valid values for event's json-ld '@type' property
+ */
+declare namespace EventTypes {
+  export const Run = 'Run',
+    CrossTrain = 'CrossTrain',
+    RunCrossTrain = 'Run+CrossTrain',
+    ChangeShoes = 'ChangeShoes';
+  export type Any = 'Run' | 'CrossTrain' | 'Run+CrossTrain' | 'ChangeShoes';
+}
+
 declare namespace Events {
 
   interface IBaseEvent {
     '@id': string;
-    '@type': string;
+    '@type': EventTypes.Any;
     date: string;
     notes: string;
     favorite: boolean;

@@ -126,7 +126,7 @@ class Dashboard extends React.Component<{} & IStateToProps, {}> {
     }
   }
 
-  private filterByTypes(events: Events.Any[], types: string[]) { // TODO: types should be strong
+  private filterByTypes(events: Events.Any[], types: EventTypes.Any[]) {
     return events.filter((e) => types.includes(e['@type']));
   }
 
