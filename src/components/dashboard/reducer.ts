@@ -1,11 +1,8 @@
-import { DashboardTabId, SELECT_DASHBOARD_TAB, SelectDashboardTabAction } from './actions';
+import { SELECT_DASHBOARD_TAB, SelectDashboardTabAction } from './actions';
 
-export class DashboardState {
-  public ui: { selectedTab: DashboardTabId };
-}
-
-export const INITIAL_STATE: DashboardState = {
+export const INITIAL_STATE: State.Dashboard = {
   ui: {
+    // TODO: should be DashboardTabs.TAB_7_DAY, but reducer.spec.ts will fail
     selectedTab: 'TAB_7_DAY',
   },
 };
@@ -14,9 +11,9 @@ export const INITIAL_STATE: DashboardState = {
  * Reducer function for dashboard.
  */
 export default function(
-  state: DashboardState = INITIAL_STATE,
+  state: State.Dashboard = INITIAL_STATE,
   action: SelectDashboardTabAction,
-): DashboardState {
+): State.Dashboard {
   switch (action.type) {
   case SELECT_DASHBOARD_TAB:
     return Object.assign({}, state, {

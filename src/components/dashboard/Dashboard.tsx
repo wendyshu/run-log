@@ -18,11 +18,9 @@ import moment, { Moment } from 'moment';
 import { connect } from 'react-redux';
 import { Action, Dispatch } from 'redux';
 import { RootState } from 'run-log/scripts/reducers';
-import { TAB_30_DAY, TAB_365_DAY, TAB_7_DAY, TAB_ALL } from './actions';
-import { DashboardState } from './reducer';
 
 interface IStateToProps {
-  dashboard: DashboardState;
+  dashboard: State.Dashboard;
   events: State.Events;
 }
 
@@ -95,25 +93,25 @@ class Dashboard extends React.Component<{} & IStateToProps, {}> {
   private tabData(events: Events.Any[]) {
     let days;
     switch (this.props.dashboard.ui.selectedTab) {
-    case TAB_7_DAY:
+    case DashboardTabs.TAB_7_DAY:
       days = 7;
       return {
         startMoment: moment().subtract({ days }),
         totalDays: days,
       };
-    case TAB_30_DAY:
+    case DashboardTabs.TAB_30_DAY:
       days = 30;
       return {
         startMoment: moment().subtract({ days }),
         totalDays: days,
       };
-    case TAB_365_DAY:
+    case DashboardTabs.TAB_365_DAY:
       days = 365;
       return {
         startMoment: moment().subtract({ days }),
         totalDays: days,
       };
-    case TAB_ALL:
+    case DashboardTabs.TAB_ALL:
       // TODO: calc range using events. Will need min/max/diff in dates.js
       days = 999;
       return {
