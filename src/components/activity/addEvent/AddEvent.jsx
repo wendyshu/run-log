@@ -29,6 +29,8 @@ class AddEvent extends React.Component {
     );
   }
 
-} // AddEntry
+} // AddEvent
+
+AddEvent.propTypes = {};
 
 export default connect(null, {showModal})(AddEvent);

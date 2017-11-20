@@ -3,7 +3,7 @@ import React from 'react';
 import DashboardStats from 'run-log/components/dashboard/stats/DashboardStats';
 /*eslint-enable no-unused-vars*/
 
-import Optional from 'run-log/components/optional/optional';
+import { Option } from 'run-log/components/option/option';
 import { durationToSeconds, secondsToMinuteMiles } from 'run-log/scripts/utils/dates';
 import { add } from 'run-log/scripts/utils/math';
 
@@ -21,7 +21,7 @@ function calcAveragePace(events) {
 export default (props) => {
   const stats = {
     name: 'Average Pace',
-    value: Optional(calcAveragePace(props.events)).map(p => secondsToMinuteMiles(p) + ' mi').orElse('-')
+    value: Option(calcAveragePace(props.events)).map(p => secondsToMinuteMiles(p) + ' mi').orElse('-')
   };
   return (
     <DashboardStats stats={stats}/>

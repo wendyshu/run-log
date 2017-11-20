@@ -1,21 +1,20 @@
 import moment from 'moment';
-import 'moment-duration-format';
 
-export function formatDate(date) {
-  return moment(date, 'YYYYMMDD').calendar(null, {
+export function formatDate(date: Date) {
+  return moment(date, 'YYYYMMDD').calendar(undefined, {
     lastDay : '[Yesterday]',
-    sameDay : '[Today]',
-    nextDay : '[Tomorrow]',
     lastWeek : 'dddd',
+    nextDay : '[Tomorrow]',
     nextWeek : 'dddd',
-    sameElse : 'L'
+    sameDay : '[Today]',
+    sameElse : 'L',
   });
 }
 
 /**
  * E.g., "PT2M35S" -> "2m 35s"
  */
-export function formatDuration(duration) {
+export function formatDuration(duration: string) {
   return moment.duration(duration).format('h[h] m[m] s[s]');
 }
 
@@ -26,37 +25,36 @@ export function formatDuration(duration) {
  *   'seconds': 35
  * }
  */
-export function durationToComponents(duration) {
+export function durationToComponents(duration: string) {
   const dur = moment.duration(duration);
   return {
-    'hours': dur.hours(),
-    'minutes': dur.minutes(),
-    'seconds': dur.seconds()
+    hours: dur.hours(),
+    minutes: dur.minutes(),
+    seconds: dur.seconds(),
   };
 }
 
 /**
  * Create ISO-8601 duration string.
  */
-export function toDuration(hours, minutes, seconds) {
+export function toDuration(hours?: number, minutes?: number, seconds?: number) {
   if (hours || minutes || seconds) {
     return `PT${hours ? hours : '0'}H${minutes ? minutes : '0'}M${seconds ? seconds : '0'}S`;
   } else {
-    return null;
+    return undefined;
   }
 }
 
 /**
  * E.g., "PT2M35S" -> 155
  */
-export function durationToSeconds(duration) {
+export function durationToSeconds(duration: string) {
   return moment.duration(duration).asSeconds();
 }
 
 /**
  * E.g, 155 -> "2:35"
  */
-export function secondsToMinuteMiles(secs) {
-  // return moment.duration(secs, 'seconds').format('m:s');
+export function secondsToMinuteMiles(secs: number) {
   return moment.duration(secs, 'seconds').format('m[m] s[s]');
 }

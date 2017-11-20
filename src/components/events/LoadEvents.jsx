@@ -4,6 +4,8 @@ import { loadEvents } from './actions';
 import Loader from 'react-loader';
 /*eslint-enable no-unused-vars*/
 
+import PropTypes from 'prop-types';
+
 import { connect } from 'react-redux';
 
 class LoadEvents extends React.Component {
@@ -31,5 +33,9 @@ function mapStateToProps(state) {
     events: state.events
   };
 }
+
+LoadEvents.propType = {
+  children: PropTypes.element.isRequired
+};
 
 export default connect(mapStateToProps, { loadEvents })(LoadEvents);

@@ -4,7 +4,7 @@ import BaseEventRow from './BaseEventRow';
 /*eslint-enable no-unused-vars*/
 
 import { formatDate } from 'run-log/scripts/utils/dates';
-import Optional from 'run-log/components/optional/optional';
+import { Option } from 'run-log/components/option/option';
 
 const isChangeShoes = (event) => event['@type'] === 'ChangeShoes';
 
@@ -30,7 +30,7 @@ export default ({event}) => (
       ({handleDelete, handleEdit, handleFavorite}) => {
         return (
           <tr className="activity-cross-train">
-            <td className="data-date">{Optional(event.date).map(formatDate).orElse('-')}</td>
+            <td className="data-date">{Option(event.date).map(formatDate).orElse('-')}</td>
             <td className="data-icons">
               <span className="glyphicon glyphicon-road inactive"/>
               <span className={ getAppleClasses(event) }/>
@@ -39,7 +39,7 @@ export default ({event}) => (
             <td className="data-category"><span className="value">{ getCategory(event) }</span></td>
             <td className="data-distance">-</td>
             <td className="data-duration">-</td>
-            <td className="data-notes">{Optional(event.notes).orElse('-')}</td>
+            <td className="data-notes">{Option(event.notes).orElse('-')}</td>
             <td className="data-actions">
               <a onClick={handleFavorite} className={ getHeartClasses(event) }/>
               <a onClick={handleEdit} className="glyphicon glyphicon-pencil"/>

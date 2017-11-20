@@ -21,7 +21,22 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.tsx?$/,
+        include: path.resolve(__dirname, 'src'),
+        use: [
+          {
+            loader: 'ts-loader'
+          },{
+            loader: 'tslint-loader',
+            options: {
+              failOnWarning: true,
+              failOnError: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.jsx?$/,
         include: path.resolve(__dirname, 'src'),
         use: [
           {
@@ -29,7 +44,7 @@ module.exports = {
           },{
             loader: 'eslint-loader',
             options: {
-              failOnWarning: true,
+              failOnWarning: false, // tooooo strict
               failOnError: true
             }
           }
@@ -58,7 +73,7 @@ module.exports = {
         }]
       }
     ]
-  }, // module
+  }, // module,
   plugins: [
     extractCSS,
     new webpack.ProvidePlugin({
@@ -78,7 +93,7 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
       'run-log': path.resolve(__dirname, 'src/')
     }
