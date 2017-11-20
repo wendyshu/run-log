@@ -171,7 +171,7 @@ class ModalWithRun extends React.Component<IModalProps & IModalS2P & IModalD2P, 
   }
 } // ModalWithRun
 
-function mapStateToProps(state: RootState, ownProps: {}): IModalS2P { // TODO: state type
+function mapStateToProps(state: RootState, ownProps: {}): IModalS2P {
   return {
     modals: state.modals,
   };

@@ -7,7 +7,7 @@ import EventsReducer, { EventsState } from 'run-log/components/events/reducer';
 export interface RootState {
   dashboard: DashboardState;
   events: EventsState;
-  modals: any; // TODO: typesafe modals reducer
+  modals: ModalsState;
 }
 
 const rootReducer = combineReducers<RootState>({

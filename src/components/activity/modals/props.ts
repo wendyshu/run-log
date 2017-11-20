@@ -1,13 +1,15 @@
 import { Action } from 'redux';
+import { ModalType } from './actions';
+import { ModalsState } from './reducer';
 
 export interface IModalProps {
-  eventType: string;
+  eventType: string; // TODO: eventType should be strong
   modalTitle: string;
-  modalType: string;
+  modalType: ModalType;
 }
 
 export interface IModalS2P {
-  modals: any; // TODO: modals type
+  modals: ModalsState;
 }
 
 export interface IModalD2P {

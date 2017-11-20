@@ -17,7 +17,6 @@ export class SelectDashboardTabAction implements Action {
   public type: 'SELECT_DASHBOARD_TAB';
 }
 
-// TODO: tabId is enum
 export function selectDashboardTab(tabId: DashboardTabId): SelectDashboardTabAction {
   return {
     selectedTab: tabId,

@@ -93,7 +93,7 @@ class ModalWithoutRun extends React.Component<IModalProps & IModalS2P & IModalD2
   }
 }
 
-function mapStateToProps(state: RootState, ownProps: {}): IModalS2P { // TODO: state type
+function mapStateToProps(state: RootState, ownProps: {}): IModalS2P {
   return {
     modals: state.modals,
   };

@@ -1,7 +1,3 @@
-//
-// TODO: map w/ webpack so don't need shadow configuration to emulate
-//       webpack module aliasing in moduleNameMapper
-//
 module.exports = {
   'moduleFileExtensions': [
     'ts',

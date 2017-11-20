@@ -64,21 +64,21 @@ const Actions = {
     };
   },
 
-  receiveEditEvent(event: Events.Any): CrudAction { // TODO: event type
+  receiveEditEvent(event: Events.Any): CrudAction {
     return {
       event,
       type: 'RECEIVE_EDIT_EVENT',
     };
   },
 
-  requestAddEvent(event: any): CrudAction { // TODO: event type
+  requestAddEvent(event: any): CrudAction {
     return {
       event,
       type: 'SEND_ADD_EVENT',
     };
   },
 
-  receiveAddEvent(event: any): CrudAction { // TODO: event type
+  receiveAddEvent(event: any): CrudAction {
     return {
       event,
       type: 'RECEIVE_ADD_EVENT',
@@ -91,7 +91,7 @@ const Actions = {
     };
   },
 
-  receiveEvents(json: any): ReceiveGetAction { // TODO: json type
+  receiveEvents(json: any): ReceiveGetAction {
     return {
       payload: json,
       receivedAt: Date.now(),
@@ -106,7 +106,7 @@ export const setFavorite = Actions.setFavorite;
 /**
  * TODO: delete from server, then fetch events
  */
-export function deleteEvent(eventId: any) { // TODO: event type
+export function deleteEvent(eventId: string) {
   return simulateAsyncRequest(Actions.requestDeleteEvent(eventId), Actions.receiveDeleteEvent(eventId));
 }
 

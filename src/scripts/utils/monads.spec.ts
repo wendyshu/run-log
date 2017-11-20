@@ -1,5 +1,5 @@
 import { Monads } from './monads';
-import { Option, Some, None } from '../../components/option/option'; // TODO: no relative paths
+import { Option, Some, None } from '../../components/option/option';
 
 test('Monads.flatten(Some(Some(...)))', () => {
   const res = Monads.flatten(Option(Option('foo')));
