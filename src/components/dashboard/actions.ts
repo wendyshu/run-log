@@ -1,5 +1,10 @@
 import { Action } from 'redux';
 
+export const TAB_7_DAY = 'TAB_7_DAY',
+  TAB_30_DAY = 'TAB_30_DAY',
+  TAB_365_DAY = 'TAB_365_DAY',
+  TAB_ALL = 'TAB_ALL';
+
 export const SELECT_DASHBOARD_TAB = 'SELECT_DASHBOARD_TAB';
 
 export class SelectDashboardTabAction implements Action {

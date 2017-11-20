@@ -1,5 +1,10 @@
 import { Action } from 'redux';
 
+export const MODAL_SHOES = 'MODAL_SHOES',
+  MODAL_RUN = 'MODAL_RUN',
+  MODAL_RUN_CROSS_TRAIN = 'MODAL_RUN_CROSS_TRAIN',
+  MODAL_CROSS_TRAIN = 'MODAL_CROSS_TRAIN';
+
 export const SHOW_MODAL = 'SHOW_MODAL';
 
 export class ShowModalAction implements Action {

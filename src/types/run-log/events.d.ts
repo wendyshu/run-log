@@ -2,13 +2,7 @@
  * Valid values for event's json-ld '@type' property
  */
 declare namespace EventTypes {
-
-  export const Run = 'Run',
-    CrossTrain = 'CrossTrain',
-    RunCrossTrain = 'Run+CrossTrain',
-    ChangeShoes = 'ChangeShoes';
-    
-  export type Any = EventTypes.Run | EventTypes.CrossTrain | EventTypes.RunCrossTrain | EventTypes.ChangeShoes;
+  export type Any = 'Run' | 'CrossTrain' | 'Run+CrossTrain' | 'ChangeShoes';
 }
 
 declare namespace Events {
