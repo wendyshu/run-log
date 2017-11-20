@@ -1,11 +1,6 @@
-import { HIDE_MODAL, HideModalAction, ModalType, SHOW_MODAL, ShowModalAction } from './actions';
+import { HIDE_MODAL, HideModalAction, SHOW_MODAL, ShowModalAction } from './actions';
 
-export class ModalsState {
-  public editEvent?: Events.Any;
-  public ui: { showModal?: ModalType };
-}
-
-function showModal(show?: ModalType, editEvent?: Events.Any): ModalsState {
+function showModal(show?: ModalTypes.Any, editEvent?: Events.Any): State.Modals {
   return {
     editEvent,
     ui: {
@@ -20,9 +15,9 @@ const INITIAL_STATE = showModal();
  * Reducer function for dashboard.
  */
 export default function(
-  state: ModalsState = INITIAL_STATE,
+  state: State.Modals = INITIAL_STATE,
   action: HideModalAction | ShowModalAction,
-): ModalsState {
+): State.Modals {
   switch (action.type) {
   case SHOW_MODAL:
     return Object.assign({}, state, showModal(action.modal, action.editEvent));

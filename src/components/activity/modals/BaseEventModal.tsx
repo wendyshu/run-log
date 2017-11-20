@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import { Action, Dispatch } from 'redux';
 import { RootState } from 'run-log/scripts/reducers';
 import { hideModal } from './actions';
-import { ModalsState } from './reducer';
 
 interface IProps {
   modalType: string;
@@ -15,7 +14,7 @@ interface IProps {
 }
 
 interface IStateToProps {
-  modals: ModalsState;
+  modals: State.Modals;
 }
 
 interface IDispatchToProps {

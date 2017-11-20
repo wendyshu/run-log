@@ -1,6 +1,4 @@
 import { Action } from 'redux';
-import { ModalType } from './actions';
-import { ModalsState } from './reducer';
 
 /**
  * Modal classes' props
@@ -8,14 +6,14 @@ import { ModalsState } from './reducer';
 export interface IModalProps {
   eventType: EventTypes.Any;
   modalTitle: string;
-  modalType: ModalType;
+  modalType: ModalTypes.Any;
 }
 
 /**
  * Modal classes' mapStateToProps
  */
 export interface IModalS2P {
-  modals: ModalsState;
+  modals: State.Modals;
 }
 
 /**

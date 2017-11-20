@@ -1,5 +1,5 @@
 import { combineReducers, Reducer } from 'redux';
-import ModalsReducer, { ModalsState } from 'run-log/components/activity/modals/reducer';
+import ModalsReducer from 'run-log/components/activity/modals/reducer';
 import DashboardReducer, { DashboardState } from 'run-log/components/dashboard/reducer';
 import EventsReducer, { EventsState } from 'run-log/components/events/reducer';
 
@@ -7,7 +7,7 @@ import EventsReducer, { EventsState } from 'run-log/components/events/reducer';
 export interface RootState {
   dashboard: DashboardState;
   events: EventsState;
-  modals: ModalsState;
+  modals: State.Modals;
 }
 
 const rootReducer = combineReducers<RootState>({
