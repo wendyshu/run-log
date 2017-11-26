@@ -7,6 +7,13 @@
   },
   "events": [
     {
+      "@id": "_:n54",
+      "@type": "Run",
+      "date": "2017-11-26",
+      "category": "casual",
+      "distance": 4.21,
+      "duration": "PT36M56S"
+    },{
       "@id": "_:n53",
       "@type": "Run+CrossTrain",
       "date": "2017-11-25",
