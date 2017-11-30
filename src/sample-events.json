@@ -7,6 +7,13 @@
   },
   "events": [
     {
+      "@id": "_:n56",
+      "@type": "Run",
+      "date": "2017-11-29",
+      "category": "casual",
+      "distance": 4.8,
+      "duration": "PT44M53S"
+    },{
       "@id": "_:n55",
       "@type": "Run",
       "date": "2017-11-27",
