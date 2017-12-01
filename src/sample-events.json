@@ -7,6 +7,14 @@
   },
   "events": [
     {
+      "@id": "_:n57",
+      "@type": "Run+CrossTrain",
+      "date": "2017-11-30",
+      "category": "speed",
+      "distance": 3,
+      "duration": "PT23M23S",
+      "favorite": true
+    },{
       "@id": "_:n56",
       "@type": "Run",
       "date": "2017-11-29",
@@ -41,8 +49,7 @@
       "date": "2017-11-22",
       "category": "speed",
       "distance": 3,
-      "duration": "PT23M41S",
-      "favorite": true
+      "duration": "PT23M41S"
     },{
       "@id": "_:n51",
       "@type": "Run",
