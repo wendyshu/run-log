@@ -7,6 +7,14 @@
   },
   "events": [
     {
+      "@id": "_:n61",
+      "@type": "Run+CrossTrain",
+      "date": "2017-12-09",
+      "category": "speed",
+      "distance": 0.68,
+      "duration": "PT4M23S",
+      "favorite": true
+    },{
       "@id": "_:n60",
       "@type": "Run+CrossTrain",
       "date": "2017-12-07",
