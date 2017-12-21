@@ -7,6 +7,10 @@
   },
   "events": [
     {
+      "@id": "_:n66",
+      "@type": "CrossTrain",
+      "date": "2017-12-21"
+    },{
       "@id": "_:n65",
       "@type": "Run+CrossTrain",
       "date": "2017-12-19",
