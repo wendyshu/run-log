@@ -17,7 +17,8 @@
       "category": "speed",
       "distance": 1,
       "duration": "PT6M27S",
-      "favorite": true
+      "favorite": true,
+      "notes": "My first 6:30 mile."
     },{
       "@id": "_:n64",
       "@type": "Run",
@@ -32,7 +33,8 @@
       "category": "speed",
       "distance": 3.00,
       "duration": "PT22M47S",
-      "favorite": true
+      "favorite": true,
+      "notes": "Three-mile run to kick off workout."
     },{
       "@id": "_:n62",
       "@type": "Run",
