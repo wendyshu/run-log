@@ -82,7 +82,7 @@ class Dashboard extends React.Component<{} & IStateToProps, {}> {
               <h2>Shoes</h2>
             </div>
             <div className='widget-stats row'>
-              <DashboardShoesStats events={this.changeShoesEvents()} />
+              <DashboardShoesStats events={this.props.events.data} />
             </div>
           </div>
         </div> {/* .row */}
@@ -131,10 +131,6 @@ class Dashboard extends React.Component<{} & IStateToProps, {}> {
   private eventsSince(start: Moment) {
     return this.props.events.data
       .filter((e) => moment(e.date).diff(start) >= 0);
-  }
-
-  private changeShoesEvents() {
-    return this.filterByTypes(this.props.events.data, ['ChangeShoes']);
   }
 
 } // Dashboard
