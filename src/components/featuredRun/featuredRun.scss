@@ -1,0 +1,23 @@
+.row .jumbotron h1 { // TODO: hacking selector since Bootstrap loaded after custom styles
+  font-size: 1.5em;
+  margin-top: 0;
+}
+
+.jumbotron .notes, .jumbotron .features {
+  font-size: 1.15em;
+}
+
+.jumbotron .notes {
+  font-style: italic;
+}
+
+.jumbotron .features {
+  font-size: 1.15em;
+  td {
+    font-weight: 200;
+  }
+  th {
+    padding-right: 1em;
+    font-weight: 400;
+  }
+}

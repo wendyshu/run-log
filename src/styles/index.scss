@@ -11,10 +11,6 @@ body {
   text-shadow: 1px 1px 1px #666;
 }
 
-.row .jumbotron h1 { // TODO: hacking selector since Bootstrap loaded after custom styles
-  font-size: 2em;
-}
-
 a {
   cursor: pointer; // Always
 }

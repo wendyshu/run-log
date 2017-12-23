@@ -36,7 +36,7 @@ class Dashboard extends React.Component<{} & IStateToProps, {}> {
 
         <div className='row'>
           <div className='col-xs-12'>
-            <FeaturedRun events={this.filterByTypes(selectedEvents, ['Run'])} />
+            <FeaturedRun events={this.filterByTypes(this.props.events.data, ['Run', 'Run+CrossTrain'])} />
           </div>
         </div> {/* .row */}
 
