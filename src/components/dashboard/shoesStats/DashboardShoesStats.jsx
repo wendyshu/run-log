@@ -23,10 +23,10 @@ function distance(events) {
     .reduce(add, 0);
 }
 
-function recommendation(distance) {
-  if (distance < 350) {
+function recommendation(dist) {
+  if (dist < 350) {
     return 'Keep Going';
-  } else if (distance < 550) {
+  } else if (dist < 550) {
     return 'Monitor Wear';
   } else {
     return 'Change Soon';
