@@ -16,3 +16,31 @@ $ yarn && yarn start
 ```sh
 $ yarn test
 ```
+
+## Screenshots
+
+Login screen:
+
+<kbd>
+  <img src="./images/0.png">
+</kbd>
+
+(Use `demo`/`demo` to view demo data.)
+
+Dashboard, with 30 day view loaded:
+
+<kbd>
+  <img src="./images/1.png">
+</kbd>
+
+Manage events:
+
+<kbd>
+  <img src="./images/2.png">
+</kbd>
+
+After clicking on "Add Entry" and selecting "Run":
+
+<kbd>
+  <img src="./images/3.png">
+</kbd>
