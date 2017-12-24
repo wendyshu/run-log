@@ -25,6 +25,7 @@ Login screen:
   <img src="./images/0.png">
 </kbd>
 
+<br />
 (Use `demo`/`demo` to view demo data.)
 
 Dashboard, with 30 day view loaded:
@@ -33,12 +34,14 @@ Dashboard, with 30 day view loaded:
   <img src="./images/1.png">
 </kbd>
 
+<br />
 Manage events:
 
 <kbd>
   <img src="./images/2.png">
 </kbd>
 
+<br />
 After clicking on "Add Entry" and selecting "Run":
 
 <kbd>
