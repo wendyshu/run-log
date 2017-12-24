@@ -1,5 +1,6 @@
 export const SEND_LOGIN = 'SEND_LOGIN',
-  RECEIVE_LOGIN = 'RECEIVE_LOGIN';
+  RECEIVE_LOGIN_SUCCESS = 'RECEIVE_LOGIN_SUCCESS',
+  RECEIVE_LOGIN_FAIL = 'RECEIVE_LOGIN_FAIL';
 
 const MILLIS_WAIT = 350;
 
@@ -11,12 +12,10 @@ function sendLoginAction(username, password) {
   };
 }
 
-function receiveLoginAction() {
-  // TODO: actual auth
+function receiveLoginAction([ success, msg ]) {
   return {
-    type: RECEIVE_LOGIN,
-    success: true,
-    message: null
+    type: success ? RECEIVE_LOGIN_SUCCESS : RECEIVE_LOGIN_FAIL,
+    message: msg
   };
 }
 
@@ -24,7 +23,10 @@ export function login(username, password) {
   return (dispatch) => {
     dispatch(sendLoginAction(username, password));
     return new Promise((resolve) => {
-      setTimeout(() => resolve(dispatch(receiveLoginAction())), MILLIS_WAIT); // Simulate xhr
+      // TODO: actual auth
+      const response = username === 'demo' && password === 'demo' ?
+        [ true, null ] : [ false, 'Unrecognized username or password.' ];
+      setTimeout(() => resolve(dispatch(receiveLoginAction(response))), MILLIS_WAIT); // Simulate xhr
     });
   };
 }

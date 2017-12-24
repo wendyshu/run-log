@@ -1,6 +1,7 @@
 /*eslint-disable no-unused-vars*/
 import React from 'react';
 import Loader from 'react-loader';
+import { Form, Text } from 'react-form';
 /*eslint-enable no-unused-vars*/
 
 import './authenticate.scss';
@@ -9,8 +10,6 @@ import {login} from './actions';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
-import { Form, Text } from 'react-form';
 
 class Authenticate extends React.Component {
 
@@ -29,6 +28,11 @@ class Authenticate extends React.Component {
     };
   }
 
+  hint(e) {
+    alert('Pssst: demo/demo');
+    e.preventDefault();
+  }
+
   formContents({submitForm}) {
     return (
       <form onSubmit={submitForm}>
@@ -44,6 +48,9 @@ class Authenticate extends React.Component {
         </div>
 
         <button type='submit' className='btn btn-primary'>Submit</button>
+        <a className='hint' onClick={this.hint}>
+          <span className='glyphicon glyphicon-question-sign' />
+        </a>
       </form>
     );
   } // formContents
@@ -52,10 +59,19 @@ class Authenticate extends React.Component {
     if (this.props.authenticate.authenticated) {
       return this.props.children;
     } else {
+
+      const msg = this.props.authenticate.message;
+      const alert = msg ? (
+        <div className="alert alert-danger" role="alert">
+          { msg }
+        </div>
+      ) : null;
+
       return (
         <div className="authenticate">
+          { alert }
           <Form onSubmit={this.onSubmit.bind(this)} validate={this.validate}>
-            {this.formContents.bind(this)}
+            { this.formContents.bind(this) }
           </Form>
         </div>
       );

@@ -6,9 +6,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 import App from './components/App';
-/*eslint-enable no-unused-vars*/
-
 import Authenticate from 'run-log/components/auth/Authenticate';
+/*eslint-enable no-unused-vars*/
 
 // lib
 import ReactDOM from 'react-dom';
