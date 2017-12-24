@@ -8,6 +8,8 @@ import { HashRouter } from 'react-router-dom';
 import App from './components/App';
 /*eslint-enable no-unused-vars*/
 
+import Authenticate from 'run-log/components/auth/Authenticate';
+
 // lib
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
@@ -35,7 +37,9 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <HashRouter>
-      <App />
-    </HashRouter>
+    <Authenticate>
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </Authenticate>
   </Provider>, root);
