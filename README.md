@@ -19,31 +19,30 @@ $ yarn test
 
 ## Screenshots
 
-Login screen:
+<figure>
+  <kbd>
+    <img src="./images/0.png">
+  </kbd>
+  <figcaption>Login screen. Use `demo`/`demo` to view demo data.</figcaption>
+</figure>
 
-<kbd>
-  <img src="./images/0.png">
-</kbd>
+<figure>
+  <kbd>
+    <img src="./images/1.png">
+  </kbd>
+  <figcaption>Dashboard, with 30 day view loaded.</figcaption>
+</figure>
 
-<br />
-(Use `demo`/`demo` to view demo data.)
+<figure>
+  <kbd>
+    <img src="./images/2.png">
+  </kbd>
+  <figcaption>Manage events.</figcaption>
+</figure>
 
-Dashboard, with 30 day view loaded:
-
-<kbd>
-  <img src="./images/1.png">
-</kbd>
-
-<br />
-Manage events:
-
-<kbd>
-  <img src="./images/2.png">
-</kbd>
-
-<br />
-After clicking on "Add Entry" and selecting "Run":
-
-<kbd>
-  <img src="./images/3.png">
-</kbd>
+<figure>
+  <kbd>
+    <img src="./images/3.png">
+  </kbd>
+  <figcaption>After clicking on "Add Entry" and selecting "Run".</figcaption>
+</figure>
