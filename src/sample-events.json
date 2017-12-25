@@ -7,6 +7,12 @@
   },
   "events": [
     {
+      "@id": "_:n68",
+      "@type": "Run",
+      "date": "2017-12-25",
+      "category": "casual",
+      "distance": 4.40
+    },{
       "@id": "_:n67",
       "@type": "Run",
       "date": "2017-12-24",
