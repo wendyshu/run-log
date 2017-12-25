@@ -19,30 +19,38 @@ $ yarn test
 
 ## Screenshots
 
+### Login Screen
+
 <figure>
   <kbd>
     <img src="./images/0.png">
   </kbd>
-  <figcaption>Login screen. Use `demo`/`demo` to view demo data.</figcaption>
+  <figcaption>Use `demo`/`demo` to log in and view demo user data.</figcaption>
 </figure>
+
+### Dashboard
 
 <figure>
   <kbd>
     <img src="./images/1.png">
   </kbd>
-  <figcaption>Dashboard, with 30 day view loaded.</figcaption>
+  <figcaption>The dashboard with 30-day view loaded.</figcaption>
 </figure>
+
+### Manage Events
 
 <figure>
   <kbd>
     <img src="./images/2.png">
   </kbd>
-  <figcaption>Manage events.</figcaption>
+  <figcaption>List of all events. You can add, edit, remove, and favorite events.</figcaption>
 </figure>
+
+### Add Event
 
 <figure>
   <kbd>
     <img src="./images/3.png">
   </kbd>
-  <figcaption>After clicking on "Add Entry" and selecting "Run".</figcaption>
+  <figcaption>To log a run, click on "Add Entry" and select "Run".</figcaption>
 </figure>
