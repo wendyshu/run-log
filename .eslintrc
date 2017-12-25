@@ -37,8 +37,6 @@
       no-unused-expressions: "warn",
       no-unused-vars: "warn",
       no-console: "off",
-      quotes: [2, "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
-      react/prop-types: "off",
       semi: ["error", "always"],
       valid-typeof: "error",
       vars-on-top: "warn"
