@@ -10,6 +10,7 @@
     "prebuild": "yarn test",
     "build": "webpack -p",
     "test": "jest --config jest.config.js",
+    "prettier": "prettier --single-quote --write \"src/**/*.js[x]\"",
     "deploy-pages": "yarn build && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
@@ -61,6 +62,7 @@
     "html-webpack-plugin": "^2.30.1",
     "jest": "^21.1.0",
     "node-sass": "^4.0.0",
+    "prettier": "1.9.2",
     "react-test-renderer": "^15.6.1",
     "regenerator-runtime": "^0.10.5",
     "sass-loader": "^6.0.6",

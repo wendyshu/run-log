@@ -17,9 +17,9 @@ test('get when prop is undefined without default value', () => {
 });
 
 test('get when prop is defined with default value', () => {
-  expect(get({foo: '123'}, 'foo', 'bar')).toBe('123');
+  expect(get({ foo: '123' }, 'foo', 'bar')).toBe('123');
 });
 
 test('get when prop is defined without default value', () => {
-  expect(get({foo: '123'}, 'foo')).toBe('123');
+  expect(get({ foo: '123' }, 'foo')).toBe('123');
 });

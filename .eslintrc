@@ -24,7 +24,7 @@
       block-scoped-var: "warn",
       complexity: "warn",
       eqeqeq: "warn",
-      indent: ["warn", 2],
+      indent: ["warn", 2, { "SwitchCase": 1 }],
       linebreak-style: ["error", "unix"],
       no-func-assign: "error",
       no-global-assign: "warn",
