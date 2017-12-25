@@ -10,8 +10,8 @@ export default () => (
   <LoadEvents>
     <div className="container">
       <Switch>
-        <Route exact path='/' component={ Dashboard }/>
-        <Route exact path='/activity' component={ Activity }/>
+        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/activity" component={Activity} />
       </Switch>
     </div>
   </LoadEvents>

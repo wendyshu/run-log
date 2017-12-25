@@ -9,11 +9,17 @@ export default () => (
   <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div className="container">
       <div className="navbar-header">
-        <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-content" aria-expanded="false">
+        <button
+          type="button"
+          className="navbar-toggle collapsed"
+          data-toggle="collapse"
+          data-target="#navbar-content"
+          aria-expanded="false"
+        >
           <span className="sr-only">Toggle navigation</span>
-          <span className="icon-bar"></span>
-          <span className="icon-bar"></span>
-          <span className="icon-bar"></span>
+          <span className="icon-bar" />
+          <span className="icon-bar" />
+          <span className="icon-bar" />
         </button>
         <span className="navbar-brand">Run Log</span>
       </div>

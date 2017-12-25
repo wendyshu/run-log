@@ -6,25 +6,24 @@ import { Form, Text } from 'react-form';
 
 import './authenticate.scss';
 
-import {login} from './actions';
+import { login } from './actions';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class Authenticate extends React.Component {
-
   constructor(props) {
     super(props);
   }
 
-  onSubmit({username, password}) {
+  onSubmit({ username, password }) {
     this.props.login(username, password);
   }
 
-  validate({username, password}) {
+  validate({ username, password }) {
     return {
-      username: ! username ? 'Please specify username' : undefined,
-      password: ! password ? 'Please specify password' : undefined,
+      username: !username ? 'Please specify username' : undefined,
+      password: !password ? 'Please specify password' : undefined
     };
   }
 
@@ -33,23 +32,24 @@ class Authenticate extends React.Component {
     e.preventDefault();
   }
 
-  formContents({submitForm}) {
+  formContents({ submitForm }) {
     return (
       <form onSubmit={submitForm}>
-
-        <div className='form-group'>
-          <label htmlFor='category'>Username</label>
-          <Text className='form-control' field='username' type='text' />
+        <div className="form-group">
+          <label htmlFor="category">Username</label>
+          <Text className="form-control" field="username" type="text" />
         </div>
 
-        <div className='form-group'>
-          <label htmlFor='category'>Password</label>
-          <Text className='form-control' field='password' type='password' />
+        <div className="form-group">
+          <label htmlFor="category">Password</label>
+          <Text className="form-control" field="password" type="password" />
         </div>
 
-        <button type='submit' className='btn btn-primary'>Submit</button>
-        <a className='hint' onClick={this.hint}>
-          <span className='glyphicon glyphicon-question-sign' />
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
+        <a className="hint" onClick={this.hint}>
+          <span className="glyphicon glyphicon-question-sign" />
         </a>
       </form>
     );
@@ -59,26 +59,24 @@ class Authenticate extends React.Component {
     if (this.props.authenticate.authenticated) {
       return this.props.children;
     } else {
-
       const msg = this.props.authenticate.message;
       const alert = msg ? (
         <div className="alert alert-danger" role="alert">
-          { msg }
+          {msg}
         </div>
       ) : null;
 
       return (
         <div className="authenticate">
-          { alert }
+          {alert}
           <Form onSubmit={this.onSubmit.bind(this)} validate={this.validate}>
-            { this.formContents.bind(this) }
+            {this.formContents.bind(this)}
           </Form>
         </div>
       );
     }
   }
-
-}; // Authenticate
+} // Authenticate
 
 function mapStateToProps(state) {
   return {

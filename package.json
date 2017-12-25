@@ -10,7 +10,7 @@
     "prebuild": "yarn test",
     "build": "webpack -p",
     "test": "jest --config jest.config.js",
-    "prettier": "prettier --single-quote --write \"src/**/*.js[x]\"",
+    "prettier": "prettier --single-quote --write \"src/**/*.{js,jsx}\"",
     "deploy-pages": "yarn build && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {

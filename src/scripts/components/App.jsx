@@ -7,7 +7,7 @@ import Main from './Main';
 /* class="container" */
 export default () => (
   <div>
-    <Header/>
-    <Main/>
+    <Header />
+    <Main />
   </div>
 );

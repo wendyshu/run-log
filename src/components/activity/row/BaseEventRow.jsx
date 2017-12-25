@@ -4,13 +4,18 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { showModal, MODAL_RUN, MODAL_CROSS_TRAIN, MODAL_RUN_CROSS_TRAIN, MODAL_SHOES } from 'run-log/components/activity/modals/actions';
+import {
+  showModal,
+  MODAL_RUN,
+  MODAL_CROSS_TRAIN,
+  MODAL_RUN_CROSS_TRAIN,
+  MODAL_SHOES
+} from 'run-log/components/activity/modals/actions';
 import { deleteEvent, setFavorite } from 'run-log/components/events/actions';
 
 import { connect } from 'react-redux';
 
 class BaseEventRow extends React.Component {
-
   constructor(props) {
     super(props);
   }
@@ -47,11 +52,12 @@ class BaseEventRow extends React.Component {
       handleFavorite: this.handleFavorite.bind(this)
     });
   }
-
 } // BaseEventRow
 
 BaseEventRow.propTypes = {
   event: PropTypes.object.isRequired
 };
 
-export default connect(null, {deleteEvent, showModal, setFavorite})(BaseEventRow);
+export default connect(null, { deleteEvent, showModal, setFavorite })(
+  BaseEventRow
+);

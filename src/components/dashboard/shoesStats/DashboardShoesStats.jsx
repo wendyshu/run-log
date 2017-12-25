@@ -8,8 +8,10 @@ import { add } from 'run-log/scripts/utils/math';
 import moment from 'moment';
 
 function currentShoesEvents(events) {
-  const idx = events.findIndex((ele) => ele['@type'] === 'ChangeShoes');
-  return idx === -1 ? [ events, None() ] : [ events.slice(0, idx), Option(events[idx]) ];
+  const idx = events.findIndex(ele => ele['@type'] === 'ChangeShoes');
+  return idx === -1
+    ? [events, None()]
+    : [events.slice(0, idx), Option(events[idx])];
 }
 
 function age(events, shoesEvent) {
@@ -18,7 +20,8 @@ function age(events, shoesEvent) {
 }
 
 function distance(events) {
-  return events.map(e => e.distance)
+  return events
+    .map(e => e.distance)
     .filter(d => !!d) // filter missing distance
     .reduce(add, 0);
 }
@@ -34,26 +37,28 @@ function recommendation(dist) {
 }
 
 function stats(allEvents) {
-  const [ events, shoesEvent ] = currentShoesEvents(allEvents);
+  const [events, shoesEvent] = currentShoesEvents(allEvents);
   const d = distance(events);
   return [
     {
       name: 'Age',
       value: age(events, shoesEvent)
-    },{
+    },
+    {
       name: 'Distance',
       value: d.toFixed(2) + ' mi'
-    },{
+    },
+    {
       name: 'Recommendation',
       value: recommendation(d)
     }
   ];
 }
 
-export default (props) => {
+export default props => {
   return (
     <div>
-      { stats(props.events).map((s) => <DashboardStats key={s.name} stats={s}/>) }
+      {stats(props.events).map(s => <DashboardStats key={s.name} stats={s} />)}
     </div>
   );
 };

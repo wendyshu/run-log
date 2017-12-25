@@ -9,7 +9,7 @@ import { Option } from 'run-log/components/option/option';
 import { formatDate, formatDuration } from 'run-log/scripts/utils/dates';
 
 function die(sides) {
-  return Math.floor(Math.random() * sides) + 1 ;
+  return Math.floor(Math.random() * sides) + 1;
 }
 
 function onlyTheBest(events) {
@@ -17,59 +17,62 @@ function onlyTheBest(events) {
   return (faves.length > 0 ? faves : events).filter(e => !!e.category);
 }
 
-const random = (arr) => arr[die(arr.length) - 1];
+const random = arr => arr[die(arr.length) - 1];
 
 function selectFeaturedRun(events) {
-
-  const categories = events.map(e => e.category)
-    .reduce((a, n) => a.includes(n) ? a : [ n, ...a ], []);
+  const categories = events
+    .map(e => e.category)
+    .reduce((a, n) => (a.includes(n) ? a : [n, ...a]), []);
 
   // TODO: what if no types?
   const category = random(categories);
   const selected = random(events.filter(e => e.category === category));
 
   switch (category) {
-  case 'distance':
-    return [ 'Featured Distance Run', selected ];
-  case 'speed':
-    return [ 'Featured Speed Run', selected ];
-  case 'casual':
-    return [ 'Featured Casual Run', selected ];
-  case 'race':
-    return [ 'Featured Race', selected ];
+    case 'distance':
+      return ['Featured Distance Run', selected];
+    case 'speed':
+      return ['Featured Speed Run', selected];
+    case 'casual':
+      return ['Featured Casual Run', selected];
+    case 'race':
+      return ['Featured Race', selected];
   }
 }
 
 function toFeatures(event) {
   return {
-    'Date': Option(event.date).map(formatDate).orElse('-'),
-    'Distance': Option(event.distance).map(d => d.toFixed(2) + ' mi').orElse('-'),
-    'Duration': Option(event.duration).map(formatDuration).orElse('-')
+    Date: Option(event.date)
+      .map(formatDate)
+      .orElse('-'),
+    Distance: Option(event.distance)
+      .map(d => d.toFixed(2) + ' mi')
+      .orElse('-'),
+    Duration: Option(event.duration)
+      .map(formatDuration)
+      .orElse('-')
   };
 }
 
-export default (props) => {
-
+export default props => {
   const events = onlyTheBest(props.events);
 
   if (events.length) {
-    const [ title, event ] = selectFeaturedRun(events);
+    const [title, event] = selectFeaturedRun(events);
     const features = toFeatures(event);
 
     return (
       <Jumbotron>
         <h1>{title}</h1>
-        <p className="notes">{ event.notes }</p>
+        <p className="notes">{event.notes}</p>
         <table className="features">
           <tbody>
-            {
-              Object.entries(features).map(e => (
-                <tr key={e[0]}>
-                  <th>{ e[0] }:</th>
-                  <td>{ e[1] }</td>
-                </tr>
-              ))
-            }
+            {Object.entries(features).map(e => (
+              <tr key={e[0]}>
+                <th>{e[0]}:</th>
+                <td>{e[1]}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </Jumbotron>

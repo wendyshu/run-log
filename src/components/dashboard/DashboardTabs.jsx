@@ -4,11 +4,16 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { selectDashboardTab, TAB_7_DAY, TAB_30_DAY, TAB_365_DAY, TAB_ALL } from './actions';
+import {
+  selectDashboardTab,
+  TAB_7_DAY,
+  TAB_30_DAY,
+  TAB_365_DAY,
+  TAB_ALL
+} from './actions';
 import { connect } from 'react-redux';
 
 class DashboardTabs extends React.Component {
-
   constructor(props) {
     super(props);
   }
@@ -25,14 +30,14 @@ class DashboardTabs extends React.Component {
   render() {
     return (
       <ul className="nav nav-tabs">
-        { this.renderTab(TAB_7_DAY, '7 day') }
-        { this.renderTab(TAB_30_DAY, '30 day') }
-        { this.renderTab(TAB_365_DAY, '365 day') }
-        { this.renderTab(TAB_ALL, 'All') }
+        {this.renderTab(TAB_7_DAY, '7 day')}
+        {this.renderTab(TAB_30_DAY, '30 day')}
+        {this.renderTab(TAB_365_DAY, '365 day')}
+        {this.renderTab(TAB_ALL, 'All')}
       </ul>
     );
   }
-};
+}
 
 DashboardTabs.propTypes = {
   selectedTab: PropTypes.oneOf([TAB_7_DAY, TAB_30_DAY, TAB_365_DAY, TAB_ALL])

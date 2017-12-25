@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class LoadEvents extends React.Component {
-
   constructor(props) {
     super(props);
   }
@@ -20,13 +19,10 @@ class LoadEvents extends React.Component {
 
   render() {
     return (
-      <Loader loaded={!this.props.events.loading}>
-        {this.props.children}
-      </Loader>
+      <Loader loaded={!this.props.events.loading}>{this.props.children}</Loader>
     );
   }
-
-}; // LoadEvents
+} // LoadEvents
 
 function mapStateToProps(state) {
   return {
