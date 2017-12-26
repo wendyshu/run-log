@@ -21,8 +21,10 @@ interface IDispatchToProps {
   hideModal(): Action;
 }
 
-class BaseEventModal extends React.Component<IProps & IStateToProps & IDispatchToProps, {}> {
-
+class BaseEventModal extends React.Component<
+  IProps & IStateToProps & IDispatchToProps,
+  {}
+> {
   public shouldShow() {
     return this.props.modalType === this.props.modals.ui.showModal;
   }
@@ -37,9 +39,7 @@ class BaseEventModal extends React.Component<IProps & IStateToProps & IDispatchT
         <Modal.Header closeButton>
           <Modal.Title>{this.props.modalTitle}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          { this.props.children }
-        </Modal.Body>
+        <Modal.Body>{this.props.children}</Modal.Body>
       </Modal>
     );
   }
@@ -57,4 +57,7 @@ function mapDispatchToProps(dispatch: Dispatch<Action>): IDispatchToProps {
   };
 }
 
-export default connect<IStateToProps, IDispatchToProps, {}>(mapStateToProps, mapDispatchToProps)(BaseEventModal);
+export default connect<IStateToProps, IDispatchToProps, {}>(
+  mapStateToProps,
+  mapDispatchToProps
+)(BaseEventModal);

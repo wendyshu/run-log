@@ -11,8 +11,8 @@ test('reducer handle selection without pre-existing state', () => {
   const state = reducer(undefined, selectDashboardTab(TAB_7_DAY));
   expect(state).toEqual({
     ui: {
-      selectedTab: TAB_7_DAY
-    }
+      selectedTab: TAB_7_DAY,
+    },
   });
 });
 
@@ -20,8 +20,8 @@ test('reducer handle selection with pre-existing state', () => {
   const state = reducer({ foo: 'bar' }, selectDashboardTab(TAB_ALL));
   expect(state).toEqual({
     ui: {
-      selectedTab: TAB_ALL
+      selectedTab: TAB_ALL,
     },
-    foo: 'bar'
+    foo: 'bar',
   });
 });

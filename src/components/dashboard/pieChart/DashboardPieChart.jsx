@@ -13,35 +13,35 @@ function calculateCounts(events, totalDays) {
   return [
     {
       value: totalDays - events.length,
-      className: 'slice-none'
+      className: 'slice-none',
     },
     {
       value: crossTraining.length,
-      className: 'slice-x-train'
+      className: 'slice-x-train',
     },
     {
       value: runCrossTrain.length,
-      className: 'slice-run-x-train'
+      className: 'slice-run-x-train',
     },
     {
       value: running.filter(e => e.category === 'casual').length,
-      className: 'slice-casual'
+      className: 'slice-casual',
     },
     {
       value: running.filter(e => e.category === 'distance').length,
-      className: 'slice-distance'
+      className: 'slice-distance',
     },
     {
       value: running.filter(e => e.category === 'speed').length,
-      className: 'slice-speed'
-    }
+      className: 'slice-speed',
+    },
   ];
 }
 
 function data(events, totalDays) {
   const counts = calculateCounts(events, totalDays).filter(p => p.value > 0);
   return {
-    series: counts
+    series: counts,
   };
 }
 

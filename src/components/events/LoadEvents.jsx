@@ -26,12 +26,12 @@ class LoadEvents extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    events: state.events
+    events: state.events,
   };
 }
 
 LoadEvents.propType = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
 };
 
 export default connect(mapStateToProps, { loadEvents })(LoadEvents);

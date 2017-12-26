@@ -1,5 +1,4 @@
 declare namespace Fp {
-
   /**
    * Function that transforms from one value to another.
    */
@@ -22,5 +21,5 @@ declare namespace Fp {
    */
   export interface Monad<T> extends Functor<T> {
     flatMap<U>(fn: Transform<T, Monad<U>>): Monad<U>;
-  };
+  }
 }

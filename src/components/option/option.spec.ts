@@ -1,4 +1,4 @@
-import {Option, None, Some} from './option';
+import { Option, None, Some } from './option';
 
 //
 // Constructor tests
@@ -33,11 +33,11 @@ test('None.orElse', () => {
 });
 
 test('None.map', () => {
-  expect(None().map((a) => 'foo')).toEqual(None());
+  expect(None().map(a => 'foo')).toEqual(None());
 });
 
 test('Some.flatMap(...) == None', () => {
-  expect(None().flatMap((a) => Some('foo'))).toEqual(None());
+  expect(None().flatMap(a => Some('foo'))).toEqual(None());
 });
 
 //
@@ -57,13 +57,13 @@ test('Some.orElse', () => {
 });
 
 test('Some.map', () => {
-  expect(Some('foo').map((a) => a + 'bar')).toEqual(Some('foobar'));
+  expect(Some('foo').map(a => a + 'bar')).toEqual(Some('foobar'));
 });
 
 test('Some.flatMap(None) == None', () => {
-  expect(Some('foo').flatMap((a) => None())).toEqual(None());
+  expect(Some('foo').flatMap(a => None())).toEqual(None());
 });
 
 test('Some(a).flatMap(Some(b)) == Some(b)', () => {
-  expect(Some('foo').flatMap((a) => Some('bar'))).toEqual(Some('bar'));
+  expect(Some('foo').flatMap(a => Some('bar'))).toEqual(Some('bar'));
 });

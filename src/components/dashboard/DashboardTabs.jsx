@@ -9,7 +9,7 @@ import {
   TAB_7_DAY,
   TAB_30_DAY,
   TAB_365_DAY,
-  TAB_ALL
+  TAB_ALL,
 } from './actions';
 import { connect } from 'react-redux';
 
@@ -40,7 +40,7 @@ class DashboardTabs extends React.Component {
 }
 
 DashboardTabs.propTypes = {
-  selectedTab: PropTypes.oneOf([TAB_7_DAY, TAB_30_DAY, TAB_365_DAY, TAB_ALL])
+  selectedTab: PropTypes.oneOf([TAB_7_DAY, TAB_30_DAY, TAB_365_DAY, TAB_ALL]),
 };
 
 export default connect(null, { selectDashboardTab })(DashboardTabs);

@@ -8,14 +8,14 @@ function sendLoginAction(username, password) {
   return {
     type: SEND_LOGIN,
     username,
-    password
+    password,
   };
 }
 
 function receiveLoginAction([success, msg]) {
   return {
     type: success ? RECEIVE_LOGIN_SUCCESS : RECEIVE_LOGIN_FAIL,
-    message: msg
+    message: msg,
   };
 }
 

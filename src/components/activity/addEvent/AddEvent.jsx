@@ -9,7 +9,7 @@ import {
   MODAL_RUN,
   MODAL_CROSS_TRAIN,
   MODAL_RUN_CROSS_TRAIN,
-  MODAL_SHOES
+  MODAL_SHOES,
 } from 'run-log/components/activity/modals/actions';
 
 import { connect } from 'react-redux';

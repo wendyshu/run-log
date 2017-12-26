@@ -18,7 +18,11 @@ class DeleteAction implements Action {
 
 class CrudAction implements Action {
   public event: Events.Any;
-  public type: 'SEND_EDIT_EVENT' | 'RECEIVE_EDIT_EVENT' | 'SEND_ADD_EVENT' | 'RECEIVE_ADD_EVENT';
+  public type:
+    | 'SEND_EDIT_EVENT'
+    | 'RECEIVE_EDIT_EVENT'
+    | 'SEND_ADD_EVENT'
+    | 'RECEIVE_ADD_EVENT';
 }
 
 class SendGetAction implements Action {
@@ -31,10 +35,14 @@ class ReceiveGetAction implements Action {
   public type: 'RECEIVE_GET_EVENTS';
 }
 
-export type EventsAction = FavoriteAction | DeleteAction | CrudAction | SendGetAction | ReceiveGetAction;
+export type EventsAction =
+  | FavoriteAction
+  | DeleteAction
+  | CrudAction
+  | SendGetAction
+  | ReceiveGetAction;
 
 const Actions = {
-
   setFavorite(eventId: string, favorite: boolean): FavoriteAction {
     return {
       eventId,
@@ -98,7 +106,6 @@ const Actions = {
       type: 'RECEIVE_GET_EVENTS',
     };
   },
-
 }; // Actions
 
 export const setFavorite = Actions.setFavorite;
@@ -107,14 +114,20 @@ export const setFavorite = Actions.setFavorite;
  * TODO: delete from server, then fetch events
  */
 export function deleteEvent(eventId: string) {
-  return simulateAsyncRequest(Actions.requestDeleteEvent(eventId), Actions.receiveDeleteEvent(eventId));
+  return simulateAsyncRequest(
+    Actions.requestDeleteEvent(eventId),
+    Actions.receiveDeleteEvent(eventId)
+  );
 }
 
 /**
  * TODO: post to server, then fetch events
  */
 export function editEvent(event: Events.Any) {
-  return simulateAsyncRequest(Actions.requestEditEvent(event), Actions.receiveEditEvent(event));
+  return simulateAsyncRequest(
+    Actions.requestEditEvent(event),
+    Actions.receiveEditEvent(event)
+  );
 }
 
 /**
@@ -122,21 +135,30 @@ export function editEvent(event: Events.Any) {
  */
 export function addEvent(event: Events.Any) {
   event['@id'] = `urn:uuid:${randomUuid()}`; // TODO: server does this
-  return simulateAsyncRequest(Actions.requestAddEvent(event), Actions.receiveAddEvent(event));
+  return simulateAsyncRequest(
+    Actions.requestAddEvent(event),
+    Actions.receiveAddEvent(event)
+  );
 }
 
 /**
  * TODO: get from server
  */
 export function loadEvents() {
-  return simulateAsyncRequest(Actions.requestEvents(), Actions.receiveEvents(SampleEvents));
+  return simulateAsyncRequest(
+    Actions.requestEvents(),
+    Actions.receiveEvents(SampleEvents)
+  );
 }
 
 // Helper for simulating HTTP requests
-function simulateAsyncRequest(reqAction: EventsAction, resAction: EventsAction) {
+function simulateAsyncRequest(
+  reqAction: EventsAction,
+  resAction: EventsAction
+) {
   return (dispatch: Dispatch<Action>) => {
     dispatch(reqAction);
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       setTimeout(() => resolve(dispatch(resAction)), MILLIS_WAIT); // Simulate xhr
     });
   };

@@ -69,7 +69,6 @@ class NoneImpl<A> implements None<A> {
 export interface Some<A> extends Option<A> {}
 
 class SomeImpl<A> implements Some<A> {
-
   public readonly empty: boolean;
   private a: A;
 

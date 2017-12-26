@@ -6,7 +6,7 @@ import DashboardStats from 'run-log/components/dashboard/stats/DashboardStats';
 import { Option } from 'run-log/components/option/option';
 import {
   durationToSeconds,
-  secondsToMinuteMiles
+  secondsToMinuteMiles,
 } from 'run-log/scripts/utils/dates';
 import { add } from 'run-log/scripts/utils/math';
 
@@ -28,7 +28,7 @@ export default props => {
     name: 'Average Pace',
     value: Option(calcAveragePace(props.events))
       .map(p => secondsToMinuteMiles(p) + ' mi')
-      .orElse('-')
+      .orElse('-'),
   };
   return <DashboardStats stats={stats} />;
 };

@@ -6,7 +6,6 @@ declare namespace EventTypes {
 }
 
 declare namespace Events {
-
   interface IBaseEvent {
     '@id': string;
     '@type': EventTypes.Any;

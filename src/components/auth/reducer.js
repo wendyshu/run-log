@@ -1,13 +1,13 @@
 import {
   SEND_LOGIN,
   RECEIVE_LOGIN_SUCCESS,
-  RECEIVE_LOGIN_FAIL
+  RECEIVE_LOGIN_FAIL,
 } from './actions';
 
 const INITIAL_STATE = {
   loading: false,
   authenticated: false,
-  message: null
+  message: null,
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -17,21 +17,21 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         loading: true,
         authenticated: false,
-        message: null
+        message: null,
       };
     case RECEIVE_LOGIN_SUCCESS:
       return {
         ...state,
         loading: false,
         authenticated: true,
-        message: null
+        message: null,
       };
     case RECEIVE_LOGIN_FAIL:
       return {
         ...state,
         loading: false,
         authenticated: false,
-        message: action.message
+        message: action.message,
       };
     default:
       return state;

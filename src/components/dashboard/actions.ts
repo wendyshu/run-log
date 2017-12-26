@@ -12,7 +12,9 @@ export class SelectDashboardTabAction implements Action {
   public type: 'SELECT_DASHBOARD_TAB';
 }
 
-export function selectDashboardTab(tabId: DashboardTabs.Any): SelectDashboardTabAction {
+export function selectDashboardTab(
+  tabId: DashboardTabs.Any
+): SelectDashboardTabAction {
   return {
     selectedTab: tabId,
     type: SELECT_DASHBOARD_TAB,

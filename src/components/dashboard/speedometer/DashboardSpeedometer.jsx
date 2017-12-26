@@ -13,7 +13,7 @@ function options() {
     donutSolid: true,
     startAngle: 270,
     total: 200,
-    showLabel: false
+    showLabel: false,
   };
 }
 
@@ -31,7 +31,7 @@ function data(mph) {
   const cappedMph = min(mph, GoalMPH);
   const percentage = 100 * cappedMph / GoalMPH;
   return {
-    series: [percentage, 100.0 - percentage]
+    series: [percentage, 100.0 - percentage],
   };
 }
 

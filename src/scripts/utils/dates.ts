@@ -2,12 +2,12 @@ import moment from 'moment';
 
 export function formatDate(date: Date) {
   return moment(date, 'YYYYMMDD').calendar(undefined, {
-    lastDay : '[Yesterday]',
-    lastWeek : 'dddd',
-    nextDay : '[Tomorrow]',
-    nextWeek : 'dddd',
-    sameDay : '[Today]',
-    sameElse : 'L',
+    lastDay: '[Yesterday]',
+    lastWeek: 'dddd',
+    nextDay: '[Tomorrow]',
+    nextWeek: 'dddd',
+    sameDay: '[Today]',
+    sameElse: 'L',
   });
 }
 
@@ -39,7 +39,9 @@ export function durationToComponents(duration: string) {
  */
 export function toDuration(hours?: number, minutes?: number, seconds?: number) {
   if (hours || minutes || seconds) {
-    return `PT${hours ? hours : '0'}H${minutes ? minutes : '0'}M${seconds ? seconds : '0'}S`;
+    return `PT${hours ? hours : '0'}H${minutes ? minutes : '0'}M${
+      seconds ? seconds : '0'
+    }S`;
   } else {
     return undefined;
   }

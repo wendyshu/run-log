@@ -22,41 +22,41 @@ test('durationToSeconds handles minutes and seconds durations', () => {
 
 test('durationToComponents with every component', () => {
   expect(durationToComponents('PT1H2M35S')).toEqual({
-    'hours': 1,
-    'minutes': 2,
-    'seconds': 35
+    hours: 1,
+    minutes: 2,
+    seconds: 35,
   });
 });
 
 test('durationToComponents without hours', () => {
   expect(durationToComponents('PT2M35S')).toEqual({
-    'hours': 0,
-    'minutes': 2,
-    'seconds': 35
+    hours: 0,
+    minutes: 2,
+    seconds: 35,
   });
 });
 
 test('durationToComponents without hours, minutes', () => {
   expect(durationToComponents('PT35S')).toEqual({
-    'hours': 0,
-    'minutes': 0,
-    'seconds': 35
+    hours: 0,
+    minutes: 0,
+    seconds: 35,
   });
 });
 
 test('durationToComponents without minutes', () => {
   expect(durationToComponents('PT1H35S')).toEqual({
-    'hours': 1,
-    'minutes': 0,
-    'seconds': 35
+    hours: 1,
+    minutes: 0,
+    seconds: 35,
   });
 });
 
 test('durationToComponents without seconds', () => {
   expect(durationToComponents('PT1H2M')).toEqual({
-    'hours': 1,
-    'minutes': 2,
-    'seconds': 0
+    hours: 1,
+    minutes: 2,
+    seconds: 0,
   });
 });
 
@@ -65,17 +65,17 @@ test('toDuration without components', () => {
 });
 
 test('toDuration all components', () => {
-  expect(toDuration(1, 2, 3)).toBe("PT1H2M3S");
+  expect(toDuration(1, 2, 3)).toBe('PT1H2M3S');
 });
 
 test('toDuration missing hours', () => {
-  expect(toDuration(undefined, 2, 3)).toBe("PT0H2M3S");
+  expect(toDuration(undefined, 2, 3)).toBe('PT0H2M3S');
 });
 
 test('toDuration missing minutes', () => {
-  expect(toDuration(1, undefined, 3)).toBe("PT1H0M3S");
+  expect(toDuration(1, undefined, 3)).toBe('PT1H0M3S');
 });
 
 test('toDuration missing seconds', () => {
-  expect(toDuration(1, 2, undefined)).toBe("PT1H2M0S");
+  expect(toDuration(1, 2, undefined)).toBe('PT1H2M0S');
 });

@@ -22,21 +22,28 @@ interface IFormInput {
   favorite: boolean;
 }
 
-class ModalWithoutRun extends React.Component<IModalProps & IModalS2P & IModalD2P, {}> {
-
+class ModalWithoutRun extends React.Component<
+  IModalProps & IModalS2P & IModalD2P,
+  {}
+> {
   public render() {
-    const title = this.eventToEdit() ? `Edit ${this.props.modalTitle}` : `Edit ${this.props.modalTitle}`;
+    const title = this.eventToEdit()
+      ? `Edit ${this.props.modalTitle}`
+      : `Edit ${this.props.modalTitle}`;
     return (
       <BaseEventModal modalType={this.props.modalType} modalTitle={title}>
-        <Form defaultValues={this.defaultValues()} onSubmit={this.onSubmit.bind(this)} validate={this.validate}>
+        <Form
+          defaultValues={this.defaultValues()}
+          onSubmit={this.onSubmit.bind(this)}
+          validate={this.validate}
+        >
           {this.formContents.bind(this)}
         </Form>
       </BaseEventModal>
     );
   }
 
-  private onSubmit({id, date, notes, favorite}: IFormInput) {
-
+  private onSubmit({ id, date, notes, favorite }: IFormInput) {
     const thisEvent: Events.Any = {
       '@id': id,
       '@type': this.props.eventType,
@@ -54,9 +61,9 @@ class ModalWithoutRun extends React.Component<IModalProps & IModalS2P & IModalD2
     this.props.hideModal();
   }
 
-  private validate({date}: IFormInput) {
+  private validate({ date }: IFormInput) {
     return {
-      date: ! date ? 'Please select a date' : undefined,
+      date: !date ? 'Please select a date' : undefined,
     };
   }
 
@@ -73,21 +80,22 @@ class ModalWithoutRun extends React.Component<IModalProps & IModalS2P & IModalD2
     return this.props.modals.editEvent;
   }
 
-  private formContents({submitForm}: FormApi) {
+  private formContents({ submitForm }: FormApi) {
     return (
       <form onSubmit={submitForm}>
-
-        <div className='form-group'>
-          <label htmlFor='category'>Date</label>
-          <Text className='form-control' field='date' type='date' />
+        <div className="form-group">
+          <label htmlFor="category">Date</label>
+          <Text className="form-control" field="date" type="date" />
         </div>
 
-        <div className='form-group'>
-          <label htmlFor='notes'>Notes</label>
-          <Textarea className='form-control' field='notes' />
+        <div className="form-group">
+          <label htmlFor="notes">Notes</label>
+          <Textarea className="form-control" field="notes" />
         </div>
 
-        <button type='submit' className='btn btn-primary'>Submit</button>
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
       </form>
     );
   }
@@ -101,10 +109,13 @@ function mapStateToProps(state: RootState, ownProps: {}): IModalS2P {
 
 function mapDispatchToProps(dispatch: Dispatch<Action>): IModalD2P {
   return {
-    addEvent: (e) => dispatch(addEvent(e)),
-    editEvent: (e) => dispatch(editEvent(e)),
+    addEvent: e => dispatch(addEvent(e)),
+    editEvent: e => dispatch(editEvent(e)),
     hideModal: () => dispatch(hideModal()),
   };
 }
 
-export default connect<IModalS2P, IModalD2P, {}>(mapStateToProps, mapDispatchToProps)(ModalWithoutRun);
+export default connect<IModalS2P, IModalD2P, {}>(
+  mapStateToProps,
+  mapDispatchToProps
+)(ModalWithoutRun);

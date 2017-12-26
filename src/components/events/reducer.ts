@@ -5,7 +5,10 @@ const INITIAL_STATE = {
   data: [],
 };
 
-const transformEvent = (eventId: string, transformer: Fp.Transform<Events.Any, Events.Any>) => {
+const transformEvent = (
+  eventId: string,
+  transformer: Fp.Transform<Events.Any, Events.Any>
+) => {
   return (e: Events.Any) => {
     if (e['@id'] === eventId) {
       return transformer(e);
@@ -18,10 +21,13 @@ const transformEvent = (eventId: string, transformer: Fp.Transform<Events.Any, E
 /**
  * Reducer function for books application.
  */
-export default function(state: State.Events = INITIAL_STATE, action: EventsAction): State.Events {
+export default function(
+  state: State.Events = INITIAL_STATE,
+  action: EventsAction
+): State.Events {
   switch (action.type) {
     case 'SET_FAVORITE':
-      const fave = transformEvent(action.eventId, (e) => {
+      const fave = transformEvent(action.eventId, e => {
         return { ...e, favorite: action.favorite };
       });
       return {
@@ -38,7 +44,7 @@ export default function(state: State.Events = INITIAL_STATE, action: EventsActio
       };
     case 'RECEIVE_ADD_EVENT':
       return objAssign({}, state, {
-        data: [ action.event, ...state.data ],
+        data: [action.event, ...state.data],
         loading: false,
       });
     case 'RECEIVE_EDIT_EVENT':
@@ -48,7 +54,8 @@ export default function(state: State.Events = INITIAL_STATE, action: EventsActio
         loading: false,
       });
     case 'RECEIVE_DELETE_EVENT':
-      const eqT: Fp.Predicate<Events.Any> = (e: Events.Any) => e['@id'] !== action.eventId;
+      const eqT: Fp.Predicate<Events.Any> = (e: Events.Any) =>
+        e['@id'] !== action.eventId;
       return objAssign({}, state, {
         data: state.data.filter(eqT),
         loading: false,

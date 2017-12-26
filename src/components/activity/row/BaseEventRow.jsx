@@ -9,7 +9,7 @@ import {
   MODAL_RUN,
   MODAL_CROSS_TRAIN,
   MODAL_RUN_CROSS_TRAIN,
-  MODAL_SHOES
+  MODAL_SHOES,
 } from 'run-log/components/activity/modals/actions';
 import { deleteEvent, setFavorite } from 'run-log/components/events/actions';
 
@@ -49,13 +49,13 @@ class BaseEventRow extends React.Component {
     return this.props.children({
       handleDelete: this.handleDelete.bind(this),
       handleEdit: this.handleEdit.bind(this),
-      handleFavorite: this.handleFavorite.bind(this)
+      handleFavorite: this.handleFavorite.bind(this),
     });
   }
 } // BaseEventRow
 
 BaseEventRow.propTypes = {
-  event: PropTypes.object.isRequired
+  event: PropTypes.object.isRequired,
 };
 
 export default connect(null, { deleteEvent, showModal, setFavorite })(

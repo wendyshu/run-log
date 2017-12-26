@@ -23,7 +23,7 @@ class Authenticate extends React.Component {
   validate({ username, password }) {
     return {
       username: !username ? 'Please specify username' : undefined,
-      password: !password ? 'Please specify password' : undefined
+      password: !password ? 'Please specify password' : undefined,
     };
   }
 
@@ -80,18 +80,18 @@ class Authenticate extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    authenticate: state.authenticate
+    authenticate: state.authenticate,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    login: (user, pw) => dispatch(login(user, pw))
+    login: (user, pw) => dispatch(login(user, pw)),
   };
 }
 
 Authenticate.propType = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Authenticate);

@@ -14,7 +14,7 @@ import {
   MODAL_SHOES,
   MODAL_RUN,
   MODAL_RUN_CROSS_TRAIN,
-  MODAL_CROSS_TRAIN
+  MODAL_CROSS_TRAIN,
 } from './modals/actions';
 import { connect } from 'react-redux';
 
@@ -36,7 +36,7 @@ class Activity extends React.Component {
       'Run',
       'Run+CrossTrain',
       'CrossTrain',
-      'ChangeShoes'
+      'ChangeShoes',
     ]);
   }
 
@@ -113,7 +113,7 @@ class Activity extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    events: state.events
+    events: state.events,
   };
 }
 

@@ -42,16 +42,16 @@ function stats(allEvents) {
   return [
     {
       name: 'Age',
-      value: age(events, shoesEvent)
+      value: age(events, shoesEvent),
     },
     {
       name: 'Distance',
-      value: d.toFixed(2) + ' mi'
+      value: d.toFixed(2) + ' mi',
     },
     {
       name: 'Recommendation',
-      value: recommendation(d)
-    }
+      value: recommendation(d),
+    },
   ];
 }
 

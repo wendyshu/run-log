@@ -2,7 +2,6 @@
  * All type information for application state.
  */
 declare namespace State {
-
   export interface Dashboard {
     public ui: { selectedTab: DashboardTabs.Any };
   }

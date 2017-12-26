@@ -50,7 +50,7 @@ function toFeatures(event) {
       .orElse('-'),
     Duration: Option(event.duration)
       .map(formatDuration)
-      .orElse('-')
+      .orElse('-'),
   };
 }
 

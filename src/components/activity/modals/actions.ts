@@ -13,7 +13,10 @@ export class ShowModalAction implements Action {
   public type: 'SHOW_MODAL';
 }
 
-export function showModal(modal: ModalTypes.Any, editEvent?: Events.Any): ShowModalAction {
+export function showModal(
+  modal: ModalTypes.Any,
+  editEvent?: Events.Any
+): ShowModalAction {
   return {
     editEvent, // If present, edit; if absent, new
     modal,

@@ -28,13 +28,21 @@ interface IFormInput {
   favorite: boolean;
 }
 
-class ModalWithRun extends React.Component<IModalProps & IModalS2P & IModalD2P, {}> {
-
+class ModalWithRun extends React.Component<
+  IModalProps & IModalS2P & IModalD2P,
+  {}
+> {
   public render() {
-    const title = this.props.modals.editEvent ? `Edit ${this.props.modalTitle}` : `Add ${this.props.modalTitle}`;
+    const title = this.props.modals.editEvent
+      ? `Edit ${this.props.modalTitle}`
+      : `Add ${this.props.modalTitle}`;
     return (
       <BaseEventModal modalType={this.props.modalType} modalTitle={title}>
-        <Form defaultValues={this.defaultValues()} onSubmit={this.onSubmit.bind(this)} validate={this.validate}>
+        <Form
+          defaultValues={this.defaultValues()}
+          onSubmit={this.onSubmit.bind(this)}
+          validate={this.validate}
+        >
           {this.formContents.bind(this)}
         </Form>
       </BaseEventModal>
@@ -62,14 +70,24 @@ class ModalWithRun extends React.Component<IModalProps & IModalS2P & IModalD2P, 
     ];
   }
 
-  private onSubmit({id, category, date, distance, hours, minutes, seconds, notes, favorite}: IFormInput) {
+  private onSubmit({
+    id,
+    category,
+    date,
+    distance,
+    hours,
+    minutes,
+    seconds,
+    notes,
+    favorite,
+  }: IFormInput) {
     const duration = toDuration(hours, minutes, seconds);
     const thisEvent: Events.WithRunning = {
       '@id': id,
       '@type': this.props.eventType,
       category,
       date,
-      'distance': distance ? parseFloat(distance) : undefined,
+      distance: distance ? parseFloat(distance) : undefined,
       duration,
       favorite,
       notes,
@@ -84,15 +102,14 @@ class ModalWithRun extends React.Component<IModalProps & IModalS2P & IModalD2P, 
     this.props.hideModal();
   }
 
-  private validate({category, date}: IFormInput) {
+  private validate({ category, date }: IFormInput) {
     return {
-      category: ! category ? 'Please select a category' : undefined,
-      date: ! date ? 'Please select a date' : undefined,
+      category: !category ? 'Please select a category' : undefined,
+      date: !date ? 'Please select a date' : undefined,
     };
   }
 
   private defaultValues() {
-
     const duration = get(this.eventToEdit(), 'duration');
     let time = {};
     if (duration) {
@@ -114,58 +131,80 @@ class ModalWithRun extends React.Component<IModalProps & IModalS2P & IModalD2P, 
     return this.props.modals.editEvent;
   }
 
-  private formContents({submitForm}: FormApi) {
+  private formContents({ submitForm }: FormApi) {
     return (
       <form onSubmit={submitForm}>
-
-        <div className='form-group'>
-          <label htmlFor='category'>Date</label>
-          <Text className='form-control' field='date' type='date' />
+        <div className="form-group">
+          <label htmlFor="category">Date</label>
+          <Text className="form-control" field="date" type="date" />
         </div>
 
-        <div className='form-group'>
-          <label htmlFor='category'>Category</label>
-          <Select field='category' options={this.categoryOptions()} />
+        <div className="form-group">
+          <label htmlFor="category">Category</label>
+          <Select field="category" options={this.categoryOptions()} />
         </div>
 
-        <div className='form-group'>
-          <label htmlFor='distance'>Distance</label>
-          <div className='input-group'>
-            <Text className='form-control' field='distance' type='number' />
-            <div className='input-group-addon'>miles</div>
+        <div className="form-group">
+          <label htmlFor="distance">Distance</label>
+          <div className="input-group">
+            <Text className="form-control" field="distance" type="number" />
+            <div className="input-group-addon">miles</div>
           </div>
         </div>
 
-        <div className='form-group'>
+        <div className="form-group">
           <label>Duration</label>
-          <div className='row'>
-            <div className='col-xs-4'>
-              <div className='input-group'>
-                <Text className='form-control' field='hours' type='number' step='1' min='0' max='59' />
-                <div className='input-group-addon'>hr</div>
+          <div className="row">
+            <div className="col-xs-4">
+              <div className="input-group">
+                <Text
+                  className="form-control"
+                  field="hours"
+                  type="number"
+                  step="1"
+                  min="0"
+                  max="59"
+                />
+                <div className="input-group-addon">hr</div>
               </div>
             </div>
-            <div className='col-xs-4'>
-              <div className='input-group'>
-                <Text className='form-control' field='minutes' type='number' step='1' min='0' max='59' />
-                <div className='input-group-addon'>min</div>
+            <div className="col-xs-4">
+              <div className="input-group">
+                <Text
+                  className="form-control"
+                  field="minutes"
+                  type="number"
+                  step="1"
+                  min="0"
+                  max="59"
+                />
+                <div className="input-group-addon">min</div>
               </div>
             </div>
-            <div className='col-xs-4'>
-              <div className='input-group'>
-                <Text className='form-control' field='seconds' type='number' step='1' min='0' max='59' />
-                <div className='input-group-addon'>sec</div>
+            <div className="col-xs-4">
+              <div className="input-group">
+                <Text
+                  className="form-control"
+                  field="seconds"
+                  type="number"
+                  step="1"
+                  min="0"
+                  max="59"
+                />
+                <div className="input-group-addon">sec</div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className='form-group'>
-          <label htmlFor='notes'>Notes</label>
-          <Textarea className='form-control' field='notes' />
+        <div className="form-group">
+          <label htmlFor="notes">Notes</label>
+          <Textarea className="form-control" field="notes" />
         </div>
 
-        <button type='submit' className='btn btn-primary'>Submit</button>
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
       </form>
     );
   }
@@ -179,10 +218,13 @@ function mapStateToProps(state: RootState, ownProps: {}): IModalS2P {
 
 function mapDispatchToProps(dispatch: Dispatch<Action>): IModalD2P {
   return {
-    addEvent: (e) => dispatch(addEvent(e)),
-    editEvent: (e) => dispatch(editEvent(e)),
+    addEvent: e => dispatch(addEvent(e)),
+    editEvent: e => dispatch(editEvent(e)),
     hideModal: () => dispatch(hideModal()),
   };
 }
 
-export default connect<IModalS2P, IModalD2P, {}>(mapStateToProps, mapDispatchToProps)(ModalWithRun);
+export default connect<IModalS2P, IModalD2P, {}>(
+  mapStateToProps,
+  mapDispatchToProps
+)(ModalWithRun);

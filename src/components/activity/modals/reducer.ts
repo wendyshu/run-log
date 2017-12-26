@@ -1,6 +1,14 @@
-import { HIDE_MODAL, HideModalAction, SHOW_MODAL, ShowModalAction } from './actions';
+import {
+  HIDE_MODAL,
+  HideModalAction,
+  SHOW_MODAL,
+  ShowModalAction,
+} from './actions';
 
-function showModal(show?: ModalTypes.Any, editEvent?: Events.Any): State.Modals {
+function showModal(
+  show?: ModalTypes.Any,
+  editEvent?: Events.Any
+): State.Modals {
   return {
     editEvent,
     ui: {
@@ -16,14 +24,18 @@ const INITIAL_STATE = showModal();
  */
 export default function(
   state: State.Modals = INITIAL_STATE,
-  action: HideModalAction | ShowModalAction,
+  action: HideModalAction | ShowModalAction
 ): State.Modals {
   switch (action.type) {
-  case SHOW_MODAL:
-    return Object.assign({}, state, showModal(action.modal, action.editEvent));
-  case HIDE_MODAL:
-    return Object.assign({}, state, showModal());
-  default:
-    return state;
+    case SHOW_MODAL:
+      return Object.assign(
+        {},
+        state,
+        showModal(action.modal, action.editEvent)
+      );
+    case HIDE_MODAL:
+      return Object.assign({}, state, showModal());
+    default:
+      return state;
   }
 }
