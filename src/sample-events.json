@@ -7,6 +7,14 @@
   },
   "events": [
     {
+      "@id": "_:n69",
+      "@type": "Run+CrossTrain",
+      "date": "2017-12-27",
+      "category": "casual",
+      "distance": 1.5,
+      "duration": "PT12M",
+      "notes": "Treadmill, 1° incline. Sick w/ cold."
+    },{
       "@id": "_:n68",
       "@type": "Run",
       "date": "2017-12-25",
