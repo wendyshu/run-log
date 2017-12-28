@@ -7,13 +7,21 @@
   },
   "events": [
     {
+      "@id": "_:n70",
+      "@type": "Run+CrossTrain",
+      "date": "2017-12-28",
+      "category": "casual",
+      "distance": 2,
+      "duration": "PT16M",
+      "notes": "Ashland, KY. Treadmill, 1° incline. Congested from cold, but feeling better."
+    },{
       "@id": "_:n69",
       "@type": "Run+CrossTrain",
       "date": "2017-12-27",
       "category": "casual",
       "distance": 1.5,
-      "duration": "PT12M",
-      "notes": "Treadmill, 1° incline. Sick w/ cold."
+      "duration": "PT11M15S",
+      "notes": "Ashland, KY. Treadmill, 1° incline. Sick w/ cold."
     },{
       "@id": "_:n68",
       "@type": "Run",
