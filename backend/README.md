@@ -25,6 +25,16 @@ Then setup project:
 
 You will probably be asked to select a Scala runtime. Select Scala 2.12.4.
 
+Formatting configuration:
+
+1. Select menu `Intellij IDEA` > `Preferences...`
+2. In left menu, navigate to `Editor` > `Code Style` > `Scala`
+3. Select tab `Wrapping and Braces`
+4. Check `Keep when reformatting` > `Line breaks`
+5. Uncheck `Method declaration parameters` > `Align when multiline`
+6. Uncheck `Method call arguments` > `Align when multiline`
+7. Click `Apply`
+
 Running the development server with live reload ("triggered execution" in sbt parlance):
 
 ```sh
