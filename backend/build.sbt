@@ -7,6 +7,10 @@ val Http4sVersion = "0.17.6"
 val Specs2Version = "4.0.2"
 val LogbackVersion = "1.2.3"
 
+// TODO: this should work by default!
+watchSources += baseDirectory.value / "src" / "main" / "scala"
+watchSources += baseDirectory.value / "src" / "main" / "resources"
+
 libraryDependencies ++= Seq(
   "org.http4s"     %% "http4s-blaze-server"  % Http4sVersion,
   "org.http4s"     %% "http4s-circe"         % Http4sVersion,

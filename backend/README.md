@@ -25,11 +25,13 @@ Then setup project:
 
 You will probably be asked to select a Scala runtime. Select Scala 2.12.4.
 
-Run development server:
+Running the development server with live reload ("triggered execution" in sbt parlance):
 
 ```sh
-$ sbt run
+$ sbt ~reStart
 ```
+
+(May take several seconds to pick up changes.)
 
 ## Tests
 

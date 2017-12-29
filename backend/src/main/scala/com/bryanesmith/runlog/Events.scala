@@ -8,6 +8,6 @@ import org.http4s.dsl._
 object Events {
   val service = HttpService {
     case GET -> Root / "events" =>
-      Ok(Json.obj("message" -> Json.fromString(s"TODO: implement me")))
+      Ok(Json.obj("message" -> Json.fromString(s"TODO")))
   }
 }
