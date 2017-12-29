@@ -1,8 +1,8 @@
-package com.bryanesmith.runlog
+package com.bryanesmith.runlog.utils
 
-import com.bryanesmith.runlog.Events.{Category, Event, Type}
+import com.bryanesmith.runlog.dto.Events.{Category, Event, Type}
 
-object Samples {
+object Demo {
 
   def events = Seq(
     Event(

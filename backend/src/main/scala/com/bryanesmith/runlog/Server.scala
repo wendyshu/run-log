@@ -1,6 +1,8 @@
 package com.bryanesmith.runlog
 
+import com.bryanesmith.runlog.services.EventsService
 import fs2.Task
+
 import scala.util.Properties.envOrNone
 import org.http4s.server.blaze.BlazeBuilder
 import org.http4s.util.StreamApp
