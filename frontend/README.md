@@ -1,14 +1,22 @@
-# Run Log
+# Run Log: frontend
 
 ## Overview
-Front-end application for logging runs and tracking progress.
+Frontend application for logging runs and tracking progress.
 
 See `src/sample-events.json` for the mock data that is loaded by default.
 
 ## Setup
 
+Development server:
+
 ```sh
 $ yarn && yarn start
+```
+
+Build:
+
+```sh
+$ yarn && yarn run build
 ```
 
 ## Tests
