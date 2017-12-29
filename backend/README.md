@@ -5,6 +5,8 @@ Backend application for logging runs and tracking progress.
 
 ## Setup
 
+### IDE (Optional)
+
 Setup Intellij as IDE.
 
 If first time using Intellij:
@@ -35,6 +37,8 @@ Formatting configuration:
 6. Uncheck `Method call arguments` > `Align when multiline`
 7. Click `Apply`
 
+### Server
+
 Running the development server with live reload ("triggered execution" in sbt parlance):
 
 ```sh
@@ -42,6 +46,12 @@ $ sbt ~reStart
 ```
 
 (May take several seconds to pick up changes.)
+
+To test:
+
+```sh
+$ curl http://localhost:8080/api/v1/events
+```
 
 ## Tests
 

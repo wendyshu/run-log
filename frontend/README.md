@@ -3,17 +3,17 @@
 ## Overview
 Frontend application for logging runs and tracking progress.
 
-See `src/sample-events.json` for the mock data that is loaded by default.
-
 ## Setup
 
-Development server:
+**Note**: You must start the backend server first.
+
+Start the development server:
 
 ```sh
 $ yarn && yarn start
 ```
 
-Build:
+To build:
 
 ```sh
 $ yarn && yarn run build

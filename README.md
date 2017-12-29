@@ -3,6 +3,10 @@
 ## Overview
 Web application for logging runs and tracking progress. Include http4s-based backend and React-based frontend.
 
+## Setup
+
+Run the backend server first, then the frontend web application. See the respective READMEs for details.
+
 ## Screenshots
 
 ### Login Screen
