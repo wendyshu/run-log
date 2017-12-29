@@ -1,2 +1,10 @@
+# builds
 project/target
 target
+
+# Intellij
+.idea
+
+# http4s reference tutorial files
+src/main/scala/com/bryanesmith/runlog/HelloWorld.scala
+src/test/scala/com/bryanesmith/runlog/HelloWorldSpec.scala
