@@ -53,6 +53,7 @@ object Events {
     distance: Option[Double] = None,
     duration: Option[String] = None,
     notes: Option[String] = None,
+    favorite: Option[Boolean] = None,
   )
 
 } // Events
