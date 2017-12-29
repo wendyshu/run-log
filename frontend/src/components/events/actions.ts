@@ -1,6 +1,10 @@
+import q from 'es6-promise';
+q.polyfill();
+import fetch from 'isomorphic-fetch';
+
 import { Action, Dispatch } from 'redux';
 
-import SampleEvents from 'run-log/sample-events.json';
+// TODO: remove
 import { randomUuid } from 'run-log/scripts/utils/uuid';
 
 const MILLIS_WAIT = 350;
@@ -145,10 +149,13 @@ export function addEvent(event: Events.Any) {
  * TODO: get from server
  */
 export function loadEvents() {
-  return simulateAsyncRequest(
-    Actions.requestEvents(),
-    Actions.receiveEvents(SampleEvents)
-  );
+  return (dispatch: Dispatch<Action>) => {
+    dispatch(Actions.requestEvents());
+    // TODO: configurable
+    fetch('http://localhost:8080/api/v1/events')
+      .then((response: any) => response.json())
+      .then((events: any) => dispatch(Actions.receiveEvents(events)));
+  };
 }
 
 // Helper for simulating HTTP requests
