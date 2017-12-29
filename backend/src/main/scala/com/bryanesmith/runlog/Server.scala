@@ -8,9 +8,12 @@ import org.http4s.server.blaze.BlazeBuilder
 import org.http4s.util.StreamApp
 
 object Server extends StreamApp {
+
+  val apiPrefix = "/api/v1"
+
   val port: Int = envOrNone("HTTP_PORT").fold(8080)(_.toInt)
 
   def stream(args: List[String]): fs2.Stream[Task, Nothing] = BlazeBuilder.bindHttp(port)
-    .mountService(EventsService.service, "/")
+    .mountService(EventsService.service, apiPrefix)
     .serve
 }
