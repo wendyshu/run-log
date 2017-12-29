@@ -6,6 +6,6 @@ target
 .idea
 
 # http4s reference tutorial files
-src/main/scala/com/bryanesmith/runlog/HelloWorld.scala
+src/main/scala/com/bryanesmith/runlog/services/HelloWorld.scala
 src/test/scala/com/bryanesmith/runlog/HelloWorldSpec.scala
 src/main/resources/logback.xml
