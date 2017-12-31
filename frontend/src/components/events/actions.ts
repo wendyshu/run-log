@@ -2,6 +2,8 @@ import q from 'es6-promise';
 q.polyfill();
 import fetch from 'isomorphic-fetch';
 
+import config from 'run-log/config.json';
+
 import { Action, Dispatch } from 'redux';
 
 // TODO: remove
@@ -151,8 +153,7 @@ export function addEvent(event: Events.Any) {
 export function loadEvents() {
   return (dispatch: Dispatch<Action>) => {
     dispatch(Actions.requestEvents());
-    // TODO: configurable
-    fetch('http://localhost:8080/api/v1/events')
+    fetch(`${config.baseUrl}/api/v1/events`)
       .then((response: any) => response.json())
       .then((events: any) => dispatch(Actions.receiveEvents(events)));
   };

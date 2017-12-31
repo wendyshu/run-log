@@ -7,6 +7,8 @@ Frontend application for logging runs and tracking progress.
 
 **Note**: You must start the backend server first.
 
+Copy `src/config-template.json` to `src/config.json` and edit as needed.
+
 Start the development server:
 
 ```sh

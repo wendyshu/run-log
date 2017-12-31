@@ -1,3 +1,5 @@
+import config from 'run-log/config.json';
+
 export const SEND_LOGIN = 'SEND_LOGIN',
   RECEIVE_LOGIN_SUCCESS = 'RECEIVE_LOGIN_SUCCESS',
   RECEIVE_LOGIN_FAIL = 'RECEIVE_LOGIN_FAIL';
@@ -20,9 +22,7 @@ function receiveLoginAction({status, statusText}) {
 export function login(username, password) {
   return dispatch => {
     dispatch(sendLoginAction(username, password));
-    // TODO: configurable
-    fetch(`http://localhost:8080/api/v1/login?user=${username}&password=${password}`).then((res) => {
-      dispatch(receiveLoginAction(res));
-    });
+    const url = `${config.baseUrl}/api/v1/login?user=${username}&password=${password}`;
+    fetch(url).then(res => dispatch(receiveLoginAction(res)));
   };
 }
