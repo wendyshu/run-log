@@ -2,8 +2,6 @@ export const SEND_LOGIN = 'SEND_LOGIN',
   RECEIVE_LOGIN_SUCCESS = 'RECEIVE_LOGIN_SUCCESS',
   RECEIVE_LOGIN_FAIL = 'RECEIVE_LOGIN_FAIL';
 
-const MILLIS_WAIT = 350;
-
 function sendLoginAction(username, password) {
   return {
     type: SEND_LOGIN,
@@ -12,26 +10,19 @@ function sendLoginAction(username, password) {
   };
 }
 
-function receiveLoginAction([success, msg]) {
+function receiveLoginAction({status, statusText}) {
   return {
-    type: success ? RECEIVE_LOGIN_SUCCESS : RECEIVE_LOGIN_FAIL,
-    message: msg,
+    type: status === 200 ? RECEIVE_LOGIN_SUCCESS : RECEIVE_LOGIN_FAIL,
+    message: statusText,
   };
 }
 
 export function login(username, password) {
   return dispatch => {
     dispatch(sendLoginAction(username, password));
-    return new Promise(resolve => {
-      // TODO: actual auth
-      const response =
-        username === 'demo' && password === 'demo'
-          ? [true, null]
-          : [false, 'Unrecognized username or password.'];
-      setTimeout(
-        () => resolve(dispatch(receiveLoginAction(response))),
-        MILLIS_WAIT
-      ); // Simulate xhr
+    // TODO: configurable
+    fetch(`http://localhost:8080/api/v1/login?user=${username}&password=${password}`).then((res) => {
+      dispatch(receiveLoginAction(res));
     });
   };
 }

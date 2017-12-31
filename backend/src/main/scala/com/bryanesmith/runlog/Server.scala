@@ -2,7 +2,7 @@ package com.bryanesmith.runlog
 
 import cats.data.Kleisli
 import com.bryanesmith.runlog.dto.User
-import com.bryanesmith.runlog.services.EventsService
+import com.bryanesmith.runlog.services.{AuthService, EventsService}
 import fs2.Task
 import org.http4s.server.AuthMiddleware
 import org.http4s._
@@ -14,6 +14,8 @@ import org.http4s.util.StreamApp
 import org.http4s.dsl._
 
 object Server extends StreamApp {
+
+  type MaybeUser = Either[String,User]
 
   /**
     * Note:
@@ -29,7 +31,7 @@ object Server extends StreamApp {
 
   val port: Int = envOrNone("HTTP_PORT").fold(8080)(_.toInt)
 
-  val authUser: Kleisli[Task, Request, Either[String,User]] = Kleisli { req =>
+  val passwordBasedAuth: Service[Request, MaybeUser] = Kleisli { req =>
     Task.now {
       if (Seq("user", "password").forall { k => req.params.get(k).contains("demo") }) {
         Right(User(0, "demo"))
@@ -39,17 +41,29 @@ object Server extends StreamApp {
     }
   }
 
+  val cookieBasedAuth: Service[Request, MaybeUser] = Kleisli { req =>
+    Task.now {
+      // TODO: validate cookie
+      Right(User(0, "demo"))
+    }
+  }
+
   val onFailure: AuthedService[String] = Service { case req => Forbidden(req.authInfo) }
 
-  private val middleware = AuthMiddleware(authUser, onFailure)
+  private def authService = CORS {
+    AuthMiddleware(passwordBasedAuth, onFailure) {
+      AuthService.service
+    }
+  }
 
   private def apiService = CORS {
-    middleware {
+    AuthMiddleware(cookieBasedAuth, onFailure) {
       EventsService.service // mappend additional api services here
     }
   }
 
   def stream(args: List[String]): fs2.Stream[Task, Nothing] = BlazeBuilder.bindHttp(port)
+    .mountService(authService, apiPrefix)
     .mountService(apiService, apiPrefix)
     .serve
 }

@@ -7,7 +7,6 @@ import org.http4s._
 import org.http4s.dsl._
 
 object EventsService {
-
   val service: AuthedService[User] = AuthedService {
     case GET -> Root / "events" as user => Ok {
       Events.payload(user, Demo.events).format
