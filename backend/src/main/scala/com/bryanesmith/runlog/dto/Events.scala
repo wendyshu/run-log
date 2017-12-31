@@ -1,5 +1,6 @@
 package com.bryanesmith.runlog.dto
 
+import com.bryanesmith.runlog.Server.User
 import com.bryanesmith.runlog.utils.SerializationHelpers._
 import io.circe.generic.auto._
 import io.circe.generic.extras._
@@ -9,7 +10,7 @@ import io.circe.{Decoder, Encoder, Json}
 
 object Events {
 
-  def payload(events: Seq[Event]): Json =
+  def payload(user: User, events: Seq[Event]): Json =
     Json.obj(
       "@context" -> json"""
       {
@@ -19,6 +20,7 @@ object Events {
         }
       }
       """,
+      "user" -> user.asJson,
       "events" -> Json.arr(events.map(_.asJson): _*)
     )
 

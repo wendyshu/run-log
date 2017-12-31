@@ -1,7 +1,10 @@
 package com.bryanesmith.runlog
 
+import cats.data.Kleisli
 import com.bryanesmith.runlog.services.EventsService
 import fs2.Task
+import org.http4s.server.AuthMiddleware
+import org.http4s.{Request, Service}
 
 import scala.util.Properties.envOrNone
 import org.http4s.server.blaze.BlazeBuilder
@@ -14,7 +17,16 @@ object Server extends StreamApp {
 
   val port: Int = envOrNone("HTTP_PORT").fold(8080)(_.toInt)
 
+  case class User(id: Long, name: String)
+
+  // TODO: check credentials
+  val authUser: Service[Request, User] = Kleisli { _ => Task.now(User(0, "demo")) }
+
+  private val middleware = AuthMiddleware(authUser)
+
+  private def apiService = CORS(middleware(EventsService.service))
+
   def stream(args: List[String]): fs2.Stream[Task, Nothing] = BlazeBuilder.bindHttp(port)
-    .mountService(CORS(EventsService.service), apiPrefix)
+    .mountService(apiService, apiPrefix)
     .serve
 }
