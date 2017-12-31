@@ -1,7 +1,6 @@
 package com.bryanesmith.runlog.services
 
-import com.bryanesmith.runlog.Server.User
-import com.bryanesmith.runlog.dto.Events
+import com.bryanesmith.runlog.dto.{Events, User}
 import com.bryanesmith.runlog.utils.Demo
 import com.bryanesmith.runlog.utils.JsonOps._
 import org.http4s._

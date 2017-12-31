@@ -1,6 +1,5 @@
 package com.bryanesmith.runlog.dto
 
-import com.bryanesmith.runlog.Server.User
 import com.bryanesmith.runlog.utils.SerializationHelpers._
 import io.circe.generic.auto._
 import io.circe.generic.extras._
