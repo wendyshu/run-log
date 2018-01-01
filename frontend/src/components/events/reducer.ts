@@ -1,7 +1,7 @@
 import { objAssign } from 'run-log/scripts/utils/objects';
 import { EventsAction } from './actions';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   data: [],
 };
 

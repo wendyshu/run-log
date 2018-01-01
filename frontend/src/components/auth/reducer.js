@@ -4,7 +4,7 @@ import {
   RECEIVE_LOGIN_FAIL,
 } from './actions';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   loading: false,
   authenticated: false,
   message: null,

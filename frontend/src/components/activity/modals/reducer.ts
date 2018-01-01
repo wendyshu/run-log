@@ -17,7 +17,7 @@ function showModal(
   };
 }
 
-const INITIAL_STATE = showModal();
+export const INITIAL_STATE = showModal();
 
 /**
  * Reducer function for dashboard.
