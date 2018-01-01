@@ -155,8 +155,9 @@ export function loadEvents() {
     dispatch(Actions.requestEvents());
     const url = `${config.baseUrl}/api/v1/events`;
     fetch(url, {
-      credentials: 'include'
-    }).then((response: any) => response.json())
+      credentials: 'include',
+    })
+      .then((response: any) => response.json())
       .then((events: any) => dispatch(Actions.receiveEvents(events)));
   };
 }

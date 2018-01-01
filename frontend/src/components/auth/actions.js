@@ -12,7 +12,7 @@ function sendLoginAction(username, password) {
   };
 }
 
-function receiveLoginAction({status, statusText}) {
+function receiveLoginAction({ status, statusText }) {
   return {
     type: status === 200 ? RECEIVE_LOGIN_SUCCESS : RECEIVE_LOGIN_FAIL,
     message: statusText,
@@ -22,9 +22,11 @@ function receiveLoginAction({status, statusText}) {
 export function login(username, password) {
   return dispatch => {
     dispatch(sendLoginAction(username, password));
-    const url = `${config.baseUrl}/api/v1/login?user=${username}&password=${password}`;
+    const url = `${
+      config.baseUrl
+    }/api/v1/login?user=${username}&password=${password}`;
     fetch(url, {
-      credentials: 'include'
+      credentials: 'include',
     }).then(res => dispatch(receiveLoginAction(res)));
   };
 }

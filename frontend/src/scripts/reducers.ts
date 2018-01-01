@@ -1,8 +1,16 @@
 import { Action, combineReducers, Reducer } from 'redux';
-import ModalsReducer, { INITIAL_STATE as MODALS_INIT } from 'run-log/components/activity/modals/reducer';
-import AuthenticateReducer, { INITIAL_STATE as AUTH_INIT } from 'run-log/components/auth/reducer';
-import DashboardReducer, { INITIAL_STATE as DASHBOARD_INIT } from 'run-log/components/dashboard/reducer';
-import EventsReducer, { INITIAL_STATE as EVENTS_INIT } from 'run-log/components/events/reducer';
+import ModalsReducer, {
+  INITIAL_STATE as MODALS_INIT,
+} from 'run-log/components/activity/modals/reducer';
+import AuthenticateReducer, {
+  INITIAL_STATE as AUTH_INIT,
+} from 'run-log/components/auth/reducer';
+import DashboardReducer, {
+  INITIAL_STATE as DASHBOARD_INIT,
+} from 'run-log/components/dashboard/reducer';
+import EventsReducer, {
+  INITIAL_STATE as EVENTS_INIT,
+} from 'run-log/components/events/reducer';
 import { CLEAR_STATE } from './actions';
 
 // TODO: combineReducers is not typesafe. (Modify property names below, still compiles.)
@@ -23,7 +31,8 @@ const appReducer = combineReducers<RootState>({
 
 const rootReducer = (state: RootState, action: Action) => {
   if (action.type === CLEAR_STATE) {
-    state = { // type safe initial state
+    state = {
+      // type safe initial state
       authenticate: AUTH_INIT,
       dashboard: DASHBOARD_INIT,
       events: EVENTS_INIT,

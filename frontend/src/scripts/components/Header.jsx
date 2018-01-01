@@ -12,11 +12,10 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
 class Header extends React.Component {
-
   handleLogout() {
     const url = `${config.baseUrl}/api/v1/logout`;
     fetch(url, {
-      credentials: 'include'
+      credentials: 'include',
     }).then(() => {
       this.props.clearState();
       // Redirect to root, but avoid warning
@@ -73,5 +72,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-const component = connect(null, mapDispatchToProps, null, { pure: false })(Header);
+const component = connect(null, mapDispatchToProps, null, { pure: false })(
+  Header
+);
 export default withRouter(component);
