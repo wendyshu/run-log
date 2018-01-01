@@ -9,3 +9,6 @@ target
 src/main/scala/com/bryanesmith/runlog/services/HelloWorld.scala
 src/test/scala/com/bryanesmith/runlog/HelloWorldSpec.scala
 src/main/resources/logback.xml
+
+# Config
+src/main/resources/application.conf

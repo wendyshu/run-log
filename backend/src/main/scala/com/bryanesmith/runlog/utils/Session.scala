@@ -2,13 +2,14 @@ package com.bryanesmith.runlog.utils
 
 import org.reactormonk.{CryptoBits, PrivateKey}
 import java.time._
+import com.typesafe.config.ConfigFactory
 
 import com.bryanesmith.runlog.dto.User
 
 object Session {
 
-  // TODO: configurable
-  private val key = PrivateKey(scala.io.Codec.toUTF8("abcdefghij1234567890"))
+  private val secret = ConfigFactory.load().getString("secret")
+  private val key = PrivateKey(scala.io.Codec.toUTF8(secret))
 
   private val crypto = CryptoBits(key)
 

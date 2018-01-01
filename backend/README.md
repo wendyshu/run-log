@@ -39,6 +39,8 @@ Formatting configuration:
 
 ### Server
 
+Copy `src/main/resources/application-template.conf` to `src/main/resources/application.conf` and edit as needed.
+
 Running the development server with live reload ("triggered execution" in sbt parlance):
 
 ```sh
