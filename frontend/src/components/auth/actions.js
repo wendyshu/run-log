@@ -12,9 +12,9 @@ function sendLoginAction(username, password) {
   };
 }
 
-function receiveLoginAction({ status, statusText }) {
+function receiveLoginAction({ ok, statusText }) {
   return {
-    type: status === 200 ? RECEIVE_LOGIN_SUCCESS : RECEIVE_LOGIN_FAIL,
+    type: ok ? RECEIVE_LOGIN_SUCCESS : RECEIVE_LOGIN_FAIL,
     message: statusText,
   };
 }
