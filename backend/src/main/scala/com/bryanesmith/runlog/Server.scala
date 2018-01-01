@@ -4,6 +4,7 @@ import cats.data.Kleisli
 import cats.implicits._
 import com.bryanesmith.runlog.dto.User
 import com.bryanesmith.runlog.services.{AuthService, EventsService}
+import com.bryanesmith.runlog.utils.Session
 import fs2.Task
 import org.http4s.server.AuthMiddleware
 import org.http4s._
@@ -48,7 +49,7 @@ object Server extends StreamApp {
         cookie <- cookies.values.find(_.name == "session")
       } yield cookie
     } match {
-      case Some(c) => c.content == "abc123" // TODO: validate cookie
+      case Some(c) => Session.validateSessionId(c.content).isDefined
       case _ => false
     }
 
