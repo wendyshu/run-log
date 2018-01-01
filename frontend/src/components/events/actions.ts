@@ -153,8 +153,10 @@ export function addEvent(event: Events.Any) {
 export function loadEvents() {
   return (dispatch: Dispatch<Action>) => {
     dispatch(Actions.requestEvents());
-    fetch(`${config.baseUrl}/api/v1/events`)
-      .then((response: any) => response.json())
+    const url = `${config.baseUrl}/api/v1/events`;
+    fetch(url, {
+      credentials: 'include'
+    }).then((response: any) => response.json())
       .then((events: any) => dispatch(Actions.receiveEvents(events)));
   };
 }

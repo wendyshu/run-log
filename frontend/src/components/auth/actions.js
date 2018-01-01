@@ -23,6 +23,8 @@ export function login(username, password) {
   return dispatch => {
     dispatch(sendLoginAction(username, password));
     const url = `${config.baseUrl}/api/v1/login?user=${username}&password=${password}`;
-    fetch(url).then(res => dispatch(receiveLoginAction(res)));
+    fetch(url, {
+      credentials: 'include'
+    }).then(res => dispatch(receiveLoginAction(res)));
   };
 }

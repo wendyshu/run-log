@@ -8,7 +8,11 @@ import org.http4s.dsl._
 
 object AuthService {
   val service: AuthedService[User] = AuthedService {
-    // TODO: set cookie upon success
+
     case GET -> Root / "login" as _ => Ok(Json.True)
+      .addCookie("session" ,"abc123") // TODO: signed cookie
+
+    case GET -> Root / "logout" as _ => Ok(Json.True)
+      .removeCookie("session")
   }
 }

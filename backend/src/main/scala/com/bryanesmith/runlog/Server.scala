@@ -1,6 +1,7 @@
 package com.bryanesmith.runlog
 
 import cats.data.Kleisli
+import cats.implicits._
 import com.bryanesmith.runlog.dto.User
 import com.bryanesmith.runlog.services.{AuthService, EventsService}
 import fs2.Task
@@ -31,9 +32,32 @@ object Server extends StreamApp {
 
   val port: Int = envOrNone("HTTP_PORT").fold(8080)(_.toInt)
 
+  /**
+    * Checks if request satisfies successful login.
+    */
+  private def isSuccessfulLogin(req: Request) =
+    Seq("user", "password").forall { k => req.params.get(k).contains("demo") }
+
+  /**
+    * Checks if request satisfies cookie-based session requirements.
+    */
+  private def isSuccessfulSession(req: Request) =
+    {
+      for {
+        cookies <- headers.Cookie.from(req.headers)
+        cookie <- cookies.values.find(_.name == "session")
+      } yield cookie
+    } match {
+      case Some(c) => c.content == "abc123" // TODO: validate cookie
+      case _ => false
+    }
+
+  /**
+    * Provides logic for authentication middleware.
+    */
   val passwordBasedAuth: Service[Request, MaybeUser] = Kleisli { req =>
     Task.now {
-      if (Seq("user", "password").forall { k => req.params.get(k).contains("demo") }) {
+      if (isSuccessfulLogin(req) || isSuccessfulSession(req)) {
         Right(User(0, "demo"))
       } else {
         Left("User not found")
@@ -41,29 +65,15 @@ object Server extends StreamApp {
     }
   }
 
-  val cookieBasedAuth: Service[Request, MaybeUser] = Kleisli { req =>
-    Task.now {
-      // TODO: validate cookie
-      Right(User(0, "demo"))
-    }
-  }
-
   val onFailure: AuthedService[String] = Service { case req => Forbidden(req.authInfo) }
 
-  private def authService = CORS {
-    AuthMiddleware(passwordBasedAuth, onFailure) {
-      AuthService.service
-    }
-  }
-
   private def apiService = CORS {
-    AuthMiddleware(cookieBasedAuth, onFailure) {
-      EventsService.service // mappend additional api services here
+    AuthMiddleware(passwordBasedAuth, onFailure) {
+      AuthService.service |+| EventsService.service
     }
   }
 
   def stream(args: List[String]): fs2.Stream[Task, Nothing] = BlazeBuilder.bindHttp(port)
-    .mountService(authService, apiPrefix)
     .mountService(apiService, apiPrefix)
     .serve
 }
