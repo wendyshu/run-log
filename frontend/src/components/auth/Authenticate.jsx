@@ -56,7 +56,7 @@ class Authenticate extends React.Component {
   } // formContents
 
   render() {
-    if (this.props.authenticate.authenticated) {
+    if (this.props.authenticate.authenticated || document.cookie.includes("session=")) {
       return this.props.children;
     } else {
       const msg = this.props.authenticate.message;
