@@ -4,7 +4,7 @@ import io.circe.Decoder.Result
 import io.circe.generic.extras.Configuration
 import io.circe.{Decoder, Encoder, HCursor, Json}
 
-/**
+/** 
   * Collection of mostly implicit things that need imported to enable Circe's magic.
   */
 object SerializationHelpers {
@@ -13,13 +13,7 @@ object SerializationHelpers {
     * Import this so auto-serialization uses correct property names for Event
     *   case classes.
     */
-  implicit val configuration: Configuration = Configuration.default.copy(
-    transformKeys = {
-      case "atId" => "@id"
-      case "atType" => "@type"
-      case other => other
-    }
-  )
+  implicit val config: Configuration = Configuration.default
 
   /**
     * Used to construct a decoder for an enumeration.

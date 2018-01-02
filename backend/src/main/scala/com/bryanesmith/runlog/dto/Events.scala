@@ -47,8 +47,8 @@ object Events {
 
   @ConfiguredJsonCodec
   case class Event (
-    atId: String,
-    atType: Type.Value,
+    @JsonKey("@id") atId: String,
+    @JsonKey("@type") atType: Type.Value,
     date: String,
     category: Option[Category.Value] = None,
     distance: Option[Double] = None,
