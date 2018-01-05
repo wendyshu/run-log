@@ -6,6 +6,15 @@ object Demo {
 
   def events = Seq(
     Event(
+      atId = "_:n75",
+      atType = Type.Run,
+      date = "2018-01-04",
+      category = Some(Category.Speed),
+      distance = Some(0.75),
+      duration = Some("PT4M47S"),
+      notes = Some("Couldn't finish mile; need rest day prior to speed run.")
+    ),
+    Event(
       atId = "_:n74",
       atType = Type.Run,
       date = "2018-01-03",
