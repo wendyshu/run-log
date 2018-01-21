@@ -6,6 +6,30 @@ object Demo {
 
   def events = Seq(
     Event(
+      atId = "_:n86",
+      atType = Type.Run,
+      date = "2018-01-21",
+      category = Some(Category.Casual),
+      distance = Some(4.07),
+      duration = Some("PT34M54S")
+    ),
+    Event(
+      atId = "_:n85",
+      atType = Type.Run,
+      date = "2018-01-20",
+      category = Some(Category.Speed),
+      distance = Some(1),
+      duration = Some("PT6M18S"),
+      notes = Some("Warmed up in under 5 min!"),
+      favorite = Some(true)
+    ),
+    Event(
+      atId = "_:n84",
+      atType = Type.CrossTrain,
+      date = "2018-01-18",
+      notes = Some("Bench, squat, invisible chair, dips/incline PU, standing tricep extensions.")
+    ),
+    Event(
       atId = "_:n83",
       atType = Type.CrossTrain,
       date = "2018-01-16",
@@ -55,8 +79,7 @@ object Demo {
       category = Some(Category.Speed),
       distance = Some(1),
       duration = Some("PT6M22S"),
-      notes = Some("And resumed circuit training."),
-      favorite = Some(true)
+      notes = Some("And resumed circuit training.")
     ),
     Event(
       atId = "_:n76",
