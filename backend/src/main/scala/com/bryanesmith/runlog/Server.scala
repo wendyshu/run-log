@@ -6,14 +6,15 @@ import com.bryanesmith.runlog.dto.User
 import com.bryanesmith.runlog.services.{AuthService, EventsService}
 import com.bryanesmith.runlog.utils.Session
 import fs2.Task
-import org.http4s.server.AuthMiddleware
+import fs2.interop.cats._
 import org.http4s._
-
-import scala.util.Properties.envOrNone
+import org.http4s.dsl._
+import org.http4s.server.AuthMiddleware
 import org.http4s.server.blaze.BlazeBuilder
 import org.http4s.server.middleware.CORS
 import org.http4s.util.StreamApp
-import org.http4s.dsl._
+
+import scala.util.Properties.envOrNone
 
 object Server extends StreamApp {
 
@@ -32,6 +33,8 @@ object Server extends StreamApp {
   val apiPrefix = "/api/v1"
 
   val port: Int = envOrNone("HTTP_PORT").fold(8080)(_.toInt)
+
+  var host: String = envOrNone("HTTP_IP").getOrElse("localhost")
 
   /**
     * Checks if request satisfies successful login.
@@ -74,7 +77,22 @@ object Server extends StreamApp {
     }
   }
 
-  def stream(args: List[String]): fs2.Stream[Task, Nothing] = BlazeBuilder.bindHttp(port)
+  private def staticResource(file: String, request: Request) =
+    StaticFile.fromResource("/frontend-dist/" + file, Some(request))
+      .getOrElseF(NotFound())
+
+  private val whiteListExtensions = List(".html", ".js", ".css", ".woff2", ".svg", ".ttf", ".eot", ".woff")
+
+  private val staticService = HttpService {
+    case request @ GET -> Root =>
+      staticResource("index.html", request)
+    case request @ GET -> Root / path if whiteListExtensions.exists(path.endsWith) =>
+      staticResource(path, request)
+  }
+
+  def stream(args: List[String]): fs2.Stream[Task, Nothing] = BlazeBuilder
+    .bindHttp(port, host)
     .mountService(apiService, apiPrefix)
+    .mountService(staticService)
     .serve
 }

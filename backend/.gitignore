@@ -11,3 +11,6 @@ src/main/resources/logback.xml
 
 # Config
 src/main/resources/application.conf
+
+# Frontend
+src/main/resources/frontend-dist

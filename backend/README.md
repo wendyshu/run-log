@@ -37,7 +37,9 @@ Formatting configuration:
 6. Uncheck `Method call arguments` > `Align when multiline`
 7. Click `Apply`
 
-### Server
+## Run
+
+### Development
 
 Copy `src/main/resources/application-template.conf` to `src/main/resources/application.conf` and edit as needed.
 
@@ -55,12 +57,19 @@ To test:
 $ curl http://localhost:8080/api/v1/events
 ```
 
-To build and run:
+### Production
 
-```sh
-$ sbt assembly
-$ java -jar target/scala-2.12/run-log-assembly-0.0.1-SNAPSHOT.jar # use actual output jar path
-```
+1. Create directory `run-log/backend/src/main/resources/frontend-dist`
+2. Build the frontend application (see respective `README.md`)
+3. Copy files from `run-log/frontend/dist` to `run-log/backend/src/main/resources/frontend-dist`
+4. Build fat jar:
+  ```sh
+  $ sbt assembly
+  ```
+5. Run fat jar:
+  ```sh
+  $ java -jar target/scala-2.12/run-log-assembly-0.0.1-SNAPSHOT.jar # use actual output jar path
+  ```
 
 ## Tests
 
