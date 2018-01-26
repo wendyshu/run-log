@@ -55,6 +55,13 @@ To test:
 $ curl http://localhost:8080/api/v1/events
 ```
 
+To build and run:
+
+```sh
+$ sbt assembly
+$ java -jar target/scala-2.12/run-log-assembly-0.0.1-SNAPSHOT.jar # use actual output jar path
+```
+
 ## Tests
 
 Run using sbt:
