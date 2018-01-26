@@ -12,7 +12,7 @@ module.exports = {
   },
   'testRegex': '.*\\.spec\\.(ts|tsx|js)$',
   "moduleNameMapper": {
-    "sample-events.json": "<rootDir>/src/sample-events.json",
-    "uuid": "<rootDir>/src/scripts/utils/uuid"
+    "uuid": "<rootDir>/src/scripts/utils/uuid",
+    "run-log/config.json": "<rootDir>/src/config.json"
   }
 };
