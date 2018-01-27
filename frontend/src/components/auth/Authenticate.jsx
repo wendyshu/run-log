@@ -6,7 +6,7 @@ import { Form, Text } from 'react-form';
 
 import './authenticate.scss';
 
-import { login } from './actions';
+import { checkSession, login } from './actions';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -14,6 +14,10 @@ import { connect } from 'react-redux';
 class Authenticate extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentWillMount() {
+    this.props.checkSession();
   }
 
   onSubmit({ username, password }) {
@@ -56,11 +60,10 @@ class Authenticate extends React.Component {
   } // formContents
 
   render() {
-    if (
-      this.props.authenticate.authenticated ||
-      document.cookie.includes('session=')
-    ) {
+    if (this.props.authenticate.authenticated) {
       return this.props.children;
+    } else if (this.props.authenticate.loading) {
+      return <Loader />;
     } else {
       const msg = this.props.authenticate.message;
       const alert = msg ? (
@@ -90,6 +93,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     login: (user, pw) => dispatch(login(user, pw)),
+    checkSession: () => dispatch(checkSession()),
   };
 }
 

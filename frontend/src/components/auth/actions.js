@@ -2,7 +2,10 @@ import config from 'run-log/config.json';
 
 export const SEND_LOGIN = 'SEND_LOGIN',
   RECEIVE_LOGIN_SUCCESS = 'RECEIVE_LOGIN_SUCCESS',
-  RECEIVE_LOGIN_FAIL = 'RECEIVE_LOGIN_FAIL';
+  RECEIVE_LOGIN_FAIL = 'RECEIVE_LOGIN_FAIL',
+  SEND_CHECK_SESSION = 'SEND_CHECK_SESSION',
+  RECEIVE_CHECK_SESSION_SUCCESS = 'RECEIVE_CHECK_SESSION_SUCCESS',
+  RECEIVE_CHECK_SESSION_FAIL = 'RECEIVE_CHECK_SESSION_FAIL';
 
 function sendLoginAction(username, password) {
   return {
@@ -28,5 +31,28 @@ export function login(username, password) {
     fetch(url, {
       credentials: 'include',
     }).then(res => dispatch(receiveLoginAction(res)));
+  };
+}
+
+function sendCheckSessionAction() {
+  return {
+    type: SEND_CHECK_SESSION
+  };
+}
+
+function receiveCheckSessionAction(ok) {
+  return {
+    type: ok ? RECEIVE_CHECK_SESSION_SUCCESS : RECEIVE_CHECK_SESSION_FAIL
+  };
+}
+
+export function checkSession() {
+  return dispatch => {
+    dispatch(sendCheckSessionAction());
+    const url = `${config.baseUrl}/api/v1/session`;
+    return fetch(url, {
+      credentials: 'include',
+    }).then(res => dispatch(receiveCheckSessionAction(res.ok)))
+      .catch(() => dispatch(receiveCheckSessionAction(false)));
   };
 }

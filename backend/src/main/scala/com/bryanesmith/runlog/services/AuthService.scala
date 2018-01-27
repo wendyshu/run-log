@@ -10,8 +10,11 @@ import org.http4s.dsl._
 object AuthService {
   val service: AuthedService[User] = AuthedService {
 
+    // Check if already have a session
+    case GET -> Root / "session" as _ => Ok(Json.True)
+
     case GET -> Root / "login" as user => Ok(Json.True)
-      .addCookie { Cookie("session", Session.generateSessionId(user)) }
+      .addCookie { Cookie("session", Session.generateSessionId(user), httpOnly = true) }
 
     case GET -> Root / "logout" as _ => Ok(Json.True)
       .removeCookie("session")
