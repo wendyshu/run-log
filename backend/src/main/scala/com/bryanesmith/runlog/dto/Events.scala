@@ -3,7 +3,6 @@ package com.bryanesmith.runlog.dto
 import com.bryanesmith.runlog.dto.Intervals._
 import com.bryanesmith.runlog.dto.SteadyState._
 import com.bryanesmith.runlog.utils.SerializationHelpers._
-import io.circe.generic.extras._
 import io.circe.syntax._
 import io.circe.{Decoder, Encoder, Json}
 
@@ -11,6 +10,18 @@ import io.circe.{Decoder, Encoder, Json}
   * Provides model and serialization/deserialization logic for all events.
   */
 object Events {
+
+  case class Event (
+    atId: String,
+    atType: Type.Value,
+    date: String,
+    runData: Option[RunData] = None,
+    notes: Option[String] = None,
+    favorite: Option[Boolean] = None,
+  )
+
+  trait RunData
+
   object Type extends Enumeration {
     type Type = Value
     val RunCrossTrain: Value  = Value("Run+CrossTrain")
@@ -22,22 +33,11 @@ object Events {
   implicit val typeDecoder: Decoder[Type.Value] = enumerationDecoder(Type)
   implicit val typeEncoder: Encoder[Type.Value] = enumerationEncoder(Type)
 
-  //
-  // TODO: use inheritance; much cleaner
-  //
-  implicit val encodeEither: Encoder[Either[SteadyStateData, IntervalsData]] = {
-    case Left(s: SteadyStateData) => s.asJson
-    case Right(i: IntervalsData) => i.asJson
+  // avoids trait wrapper around data during serialization
+  implicit val encodeRunData: Encoder[RunData] = {
+    case s: SteadyStateData => s.asJson
+    case i: IntervalsData => i.asJson
   }
-
-  case class Event (
-    @JsonKey("@id") atId: String,
-    @JsonKey("@type") atType: Type.Value,
-    date: String,
-    runData: Option[Either[SteadyStateData, IntervalsData]] = None,
-    notes: Option[String] = None,
-    favorite: Option[Boolean] = None,
-  )
 
   implicit val encodeEvent: Encoder[Event] = new Encoder[Event] {
 
@@ -48,7 +48,7 @@ object Events {
       ("@type", Json.fromString(e.atType.toString)),
       ("date", Json.fromString(e.date))
     ) ++ e.runData.fold(jsonNil) {
-      d: Either[SteadyStateData, IntervalsData] => Seq { ("runData", d.asJson) }
+      d: RunData => Seq { ("runData", d.asJson) }
     } ++ e.notes.fold(jsonNil) {
       n: String => Seq { ("notes", Json.fromString(n)) }
     } ++ e.favorite.fold(jsonNil) {
@@ -58,5 +58,5 @@ object Events {
     def apply(e: Event): Json = Json.obj(data(e) : _*)
   }
 
-  // TODO: add decoder. See: https://circe.github.io/circe/codec.html
+  // TODO: add Event decoder. See: https://circe.github.io/circe/codec.html
 }

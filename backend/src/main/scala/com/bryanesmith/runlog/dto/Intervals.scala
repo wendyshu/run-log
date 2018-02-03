@@ -1,5 +1,6 @@
 package com.bryanesmith.runlog.dto
 
+import com.bryanesmith.runlog.dto.Events.RunData
 import com.bryanesmith.runlog.utils.SerializationHelpers.{enumerationDecoder, enumerationEncoder}
 import io.circe.{Decoder, Encoder, Json}
 
@@ -7,6 +8,13 @@ import io.circe.{Decoder, Encoder, Json}
   * Provides model and serialization/deserialization logic for run data dealing with interval training.
   */
 object Intervals {
+
+  case class IntervalsData (
+    category: IntervalsData.Value,
+    count: Int,
+    duration: Option[String] = None,
+    rest: Option[String] = None
+  ) extends RunData
 
   object IntervalsData extends Enumeration {
     type Category = Value
@@ -16,13 +24,6 @@ object Intervals {
 
   implicit val intervalsDecoder: Decoder[IntervalsData.Value] = enumerationDecoder(IntervalsData)
   implicit val intervalsEncoder: Encoder[IntervalsData.Value] = enumerationEncoder(IntervalsData)
-
-  case class IntervalsData (
-    category: IntervalsData.Value,
-    count: Int,
-    duration: Option[String] = None,
-    rest: Option[String] = None
-  )
 
   implicit val encodeIntervalsData: Encoder[IntervalsData] = new Encoder[IntervalsData] {
 
@@ -41,5 +42,5 @@ object Intervals {
     def apply(i: IntervalsData): Json = Json.obj(data(i) : _*)
   }
 
-  // TODO: add decoder. See: https://circe.github.io/circe/codec.html
+  // TODO: add IntervalsData decoder. See: https://circe.github.io/circe/codec.html
 }

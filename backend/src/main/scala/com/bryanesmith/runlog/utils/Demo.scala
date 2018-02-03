@@ -12,13 +12,11 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2018-02-03",
       runData = Some(
-        Right(
-          IntervalsData(
-            category = IntervalsData.Intervals,
-            count = 10,
-            duration = Some("PT1M"),
-            rest = Some("PT1M")
-          )
+        IntervalsData(
+          category = IntervalsData.Intervals,
+          count = 10,
+          duration = Some("PT1M"),
+          rest = Some("PT1M")
         )
       ),
       notes = Some("Just a test!")
@@ -28,12 +26,10 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-31",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(4.55),
-            duration = Some("PT42M13S")
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(4.55),
+          duration = Some("PT42M13S")
         )
       ),
     ),
@@ -42,12 +38,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2018-01-30",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(0.55),
-            duration = Some("PT3M18S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(0.55),
+          duration = Some("PT3M18S"),
         )
       ),
       notes = Some("Attempting first 6min mile, but unsuccessful. Press, bent-over row, DL, DB pull-over.")
@@ -63,12 +57,10 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-26",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(4.14),
-            duration = Some("PT36M16S")
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(4.14),
+          duration = Some("PT36M16S")
         )
       )
     ),
@@ -83,12 +75,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2018-01-22",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(0.6),
-            duration = Some("PT3M45S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(0.6),
+          duration = Some("PT3M45S"),
         )
       ),
       notes = Some("9.6mph + circuit training. Couldn't finish the mile.")
@@ -98,12 +88,10 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-21",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(4.07),
-            duration = Some("PT34M54S")
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(4.07),
+          duration = Some("PT34M54S")
         )
       )
     ),
@@ -112,12 +100,10 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-20",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(1),
-            duration = Some("PT6M18S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(1),
+          duration = Some("PT6M18S"),
         )
       ),
       notes = Some("Warmed up in under 5 min!"),
@@ -140,12 +126,10 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-15",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(4.72),
-            duration = Some("PT41M17S")
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(4.72),
+          duration = Some("PT41M17S")
         )
       )
     ),
@@ -160,12 +144,10 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-12",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(4.55),
-            duration = Some("PT41M33S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(4.55),
+          duration = Some("PT41M33S"),
         )
       ),
       notes = Some("January, and weather in the sixties!")
@@ -175,12 +157,10 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-10",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(4.55),
-            duration = Some("PT43M40S")
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(4.55),
+          duration = Some("PT43M40S")
         )
       )
     ),
@@ -195,12 +175,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2018-01-08",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(1),
-            duration = Some("PT6M22S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(1),
+          duration = Some("PT6M22S"),
         )
       ),
       notes = Some("And resumed circuit training.")
@@ -216,12 +194,10 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-04",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(0.75),
-            duration = Some("PT4M47S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(0.75),
+          duration = Some("PT4M47S"),
         )
       ),
       notes = Some("Couldn't finish mile; need rest day prior to speed run.")
@@ -231,12 +207,10 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-03",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(2.68),
-            duration = Some("PT24M40S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(2.68),
+          duration = Some("PT24M40S"),
         )
       ),
       notes = Some("Run home, cold, but too tired. Took streetcar home.")
@@ -252,12 +226,10 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-01",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(5.98),
-            duration = Some("PT53M59S")
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(5.98),
+          duration = Some("PT53M59S")
         )
       )
     ),
@@ -272,12 +244,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-12-28",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(2),
-            duration = Some("PT16M"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(2),
+          duration = Some("PT16M"),
         )
       ),
       notes = Some("Ashland, KY. Treadmill, 1° incline. Congested from cold, but feeling better."),
@@ -287,12 +257,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-12-27",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(1.5),
-            duration = Some("PT11M15S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(1.5),
+          duration = Some("PT11M15S"),
         )
       ),
       notes = Some("Ashland, KY. Treadmill, 1° incline. Sick w/ cold."),
@@ -302,11 +270,9 @@ object Demo {
       atType = Type.Run,
       date = "2017-12-25",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(4.40),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(4.40),
         )
       ),
       notes = Some("Christmas run with Matt, David, dad.")
@@ -316,12 +282,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-12-24",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Distance,
-            distance = Some(8.55),
-            duration = Some("PT1H14M45S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Distance,
+          distance = Some(8.55),
+          duration = Some("PT1H14M45S"),
         )
       )
     ),
@@ -335,12 +299,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-12-19",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(1),
-            duration = Some("PT6M27S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(1),
+          duration = Some("PT6M27S"),
         )
       ),
       notes = Some("My first 6:30 mile."),
@@ -350,12 +312,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-12-18",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(4.07),
-            duration = Some("PT34M22S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(4.07),
+          duration = Some("PT34M22S"),
         )
       )
     ),
@@ -364,12 +324,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-12-16",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(3.00),
-            duration = Some("PT22M47S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(3.00),
+          duration = Some("PT22M47S"),
         )
       ),
       favorite = Some(true),
@@ -380,12 +338,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-12-11",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Distance,
-            distance = Some(7.77),
-            duration = Some("PT1H11M54S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Distance,
+          distance = Some(7.77),
+          duration = Some("PT1H11M54S"),
         )
       )
     ),
@@ -394,12 +350,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-12-09",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(0.68),
-            duration = Some("PT4M23S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(0.68),
+          duration = Some("PT4M23S"),
         )
       )
     ),
@@ -408,12 +362,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-12-07",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(3),
-            duration = Some("PT23M3S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(3),
+          duration = Some("PT23M3S"),
         )
       )
     ),
@@ -422,12 +374,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-12-06",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Distance,
-            distance = Some(7.77),
-            duration = Some("PT1H13M35S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Distance,
+          distance = Some(7.77),
+          duration = Some("PT1H13M35S"),
         )
       )
     ),
@@ -436,12 +386,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-12-02",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(1),
-            duration = Some("PT6M31S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(1),
+          duration = Some("PT6M31S"),
         )
       )
     ),
@@ -450,12 +398,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-11-30",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(3),
-            duration = Some("PT23M23S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(3),
+          duration = Some("PT23M23S"),
         )
       )
     ),
@@ -464,12 +410,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-29",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(4.8),
-            duration = Some("PT44M53S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(4.8),
+          duration = Some("PT44M53S"),
         )
       )
     ),
@@ -478,12 +422,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-27",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(4.48),
-            duration = Some("PT43M00S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(4.48),
+          duration = Some("PT43M00S"),
         )
       )
     ),
@@ -492,12 +434,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-26",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(4.21),
-            duration = Some("PT36M56S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(4.21),
+          duration = Some("PT36M56S"),
         )
       )
     ),
@@ -506,12 +446,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-11-25",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(1),
-            duration = Some("PT6M35S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(1),
+          duration = Some("PT6M35S"),
         )
       )
     ),
@@ -520,12 +458,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-11-22",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(3),
-            duration = Some("PT23M41S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(3),
+          duration = Some("PT23M41S"),
         )
       )
     ),
@@ -534,12 +470,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-20",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Distance,
-            distance = Some(12.21),
-            duration = Some("PT1H55M"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Distance,
+          distance = Some(12.21),
+          duration = Some("PT1H55M"),
         )
       ),
       notes = Some("Doesn't include short walk & stretch break."),
@@ -550,12 +484,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-11-18",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(3),
-            duration = Some("PT24M"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(3),
+          duration = Some("PT24M"),
         )
       )
     ),
@@ -564,12 +496,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-11-16",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(1),
-            duration = Some("PT6M40S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(1),
+          duration = Some("PT6M40S"),
         )
       )
     ),
@@ -578,12 +508,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-13",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(4.58),
-            duration = Some("PT40M50S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(4.58),
+          duration = Some("PT40M50S"),
         )
       )
     ),
@@ -592,12 +520,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-11",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(2),
-            duration = Some("PT17M08S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(2),
+          duration = Some("PT17M08S"),
         )
       )
     ),
@@ -606,12 +532,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-11-09",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(0.6),
-            duration = Some("PT4M"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(0.6),
+          duration = Some("PT4M"),
         )
       )
     ),
@@ -620,12 +544,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-07",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(3.99),
-            duration = Some("PT37M40S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(3.99),
+          duration = Some("PT37M40S"),
         )
       )
     ),
@@ -634,12 +556,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-06",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(4.65),
-            duration = Some("PT46M30S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(4.65),
+          duration = Some("PT46M30S"),
         )
       )
     ),
@@ -648,12 +568,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-03",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Distance,
-            distance = Some(7.65),
-            duration = Some("PT1H15M"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Distance,
+          distance = Some(7.65),
+          duration = Some("PT1H15M"),
         )
       )
     ),
@@ -662,12 +580,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-01",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(6.04),
-            duration = Some("PT55M15S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(6.04),
+          duration = Some("PT55M15S"),
         )
       )
     ),
@@ -676,12 +592,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-10-30",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(6.04),
-            duration = Some("PT54M15S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(6.04),
+          duration = Some("PT54M15S"),
         )
       )
     ),
@@ -690,12 +604,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-10-28",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(1),
-            duration = Some("PT6M44S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(1),
+          duration = Some("PT6M44S"),
         )
       )
     ),
@@ -704,12 +616,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-10-25",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Distance,
-            distance = Some(7.77),
-            duration = Some("PT1H20M"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Distance,
+          distance = Some(7.77),
+          duration = Some("PT1H20M"),
         )
       )
     ),
@@ -718,12 +628,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-10-22",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Distance,
-            distance = Some(11.52),
-            duration = Some("PT1H52M30S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Distance,
+          distance = Some(11.52),
+          duration = Some("PT1H52M30S"),
         )
       )
     ),
@@ -732,12 +640,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-10-21",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(1),
-            duration = Some("PT6M49S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(1),
+          duration = Some("PT6M49S"),
         )
       )
     ),
@@ -746,12 +652,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-10-18",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Distance,
-            distance = Some(7.37),
-            duration = Some("PT1H19M20S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Distance,
+          distance = Some(7.37),
+          duration = Some("PT1H19M20S"),
         )
       ),
       notes = Some("commute, running pack"),
@@ -761,12 +665,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-10-15",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Distance,
-            distance = Some(8.56),
-            duration = Some("PT1H23M"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Distance,
+          distance = Some(8.56),
+          duration = Some("PT1H23M"),
         )
       )
     ),
@@ -775,12 +677,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-10-14",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(2),
-            duration = Some("PT16M"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(2),
+          duration = Some("PT16M"),
         )
       )
     ),
@@ -794,12 +694,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-10-08",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Distance,
-            distance = Some(8.70),
-            duration = Some("PT1H24M09S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Distance,
+          distance = Some(8.70),
+          duration = Some("PT1H24M09S"),
         )
       )
     ),
@@ -813,12 +711,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-10-05",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(1),
-            duration = Some("PT8M"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(1),
+          duration = Some("PT8M"),
         )
       )
     ),
@@ -827,12 +723,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-10-04",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(5.41),
-            duration = Some("PT53M44S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(5.41),
+          duration = Some("PT53M44S"),
         )
       )
     ),
@@ -841,12 +735,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-10-02",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(2),
-            duration = Some("PT17M22S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(2),
+          duration = Some("PT17M22S"),
         )
       )
     ),
@@ -855,12 +747,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-10-01",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Distance,
-            distance = Some(7.33),
-            duration = Some("PT1H09M20S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Distance,
+          distance = Some(7.33),
+          duration = Some("PT1H09M20S"),
         )
       )
     ),
@@ -869,12 +759,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-09-30",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(3),
-            duration = Some("PT25M21S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(3),
+          duration = Some("PT25M21S"),
         )
       )
     ),
@@ -883,12 +771,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-09-24",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Distance,
-            distance = Some(7.71),
-            duration = Some("PT1H14M30S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Distance,
+          distance = Some(7.71),
+          duration = Some("PT1H14M30S"),
         )
       )
     ),
@@ -897,12 +783,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-09-23",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(2),
-            duration = Some("PT16M"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(2),
+          duration = Some("PT16M"),
         )
       )
     ),
@@ -911,12 +795,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-09-21",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(1),
-            duration = Some("PT6M58S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(1),
+          duration = Some("PT6M58S"),
         )
       )
     ),
@@ -925,12 +807,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-09-20",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(5.43),
-            duration = Some("PT49M40S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(5.43),
+          duration = Some("PT49M40S"),
         )
       )
     ),
@@ -939,12 +819,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-09-17",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Distance,
-            distance = Some(11.01),
-            duration = Some("PT1H56M"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Distance,
+          distance = Some(11.01),
+          duration = Some("PT1H56M"),
         )
       )
     ),
@@ -953,12 +831,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-09-15",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(6.02),
-            duration = Some("PT60M"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(6.02),
+          duration = Some("PT60M"),
         )
       )
     ),
@@ -973,12 +849,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-09-13",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(5.52),
-            duration = Some("PT53M30S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(5.52),
+          duration = Some("PT53M30S"),
         )
       )
     ),
@@ -993,12 +867,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-09-10",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Distance,
-            distance = Some(10.45),
-            duration = Some("PT1H46M"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Distance,
+          distance = Some(10.45),
+          duration = Some("PT1H46M"),
         )
       )
     ),
@@ -1013,12 +885,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-09-03",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Distance,
-            distance = Some(9.01),
-            duration = Some("PT1H30M50S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Distance,
+          distance = Some(9.01),
+          duration = Some("PT1H30M50S"),
         )
       )
     ),
@@ -1027,12 +897,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-09-02",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(1),
-            duration = Some("PT7M13S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(1),
+          duration = Some("PT7M13S"),
         )
       ),
       notes = Some("Treadmill, 1° incline, 8.3mph"),
@@ -1042,12 +910,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-08-30",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(4.64),
-            duration = Some("PT45M44S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(4.64),
+          duration = Some("PT45M44S"),
         )
       ),
       notes = Some("Burdened: running bag w/ 15MBP. From office to home."),
@@ -1057,12 +923,10 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-08-28",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Speed,
-            distance = Some(1),
-            duration = Some("PT7M24S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Speed,
+          distance = Some(1),
+          duration = Some("PT7M24S"),
         )
       ),
       notes = Some("Treadmill, 1° incline; 2 sets circuit training"),
@@ -1072,12 +936,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-08-27",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Distance,
-            distance = Some(8.56),
-            duration = Some("PT1H22M30S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Distance,
+          distance = Some(8.56),
+          duration = Some("PT1H22M30S"),
         )
       ),
       notes = Some("All four quadrants DC"),
@@ -1087,12 +949,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-08-24",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(4.14),
-            duration = Some("PT40M35S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(4.14),
+          duration = Some("PT40M35S"),
         )
       ),
       notes = Some("C St to Union Station to H St."),
@@ -1102,12 +962,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-08-22",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(4.14),
-            duration = Some("PT40M50S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(4.14),
+          duration = Some("PT40M50S"),
         )
       ),
       notes = Some("C St to Union Station to H St."),
@@ -1117,12 +975,10 @@ object Demo {
       atType = Type.Run,
       date = "2017-08-18",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(5.23),
-            duration = Some("PT51M30S"),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(5.23),
+          duration = Some("PT51M30S"),
         )
       ),
       notes = Some("Ann Arbor: Stadium to TJ to Washtenaw to South U."),
@@ -1132,11 +988,9 @@ object Demo {
       atType = Type.Run,
       date = "2017-08-16",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(2.67),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(2.67),
         )
       )
     ),
@@ -1145,11 +999,9 @@ object Demo {
       atType = Type.Run,
       date = "2017-08-15",
       runData = Some(
-        Left(
-          SteadyStateData (
-            category = SteadyStateCategory.Casual,
-            distance = Some(4.39),
-          )
+        SteadyStateData (
+          category = SteadyStateCategory.Casual,
+          distance = Some(4.39),
         )
       ),
       notes = Some("Ann Arbor: Main to Stadium to mall."),

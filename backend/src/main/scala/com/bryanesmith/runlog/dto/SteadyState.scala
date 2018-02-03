@@ -1,4 +1,5 @@
 package com.bryanesmith.runlog.dto
+import com.bryanesmith.runlog.dto.Events.RunData
 import com.bryanesmith.runlog.utils.SerializationHelpers._
 import io.circe.{Decoder, Encoder, Json}
 
@@ -6,6 +7,12 @@ import io.circe.{Decoder, Encoder, Json}
   * Provides model and serialization/deserialization logic for run data dealing with steady state training.
   */
 object SteadyState {
+
+  case class SteadyStateData (
+    category: SteadyStateCategory.Value,
+    distance: Option[Double] = None,
+    duration: Option[String] = None
+  ) extends RunData
 
   object SteadyStateCategory extends Enumeration {
     type Category = Value
@@ -16,12 +23,6 @@ object SteadyState {
 
   implicit val categoryDecoder: Decoder[SteadyStateCategory.Value] = enumerationDecoder(SteadyStateCategory)
   implicit val categoryEncoder: Encoder[SteadyStateCategory.Value] = enumerationEncoder(SteadyStateCategory)
-
-  case class SteadyStateData (
-    category: SteadyStateCategory.Value,
-    distance: Option[Double] = None,
-    duration: Option[String] = None
-  )
 
   implicit val encodeSteadyStateData: Encoder[SteadyStateData] = new Encoder[SteadyStateData] {
 
@@ -39,5 +40,5 @@ object SteadyState {
     def apply(d: SteadyStateData): Json = Json.obj(data(d) : _*)
   }
 
-  // TODO: add decoder. See: https://circe.github.io/circe/codec.html
+  // TODO: add SteadyStateData decoder. See: https://circe.github.io/circe/codec.html
 }
