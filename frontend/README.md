@@ -13,9 +13,11 @@ E.g., when developing, to request api calls from separate backend instance runni
 
 ```json
 {
-  "baseUrl": "http://localhost:8080/"
+  "baseUrl": "http://localhost:8080"
 }
 ```
+
+Note: do not include a trailing slash.
 
 But in production, when you are running both backend and frontend in same instance, then:
 
