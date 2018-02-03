@@ -12,8 +12,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2018-02-03",
       runData = Some(
-        IntervalsData(
-          category = IntervalsData.Intervals,
+        Intervals(
+          category = IntervalsCategory.Intervals,
           count = 10,
           duration = Some("PT1M"),
           rest = Some("PT1M")
@@ -26,8 +26,8 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-31",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(4.55),
           duration = Some("PT42M13S")
         )
@@ -38,8 +38,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2018-01-30",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(0.55),
           duration = Some("PT3M18S"),
         )
@@ -57,8 +57,8 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-26",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(4.14),
           duration = Some("PT36M16S")
         )
@@ -75,8 +75,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2018-01-22",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(0.6),
           duration = Some("PT3M45S"),
         )
@@ -88,8 +88,8 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-21",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(4.07),
           duration = Some("PT34M54S")
         )
@@ -100,8 +100,8 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-20",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(1),
           duration = Some("PT6M18S"),
         )
@@ -126,8 +126,8 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-15",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(4.72),
           duration = Some("PT41M17S")
         )
@@ -144,8 +144,8 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-12",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(4.55),
           duration = Some("PT41M33S"),
         )
@@ -157,8 +157,8 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-10",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(4.55),
           duration = Some("PT43M40S")
         )
@@ -175,8 +175,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2018-01-08",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(1),
           duration = Some("PT6M22S"),
         )
@@ -194,8 +194,8 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-04",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(0.75),
           duration = Some("PT4M47S"),
         )
@@ -207,8 +207,8 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-03",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(2.68),
           duration = Some("PT24M40S"),
         )
@@ -226,8 +226,8 @@ object Demo {
       atType = Type.Run,
       date = "2018-01-01",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(5.98),
           duration = Some("PT53M59S")
         )
@@ -244,8 +244,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-12-28",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(2),
           duration = Some("PT16M"),
         )
@@ -257,8 +257,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-12-27",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(1.5),
           duration = Some("PT11M15S"),
         )
@@ -270,8 +270,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-12-25",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(4.40),
         )
       ),
@@ -282,8 +282,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-12-24",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Distance,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Distance,
           distance = Some(8.55),
           duration = Some("PT1H14M45S"),
         )
@@ -299,8 +299,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-12-19",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(1),
           duration = Some("PT6M27S"),
         )
@@ -312,8 +312,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-12-18",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(4.07),
           duration = Some("PT34M22S"),
         )
@@ -324,8 +324,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-12-16",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(3.00),
           duration = Some("PT22M47S"),
         )
@@ -338,8 +338,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-12-11",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Distance,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Distance,
           distance = Some(7.77),
           duration = Some("PT1H11M54S"),
         )
@@ -350,8 +350,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-12-09",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(0.68),
           duration = Some("PT4M23S"),
         )
@@ -362,8 +362,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-12-07",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(3),
           duration = Some("PT23M3S"),
         )
@@ -374,8 +374,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-12-06",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Distance,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Distance,
           distance = Some(7.77),
           duration = Some("PT1H13M35S"),
         )
@@ -386,8 +386,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-12-02",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(1),
           duration = Some("PT6M31S"),
         )
@@ -398,8 +398,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-11-30",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(3),
           duration = Some("PT23M23S"),
         )
@@ -410,8 +410,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-29",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(4.8),
           duration = Some("PT44M53S"),
         )
@@ -422,8 +422,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-27",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(4.48),
           duration = Some("PT43M00S"),
         )
@@ -434,8 +434,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-26",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(4.21),
           duration = Some("PT36M56S"),
         )
@@ -446,8 +446,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-11-25",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(1),
           duration = Some("PT6M35S"),
         )
@@ -458,8 +458,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-11-22",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(3),
           duration = Some("PT23M41S"),
         )
@@ -470,8 +470,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-20",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Distance,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Distance,
           distance = Some(12.21),
           duration = Some("PT1H55M"),
         )
@@ -484,8 +484,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-11-18",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(3),
           duration = Some("PT24M"),
         )
@@ -496,8 +496,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-11-16",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(1),
           duration = Some("PT6M40S"),
         )
@@ -508,8 +508,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-13",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(4.58),
           duration = Some("PT40M50S"),
         )
@@ -520,8 +520,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-11",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(2),
           duration = Some("PT17M08S"),
         )
@@ -532,8 +532,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-11-09",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(0.6),
           duration = Some("PT4M"),
         )
@@ -544,8 +544,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-07",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(3.99),
           duration = Some("PT37M40S"),
         )
@@ -556,8 +556,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-06",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(4.65),
           duration = Some("PT46M30S"),
         )
@@ -568,8 +568,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-03",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Distance,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Distance,
           distance = Some(7.65),
           duration = Some("PT1H15M"),
         )
@@ -580,8 +580,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-11-01",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(6.04),
           duration = Some("PT55M15S"),
         )
@@ -592,8 +592,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-10-30",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(6.04),
           duration = Some("PT54M15S"),
         )
@@ -604,8 +604,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-10-28",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(1),
           duration = Some("PT6M44S"),
         )
@@ -616,8 +616,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-10-25",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Distance,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Distance,
           distance = Some(7.77),
           duration = Some("PT1H20M"),
         )
@@ -628,8 +628,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-10-22",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Distance,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Distance,
           distance = Some(11.52),
           duration = Some("PT1H52M30S"),
         )
@@ -640,8 +640,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-10-21",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(1),
           duration = Some("PT6M49S"),
         )
@@ -652,8 +652,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-10-18",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Distance,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Distance,
           distance = Some(7.37),
           duration = Some("PT1H19M20S"),
         )
@@ -665,8 +665,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-10-15",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Distance,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Distance,
           distance = Some(8.56),
           duration = Some("PT1H23M"),
         )
@@ -677,8 +677,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-10-14",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(2),
           duration = Some("PT16M"),
         )
@@ -694,8 +694,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-10-08",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Distance,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Distance,
           distance = Some(8.70),
           duration = Some("PT1H24M09S"),
         )
@@ -711,8 +711,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-10-05",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(1),
           duration = Some("PT8M"),
         )
@@ -723,8 +723,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-10-04",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(5.41),
           duration = Some("PT53M44S"),
         )
@@ -735,8 +735,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-10-02",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(2),
           duration = Some("PT17M22S"),
         )
@@ -747,8 +747,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-10-01",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Distance,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Distance,
           distance = Some(7.33),
           duration = Some("PT1H09M20S"),
         )
@@ -759,8 +759,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-09-30",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(3),
           duration = Some("PT25M21S"),
         )
@@ -771,8 +771,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-09-24",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Distance,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Distance,
           distance = Some(7.71),
           duration = Some("PT1H14M30S"),
         )
@@ -783,8 +783,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-09-23",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(2),
           duration = Some("PT16M"),
         )
@@ -795,8 +795,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-09-21",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(1),
           duration = Some("PT6M58S"),
         )
@@ -807,8 +807,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-09-20",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(5.43),
           duration = Some("PT49M40S"),
         )
@@ -819,8 +819,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-09-17",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Distance,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Distance,
           distance = Some(11.01),
           duration = Some("PT1H56M"),
         )
@@ -831,8 +831,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-09-15",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(6.02),
           duration = Some("PT60M"),
         )
@@ -849,8 +849,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-09-13",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(5.52),
           duration = Some("PT53M30S"),
         )
@@ -867,8 +867,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-09-10",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Distance,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Distance,
           distance = Some(10.45),
           duration = Some("PT1H46M"),
         )
@@ -885,8 +885,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-09-03",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Distance,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Distance,
           distance = Some(9.01),
           duration = Some("PT1H30M50S"),
         )
@@ -897,8 +897,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-09-02",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(1),
           duration = Some("PT7M13S"),
         )
@@ -910,8 +910,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-08-30",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(4.64),
           duration = Some("PT45M44S"),
         )
@@ -923,8 +923,8 @@ object Demo {
       atType = Type.RunCrossTrain,
       date = "2017-08-28",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Speed,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Speed,
           distance = Some(1),
           duration = Some("PT7M24S"),
         )
@@ -936,8 +936,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-08-27",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Distance,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Distance,
           distance = Some(8.56),
           duration = Some("PT1H22M30S"),
         )
@@ -949,8 +949,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-08-24",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(4.14),
           duration = Some("PT40M35S"),
         )
@@ -962,8 +962,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-08-22",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(4.14),
           duration = Some("PT40M50S"),
         )
@@ -975,8 +975,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-08-18",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(5.23),
           duration = Some("PT51M30S"),
         )
@@ -988,8 +988,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-08-16",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(2.67),
         )
       )
@@ -999,8 +999,8 @@ object Demo {
       atType = Type.Run,
       date = "2017-08-15",
       runData = Some(
-        SteadyStateData (
-          category = SteadyStateCategory.Casual,
+        SteadyStateRun (
+          category = SteadyStateRunCategory.Casual,
           distance = Some(4.39),
         )
       ),

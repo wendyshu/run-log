@@ -15,12 +15,12 @@ object Events {
     atId: String,
     atType: Type.Value,
     date: String,
-    runData: Option[RunData] = None,
+    runData: Option[Run] = None,
     notes: Option[String] = None,
     favorite: Option[Boolean] = None,
   )
 
-  trait RunData
+  trait Run
 
   object Type extends Enumeration {
     type Type = Value
@@ -34,9 +34,9 @@ object Events {
   implicit val typeEncoder: Encoder[Type.Value] = enumerationEncoder(Type)
 
   // avoids trait wrapper around data during serialization
-  implicit val encodeRunData: Encoder[RunData] = {
-    case s: SteadyStateData => s.asJson
-    case i: IntervalsData => i.asJson
+  implicit val encodeRun: Encoder[Run] = {
+    case s: SteadyStateRun => s.asJson
+    case i: Intervals => i.asJson
   }
 
   implicit val encodeEvent: Encoder[Event] = new Encoder[Event] {
@@ -48,7 +48,7 @@ object Events {
       ("@type", Json.fromString(e.atType.toString)),
       ("date", Json.fromString(e.date))
     ) ++ e.runData.fold(jsonNil) {
-      d: RunData => Seq { ("runData", d.asJson) }
+      d: Run => Seq { ("run", d.asJson) }
     } ++ e.notes.fold(jsonNil) {
       n: String => Seq { ("notes", Json.fromString(n)) }
     } ++ e.favorite.fold(jsonNil) {
