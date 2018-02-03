@@ -60,10 +60,6 @@ class ModalWithRun extends React.Component<
         value: 'distance',
       },
       {
-        label: 'Race',
-        value: 'race',
-      },
-      {
         label: 'Speed',
         value: 'speed',
       },

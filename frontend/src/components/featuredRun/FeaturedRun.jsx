@@ -35,8 +35,6 @@ function selectFeaturedRun(events) {
       return ['Featured Speed Run', selected];
     case 'casual':
       return ['Featured Casual Run', selected];
-    case 'race':
-      return ['Featured Race', selected];
   }
 }
 

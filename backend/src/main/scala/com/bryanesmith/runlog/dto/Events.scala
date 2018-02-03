@@ -28,7 +28,6 @@ object Events {
     val Casual: Value   = Value("casual")
     val Speed: Value    = Value("speed")
     val Distance: Value = Value("distance")
-    val Race: Value     = Value("race")
   }
 
   implicit val categoryDecoder: Decoder[Category.Value] = enumerationDecoder(Category)
