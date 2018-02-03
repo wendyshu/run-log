@@ -1,38 +1,16 @@
 package com.bryanesmith.runlog.dto
 
+import com.bryanesmith.runlog.dto.Intervals._
+import com.bryanesmith.runlog.dto.SteadyState._
 import com.bryanesmith.runlog.utils.SerializationHelpers._
-import io.circe.generic.auto._
 import io.circe.generic.extras._
-import io.circe.literal._
 import io.circe.syntax._
 import io.circe.{Decoder, Encoder, Json}
 
+/**
+  * Provides model and serialization/deserialization logic for all events.
+  */
 object Events {
-
-  def payload(user: User, events: Seq[Event]): Json =
-    Json.obj(
-      "@context" -> json"""
-      {
-        "date": "http://www.w3.org/2001/XMLSchema#date",
-        "duration": {
-          "@type": "http://schema.org/Duration"
-        }
-      }
-      """,
-      "user" -> user.asJson,
-      "events" -> Json.arr(events.map(_.asJson): _*)
-    )
-
-  object Category extends Enumeration {
-    type Category = Value
-    val Casual: Value   = Value("casual")
-    val Speed: Value    = Value("speed")
-    val Distance: Value = Value("distance")
-  }
-
-  implicit val categoryDecoder: Decoder[Category.Value] = enumerationDecoder(Category)
-  implicit val categoryEncoder: Encoder[Category.Value] = enumerationEncoder(Category)
-
   object Type extends Enumeration {
     type Type = Value
     val RunCrossTrain: Value  = Value("Run+CrossTrain")
@@ -44,17 +22,41 @@ object Events {
   implicit val typeDecoder: Decoder[Type.Value] = enumerationDecoder(Type)
   implicit val typeEncoder: Encoder[Type.Value] = enumerationEncoder(Type)
 
-  @ConfiguredJsonCodec
+  //
+  // TODO: use inheritance; much cleaner
+  //
+  implicit val encodeEither: Encoder[Either[SteadyStateData, IntervalsData]] = {
+    case Left(s: SteadyStateData) => s.asJson
+    case Right(i: IntervalsData) => i.asJson
+  }
+
   case class Event (
     @JsonKey("@id") atId: String,
     @JsonKey("@type") atType: Type.Value,
     date: String,
-    category: Option[Category.Value] = None,
-    distance: Option[Double] = None,
-    duration: Option[String] = None,
+    runData: Option[Either[SteadyStateData, IntervalsData]] = None,
     notes: Option[String] = None,
     favorite: Option[Boolean] = None,
   )
 
-} // Events
+  implicit val encodeEvent: Encoder[Event] = new Encoder[Event] {
 
+    private val jsonNil = Seq[(String, Json)]()
+
+    def data(e: Event): Seq[(String, Json)] = Seq(
+      ("@id", Json.fromString(e.atId)),
+      ("@type", Json.fromString(e.atType.toString)),
+      ("date", Json.fromString(e.date))
+    ) ++ e.runData.fold(jsonNil) {
+      d: Either[SteadyStateData, IntervalsData] => Seq { ("runData", d.asJson) }
+    } ++ e.notes.fold(jsonNil) {
+      n: String => Seq { ("notes", Json.fromString(n)) }
+    } ++ e.favorite.fold(jsonNil) {
+      f: Boolean => Seq { ("favorite", Json.fromBoolean(f))}
+    }
+
+    def apply(e: Event): Json = Json.obj(data(e) : _*)
+  }
+
+  // TODO: add decoder. See: https://circe.github.io/circe/codec.html
+}
