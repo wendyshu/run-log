@@ -109,15 +109,15 @@ class ModalWithRun extends React.Component<
 
   private defaultValues() {
     let time = {};
-    const event = this.eventToEdit();
-    if (event && event.run && event.run.duration) {
+    const event = this.eventToEdit() as Events.WithRunning;
+    if (event && event.run.duration) {
       time = durationToComponents(event.run.duration);
     }
 
     return {
-      category: event && event.run && event.run.category,
+      category: event && event.run.category,
       date: get(event, 'date', moment().format('YYYY-MM-DD')),
-      distance: event && event.run && event.run.distance,
+      distance: event && event.run.distance,
       favorite: get(event, 'favorite'),
       id: get(event, '@id'),
       notes: get(event, 'notes'),
