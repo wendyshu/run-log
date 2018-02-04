@@ -12,8 +12,10 @@ object Intervals {
   case class Intervals (
     category: IntervalsCategory.Value,
     count: Int,
-    duration: Option[String] = None,
-    rest: Option[String] = None
+    intervalDuration: Option[String] = None,
+    intervalSpeed: Option[Double] = None,
+    restDuration: Option[String] = None,
+    totalDistance: Option[Double] = None
   ) extends Run
 
   object IntervalsCategory extends Enumeration {
@@ -33,10 +35,14 @@ object Intervals {
       ("@type", Json.fromString("Intervals")),
       ("category", Json.fromString(i.category.toString)),
       ("count", Json.fromInt(i.count))
-    ) ++ i.duration.fold(jsonNil) {
-      d: String => Seq { ("duration", Json.fromString(d)) }
-    } ++ i.rest.fold(jsonNil) {
-      d: String => Seq { ("rest", Json.fromString(d)) }
+    ) ++ i.intervalDuration.fold(jsonNil) {
+      d: String => Seq { ("intervalDuration", Json.fromString(d)) }
+    } ++ i.intervalSpeed.fold(jsonNil) {
+      s: Double => Seq { ("intervalSpeed", Json.fromDoubleOrNull(s)) }
+    } ++ i.restDuration.fold(jsonNil) {
+      d: String => Seq { ("restDuration", Json.fromString(d)) }
+    } ++ i.totalDistance.fold(jsonNil) {
+      d: Double => Seq { ("totalDistance", Json.fromDoubleOrNull(d)) }
     }
 
     def apply(i: Intervals): Json = Json.obj(data(i) : _*)

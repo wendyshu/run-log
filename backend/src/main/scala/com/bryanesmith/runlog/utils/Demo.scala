@@ -14,12 +14,14 @@ object Demo {
       runData = Some(
         Intervals(
           category = IntervalsCategory.Intervals,
-          count = 10,
-          duration = Some("PT1M"),
-          rest = Some("PT1M")
+          count = 7,
+          intervalDuration = Some("PT1M"),
+          intervalSpeed = Some(10.0),
+          restDuration = Some("PT1M"),
+          totalDistance = Some(1.8)
         )
       ),
-      notes = Some("Just a test!")
+      notes = Some("First intervals. Just fell short of eight. Bench, squat, invisible chair, dips/include PU.")
     ),
     Event(
       atId = "_:n92",
