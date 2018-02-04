@@ -11,13 +11,13 @@ import {
 import { add } from 'run-log/scripts/utils/math';
 
 function calcAveragePace(events) {
-  const filtered = events.filter(e => e.distance && e.duration);
+  const filtered = events.filter(e => e.run && e.run.distance && e.run.duration);
   if (!filtered.length) {
     return undefined;
   }
-  const distance = filtered.map(e => e.distance).reduce(add, 0);
+  const distance = filtered.map(e => e.run.distance).reduce(add, 0);
   const seconds = filtered
-    .map(e => durationToSeconds(e.duration))
+    .map(e => durationToSeconds(e.run.duration))
     .reduce(add, 0);
   // return 3600 * distance / seconds;
   return seconds / distance;

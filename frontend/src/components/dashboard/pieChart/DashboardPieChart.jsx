@@ -24,15 +24,15 @@ function calculateCounts(events, totalDays) {
       className: 'slice-run-x-train',
     },
     {
-      value: running.filter(e => e.category === 'casual').length,
+      value: running.filter(e => e.run && e.run.category === 'casual').length,
       className: 'slice-casual',
     },
     {
-      value: running.filter(e => e.category === 'distance').length,
+      value: running.filter(e => e.run && e.run.category === 'distance').length,
       className: 'slice-distance',
     },
     {
-      value: running.filter(e => e.category === 'speed').length,
+      value: running.filter(e => e.run && e.run.category === 'speed').length,
       className: 'slice-speed',
     },
   ];

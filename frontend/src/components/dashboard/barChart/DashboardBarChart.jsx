@@ -61,7 +61,8 @@ function barChartData(events, xLabelFn, barOpts) {
     const startDate = subtractMoment(endDate, barOpts.units, barOpts.length);
     return eventsMoments
       .filter(e => e.date.isBetween(startDate, endDate))
-      .map(e => e.distance)
+      .filter(e => e.run && e.run.distance)
+      .map(e => e.run.distance)
       .reduce(add, 0);
   });
 

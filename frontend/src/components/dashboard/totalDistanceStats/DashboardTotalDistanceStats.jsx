@@ -7,8 +7,8 @@ import { add } from 'run-log/scripts/utils/math';
 
 function calcDistance(events) {
   return events
-    .map(e => e.distance)
-    .filter(d => !!d) // filter missing distance
+    .filter(e => e.run && e.run.distance)
+    .map(e => e.run.distance)
     .reduce(add, 0);
 }
 

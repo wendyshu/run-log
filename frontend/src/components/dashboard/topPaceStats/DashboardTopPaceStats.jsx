@@ -11,12 +11,12 @@ import {
 import { min } from 'run-log/scripts/utils/math';
 
 function calcFastestPace(events) {
-  const filtered = events.filter(e => e.distance && e.duration);
+  const filtered = events.filter(e => e.run && e.run.distance && e.run.duration);
   if (!filtered.length) {
     return undefined;
   }
   return filtered
-    .map(e => durationToSeconds(e.duration) / e.distance)
+    .map(e => durationToSeconds(e.run.duration) / e.run.distance)
     .reduce(min);
 }
 
