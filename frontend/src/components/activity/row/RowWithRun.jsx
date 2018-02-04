@@ -36,18 +36,18 @@ export default ({ event }) => (
             <span className="glyphicon glyphicon-piggy-bank inactive" />
           </td>
           <td className="data-category">
-            <span className="value">{Option(event.category).orElse('-')}</span>
+            <span className="value">{Option(event.run && event.run.category).orElse('-')}</span>
           </td>
           <td className="data-distance">
             <span className="value">
-              {Option(event.distance)
+              {Option(event.run && event.run.distance)
                 .map(d => d + ' mi')
                 .orElse('-')}
             </span>
           </td>
           <td className="data-duration">
             <span className="value">
-              {Option(event.duration)
+              {Option(event.run && event.run.duration)
                 .map(formatDuration)
                 .orElse('-')}
             </span>

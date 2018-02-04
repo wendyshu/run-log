@@ -12,6 +12,7 @@ declare namespace Events {
     date: string;
     notes: string;
     favorite: boolean;
+    run?: SteadyStateRun; // TODO: move to BaseWithRun
   }
 
   export interface ChangeShoes extends IBaseEvent {}
@@ -19,7 +20,11 @@ declare namespace Events {
   export interface CrossTrain extends IBaseEvent {}
 
   interface BaseWithRun extends IBaseEvent {
-    category: string; // TODO: enum
+
+  }
+
+  export interface SteadyStateRun {
+    category: string;
     distance?: number;
     duration?: string;
   }

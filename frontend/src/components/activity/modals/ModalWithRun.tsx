@@ -21,11 +21,11 @@ interface IFormInput {
   category: string; // TODO: enum
   date: string;
   distance: string;
+  favorite: boolean;
   hours: number;
   minutes: number;
   seconds: number;
   notes: string;
-  favorite: boolean;
 }
 
 class ModalWithRun extends React.Component<
@@ -81,12 +81,14 @@ class ModalWithRun extends React.Component<
     const thisEvent: Events.WithRunning = {
       '@id': id,
       '@type': this.props.eventType,
-      category,
       date,
-      distance: distance ? parseFloat(distance) : undefined,
-      duration,
       favorite,
       notes,
+      run: {
+        category,
+        distance: distance ? parseFloat(distance) : undefined,
+        duration,
+      },
     };
 
     if (this.eventToEdit()) {
@@ -106,19 +108,19 @@ class ModalWithRun extends React.Component<
   }
 
   private defaultValues() {
-    const duration = get(this.eventToEdit(), 'duration');
     let time = {};
-    if (duration) {
-      time = durationToComponents(duration);
+    const event = this.eventToEdit();
+    if (event && event.run && event.run.duration) {
+      time = durationToComponents(event.run.duration);
     }
 
     return {
-      category: get(this.eventToEdit(), 'category'),
-      date: get(this.eventToEdit(), 'date', moment().format('YYYY-MM-DD')),
-      distance: get(this.eventToEdit(), 'distance'),
-      favorite: get(this.eventToEdit(), 'favorite'),
-      id: get(this.eventToEdit(), '@id'),
-      notes: get(this.eventToEdit(), 'notes'),
+      category: event && event.run && event.run.category,
+      date: get(event, 'date', moment().format('YYYY-MM-DD')),
+      distance: event && event.run && event.run.distance,
+      favorite: get(event, 'favorite'),
+      id: get(event, '@id'),
+      notes: get(event, 'notes'),
       ...time,
     };
   }
