@@ -4,7 +4,7 @@ import BaseEventRow from './BaseEventRow';
 /*eslint-enable no-unused-vars*/
 
 import { formatDate, formatDuration } from 'run-log/scripts/utils/dates';
-import { Option } from 'run-log/components/option/option';
+import { Option, None } from 'run-log/components/option/option';
 
 function getHeartClasses(event) {
   return event.favorite
@@ -18,37 +18,22 @@ function getAppleClasses(event) {
     : 'glyphicon glyphicon-apple';
 }
 
-function joinOrElse(strings, defaultVal) {
-  if (!!strings.length) {
-    return strings.join(', ');
-  } else {
-    return defaultVal;
-  }
-}
-
 function getIntervalsRunDetails(event) {
-  const vals = [];
-  Option(event.run.count)
-    .map(c => c + ' intervals')
-    .forEach((val) => vals.push(val));
-  Option(event.run.intervalDuration)
-    .map(formatDuration)
-    .forEach((val) => vals.push(val));
-  Option(event.run.intervalSpeed)
-    .map(s => s + ' mph')
-    .forEach((val) => vals.push(val));
-  return joinOrElse(vals);
+  const intervals = Option(event.run.count)
+    .map(c => c + ' intervals');
+  const duration = Option(event.run.intervalDuration)
+    .map(formatDuration);
+  const speed = Option(event.run.intervalSpeed)
+    .map(s => s + ' mph');
+  return [intervals, duration, speed].map((o) => o.orElse(''));
 }
 
 function getSteadyStateRunDetails(event) {
-  const vals = [];
-  Option(event.run.distance)
-    .map(d => d + ' mi')
-    .forEach((val) => vals.push(val));
-  Option(event.run.duration)
-    .map(formatDuration)
-    .forEach((val) => vals.push(val));
-  return joinOrElse(vals);
+  const distance = Option(event.run.distance)
+    .map(d => d + ' mi');
+  const duration = Option(event.run.duration)
+    .map(formatDuration);
+  return [distance, duration, None()].map((o) => o.orElse(''));
 }
 
 function getRunDetails(event) {
@@ -83,11 +68,17 @@ export default ({ event }) => (
           <td className="data-category">
             <span className="value">{Option(event.run && event.run.category).orElse('-')}</span>
           </td>
-          <td className="data-run-details">
-            <span className="value">
-              {getRunDetails(event)}
-            </span>
-          </td>
+          {
+            getRunDetails(event).map((value) => {
+              return (
+                <td className="data-run-details">
+                  <span className="value">
+                    {value}
+                  </span>
+                </td>
+              );
+            })
+          }
           <td className="data-notes">
             <span className="value">{Option(event.notes).orElse('-')}</span>
           </td>

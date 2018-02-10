@@ -48,7 +48,7 @@ export default ({ event }) => (
           <td className="data-category">
             <span className="value">{getCategory(event)}</span>
           </td>
-          <td className="data-run-details">-</td>
+          <td className="data-run-details" colSpan="3">-</td>
           <td className="data-notes">{Option(event.notes).orElse('-')}</td>
           <td className="data-actions">
             <a onClick={handleFavorite} className={getHeartClasses(event)} />
