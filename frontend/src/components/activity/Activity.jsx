@@ -96,8 +96,7 @@ class Activity extends React.Component {
                   <th className="data-date">Date</th>
                   <th className="data-icons" />
                   <th className="data-category">Category</th>
-                  <th className="data-distance">Distance</th>
-                  <th className="data-duration">Duration</th>
+                  <th className="data-run-details">Run Details</th>
                   <th className="data-notes">Notes</th>
                   <th className="data-actions">Actions</th>
                 </tr>

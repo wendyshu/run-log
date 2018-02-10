@@ -10,6 +10,11 @@ declare namespace Fp {
   export type Predicate<T> = (e: T) => boolean;
 
   /**
+   * Function that applies side effect to given object.
+   */
+  export type SideEffect<T> = (e: T) => void;
+
+  /**
    * Some conforms to our lite definition of a Functor.
    */
   export interface Functor<T> {

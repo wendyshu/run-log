@@ -18,6 +18,51 @@ function getAppleClasses(event) {
     : 'glyphicon glyphicon-apple';
 }
 
+function joinOrElse(strings, defaultVal) {
+  if (!!strings.length) {
+    return strings.join(', ');
+  } else {
+    return defaultVal;
+  }
+}
+
+function getIntervalsRunDetails(event) {
+  const vals = [];
+  Option(event.run.count)
+    .map(c => c + ' intervals')
+    .forEach((val) => vals.push(val));
+  Option(event.run.intervalDuration)
+    .map(formatDuration)
+    .forEach((val) => vals.push(val));
+  Option(event.run.intervalSpeed)
+    .map(s => s + ' mph')
+    .forEach((val) => vals.push(val));
+  return joinOrElse(vals);
+}
+
+function getSteadyStateRunDetails(event) {
+  const vals = [];
+  Option(event.run.distance)
+    .map(d => d + ' mi')
+    .forEach((val) => vals.push(val));
+  Option(event.run.duration)
+    .map(formatDuration)
+    .forEach((val) => vals.push(val));
+  return joinOrElse(vals);
+}
+
+function getRunDetails(event) {
+  const type = event.run['@type'];
+  switch(type) {
+    case 'Intervals':
+      return getIntervalsRunDetails(event);
+    case 'SteadyStateRun':
+      return getSteadyStateRunDetails(event);
+    default:
+      throw new Error(`Unsupported run type: ${type}`);
+  }
+}
+
 export default ({ event }) => (
   <BaseEventRow event={event}>
     {({ handleDelete, handleEdit, handleFavorite }) => {
@@ -38,18 +83,9 @@ export default ({ event }) => (
           <td className="data-category">
             <span className="value">{Option(event.run && event.run.category).orElse('-')}</span>
           </td>
-          <td className="data-distance">
+          <td className="data-run-details">
             <span className="value">
-              {Option(event.run && event.run.distance)
-                .map(d => d + ' mi')
-                .orElse('-')}
-            </span>
-          </td>
-          <td className="data-duration">
-            <span className="value">
-              {Option(event.run && event.run.duration)
-                .map(formatDuration)
-                .orElse('-')}
+              {getRunDetails(event)}
             </span>
           </td>
           <td className="data-notes">
