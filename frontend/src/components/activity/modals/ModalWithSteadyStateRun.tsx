@@ -78,13 +78,14 @@ class ModalWithSteadyStateRun extends React.Component<
     favorite,
   }: IFormInput) {
     const duration = toDuration(hours, minutes, seconds);
-    const thisEvent: Events.WithRunning = {
+    const thisEvent: Events.WithSteadyStateRunning = {
       '@id': id,
       '@type': this.props.eventType,
       date,
       favorite,
       notes,
       run: {
+        '@type': 'SteadyStateRun',
         category,
         distance: distance ? parseFloat(distance) : undefined,
         duration,
@@ -109,7 +110,7 @@ class ModalWithSteadyStateRun extends React.Component<
 
   private defaultValues() {
     let time = {};
-    const event = this.eventToEdit() as Events.WithRunning;
+    const event = this.eventToEdit() as Events.WithSteadyStateRunning;
     if (event && event.run && event.run.duration) {
       time = durationToComponents(event.run.duration);
     }

@@ -21,7 +21,7 @@ function getAppleClasses(event) {
 
 function getIntervalsRunDetails(event) {
   const intervals = Option(event.run.count)
-    .map(c => c + ' intervals');
+    .map(c => 'x' + c);
   const duration = Option(event.run.intervalDuration)
     .map(formatDuration);
   const speed = Option(event.run.intervalSpeed)

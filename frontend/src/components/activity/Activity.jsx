@@ -5,6 +5,7 @@ import RowWithoutRun from './row/RowWithoutRun';
 import AddEvent from './addEvent/AddEvent';
 import FeaturedRun from 'run-log/components/featuredRun/FeaturedRun';
 import ModalWithSteadyStateRun from './modals/ModalWithSteadyStateRun';
+import ModalWithIntervalsRun from './modals/ModalWithIntervalsRun';
 import ModalWithoutRun from './modals/ModalWithoutRun';
 /*eslint-enable no-unused-vars*/
 
@@ -12,8 +13,10 @@ import './activity.scss';
 
 import {
   MODAL_SHOES,
-  MODAL_RUN,
-  MODAL_RUN_CROSS_TRAIN,
+  MODAL_INTERVALS_RUN,
+  MODAL_INTERVALS_RUN_CROSS_TRAIN,
+  MODAL_STEADY_STATE_RUN,
+  MODAL_STEADY_STATE_RUN_CROSS_TRAIN,
   MODAL_CROSS_TRAIN,
 } from './modals/actions';
 import { connect } from 'react-redux';
@@ -58,13 +61,23 @@ class Activity extends React.Component {
       <div className="activity">
         <div className="modals">
           <ModalWithSteadyStateRun
-            modalType={MODAL_RUN}
+            modalType={MODAL_STEADY_STATE_RUN}
             modalTitle="Run"
             eventType="Run"
           />
           <ModalWithSteadyStateRun
-            modalType={MODAL_RUN_CROSS_TRAIN}
+            modalType={MODAL_STEADY_STATE_RUN_CROSS_TRAIN}
             modalTitle="Run + Cross-Train"
+            eventType="Run+CrossTrain"
+          />
+          <ModalWithIntervalsRun
+            modalType={MODAL_INTERVALS_RUN}
+            modalTitle="Intervals"
+            eventType="Run"
+          />
+          <ModalWithIntervalsRun
+            modalType={MODAL_INTERVALS_RUN_CROSS_TRAIN}
+            modalTitle="Intervals + Cross-Train"
             eventType="Run+CrossTrain"
           />
           <ModalWithoutRun

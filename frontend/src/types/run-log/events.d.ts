@@ -18,24 +18,37 @@ declare namespace Events {
 
   export interface CrossTrain extends IBaseEvent {}
 
-  interface BaseWithRun extends IBaseEvent {
-    run: SteadyStateRun;
-  }
-
   export interface SteadyStateRun {
+    '@type': 'SteadyStateRun';
     category: string;
     distance?: number;
     duration?: string;
   }
 
-  export interface Run extends BaseWithRun {}
-
-  export interface RunCrossTrain extends BaseWithRun {}
+  export interface IntervalsRun {
+    '@type': 'Intervals'
+    category: string;
+    count: number;
+    intervalDuration?: string;
+    intervalSpeed?: number;
+    restDuration?: string;
+    totalDistance?: number;
+    [key: string]: string | number | undefined;
+  }
 
   /**
-   * Subset of events only dealing with running.
+   * Subset of events dealing with steady state running.
    */
-  export type WithRunning = Run | RunCrossTrain;
+  export interface WithSteadyStateRunning extends IBaseEvent {
+    run: SteadyStateRun;
+  }
+
+  /**
+   * Subset of events dealing with interval running.
+   */
+  export interface WithIntervals extends IBaseEvent {
+    run: IntervalsRun;
+  }
 
   /**
    * Subset of events not dealing with running.
