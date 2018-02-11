@@ -3,12 +3,12 @@ import React from 'react';
 import DashboardStats from 'run-log/components/dashboard/stats/DashboardStats';
 /*eslint-enable no-unused-vars*/
 
+import { distance } from 'run-log/scripts/utils/events';
 import { add } from 'run-log/scripts/utils/math';
 
 function calcDistance(events) {
   return events
-    .filter(e => e.run && e.run.distance)
-    .map(e => e.run.distance)
+    .map(distance)
     .reduce(add, 0);
 }
 
