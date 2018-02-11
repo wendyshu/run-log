@@ -11,6 +11,7 @@ import {
   TAB_365_DAY,
   TAB_ALL,
 } from 'run-log/components/dashboard/actions';
+import { distance } from 'run-log/scripts/utils/events.js';
 import { add } from 'run-log/scripts/utils/math';
 
 /*
@@ -41,19 +42,6 @@ function momentSeries(length, units, duration, endDate) {
   }
 
   return dates;
-}
-
-/**
- * Returns distance for event, defaulting to zero if none specified.
- */
-function distance(event) {
-  if (event.run && event.run.distance) {
-    return event.run.distance;
-  } else if (event.run && event.run.totalDistance) {
-    return event.run.totalDistance;
-  } else {
-    return 0;
-  }
 }
 
 /*
