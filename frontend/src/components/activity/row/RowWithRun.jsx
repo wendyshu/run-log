@@ -4,6 +4,7 @@ import BaseEventRow from './BaseEventRow';
 /*eslint-enable no-unused-vars*/
 
 import { formatDate, formatDuration } from 'run-log/scripts/utils/dates';
+import { randomUuid } from 'run-log/scripts/utils/uuid';
 import { Option, None } from 'run-log/components/option/option';
 
 function getHeartClasses(event) {
@@ -71,7 +72,7 @@ export default ({ event }) => (
           {
             getRunDetails(event).map((value) => {
               return (
-                <td className="data-run-details">
+                <td className="data-run-details" key={randomUuid()}>
                   <span className="value">
                     {value}
                   </span>

@@ -28,7 +28,7 @@ interface IFormInput {
   notes: string;
 }
 
-class ModalWithRun extends React.Component<
+class ModalWithSteadyStateRun extends React.Component<
   IModalProps & IModalS2P & IModalD2P,
   {}
 > {
@@ -110,14 +110,14 @@ class ModalWithRun extends React.Component<
   private defaultValues() {
     let time = {};
     const event = this.eventToEdit() as Events.WithRunning;
-    if (event && event.run.duration) {
+    if (event && event.run && event.run.duration) {
       time = durationToComponents(event.run.duration);
     }
 
     return {
-      category: event && event.run.category,
+      category: event && event.run && event.run.category,
       date: get(event, 'date', moment().format('YYYY-MM-DD')),
-      distance: event && event.run.distance,
+      distance: event && event.run && event.run.distance,
       favorite: get(event, 'favorite'),
       id: get(event, '@id'),
       notes: get(event, 'notes'),
@@ -206,7 +206,7 @@ class ModalWithRun extends React.Component<
       </form>
     );
   }
-} // ModalWithRun
+} // ModalWithSteadyStateRun
 
 function mapStateToProps(state: RootState, ownProps: {}): IModalS2P {
   return {
@@ -225,4 +225,4 @@ function mapDispatchToProps(dispatch: Dispatch<Action>): IModalD2P {
 export default connect<IModalS2P, IModalD2P, {}>(
   mapStateToProps,
   mapDispatchToProps
-)(ModalWithRun);
+)(ModalWithSteadyStateRun);

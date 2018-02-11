@@ -4,7 +4,7 @@ import RowWithRun from './row/RowWithRun';
 import RowWithoutRun from './row/RowWithoutRun';
 import AddEvent from './addEvent/AddEvent';
 import FeaturedRun from 'run-log/components/featuredRun/FeaturedRun';
-import ModalWithRun from './modals/ModalWithRun';
+import ModalWithSteadyStateRun from './modals/ModalWithSteadyStateRun';
 import ModalWithoutRun from './modals/ModalWithoutRun';
 /*eslint-enable no-unused-vars*/
 
@@ -57,12 +57,12 @@ class Activity extends React.Component {
     return (
       <div className="activity">
         <div className="modals">
-          <ModalWithRun
+          <ModalWithSteadyStateRun
             modalType={MODAL_RUN}
             modalTitle="Run"
             eventType="Run"
           />
-          <ModalWithRun
+          <ModalWithSteadyStateRun
             modalType={MODAL_RUN_CROSS_TRAIN}
             modalTitle="Run + Cross-Train"
             eventType="Run+CrossTrain"
