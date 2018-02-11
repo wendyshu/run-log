@@ -43,6 +43,19 @@ function momentSeries(length, units, duration, endDate) {
   return dates;
 }
 
+/**
+ * Returns distance for event, defaulting to zero if none specified.
+ */
+function distance(event) {
+  if (event.run && event.run.distance) {
+    return event.run.distance;
+  } else if (event.run && event.run.totalDistance) {
+    return event.run.totalDistance;
+  } else {
+    return 0;
+  }
+}
+
 /*
  * Generates data for bar chart.
  */
@@ -61,8 +74,7 @@ function barChartData(events, xLabelFn, barOpts) {
     const startDate = subtractMoment(endDate, barOpts.units, barOpts.length);
     return eventsMoments
       .filter(e => e.date.isBetween(startDate, endDate))
-      .filter(e => e.run && e.run.distance)
-      .map(e => e.run.distance)
+      .map(distance)
       .reduce(add, 0);
   });
 
