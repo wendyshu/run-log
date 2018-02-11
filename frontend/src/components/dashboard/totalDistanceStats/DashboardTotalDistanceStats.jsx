@@ -3,19 +3,12 @@ import React from 'react';
 import DashboardStats from 'run-log/components/dashboard/stats/DashboardStats';
 /*eslint-enable no-unused-vars*/
 
-import { distance } from 'run-log/scripts/utils/events';
-import { add } from 'run-log/scripts/utils/math';
-
-function calcDistance(events) {
-  return events
-    .map(distance)
-    .reduce(add, 0);
-}
+import { totalDistance } from 'run-log/scripts/utils/events';
 
 export default props => {
   const stats = {
     name: 'Total Distance',
-    value: `${calcDistance(props.events).toFixed(2)} mi`,
+    value: `${totalDistance(props.events).toFixed(2)} mi`,
   };
   return <DashboardStats stats={stats} />;
 };
