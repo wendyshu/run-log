@@ -7,9 +7,8 @@ import ChartistGraph from 'react-chartist';
 const hasType = type => event => event['@type'] === type;
 
 function calculateCounts(events, totalDays) {
-  const running = events.filter(hasType('Run'));
+  const running = events.filter(e => hasType('Run')(e) || hasType('Run+CrossTrain')(e));
   const crossTraining = events.filter(hasType('CrossTrain'));
-  const runCrossTrain = events.filter(hasType('Run+CrossTrain'));
   return [
     {
       value: totalDays - events.length,
@@ -18,10 +17,6 @@ function calculateCounts(events, totalDays) {
     {
       value: crossTraining.length,
       className: 'slice-x-train',
-    },
-    {
-      value: runCrossTrain.length,
-      className: 'slice-run-x-train',
     },
     {
       value: running.filter(e => e.run && e.run.category === 'casual').length,
@@ -34,6 +29,10 @@ function calculateCounts(events, totalDays) {
     {
       value: running.filter(e => e.run && e.run.category === 'speed').length,
       className: 'slice-speed',
+    },
+    {
+      value: running.filter(e => e.run && e.run['@type'] === 'Intervals').length,
+      className: 'slice-intervals',
     },
   ];
 }
@@ -71,8 +70,8 @@ export default ({ events, totalDays }) => {
               <td className="description">Cross-train</td>
             </tr>
             <tr>
-              <td className="color slice-run-x-train" />
-              <td className="description">Run + train</td>
+              <td className="color slice-intervals" />
+              <td className="description">Intervals</td>
             </tr>
             <tr>
               <td className="color slice-casual" />

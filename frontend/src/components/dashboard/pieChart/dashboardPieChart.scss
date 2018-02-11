@@ -19,7 +19,7 @@ $slide-run-xtrain-color: $my-orange-color;
   .slice-casual > path { fill: $slice-casual-color }
   .slice-distance > path { fill: $slice-distance-color }
   .slice-speed > path { fill: $slice-speed-color }
-  .slice-run-x-train > path { fill: $slide-run-xtrain-color }
+  .slice-intervals > path { fill: $slide-run-xtrain-color }
 }
 
 .pie-chart-legend {
@@ -51,7 +51,7 @@ $slide-run-xtrain-color: $my-orange-color;
     &.slice-casual { background-color: $slice-casual-color }
     &.slice-distance { background-color: $slice-distance-color }
     &.slice-speed { background-color: $slice-speed-color }
-    &.slice-run-x-train { background-color: $slide-run-xtrain-color }
+    &.slice-intervals { background-color: $slide-run-xtrain-color }
   }
 
   table .description {
