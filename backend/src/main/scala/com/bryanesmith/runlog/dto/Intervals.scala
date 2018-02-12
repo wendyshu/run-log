@@ -14,8 +14,7 @@ object Intervals {
     count: Int,
     intervalDuration: Option[String] = None,
     intervalSpeed: Option[Double] = None,
-    restDuration: Option[String] = None,
-    totalDistance: Option[Double] = None
+    restDuration: Option[String] = None
   ) extends Run
 
   object IntervalsCategory extends Enumeration {
@@ -41,8 +40,6 @@ object Intervals {
       s: Double => Seq { ("intervalSpeed", Json.fromDoubleOrNull(s)) }
     } ++ i.restDuration.fold(jsonNil) {
       d: String => Seq { ("restDuration", Json.fromString(d)) }
-    } ++ i.totalDistance.fold(jsonNil) {
-      d: Double => Seq { ("totalDistance", Json.fromDoubleOrNull(d)) }
     }
 
     def apply(i: Intervals): Json = Json.obj(data(i) : _*)

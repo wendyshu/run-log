@@ -32,7 +32,6 @@ declare namespace Events {
     intervalDuration?: string;
     intervalSpeed?: number;
     restDuration?: string;
-    totalDistance?: number;
     [key: string]: string | number | undefined;
   }
 

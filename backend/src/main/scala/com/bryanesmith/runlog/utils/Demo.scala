@@ -17,8 +17,7 @@ object Demo {
           count = 8,
           intervalDuration = Some("PT1M"),
           intervalSpeed = Some(10.0),
-          restDuration = Some("PT1M"),
-          totalDistance = Some(2.1)
+          restDuration = Some("PT1M")
         )
       )
     ),
@@ -77,8 +76,7 @@ object Demo {
           count = 7,
           intervalDuration = Some("PT1M"),
           intervalSpeed = Some(10.0),
-          restDuration = Some("PT1M"),
-          totalDistance = Some(1.8)
+          restDuration = Some("PT1M")
         )
       ),
       notes = Some("First intervals. Just fell short of eight. Bench, squat, invisible chair, dips/include PU.")

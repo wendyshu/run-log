@@ -28,7 +28,6 @@ interface IFormInput {
   notes: string;
   restMinutes: number;
   restSeconds: number;
-  totalDistance: string;
 }
 
 interface TimeComponents {
@@ -83,7 +82,6 @@ class ModalWithIntervalsRun extends React.Component<
     notes,
     restMinutes,
     restSeconds,
-    totalDistance,
   }: IFormInput) {
     const intervalDuration = toDuration(undefined, intervalMinutes, intervalSeconds);
     const restDuration = toDuration(undefined, intervalMinutes, intervalSeconds);
@@ -100,7 +98,6 @@ class ModalWithIntervalsRun extends React.Component<
         intervalDuration,
         intervalSpeed,
         restDuration,
-        totalDistance: totalDistance ? parseFloat(totalDistance) : undefined,
       },
     };
 
@@ -153,7 +150,6 @@ class ModalWithIntervalsRun extends React.Component<
       restDuration: event && event.run && event.run.restDuration,
       restMinutes: restTime.minutes,
       restSeconds: restTime.seconds,
-      totalDistance: event && event.run && event.run.totalDistance,
     };
   }
 
@@ -255,15 +251,6 @@ class ModalWithIntervalsRun extends React.Component<
               <div className="input-group-addon">sec</div>
             </div>
           </div>
-          </div>
-        </div>
-
-        { /* totalDistance */ }
-        <div className="form-group">
-          <label htmlFor="totalDistance">Total Distance</label>
-          <div className="input-group">
-            <Text className="form-control" field="totalDistance" type="number" />
-            <div className="input-group-addon">miles</div>
           </div>
         </div>
 
