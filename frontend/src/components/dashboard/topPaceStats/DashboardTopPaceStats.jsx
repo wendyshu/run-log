@@ -4,19 +4,13 @@ import DashboardStats from 'run-log/components/dashboard/stats/DashboardStats';
 /*eslint-enable no-unused-vars*/
 
 import { Option } from 'run-log/components/option/option';
-import {
-  durationToSeconds,
-  secondsToMinuteMiles,
-} from 'run-log/scripts/utils/dates';
+import { secondsToMinuteMiles } from 'run-log/scripts/utils/dates';
+import { pace } from 'run-log/scripts/utils/events';
 import { min } from 'run-log/scripts/utils/math';
 
 function calcFastestPace(events) {
-  const filtered = events.filter(e => e.run && e.run.distance && e.run.duration);
-  if (!filtered.length) {
-    return undefined;
-  }
-  return filtered
-    .map(e => durationToSeconds(e.run.duration) / e.run.distance)
+  return events.map(pace)
+    .filter(p => !!p)
     .reduce(min);
 }
 
