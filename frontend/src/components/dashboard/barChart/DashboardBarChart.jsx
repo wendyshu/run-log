@@ -11,7 +11,7 @@ import {
   TAB_365_DAY,
   TAB_ALL,
 } from 'run-log/components/dashboard/actions';
-import { add } from 'run-log/scripts/utils/math';
+import { totalDistance } from 'run-log/scripts/utils/events.js';
 
 /*
  * Given moment, subtracts time.
@@ -59,10 +59,9 @@ function barChartData(events, xLabelFn, barOpts) {
 
   const series = dates.map(endDate => {
     const startDate = subtractMoment(endDate, barOpts.units, barOpts.length);
-    return eventsMoments
-      .filter(e => e.date.isBetween(startDate, endDate))
-      .map(e => e.distance)
-      .reduce(add, 0);
+    const filteredEvents = eventsMoments
+      .filter(e => e.date.isBetween(startDate, endDate));
+    return totalDistance(filteredEvents);
   });
 
   return {

@@ -36,8 +36,14 @@ test('None.map', () => {
   expect(None().map(a => 'foo')).toEqual(None());
 });
 
-test('Some.flatMap(...) == None', () => {
+test('None.flatMap(...) == None', () => {
   expect(None().flatMap(a => Some('foo'))).toEqual(None());
+});
+
+test('None.forEach(...) does not invoke method', () => {
+  var invoked: string | null = null;
+  None().forEach((value: string) => invoked = value);
+  expect(invoked).toBeNull();
 });
 
 //
@@ -66,4 +72,10 @@ test('Some.flatMap(None) == None', () => {
 
 test('Some(a).flatMap(Some(b)) == Some(b)', () => {
   expect(Some('foo').flatMap(a => Some('bar'))).toEqual(Some('bar'));
+});
+
+test('Some(a).forEach(...) should invoke method', () => {
+  var invoked: string | null = null;
+  Some('foo').forEach((value: string) => invoked = value);
+  expect(invoked).toEqual('foo');
 });

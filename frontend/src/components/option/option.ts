@@ -13,6 +13,9 @@ export interface Option<A> extends Fp.Monad<A> {
 
   // Monad
   flatMap<B>(fn: Fp.Transform<A, Option<B>>): Option<B>;
+
+  // Misc
+  forEach(fn: Fp.SideEffect<A>): void;
 }
 
 /*
@@ -61,6 +64,10 @@ class NoneImpl<A> implements None<A> {
   public flatMap<B>(fn: Fp.Transform<A, Option<B>>): Option<B> {
     return None();
   }
+
+  public forEach(fn: Fp.SideEffect<A>): void {
+    // Does nothing
+  }
 }
 
 /*
@@ -91,5 +98,9 @@ class SomeImpl<A> implements Some<A> {
 
   public flatMap<B>(fn: Fp.Transform<A, Option<B>>): Option<B> {
     return fn(this.a);
+  }
+
+  public forEach(fn: Fp.SideEffect<A>): void {
+    fn(this.a);
   }
 }

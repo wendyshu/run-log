@@ -14,19 +14,20 @@ function die(sides) {
 
 function onlyTheBest(events) {
   const faves = events.filter(e => e.favorite);
-  return (faves.length > 0 ? faves : events).filter(e => !!e.category);
+  return (faves.length > 0 ? faves : events).filter(e => !!e.run);
 }
 
 const random = arr => arr[die(arr.length) - 1];
 
 function selectFeaturedRun(events) {
+
   const categories = events
-    .map(e => e.category)
+    .map(e => e.run.category)
     .reduce((a, n) => (a.includes(n) ? a : [n, ...a]), []);
 
   // TODO: what if no types?
   const category = random(categories);
-  const selected = random(events.filter(e => e.category === category));
+  const selected = random(events.filter(e => e.run.category === category));
 
   switch (category) {
     case 'distance':
@@ -43,10 +44,10 @@ function toFeatures(event) {
     Date: Option(event.date)
       .map(formatDate)
       .orElse('-'),
-    Distance: Option(event.distance)
+    Distance: Option(event.run.distance)
       .map(d => d.toFixed(2) + ' mi')
       .orElse('-'),
-    Duration: Option(event.duration)
+    Duration: Option(event.run.duration)
       .map(formatDuration)
       .orElse('-'),
   };

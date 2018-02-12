@@ -6,9 +6,11 @@ import { DropdownButton, MenuItem, Modal } from 'react-bootstrap';
 
 import {
   showModal,
-  MODAL_RUN,
+  MODAL_INTERVALS_RUN,
+  MODAL_INTERVALS_RUN_CROSS_TRAIN,
+  MODAL_STEADY_STATE_RUN,
   MODAL_CROSS_TRAIN,
-  MODAL_RUN_CROSS_TRAIN,
+  MODAL_STEADY_STATE_RUN_CROSS_TRAIN,
   MODAL_SHOES,
 } from 'run-log/components/activity/modals/actions';
 
@@ -31,9 +33,11 @@ class AddEvent extends React.Component {
         id="select-event-type"
         className="btn btn-primary btn-lg"
       >
-        <MenuItem eventKey={MODAL_RUN}>Run</MenuItem>
+        <MenuItem eventKey={MODAL_STEADY_STATE_RUN}>Run</MenuItem>
+        <MenuItem eventKey={MODAL_STEADY_STATE_RUN_CROSS_TRAIN}>Run + Cross-Train</MenuItem>
+        <MenuItem eventKey={MODAL_INTERVALS_RUN}>Intervals</MenuItem>
+        <MenuItem eventKey={MODAL_INTERVALS_RUN_CROSS_TRAIN}>Intervals + Cross-Train</MenuItem>
         <MenuItem eventKey={MODAL_CROSS_TRAIN}>Cross-Train</MenuItem>
-        <MenuItem eventKey={MODAL_RUN_CROSS_TRAIN}>Run + Cross-Train</MenuItem>
         <MenuItem eventKey={MODAL_SHOES}>Change Running Shoes</MenuItem>
       </DropdownButton>
     );

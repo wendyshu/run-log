@@ -20,10 +20,10 @@ function options() {
 const GoalMPH = 10.0;
 
 function calcMph(events) {
-  const speeds = events.filter(e => e.distance && e.duration);
-  const miles = speeds.map(e => e.distance).reduce(add, 0);
+  const speeds = events.filter(e => e.run && e.run.distance && e.run.duration);
+  const miles = speeds.map(e => e.run.distance).reduce(add, 0);
   const hours =
-    events.map(e => durationToSeconds(e.duration)).reduce(add, 0) / 3600;
+    speeds.map(e => durationToSeconds(e.run.duration)).reduce(add, 0) / 3600;
   return hours ? miles / hours : 0;
 }
 
