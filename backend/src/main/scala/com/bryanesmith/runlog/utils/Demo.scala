@@ -8,6 +8,19 @@ object Demo {
 
   def events = Seq(
     Event(
+      atId = "_:n103",
+      atType = Type.Run,
+      date = "2018-02-19",
+      runData = Some(
+        SteadyStateRun(
+          category = SteadyStateRunCategory.Speed,
+          distance = Some(3.10),
+          duration = Some("PT24M07S")
+        )
+      ),
+      notes = Some("Outdoor 5k.")
+    ),
+    Event(
       atId = "_:n102",
       atType = Type.Run,
       date = "2018-02-17",
