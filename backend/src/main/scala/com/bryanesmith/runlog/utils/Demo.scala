@@ -15,7 +15,7 @@ object Demo {
         Intervals(
           category = IntervalsCategory.Intervals,
           count = 3,
-          intervalDuration = Some("PT1M38"),
+          intervalDuration = Some("PT1M38S"),
           intervalSpeed = Some(10.0),
         )
       ),
