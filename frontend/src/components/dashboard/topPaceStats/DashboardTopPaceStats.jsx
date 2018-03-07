@@ -11,7 +11,7 @@ import { min } from 'run-log/scripts/utils/math';
 function calcFastestPace(events) {
   return events.map(pace)
     .filter(p => !!p)
-    .reduce(min);
+    .reduce(min, 0);
 }
 
 export default props => {
