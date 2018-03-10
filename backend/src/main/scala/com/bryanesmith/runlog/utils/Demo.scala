@@ -8,6 +8,12 @@ object Demo {
 
   def events = Seq(
     Event(
+      atId = "_:n112",
+      atType = Type.CrossTrain,
+      date = "2018-03-10",
+      notes = Some("Press, rows, DL, standing tricep extensions.")
+    ),
+    Event(
       atId = "_:n111",
       atType = Type.CrossTrain,
       date = "2018-03-06",
