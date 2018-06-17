@@ -8,6 +8,48 @@ object Demo {
 
   def events = Seq(
     Event(
+      atId = "_:143",
+      atType = Type.Run,
+      date = "2018-06-17",
+      runData = Some(
+        SteadyStateRun(
+          category = SteadyStateRunCategory.Casual,
+          distance = Some(4.14),
+          duration = Some("PT42M1S")
+        )
+      )
+    ),
+    Event(
+      atId = "_:n142",
+      atType = Type.CrossTrain,
+      date = "2018-06-16",
+      notes = Some("Standing biceps cable curl, triceps pushdown, v-bar pulldown, incline db curl/seated db curl superset, close-grip bench press, seated triceps press, db alternate bicep curl.")
+    ),
+    Event(
+      atId = "_:n141",
+      atType = Type.CrossTrain,
+      date = "2018-06-14",
+      notes = Some("Bench, squat, dips + incline PUs, DB pull-overs.")
+    ),
+    Event(
+      atId = "_:n140",
+      atType = Type.CrossTrain,
+      date = "2018-06-12",
+      notes = Some("Press, rows, DL, standing tricep extensions.")
+    ),
+    Event(
+      atId = "_:n139",
+      atType = Type.CrossTrain,
+      date = "2018-06-07",
+      notes = Some("Bench, squat, dips + incline PUs, DB pull-overs.")
+    ),
+    Event(
+      atId = "_:n138",
+      atType = Type.CrossTrain,
+      date = "2018-06-05",
+      notes = Some("Press, rows, DL, standing tricep extensions.")
+    ),
+    Event(
       atId = "_:n137",
       atType = Type.CrossTrain,
       date = "2018-06-02",
@@ -23,7 +65,7 @@ object Demo {
       atId = "_:n135",
       atType = Type.CrossTrain,
       date = "2018-05-26",
-      notes = Some("Standing biceps cable curl, triceps pushdown, v-bar pulldown, include db curl/seated db curl superset, close-grip bench press, seated triceps press, db alternate bicep curl, farmer's walk.")
+      notes = Some("Standing biceps cable curl, triceps pushdown, v-bar pulldown, incline db curl/seated db curl superset, close-grip bench press, seated triceps press, db alternate bicep curl, farmer's walk.")
     ),
     Event(
       atId = "_:n134",
@@ -391,7 +433,7 @@ object Demo {
           restDuration = Some("PT1M")
         )
       ),
-      notes = Some("First intervals. Just fell short of eight. Bench, squat, invisible chair, dips/include PU.")
+      notes = Some("First intervals. Just fell short of eight. Bench, squat, invisible chair, dips/incline PU.")
     ),
     Event(
       atId = "_:n92",
