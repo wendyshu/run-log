@@ -60,3 +60,34 @@ export function durationToSeconds(duration: string) {
 export function secondsToMinuteMiles(secs: number) {
   return moment.duration(secs, 'seconds').format('m[m] s[s]');
 }
+
+/**
+ * Helper method for adding and subtracting moments.
+ */
+function momentMathArgs(units: number, duration: string) {
+  const args: any = {};
+  args[units] = duration;
+  return args;
+}
+
+/*
+ * Given moment, subtracts time.
+ *
+ * E.g., fromMoment = moment("2017-01-21"), units = 'Week', duration = 2,
+ *   returns moment("2017-01-07").
+ */
+export function subtractMoment(fromMoment: any, units: number, duration: string) {
+  const args = momentMathArgs(units, duration);
+  return fromMoment.clone().subtract(args);
+}
+
+/*
+ * Given moment, adds time.
+ *
+ * E.g., fromMoment = moment("2017-01-07"), units = 'Week', duration = 2,
+ *   returns moment("2017-01-21").
+ */
+export function addMoment(fromMoment: any, units: number, duration: string) {
+  const args = momentMathArgs(units, duration);
+  return fromMoment.clone().add(args);
+}

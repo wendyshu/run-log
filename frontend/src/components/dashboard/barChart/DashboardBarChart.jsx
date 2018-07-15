@@ -11,19 +11,8 @@ import {
   TAB_365_DAY,
   TAB_ALL,
 } from 'run-log/components/dashboard/actions';
+import { addMoment, subtractMoment } from 'run-log/scripts/utils/dates';
 import { totalDistance } from 'run-log/scripts/utils/events.js';
-
-/*
- * Given moment, subtracts time.
- *
- * E.g., fromMoment = moment("2017-01-21"), units = 'Week', duration = 2,
- *   returns moment("2017-01-07").
- */
-function subtractMoment(fromMoment, units, duration) {
-  const args = {};
-  args[units] = duration;
-  return fromMoment.clone().subtract(args);
-}
 
 /*
  * Returns a series of moments ending in now with specified
@@ -34,6 +23,12 @@ function subtractMoment(fromMoment, units, duration) {
  */
 function momentSeries(length, units, duration, endDate) {
   const dates = [];
+
+  // If not measuring days, the end should be the end of the calendar month
+  //   or year....
+  if (['Month', 'Year'].includes(units)) {
+    endDate = addMoment(endDate.startOf(units), units, 1);
+  }
 
   for (let i = length - 1; i >= 0; i--) {
     const date = subtractMoment(endDate, units, i * duration);
