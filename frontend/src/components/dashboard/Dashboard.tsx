@@ -123,8 +123,9 @@ class Dashboard extends React.Component<{} & IStateToProps, {}> {
           totalDays: days,
         };
       case TAB_ALL:
-        // TODO: calc range using events. Will need min/max/diff in dates.js
-        days = 999;
+        // Last seven years as well as any days in the current year
+        const startYear = moment().startOf('year' as moment.unitOfTime.StartOf);
+        days = 365 * 7 + moment().diff(startYear, 'days');
         return {
           startMoment: moment(0),
           totalDays: days,
