@@ -9,9 +9,8 @@ import { pace } from 'run-log/scripts/utils/events';
 import { min } from 'run-log/scripts/utils/math';
 
 function calcFastestPace(events) {
-  return events.map(pace)
-    .filter(p => !!p)
-    .reduce(min, 0);
+  const durations = events.map(pace).filter(p => !!p);
+  return durations.length ? durations.reduce(min) : 0;
 }
 
 export default props => {
