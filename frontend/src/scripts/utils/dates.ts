@@ -64,7 +64,7 @@ export function secondsToMinuteMiles(secs: number) {
 /**
  * Helper method for adding and subtracting moments.
  */
-function momentMathArgs(units: number, duration: string) {
+function momentMathArgs(units: string, duration: number) {
   const args: any = {};
   args[units] = duration;
   return args;
@@ -76,7 +76,7 @@ function momentMathArgs(units: number, duration: string) {
  * E.g., fromMoment = moment("2017-01-21"), units = 'Week', duration = 2,
  *   returns moment("2017-01-07").
  */
-export function subtractMoment(fromMoment: any, units: number, duration: string) {
+export function subtractMoment(fromMoment: any, units: string, duration: number) {
   const args = momentMathArgs(units, duration);
   return fromMoment.clone().subtract(args);
 }
@@ -87,7 +87,7 @@ export function subtractMoment(fromMoment: any, units: number, duration: string)
  * E.g., fromMoment = moment("2017-01-07"), units = 'Week', duration = 2,
  *   returns moment("2017-01-21").
  */
-export function addMoment(fromMoment: any, units: number, duration: string) {
+export function addMoment(fromMoment: any, units: string, duration: number) {
   const args = momentMathArgs(units, duration);
   return fromMoment.clone().add(args);
 }
