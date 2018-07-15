@@ -33,7 +33,7 @@ class DashboardTabs extends React.Component {
         {this.renderTab(TAB_7_DAY, '7 day')}
         {this.renderTab(TAB_30_DAY, '30 day')}
         {this.renderTab(TAB_365_DAY, '365 day')}
-        {this.renderTab(TAB_ALL, 'All')}
+        {this.renderTab(TAB_ALL, '8yr')}
       </ul>
     );
   }
