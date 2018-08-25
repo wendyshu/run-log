@@ -8,6 +8,37 @@ object Demo {
 
   def events = Seq(
     Event(
+      atId = "_:173",
+      atType = Type.Run,
+      date = "2018-08-24",
+      runData = Some(
+        SteadyStateRun(
+          category = SteadyStateRunCategory.Distance,
+          distance = Some(7.41),
+          duration = Some("PT1H12M12S")
+        )
+      ),
+    ),
+    Event(
+      atId = "_:n172",
+      atType = Type.CrossTrain,
+      date = "2018-08-23",
+      notes = Some("Press, bent-over row, DL, standing tricep extension.")
+    ),
+    Event(
+      atId = "_:171",
+      atType = Type.RunCrossTrain,
+      date = "2018-08-20",
+      runData = Some(
+        SteadyStateRun(
+          category = SteadyStateRunCategory.Casual,
+          distance = Some(4.0),
+          duration = Some("PT36M16S")
+        )
+      ),
+      notes = Some("Bench, squats, dips + incline PU, DB pullover.")
+    ),
+    Event(
       atId = "_:170",
       atType = Type.Run,
       date = "2018-08-19",
