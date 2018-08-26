@@ -14,7 +14,7 @@ object Demo {
       runData = Some(
         SteadyStateRun(
           category = SteadyStateRunCategory.Casual,
-          distance = Some(4.0),
+          distance = Some(4.14),
           duration = Some("PT42M38S")
         )
       ),
