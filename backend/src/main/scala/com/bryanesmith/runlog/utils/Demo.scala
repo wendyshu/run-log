@@ -8,7 +8,7 @@ object Demo {
 
   def events = Seq(
     Event(
-      atId = "_:185",
+      atId = "_:186",
       atType = Type.Run,
       date = "2018-09-23",
       runData = Some(
@@ -21,7 +21,7 @@ object Demo {
       notes = Some("Ashland, KY")
     ),
     Event(
-      atId = "_:184",
+      atId = "_:185",
       atType = Type.Run,
       date = "2018-09-22",
       runData = Some(
@@ -34,7 +34,7 @@ object Demo {
       notes = Some("Ashland, KY")
     ),
     Event(
-      atId = "_:183",
+      atId = "_:184",
       atType = Type.Run,
       date = "2018-09-21",
       runData = Some(
@@ -44,6 +44,12 @@ object Demo {
           duration = Some("PT44M46S")
         )
       )
+    ),
+    Event(
+      atId = "_:183",
+      atType = Type.CrossTrain,
+      date = "2018-09-19",
+      notes = Some("Press, Bench, Squat")
     ),
     Event(
       atId = "_:182",
