@@ -8,16 +8,16 @@ def lambda_handler(event, context):
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table(os.environ['DB_TABLE_NAME'])
 
-    run_event = event['event']
+    for run_event in event['events']:
 
-    # DynamoDB doesn't support Python floats: https://github.com/boto/boto3/issues/534#issuecomment-191960592
-    run_event = replace_floats(run_event)
+        # DynamoDB doesn't support Python floats: https://github.com/boto/boto3/issues/534#issuecomment-191960592
+        run_event = replace_floats(run_event)
 
-    print("Inserting event: {}".format(run_event))
+        print("Inserting event: {}".format(run_event))
 
-    table.put_item(
-        Item=run_event
-    )
+        table.put_item(
+            Item=run_event
+        )
 
 def replace_floats(dict):
     """Recursively replaces all floats with decimal"""
