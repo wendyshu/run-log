@@ -7,4 +7,5 @@ def lambda_handler(event, context):
     table = dynamodb.Table(os.environ['DB_TABLE_NAME'])
     items = table.scan()
 
-    return items["Items"]
+    # TODO: sort by @id (but numerically, not alphabetically)
+    return sorted(items["Items"], key=lambda e: e['date'], reverse=True)
