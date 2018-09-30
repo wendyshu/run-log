@@ -62,7 +62,8 @@ export default function(
       });
     case 'RECEIVE_GET_EVENTS':
       return objAssign({}, state, {
-        data: action.payload.events,
+        // data: action.payload.events,
+        data: action.payload,
         loading: false,
       });
     default:

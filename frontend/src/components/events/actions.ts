@@ -153,10 +153,15 @@ export function addEvent(event: Events.Any) {
 export function loadEvents() {
   return (dispatch: Dispatch<Action>) => {
     dispatch(Actions.requestEvents());
-    const url = `${config.baseUrl}/api/v1/events`;
-    fetch(url, {
-      credentials: 'include',
-    })
+    // const url = `${config.baseUrl}/api/v1/events`;
+    const url = `${config.baseUrl}/events`;
+
+    // TODO: implement authentication using Amazon Cognito
+
+    // fetch(url, {
+    //   credentials: 'include',
+    // })
+    fetch(url)
       .then((response: any) => response.json())
       .then((events: any) => dispatch(Actions.receiveEvents(events)));
   };

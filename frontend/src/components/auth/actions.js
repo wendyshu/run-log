@@ -22,15 +22,26 @@ function receiveLoginAction({ ok, statusText }) {
   };
 }
 
+// TODO: implement authentication using Amazon Cognito
+
+// export function login(username, password) {
+//   return dispatch => {
+//     dispatch(sendLoginAction(username, password));
+//     const url = `${
+//       config.baseUrl
+//     }/api/v1/login?user=${username}&password=${password}`;
+//     fetch(url, {
+//       credentials: 'include',
+//     }).then(res => dispatch(receiveLoginAction(res)));
+//   };
+// }
+
+// TODO: remove this stub
+
 export function login(username, password) {
   return dispatch => {
     dispatch(sendLoginAction(username, password));
-    const url = `${
-      config.baseUrl
-    }/api/v1/login?user=${username}&password=${password}`;
-    fetch(url, {
-      credentials: 'include',
-    }).then(res => dispatch(receiveLoginAction(res)));
+    setTimeout(() => dispatch(receiveLoginAction({ok: true})), 1000);
   };
 }
 
