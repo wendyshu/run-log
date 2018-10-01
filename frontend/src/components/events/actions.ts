@@ -101,6 +101,11 @@ const Actions = {
   },
 }; // Actions
 
+//
+// TODO: implement favoriting; must either implement backend to take event id,
+//   or pass in full event as PUT and toggle favorite. (And risk non-favorite
+//   related mutation...)
+//
 export const setFavorite = Actions.setFavorite;
 
 export function deleteEvent(eventId: string) {
