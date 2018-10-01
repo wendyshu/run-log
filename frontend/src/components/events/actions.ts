@@ -28,10 +28,8 @@ class DeleteAction implements Action {
 class CrudAction implements Action {
   public event: Events.Any;
   public type:
-    | 'SEND_EDIT_EVENT'
-    | 'RECEIVE_EDIT_EVENT'
-    | 'SEND_ADD_EVENT'
-    | 'RECEIVE_ADD_EVENT';
+    | 'SEND_ADD_EDIT_EVENT'
+    | 'RECEIVE_ADD_EDIT_EVENT';
 }
 
 class SendGetAction implements Action {
@@ -74,31 +72,17 @@ const Actions = {
     };
   },
 
-  requestEditEvent(event: Events.Any): CrudAction {
+  requestAddEditEvent(event: Events.Any): CrudAction {
     return {
       event,
-      type: 'SEND_EDIT_EVENT',
+      type: 'SEND_ADD_EDIT_EVENT',
     };
   },
 
-  receiveEditEvent(event: Events.Any): CrudAction {
+  receiveAddEditEvent(event: Events.Any): CrudAction {
     return {
       event,
-      type: 'RECEIVE_EDIT_EVENT',
-    };
-  },
-
-  requestAddEvent(event: any): CrudAction {
-    return {
-      event,
-      type: 'SEND_ADD_EVENT',
-    };
-  },
-
-  receiveAddEvent(event: any): CrudAction {
-    return {
-      event,
-      type: 'RECEIVE_ADD_EVENT',
+      type: 'RECEIVE_ADD_EDIT_EVENT',
     };
   },
 
@@ -120,28 +104,34 @@ const Actions = {
 export const setFavorite = Actions.setFavorite;
 
 export function deleteEvent(eventId: string) {
-  // TODO: add network loader...
   // TODO: implement authentication using Amazon Cognito
   return (dispatch: Dispatch<Action>) => {
+    dispatch(Actions.requestDeleteEvent(eventId));
     fetch(EventsUrl, {
       body: JSON.stringify({
         events: [ eventId ]
       }),
       method: "DELETE"
-    }).then((events: any) => loadEvents()(dispatch));
+    }).then((events: any) => {
+      dispatch(Actions.receiveDeleteEvent(eventId));
+      loadEvents()(dispatch);
+    });
   };
 }
 
 export function editEvent(event: Events.Any) {
-  // TODO: add network loader...
   return (dispatch: Dispatch<Action>) => {
     // TODO: implement authentication using Amazon Cognito
+    dispatch(Actions.requestAddEditEvent(event));
     return fetch(EventsUrl, {
       body: JSON.stringify({
         events: [ event ]
       }),
       method: "PUT"
-    }).then((events: any) => loadEvents()(dispatch));
+    }).then((events: any) => {
+      dispatch(Actions.receiveAddEditEvent(event));
+      loadEvents()(dispatch);
+    });
   };
 }
 
@@ -166,18 +156,5 @@ export function loadEvents() {
     fetch(EventsUrl)
       .then((response: any) => response.json())
       .then((events: any) => dispatch(Actions.receiveEvents(events)));
-  };
-}
-
-// Helper for simulating HTTP requests
-function simulateAsyncRequest(
-  reqAction: EventsAction,
-  resAction: EventsAction
-) {
-  return (dispatch: Dispatch<Action>) => {
-    dispatch(reqAction);
-    return new Promise(resolve => {
-      setTimeout(() => resolve(dispatch(resAction)), MILLIS_WAIT); // Simulate xhr
-    });
   };
 }

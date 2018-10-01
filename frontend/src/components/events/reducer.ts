@@ -34,32 +34,20 @@ export default function(
         ...state,
         data: state.data.map(fave),
       };
-    case 'SEND_ADD_EVENT':
-    case 'SEND_EDIT_EVENT':
+    case 'SEND_ADD_EDIT_EVENT':
     case 'SEND_DELETE_EVENT':
     case 'SEND_GET_EVENTS':
       return {
         ...state,
         loading: true,
       };
-    case 'RECEIVE_ADD_EVENT':
-      return objAssign({}, state, {
-        data: [action.event, ...state.data],
-        loading: false,
-      });
-    case 'RECEIVE_EDIT_EVENT':
-      const edit = transformEvent(action.event['@id'], () => action.event);
-      return objAssign({}, state, {
-        data: state.data.map(edit),
-        loading: false,
-      });
+    case 'RECEIVE_ADD_EDIT_EVENT':
     case 'RECEIVE_DELETE_EVENT':
-      const eqT: Fp.Predicate<Events.Any> = (e: Events.Any) =>
-        e['@id'] !== action.eventId;
-      return objAssign({}, state, {
-        data: state.data.filter(eqT),
+      // Caller is about to refetch objects, so really nothing doing here...
+      return {
+        ...state,
         loading: false,
-      });
+      };
     case 'RECEIVE_GET_EVENTS':
       return objAssign({}, state, {
         // data: action.payload.events,
