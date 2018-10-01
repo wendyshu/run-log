@@ -9,6 +9,9 @@ import { Action, Dispatch } from 'redux';
 // TODO: remove
 import { randomUuid } from 'run-log/scripts/utils/uuid';
 
+// const EventsUrl = `${config.baseUrl}/api/v1/events`;
+const EventsUrl = `${config.baseUrl}/events`;
+
 const MILLIS_WAIT = 350;
 
 class FavoriteAction implements Action {
@@ -126,25 +129,22 @@ export function deleteEvent(eventId: string) {
   );
 }
 
-/**
- * TODO: post to server, then fetch events
- */
 export function editEvent(event: Events.Any) {
-  return simulateAsyncRequest(
-    Actions.requestEditEvent(event),
-    Actions.receiveEditEvent(event)
-  );
+  return (dispatch: Dispatch<Action>) => {
+    // TODO: implement authentication using Amazon Cognito
+    return fetch(EventsUrl, {
+      body: JSON.stringify({
+        events: [ event ]
+      }),
+      method: "PUT"
+    }).then((events: any) => loadEvents()(dispatch));
+  };
 }
 
-/**
- * TODO: post to server, then fetch events
- */
 export function addEvent(event: Events.Any) {
-  event['@id'] = `urn:uuid:${randomUuid()}`; // TODO: server does this
-  return simulateAsyncRequest(
-    Actions.requestAddEvent(event),
-    Actions.receiveAddEvent(event)
-  );
+  event['@id'] = `urn:uuid:${randomUuid()}`; // TODO: increment largest id
+  // add and edit are same endpoint using PUT...
+  return editEvent(event);
 }
 
 /**
@@ -153,15 +153,13 @@ export function addEvent(event: Events.Any) {
 export function loadEvents() {
   return (dispatch: Dispatch<Action>) => {
     dispatch(Actions.requestEvents());
-    // const url = `${config.baseUrl}/api/v1/events`;
-    const url = `${config.baseUrl}/events`;
 
     // TODO: implement authentication using Amazon Cognito
 
-    // fetch(url, {
+    // fetch(EventsUrl, {
     //   credentials: 'include',
     // })
-    fetch(url)
+    fetch(EventsUrl)
       .then((response: any) => response.json())
       .then((events: any) => dispatch(Actions.receiveEvents(events)));
   };
