@@ -119,17 +119,21 @@ const Actions = {
 
 export const setFavorite = Actions.setFavorite;
 
-/**
- * TODO: delete from server, then fetch events
- */
 export function deleteEvent(eventId: string) {
-  return simulateAsyncRequest(
-    Actions.requestDeleteEvent(eventId),
-    Actions.receiveDeleteEvent(eventId)
-  );
+  // TODO: add network loader...
+  // TODO: implement authentication using Amazon Cognito
+  return (dispatch: Dispatch<Action>) => {
+    fetch(EventsUrl, {
+      body: JSON.stringify({
+        events: [ eventId ]
+      }),
+      method: "DELETE"
+    }).then((events: any) => loadEvents()(dispatch));
+  };
 }
 
 export function editEvent(event: Events.Any) {
+  // TODO: add network loader...
   return (dispatch: Dispatch<Action>) => {
     // TODO: implement authentication using Amazon Cognito
     return fetch(EventsUrl, {
