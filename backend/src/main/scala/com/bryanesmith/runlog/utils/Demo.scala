@@ -13,7 +13,7 @@ object Demo {
       date = "2018-10-21",
       runData = Some(
         SteadyStateRun(
-          category = SteadyStateRunCategory.Distance,
+          category = SteadyStateRunCategory.Casual,
           distance = Some(6.66)
         )
       ),
