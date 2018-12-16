@@ -8,6 +8,21 @@ object Demo {
 
   def events = Seq(
     Event(
+      atId = "_:225",
+      atType = Type.RunCrossTrain,
+      date = "2018-12-15",
+      runData = Some(
+        Intervals(
+          category = IntervalsCategory.Intervals,
+          count = 8,
+          intervalDuration = Some("PT1M"),
+          intervalSpeed = Some(9.0),
+          restDuration = Some("PT1M")
+        )
+      ),
+      notes = Some("2.85mi HIIT, bench, squat, DL.")
+    ),
+    Event(
       atId = "_:224",
       atType = Type.RunCrossTrain,
       date = "2018-12-12",
